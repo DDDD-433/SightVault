@@ -1,0 +1,189 @@
+{
+  "console_errors": [
+    "Failed to load resource: the server responded with a status of 422 (Unprocessable Entity)"
+  ],
+  "failed_requests": [],
+  "http_errors": [
+    "422 http://127.0.0.1:7861/api/index"
+  ],
+  "checks": {
+    "collection_count": {
+      "ok": true,
+      "detail": "62"
+    },
+    "suggestion_gpu": {
+      "ok": true,
+      "detail": [
+        [
+          "terminal_cuda_01.png",
+          "terminal_success_02.png",
+          "terminal_success_01.png"
+        ],
+        5.92
+      ]
+    },
+    "best_badge": {
+      "ok": true,
+      "detail": null
+    },
+    "semantic_gpu": {
+      "ok": true,
+      "detail": [
+        "terminal_cuda_02.png",
+        "terminal_cuda_01.png",
+        "terminal_success_02.png"
+      ]
+    },
+    "semantic_no_ocr_badge": {
+      "ok": true,
+      "detail": null
+    },
+    "eresolve_top": {
+      "ok": true,
+      "detail": [
+        "terminal_eresolve_02.png",
+        "terminal_eresolve_01.png",
+        "terminal_database_01.png"
+      ]
+    },
+    "eresolve_ocr_badge": {
+      "ok": true,
+      "detail": null
+    },
+    "exact_module": {
+      "ok": true,
+      "detail": [
+        "terminal_module_01.png",
+        "terminal_module_02.png"
+      ]
+    },
+    "first_occurrence": {
+      "ok": true,
+      "detail": [
+        [
+          "terminal_cuda_01.png",
+          "terminal_cuda_02.png"
+        ],
+        "First in your visual memory"
+      ]
+    },
+    "timeline_view": {
+      "ok": true,
+      "detail": null
+    },
+    "red_backpack_after_timeline": {
+      "ok": true,
+      "detail": [
+        [
+          "object_study_01.png",
+          "object_study_02.png",
+          "object_study_03.png"
+        ],
+        "relevance"
+      ]
+    },
+    "contextual_first": {
+      "ok": true,
+      "detail": [
+        "object_study_01.png"
+      ]
+    },
+    "db_slides": {
+      "ok": true,
+      "detail": [
+        "lecture_normalization_01.png",
+        "lecture_normalization_02.png",
+        "lecture_erd_01.png",
+        "lecture_erd_02.png",
+        "lecture_joins_01.png"
+      ]
+    },
+    "show_more": {
+      "ok": true,
+      "detail": [
+        5,
+        17
+      ]
+    },
+    "sort_newest_applied": {
+      "ok": true,
+      "detail": [
+        "\u25f7 Oct 25, 2026, 11:34 AM EDT",
+        "\u25f7 Oct 24, 2026, 11:34 AM EDT"
+      ]
+    },
+    "date_filter_one_day": {
+      "ok": true,
+      "detail": "5 of 5 images \u00b7 1 ms"
+    },
+    "evidence_modal": {
+      "ok": true,
+      "detail": "RapidOCR (local)"
+    },
+    "ocr_copy": {
+      "ok": true,
+      "detail": 437
+    },
+    "analysis": {
+      "ok": true,
+      "detail": [
+        5.4,
+        "Visible: Error log shows `OutofMemoryError: CUDA out of memory`.\n\nExplanation: Likely, high GPU memory usage (12 GiB total) exceeded available limits (96 MiB free). Possible cause: Large model/sequence (4096 seq) with batch-size 64. Fact: Memory allocation details suggest high resource use.\nSource: terminal_cuda_01.png \u00b7 MiniCPM-V 4.7 1B \u00b7 4.83 s"
+      ]
+    },
+    "similar": {
+      "ok": true,
+      "detail": [
+        "terminal_cuda_02.png",
+        "terminal_success_01.png",
+        "terminal_success_02.png",
+        "terminal_module_02.png",
+        "terminal_module_01.png"
+      ]
+    },
+    "escape_closes_dialog": {
+      "ok": true,
+      "detail": null
+    },
+    "slash_focuses_search": {
+      "ok": true,
+      "detail": null
+    },
+    "tab_reaches_search_button": {
+      "ok": true,
+      "detail": null
+    },
+    "ui_reindex_skips": {
+      "ok": true,
+      "detail": "62/62 \u00b7 0 new \u00b7 62 skipped \u00b7 0 failed \u00b7 0 s"
+    },
+    "bad_folder_error_visible": {
+      "ok": true,
+      "detail": "Choose an existing folder containing images."
+    },
+    "narrow_no_horizontal_overflow": {
+      "ok": true,
+      "detail": 0
+    },
+    "no_console_errors": {
+      "ok": true,
+      "detail": []
+    },
+    "no_failed_requests": {
+      "ok": true,
+      "detail": []
+    },
+    "no_broken_images": {
+      "ok": true,
+      "detail": null
+    },
+    "no_unexpected_http_errors": {
+      "ok": true,
+      "detail": []
+    }
+  },
+  "analysis_seconds": 5.4,
+  "analysis_text": "Visible: Error log shows `OutofMemoryError: CUDA out of memory`.\n\nExplanation: Likely, high GPU memory usage (12 GiB total) exceeded available limits (96 MiB free). Possible cause: Large model/sequence (4096 seq) with batch-size 64. Fact: Memory allocation details suggest high resource use.\nSource: terminal_cuda_01.png \u00b7 MiniCPM-V 4.7 1B \u00b7 4.83 s",
+  "broken_images_desktop": [],
+  "broken_images_narrow": []
+}

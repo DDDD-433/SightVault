@@ -1,0 +1,10 @@
+{
+  "manifest_verified": true,
+  "zip_integrity": true,
+  "relocation_verified": true,
+  "demo_rows": 62,
+  "raw_agent_logs_excluded": true,
+  "account_identity_absent": true,
+  "weights_environments_excluded": true,
+  "passed": true
+}

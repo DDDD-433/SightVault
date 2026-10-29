@@ -1,0 +1,38 @@
+{
+  "indexed": 1,
+  "legacy_ocr": {
+    "text": "",
+    "backend": "RapidOCR (local)",
+    "error": null
+  },
+  "corrected_ocr": "ERESOLVE dependency conflict",
+  "legacy_image_query_cosine": 0.6089252233505249,
+  "corrected_image_query_cosine": 0.8386070132255554,
+  "models": {
+    "embedding": {
+      "available": true,
+      "loaded": true,
+      "device": "mps:0",
+      "error": null,
+      "runtime": "PyTorch",
+      "precision": "float32"
+    },
+    "ocr": {
+      "available": true,
+      "loaded": true,
+      "device": "mlx (Metal GPU)",
+      "error": null,
+      "runtime": "MLX",
+      "precision": "mixed affine 4-bit / BF16"
+    },
+    "vision": {
+      "available": true,
+      "loaded": false,
+      "device": null,
+      "error": null,
+      "runtime": "MLX",
+      "precision": "mixed affine 4-bit / BF16"
+    }
+  },
+  "passed": true
+}

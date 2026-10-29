@@ -11,3 +11,5 @@ exports/
 
 .playwright-cli/
 .qa-venv/
+
+qa/independent-review/CLAUDE_RUN.json

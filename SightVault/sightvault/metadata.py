@@ -9,13 +9,19 @@ def image_metadata(path, image):
     timestamp, source = iso_timestamp(stat.st_mtime), 'File modified time'
     try:
         exif = image.getexif()
-        original = exif.get(36867) or exif.get(306)
-        offset = exif.get(36881)
+        details = exif.get_ifd(ExifTags.IFD.Exif)
+        original = details.get(36867) or exif.get(36867)
+        offset = details.get(36881) or exif.get(36881)
+        exif_source = 'EXIF capture time (with timezone)'
+        if not original:
+            original = exif.get(306)
+            offset = details.get(36880) or exif.get(36880)
+            exif_source = 'EXIF image time (with timezone)'
         # Do not silently invent a timezone for an EXIF date with no UTC offset.
         if original and offset:
             timestamp = datetime.strptime(str(original) + str(offset), '%Y:%m:%d %H:%M:%S%z').astimezone(timezone.utc).isoformat(timespec='seconds')
-            source = 'EXIF capture time (with timezone)'
-    except (ValueError, TypeError, AttributeError):
+            source = exif_source
+    except (ValueError, TypeError, AttributeError, OverflowError, OSError, SyntaxError):
         pass
     return {'size':stat.st_size, 'mtime_ns':stat.st_mtime_ns,
         'created_at':iso_timestamp(getattr(stat, 'st_birthtime', stat.st_ctime)),

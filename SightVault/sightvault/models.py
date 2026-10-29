@@ -18,6 +18,9 @@ EMBEDDING_ID = 'google/embeddinggemma-2:768:text-image'
 class ModelUnavailable(RuntimeError):
     pass
 
+class ModelInitializationError(ModelUnavailable):
+    pass
+
 class Models:
     def __init__(self, config):
         self.config = config
@@ -38,6 +41,7 @@ class Models:
         self._rapid = None
         self.errors = {}
         self.active = {}
+        self.fallbacks = {}
 
     def status(self):
         paths = {'embedding':'embeddinggemma-2', 'ocr':'minicpm-ocr', 'vision':'minicpm-v'}
@@ -122,15 +126,19 @@ class Models:
 
     def _load_embedding(self):
         if self._embedding is None:
-            import torch
-            from sentence_transformers import SentenceTransformer
-            torch.set_num_threads(min(6, os.cpu_count() or 4))
-            device = self._device()
-            log.info('Loading EmbeddingGemma 2 on %s', device)
-            self._embedding = SentenceTransformer(self._path('embeddinggemma-2'), device=device,
-                local_files_only=True, config_kwargs={'audio_config':None},
-                model_kwargs={'dtype':self._dtype(device), 'attn_implementation':'sdpa'})
-            self.active['embedding'] = device
+            try:
+                import torch
+                from sentence_transformers import SentenceTransformer
+                torch.set_num_threads(min(6, os.cpu_count() or 4))
+                device = self._device()
+                log.info('Loading EmbeddingGemma 2 on %s', device)
+                self._embedding = SentenceTransformer(self._path('embeddinggemma-2'), device=device,
+                    local_files_only=True, config_kwargs={'audio_config':None},
+                    model_kwargs={'dtype':self._dtype(device), 'attn_implementation':'sdpa'})
+                self.active['embedding'] = device
+                self.fallbacks.pop('embedding', None)
+            except Exception as exc:
+                raise ModelInitializationError(str(exc)) from exc
         return self._embedding
 
     def embed_image(self, image):
@@ -142,6 +150,8 @@ class Models:
                 log.exception('Embedding initialization or inference failed')
                 self.errors['embedding'] = str(exc)
                 self.active.pop('embedding', None)
+                if isinstance(exc, ModelInitializationError):
+                    raise
                 raise ModelUnavailable(str(exc)) from exc
 
     def embed_query(self, query):
@@ -152,6 +162,8 @@ class Models:
                 log.exception('Query embedding failed')
                 self.errors['embedding'] = str(exc)
                 self.active.pop('embedding', None)
+                if isinstance(exc, ModelInitializationError):
+                    raise
                 raise ModelUnavailable(str(exc)) from exc
 
     def _encode(self, model, inputs, prompt):
@@ -170,16 +182,22 @@ class Models:
             model.to('cpu').float()
             self.active['embedding'] = 'cpu (backend fallback)'
             self.errors['embedding'] = str(exc)
+            self.fallbacks['embedding'] = str(exc)
             self._clear_device_cache()
             with torch.inference_mode():
                 value = model.encode(inputs, **kwargs)
         value = np.asarray(value, dtype=np.float32)
+        if value.ndim != 2 or value.shape != (len(inputs), 768):
+            raise ModelUnavailable('EmbeddingGemma returned an invalid shape; expected 768 dimensions per input.')
         if not np.isfinite(value).all():
             raise ModelUnavailable('EmbeddingGemma returned non-finite embeddings; use bfloat16 or float32.')
         norms = np.linalg.norm(value, axis=-1, keepdims=True)
         if not np.isfinite(norms).all() or (norms < 1e-8).any():
             raise ModelUnavailable('EmbeddingGemma returned an invalid or zero-norm embedding.')
-        if self.active.get('embedding') != 'cpu (backend fallback)':
+        if 'embedding' in self.fallbacks:
+            self.active['embedding'] = 'cpu (backend fallback)'
+            self.errors['embedding'] = self.fallbacks['embedding']
+        else:
             self.active['embedding'] = str(getattr(model, 'device', 'cpu'))
             self.errors.pop('embedding', None)
         return value / norms
@@ -216,11 +234,16 @@ class Models:
         try:
             with torch.inference_mode():
                 outputs = model.generate(**inputs, max_new_tokens=max_tokens, do_sample=False, use_cache=True)
-        except torch.cuda.OutOfMemoryError as exc:
+        except RuntimeError as exc:
+            oom = isinstance(exc, torch.cuda.OutOfMemoryError) or (str(model.device).startswith('mps') and 'out of memory' in str(exc).lower())
+            if not oom:
+                raise
             # Release the generative model so the next request starts clean instead of failing repeatedly.
             setattr(self, '_ocr' if kind == 'ocr' else '_vlm', None)
             self.active.pop(kind, None)
-            del inputs
+            del inputs, model, processor
+            import traceback
+            traceback.clear_frames(exc.__traceback__)
             gc.collect()
             self._clear_device_cache()
             raise ModelUnavailable('GPU memory is full. Close other GPU applications and retry; '

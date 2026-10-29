@@ -83,3 +83,5 @@ Official model references: [EmbeddingGemma 2](https://huggingface.co/google/embe
 - `Start-SightVault.cmd` waits up to 90 s, reports busy ports / startup errors (see `data\server.log`), and detects an already-running instance. Port: `SIGHTVAULT_PORT`.
 - First search after launch loads the embedding model (~12 s); later searches are ~0.15 s.
 - QA: `pytest tests`, `scripts\benchmark.py`, `scripts\qa_ingestion.py <workdir>`, `scripts\qa_browser.py <url> <shots>`. See QA_REPORT.md.
+
+Independent Claude QA: Opus 5.5 high and one Sonnet 5.5 xhigh worker completed a separate review. The integrated suite has 123 passing tests and one documented expected failure for retained superseded copies. See `qa/independent-review/FINAL_QA_REPORT.md`. Reindex repairs missing saved copies; processing transparent images composites onto white. EXIF capture timestamps are read from the standard sub-IFD only when a timezone offset is supplied. Existing rename-history and retained-copy behavior remain documented limitations.

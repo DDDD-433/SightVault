@@ -1,14 +1,31 @@
 import re
+import unicodedata
 import time
 from datetime import date, datetime, timedelta, timezone
 import numpy as np
 from .database import decode_vector
 from .models import EMBEDDING_ID
 
-STOPWORDS = set('a an the i my me you your our it this that these those is was were be been being of for to from in on at with where when did does do find show search screenshot screenshots picture pictures image images photo photos please containing contains about what how earliest first occur appeared happen happened out'.split())
+STOPWORDS = set('a an the i my me you your our it this that these those is was were be been being of for to from in on at with where when did does do find show search screenshot screenshots picture pictures image images photo photos please containing contains about what how earliest oldest first occur appeared appear seen saw see time happen happened out'.split())
+
+def normalized_text(value):
+    return unicodedata.normalize('NFC', value).casefold()
+
+
+def unspaced_script(value):
+    return any('\u3400' <= c <= '\u9fff' or '\u3040' <= c <= '\u30ff' or '\uac00' <= c <= '\ud7af' or '\U00020000' <= c <= '\U000323af' for c in value)
+
+
+def contains_term(text, term):
+    # Word/code boundaries prevent E404 matching E4040 or cat matching Application.
+    # CJK text commonly has no spaces, so a character/word can occur inside a run.
+    if unspaced_script(term):
+        return term in text
+    return re.search(r'(?<!\w)' + re.escape(term) + r'(?!\w)', text) is not None
+
 
 def query_terms(query):
-    return [t for t in re.findall(r'[\w]+', query.casefold()) if t not in STOPWORDS and len(t)>1][:32]
+    return [t for t in re.findall(r'[\w]+', normalized_text(query)) if t not in STOPWORDS and (len(t)>1 or unspaced_script(t))][:32]
 
 def public_asset(row):
     return {k:v for k,v in row.items() if k not in ('embedding','image_path','thumbnail_path')}
@@ -71,24 +88,29 @@ class Search:
         ranked=[]
         for row in rows:
             if source and row['id'] == source['id']: continue
-            ocr = row['ocr_text'].casefold()
-            filename = row['filename'].casefold().replace('_',' ')
+            ocr = normalized_text(row['ocr_text'])
+            filename = normalized_text(row['filename']).replace('_',' ')
             text = ocr + ' ' + filename
-            matched = [t for t in terms if t in text]
-            ocr_matched = [t for t in terms if t in ocr]
+            matched = [t for t in terms if contains_term(text, t)]
+            ocr_matched = [t for t in terms if contains_term(ocr, t)]
             coverage = len(matched) / max(len(terms),1)
-            exact = bool(terms) and all(t in ocr for t in terms)
-            phrase = query.casefold().strip('"\'')
-            phrase_match = bool(phrase) and phrase in ocr
+            exact = bool(terms) and all(contains_term(ocr, t) for t in terms)
+            phrase = normalized_text(query).strip('"\'')
+            phrase_match = bool(phrase) and contains_term(ocr, phrase)
             # Error identifiers and quoted phrases get a strong literal-match boost.
             literals = re.findall(r'"([^"]+)"',query) or [w for w in re.findall(r'\b[A-Za-z][A-Za-z0-9_]+\b',query) if any(c.isupper() for c in w[1:]) or any(c.isdigit() for c in w)]
-            literal_match = bool(literals) and all(w.casefold() in ocr for w in literals)
+            literal_match = bool(literals) and all(contains_term(ocr, normalized_text(w)) for w in literals)
             lexical = 0.8*coverage + 0.2*(fts.get(row['id'],0)/max_fts)
             semantic = None
             if qvec is not None and row['embedding'] and row['embedding_model'] == EMBEDDING_ID:
-                vector = decode_vector(row['embedding'])
-                if vector.shape == qvec.shape:
-                    semantic = float(np.clip(np.dot(qvec,vector), -1, 1))
+                try:
+                    vector = decode_vector(row['embedding'])
+                    if vector.shape == qvec.shape and np.isfinite(vector).all() and np.linalg.norm(vector) > 1e-8:
+                        semantic = float(np.clip(np.dot(qvec,vector), -1, 1))
+                    else:
+                        raise ValueError('Invalid embedding shape or values')
+                except ValueError:
+                    warning = warning or 'Some indexed embeddings are invalid. Re-index their source folder to repair semantic search.'
             if not query and source is None:
                 score = 0.0
             elif mode == 'exact':
@@ -118,7 +140,7 @@ class Search:
                 best = max(r['lexical_score'] for r in ranked)
                 ranked = [r for r in ranked if r['lexical_score'] >= best * 0.8]
             else:
-                best = max(r['semantic_score'] or -1 for r in ranked)
+                best = max(r['semantic_score'] if r['semantic_score'] is not None else -1 for r in ranked)
                 ranked = [r for r in ranked if r['semantic_score'] is not None and r['semantic_score'] >= best-0.035]
         total = len(ranked)
         if temporal: ranked.sort(key=lambda r:(r['timestamp'],r['id']),reverse=sort=='newest')

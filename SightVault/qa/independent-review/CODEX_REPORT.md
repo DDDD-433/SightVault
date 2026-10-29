@@ -1,3 +1,5 @@
+Historical report from before subscription login. The requested Claude review has since completed; see FINAL_QA_REPORT.md for the current verdict.
+
 # Additional QA pass
 
 Codex remains the overall orchestrator. The requested Opus 5.5 high lead and one Sonnet 5.5 xhigh subagent have NOT run. Claude Code 2.1.312 was installed and authenticated using API-key billing; the probe returned HTTP 400, “Credit balance is too low.” The user's $100 subscription is not being declared unfunded: the CLI needs subscription authentication via `claude auth login --claudeai`. The exact model definitions, ownership boundaries and task are prepared in this directory. No other Claude model was substituted and no top-up or account change was made.

@@ -6,7 +6,7 @@
     "duplicates": 1,
     "failed": 2,
     "unsupported": 2,
-    "elapsed_s": 15.5,
+    "elapsed_s": 15.8,
     "errors": [
       {
         "file": "corrupt.png",
@@ -37,7 +37,7 @@
       "embedding_dims": 768,
       "thumb": true,
       "image": true,
-      "timestamp": "2026-10-29T22:54:04+00:00",
+      "timestamp": "2026-10-29T23:51:56+00:00",
       "source": "File modified time"
     },
     {
@@ -47,7 +47,7 @@
       "embedding_dims": 768,
       "thumb": true,
       "image": true,
-      "timestamp": "2026-10-29T22:54:04+00:00",
+      "timestamp": "2026-10-29T23:51:56+00:00",
       "source": "File modified time"
     },
     {
@@ -146,7 +146,7 @@
     "total_rows": 10
   },
   "minicpm_ocr_ingest": {
-    "seconds": 7.4,
+    "seconds": 6.5,
     "backend": "MiniCPM-OCR 1.0",
     "has_ModuleNotFoundError": true,
     "text_head": "Python \u2014 import failed\n$ python app.py\nTraceback (most recent call last):\n  File \"app.py\", line 2, in <module>\n    import pandas\n  ModuleNotFoundError: No modul",
@@ -158,19 +158,19 @@
     "with_ocr": 9,
     "folders": [
       {
-        "folder": "/private/tmp/sightvault-mac-qa-20261029-2253/ingestion-retest/big",
+        "folder": "/private/var/folders/4s/hd8h8lz90f5c8k_79gpqvj800000gn/T/sightvault-claude-ingestion-mq6a_9g3/ingestion-only/big",
         "count": 12
       },
       {
-        "folder": "/private/tmp/sightvault-mac-qa-20261029-2253/ingestion-retest/crash",
+        "folder": "/private/var/folders/4s/hd8h8lz90f5c8k_79gpqvj800000gn/T/sightvault-claude-ingestion-mq6a_9g3/ingestion-only/crash",
         "count": 10
       },
       {
-        "folder": "/private/tmp/sightvault-mac-qa-20261029-2253/ingestion-retest/one",
+        "folder": "/private/var/folders/4s/hd8h8lz90f5c8k_79gpqvj800000gn/T/sightvault-claude-ingestion-mq6a_9g3/ingestion-only/one",
         "count": 1
       },
       {
-        "folder": "/private/tmp/sightvault-mac-qa-20261029-2253/ingestion-retest/pics",
+        "folder": "/private/var/folders/4s/hd8h8lz90f5c8k_79gpqvj800000gn/T/sightvault-claude-ingestion-mq6a_9g3/ingestion-only/pics",
         "count": 9
       }
     ]

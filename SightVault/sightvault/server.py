@@ -80,12 +80,18 @@ def create_app(config=None, models=None):
         if not row: raise HTTPException(404,'Image not found.')
         return {**public_asset(row), 'source_exists': Path(row['filepath']).is_file()}
 
+    def stored_image(row, thumbnail=False):
+        base = (config.data / ('thumbs' if thumbnail else 'images')).resolve()
+        path = (base / row['thumbnail_path' if thumbnail else 'image_path']).resolve()
+        if not path.is_relative_to(base) or not path.is_file():
+            raise HTTPException(404, 'Stored image is missing or invalid. Re-index the source folder.')
+        return path
+
     @app.get('/api/assets/{asset_id}/image')
     def image_file(asset_id:int,thumbnail:bool=False):
         row = db.get(asset_id)
         if not row: raise HTTPException(404,'Image not found.')
-        file = config.data / ('thumbs' if thumbnail else 'images') / row['thumbnail_path' if thumbnail else 'image_path']
-        if not file.is_file(): raise HTTPException(404,'Stored image is missing. Re-index the source folder.')
+        file = stored_image(row, thumbnail)
         return FileResponse(file, media_type='image/webp' if thumbnail else 'image/png')
 
     def job_public(job):
@@ -134,11 +140,13 @@ def create_app(config=None, models=None):
         row = db.get(body.asset_id)
         if not row: raise HTTPException(404,'Image not found.')
         if not body.question.strip(): raise HTTPException(422,'Enter a question about this image.')
+        file = stored_image(row)
         started = time.perf_counter()
         def run():
-            with Image.open(config.data/'images'/row['image_path']) as image:
+            with Image.open(file) as image:
                 return models.analyze(image.convert('RGB'),body.question,row['ocr_text'])
         try: answer = await run_in_threadpool(run)
+        except FileNotFoundError as exc: raise HTTPException(404, 'Stored image is missing. Re-index the source folder.') from exc
         except ModelUnavailable as exc: raise HTTPException(503,str(exc)) from exc
         except Exception as exc:
             logging.exception('Analysis failed')

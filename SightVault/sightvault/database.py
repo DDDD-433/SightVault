@@ -120,10 +120,17 @@ class Database:
         return {'total':total, 'with_embeddings':vectors, 'with_ocr':text, 'folders':folders}
 
 def encode_vector(vector):
-    array = np.asarray(vector, dtype=np.float32).reshape(-1)
-    if not np.isfinite(array).all() or np.linalg.norm(array) < 1e-8:
+    array = np.asarray(vector, dtype=np.float64)
+    if array.ndim != 1 or not array.size or not np.isfinite(array).all():
+        raise ValueError('The embedding contains invalid values or shape.')
+    scale = float(np.max(np.abs(array)))
+    if scale == 0:
         raise ValueError('The embedding contains invalid values.')
-    return (array / np.linalg.norm(array)).astype('<f4').tobytes()
+    scaled = array / scale
+    norm = np.linalg.norm(scaled)
+    if scale < 1e-8 / norm:
+        raise ValueError('The embedding contains invalid values.')
+    return (scaled / norm).astype('<f4').tobytes()
 
 def decode_vector(blob):
     return np.frombuffer(blob, dtype='<f4')

@@ -64,7 +64,7 @@ def test_images_are_not_embeddable_cross_origin(env):
 
 class _FakeEmbedder:
     def encode(self, inputs, **kwargs):
-        return np.ones((len(inputs), 4), dtype=np.float32)
+        return np.ones((len(inputs), 768), dtype=np.float32)
 
 def test_search_embedding_not_blocked_by_running_generation(tmp_path):
     import torch  # warm import so the timing below measures locking only

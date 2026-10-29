@@ -1,0 +1,62 @@
+{
+  "outbound_socket_guard": true,
+  "fault_injection": "invalid safetensors in a disposable model directory; original weights untouched",
+  "fallback": {
+    "text": "training.py \u2014Python\n$ python train.py --batch-size 64\nEpoch 1/10 | training on cuda:0\nTraceback (most recent call last):\nFile \"train.py\", line 87, in train\nloss.backward()\ntorch.OutofMemoryError: CUDA out of memory.\nTried to allocate 512.00 MiB.GPU 0 has 12.00 GiB total.\nOf which 96.00 MiB is free. Process holds 11.62 GiB.\nBatch size: 64. Sequence 1ength: 4096.\nSession 01\u00b7developer workstation\nSYNTHETIC DEMO / no personal information",
+    "backend": "RapidOCR (local)",
+    "error": "MiniCPM-OCR failed; used RapidOCR fallback: [load_safetensors] Invalid json header length file /var/folders/4s/hd8h8lz90f5c8k_79gpqvj800000gn/T/sightvault-model-recovery-p6x3d_bb/models/minicpm-ocr-mlx-4bit/model.safetensors"
+  },
+  "failed_ocr_state": {
+    "available": true,
+    "loaded": false,
+    "device": null,
+    "error": "[load_safetensors] Invalid json header length file /var/folders/4s/hd8h8lz90f5c8k_79gpqvj800000gn/T/sightvault-model-recovery-p6x3d_bb/models/minicpm-ocr-mlx-4bit/model.safetensors",
+    "runtime": "MLX",
+    "precision": "mixed affine 4-bit / BF16"
+  },
+  "recovered_ocr_state": {
+    "available": true,
+    "loaded": true,
+    "device": "mlx (Metal GPU)",
+    "error": null,
+    "runtime": "MLX",
+    "precision": "mixed affine 4-bit / BF16"
+  },
+  "vision_answer": "The error is CUDA out of memory. Visible text shows GPU has 12 GiB total, 96 MiB free, process holds 11.62 GiB. Batch size 64, sequence length 4096. Likely, high data volume or parallel usage exceeded GPU memory. No causation claimed; only observed state.",
+  "generator_status": {
+    "embedding": {
+      "available": true,
+      "loaded": false,
+      "device": null,
+      "error": null,
+      "runtime": "PyTorch",
+      "precision": "float32"
+    },
+    "ocr": {
+      "available": true,
+      "loaded": false,
+      "device": null,
+      "error": null,
+      "runtime": "MLX",
+      "precision": "mixed affine 4-bit / BF16"
+    },
+    "vision": {
+      "available": true,
+      "loaded": true,
+      "device": "mlx (Metal GPU)",
+      "error": null,
+      "runtime": "MLX",
+      "precision": "mixed affine 4-bit / BF16"
+    }
+  },
+  "exif_timestamp": "2019-06-15T10:00:00+00:00",
+  "exif_source": "EXIF capture time (with timezone)",
+  "embedding_bytes": 3072,
+  "source_sha256": {
+    "models.py": "085bcd047798de09dede2172c56d17d4412587531a24b6351223bfb1f4893157",
+    "metadata.py": "133e02adba91211fee783dd100adc159ea80ef9505186b700f454978f5436a5d",
+    "ingestion.py": "579b674c3887dc6da403f6c8f9558f882dbb02111cf11d0a9f84301a36dc0279",
+    "database.py": "77eb175aeb723a3b308af47086e9455b1a0fa7770f955ceb53a66763a2beae21"
+  },
+  "passed": true
+}

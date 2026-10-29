@@ -32,7 +32,7 @@ function renderCards(results, query){
 }
 async function search(extra={}){
   const serial=++requestId;
-  let query=$('query').value.trim();
+  let query=extra.more?lastQuery:$('query').value.trim();
   let contextNote='';
   const contextual=/^(when did (this|it) (first )?(happen|occur|appear)\??|when was this first)\s*$/i.test(query);
   // A new typed query must not inherit an automatic First-occurrence/timeline sort from the previous one.
@@ -47,7 +47,7 @@ async function search(extra={}){
   delete extra.more;
   const params=new URLSearchParams({q:query,mode,sort:$('sort').value,top_k:String(visibleLimit),...extra});
   // Dates are interpreted in the browser's local timezone, matching how timestamps are displayed.
-  const localMidnight=(value,addDays=0)=>{const [y,m,d]=value.split('-').map(Number);return new Date(y,m-1,d+addDays).toISOString();};
+  const localMidnight=(value,addDays=0)=>{const [y,m,d]=value.split('-').map(Number);const moment=new Date(0);moment.setFullYear(y,m-1,d+addDays);moment.setHours(0,0,0,0);return moment.toISOString();};
   if($('date-start').value)params.set('start',localMidnight($('date-start').value));
   if($('date-end').value)params.set('end',localMidnight($('date-end').value,1));
   $('search-button').disabled=true;$('search-button').textContent='Searching…';$('results').classList.add('loading');notice('');
@@ -91,9 +91,13 @@ async function pollJob(){
     else toast(`${job.indexed} images added. ${job.skipped} already indexed.`);
   }catch(error){notice('Lost contact with the indexing job: '+error.message);jobId=null;$('index-button').disabled=$('demo-button').disabled=$('empty-demo').disabled=false;}
 }
+let detailSerial=0;
 async function openDetail(id){
+  const serial=++detailSerial;
   try{
-    selected=await api('/api/assets/'+id);
+    const detail=await api('/api/assets/'+id);
+    if(serial!==detailSerial)return;
+    selected=detail;
     $('detail-title').textContent=selected.filename;$('detail-image').src=`/api/assets/${id}/image`;$('image-link').href=`/api/assets/${id}/image`;
     $('detail-image').alt=selected.filename;
     $('detail-meta').innerHTML=`<strong>${escapeHtml(fmtDate(selected.timestamp))}</strong> · ${escapeHtml(selected.timestamp_source)}<br>${Number(selected.width)} × ${Number(selected.height)} · ${escapeHtml(selected.filepath)}${selected.source_exists===false?' <em>(original moved or deleted; saved copy shown)</em>':''}<br>Indexed ${escapeHtml(fmtDate(selected.indexed_at))}`;
@@ -101,7 +105,7 @@ async function openDetail(id){
     $('analysis-result').innerHTML='<div class="analysis-placeholder">The image comes first.<br>The explanation comes next.</div>';
     $('analyze-button').disabled=false;$('analyze-button').innerHTML='Analyze with MiniCPM-V <span>↗</span>';
     $('detail-dialog').showModal();
-  }catch(error){notice(error.message);}
+  }catch(error){if(serial===detailSerial)notice(error.message);}
 }
 let analysisSerial=0;
 async function analyze(){
@@ -133,7 +137,7 @@ $('timeline-nav').onclick=()=>{setView('timeline');$('sort').value='oldest';sear
 $('first-button').onclick=()=>{$('sort').value='oldest';setView('timeline');autoTemporal=true;search();};
 $('results').onclick=event=>{const target=event.target.closest('[data-open]');if(target)openDetail(Number(target.dataset.open));};
 $('close-detail').onclick=()=>$('detail-dialog').close();
-$('detail-dialog').addEventListener('close',()=>{analysisSerial++;selected=null;});
+$('detail-dialog').addEventListener('close',()=>{analysisSerial++;detailSerial++;selected=null;});
 $('detail-dialog').addEventListener('click',event=>{if(event.target===$('detail-dialog')){const r=event.target.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)event.target.close();}});
 $('analyze-button').onclick=analyze;
 $('copy-ocr').onclick=async()=>{try{await navigator.clipboard.writeText(selected?.ocr_text||'');toast('OCR text copied.');}catch{toast('Copy unavailable. Select the extracted text to copy it.');}};
