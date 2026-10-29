@@ -9,7 +9,7 @@ URL=f'http://127.0.0.1:{PORT}'
 def running():
     try:
         with urllib.request.urlopen(URL+'/api/status',timeout=2) as r:
-            return json.load(r).get('embedding_model','').startswith('EmbeddingGemma')
+            return json.load(r).get('instance_root') == str(ROOT)
     except Exception:return False
 
 def port_busy():
@@ -26,13 +26,13 @@ def main():
         print('SightVault is already running at '+URL)
     else:
         if port_busy():
-            print(f'Port {PORT} is used by another program, not SightVault. Close it, or run: .venv\\Scripts\\python.exe app.py --port 7861')
+            print(f'Port {PORT} is used by another program, not SightVault. Close it, or run app.py with a free --port and set SIGHTVAULT_PORT accordingly')
             return 1
         (ROOT/'data').mkdir(exist_ok=True)
         log_path=ROOT/'data'/'server.log'
         log=open(log_path,'a',encoding='utf8')
         flags=subprocess.CREATE_NO_WINDOW if os.name=='nt' else 0
-        process=subprocess.Popen([sys.executable,'-u',str(ROOT/'app.py'),'--port',str(PORT)],cwd=ROOT,stdout=log,stderr=log,creationflags=flags)
+        process=subprocess.Popen([sys.executable,'-u',str(ROOT/'app.py'),'--port',str(PORT)],cwd=ROOT,stdout=log,stderr=log,creationflags=flags,start_new_session=(os.name!='nt'))
         print('Starting SightVault…',flush=True)
         deadline=time.time()+90
         while time.time()<deadline:

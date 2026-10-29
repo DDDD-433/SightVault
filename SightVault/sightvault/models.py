@@ -41,19 +41,80 @@ class Models:
 
     def status(self):
         paths = {'embedding':'embeddinggemma-2', 'ocr':'minicpm-ocr', 'vision':'minicpm-v'}
-        return {name:{'available':(self.config.models / folder / 'model.safetensors').is_file(),
+        return {name:{'available':bool(self._mlx_path(name)) or (self.config.models / folder / 'model.safetensors').is_file(),
                       'loaded':name in self.active, 'device':self.active.get(name),
-                      'error':self.errors.get(name)} for name,folder in paths.items()}
+                      'error':self.errors.get(name), 'runtime':('MLX' if self._mlx_path(name) else 'PyTorch'),
+                      'precision':self._precision(name)} for name,folder in paths.items()}
+
+    def _precision(self, kind):
+        if self._mlx_path(kind): return 'mixed affine 4-bit / BF16'
+        device = self.active.get(kind, '')
+        if device.startswith('cuda'):
+            return str(self._dtype(device)).removeprefix('torch.')
+        return 'float32'
+
+    def _mlx_path(self, kind):
+        import platform
+        if kind == 'embedding' or platform.system() != 'Darwin' or platform.machine() != 'arm64' or self.config.device not in ('auto', 'mps'):
+            return None
+        path = self.config.models / ('minicpm-ocr-mlx-4bit' if kind == 'ocr' else 'minicpm-v-mlx-4bit')
+        return path if (path / 'config.json').is_file() and (path / 'model.safetensors').is_file() else None
+
+    def _generate_mlx(self, kind, image, prompt, max_tokens):
+        import mlx.core as mx
+        from mlx_vlm import load, generate
+        from mlx_vlm.prompt_utils import apply_chat_template
+        attribute = '_ocr' if kind == 'ocr' else '_vlm'
+        other = '_vlm' if kind == 'ocr' else '_ocr'
+        if getattr(self, other) is not None:
+            setattr(self, other, None)
+            self.active.pop('vision' if kind == 'ocr' else 'ocr', None)
+            gc.collect()
+            mx.clear_cache()
+        try:
+            if getattr(self, attribute) is None:
+                model, processor = load(str(self._mlx_path(kind)), trust_remote_code=False)
+                setattr(self, attribute, (processor, model))
+            processor, model = getattr(self, attribute)
+            formatted = apply_chat_template(processor, model.config, prompt, num_images=1)
+            result = generate(model, processor, formatted, image=[image], max_tokens=max_tokens,
+                              temperature=0, verbose=False)
+            answer = result.text
+            self.active[kind] = 'mlx (Metal GPU)'
+            self.errors.pop(kind, None)
+            return re.sub(r'<think>.*?</think>', '', answer, flags=re.S).strip()
+        except Exception:
+            setattr(self, attribute, None)
+            self.active.pop(kind, None)
+            gc.collect()
+            mx.clear_cache()
+            raise
 
     def _device(self):
         import torch
-        return self.config.device if self.config.device != 'auto' else ('cuda' if torch.cuda.is_available() else 'cpu')
+        requested = self.config.device
+        mps = torch.backends.mps.is_built() and torch.backends.mps.is_available()
+        if requested == 'auto':
+            return 'cuda' if torch.cuda.is_available() else ('mps' if mps else 'cpu')
+        if requested.startswith('cuda') and not torch.cuda.is_available():
+            raise ModelUnavailable('CUDA requested but unavailable.')
+        if requested == 'mps' and not mps:
+            raise ModelUnavailable('MPS requested but unavailable.')
+        if requested not in ('cpu', 'mps') and not requested.startswith('cuda'):
+            raise ModelUnavailable('Unknown device: ' + requested)
+        return requested
 
     def _path(self, folder):
         path = self.config.models / folder
         if not (path / 'model.safetensors').is_file():
             raise ModelUnavailable(f'Model files missing: {folder}. Run python scripts/download_models.py while online, then restart.')
         return str(path)
+
+    @staticmethod
+    def _clear_device_cache():
+        import torch
+        if torch.cuda.is_available(): torch.cuda.empty_cache()
+        if torch.backends.mps.is_available(): torch.mps.empty_cache()
 
     def _dtype(self, device):
         import torch
@@ -80,6 +141,7 @@ class Models:
             except Exception as exc:
                 log.exception('Embedding initialization or inference failed')
                 self.errors['embedding'] = str(exc)
+                self.active.pop('embedding', None)
                 raise ModelUnavailable(str(exc)) from exc
 
     def embed_query(self, query):
@@ -89,6 +151,7 @@ class Models:
             except Exception as exc:
                 log.exception('Query embedding failed')
                 self.errors['embedding'] = str(exc)
+                self.active.pop('embedding', None)
                 raise ModelUnavailable(str(exc)) from exc
 
     def _encode(self, model, inputs, prompt):
@@ -99,11 +162,15 @@ class Models:
         try:
             with torch.inference_mode():
                 value = model.encode(inputs, **kwargs)
-        except torch.cuda.OutOfMemoryError:
-            log.warning('GPU memory is full; retrying embedding on CPU.')
+        except (RuntimeError, NotImplementedError) as exc:
+            current = str(getattr(model, 'device', self.active.get('embedding', 'cpu')))
+            recoverable = isinstance(exc, torch.cuda.OutOfMemoryError) or (current.startswith('mps') and any(word in str(exc).lower() for word in ('mps', 'not implemented', 'out of memory')))
+            if not recoverable: raise
+            log.warning('Embedding backend failed; retrying on CPU: %s', exc)
             model.to('cpu').float()
-            self.active['embedding'] = 'cpu (GPU memory fallback)'
-            torch.cuda.empty_cache()
+            self.active['embedding'] = 'cpu (backend fallback)'
+            self.errors['embedding'] = str(exc)
+            self._clear_device_cache()
             with torch.inference_mode():
                 value = model.encode(inputs, **kwargs)
         if not np.isfinite(value).all():
@@ -124,16 +191,17 @@ class Models:
                 setattr(self, other, None)
                 self.active.pop('vision' if kind == 'ocr' else 'ocr', None)
                 gc.collect()
-                if torch.cuda.is_available(): torch.cuda.empty_cache()
+                self._clear_device_cache()
             log.info('Loading %s on %s', Path(path).name, device)
             processor = AutoProcessor.from_pretrained(path, local_files_only=True)
             model = AutoModelForImageTextToText.from_pretrained(path, local_files_only=True,
                 dtype=self._dtype(device), attn_implementation='sdpa').to(device).eval()
             setattr(self, attribute, (processor, model))
-            self.active[kind] = device
         return getattr(self, attribute)
 
     def _generate(self, kind, image, prompt, max_tokens):
+        if self._mlx_path(kind):
+            return self._generate_mlx(kind, image, prompt, max_tokens)
         import torch
         processor, model = self._load_generative(kind)
         messages = [{'role':'user','content':[{'type':'image','image':image}, {'type':'text','text':prompt}]}]
@@ -148,9 +216,11 @@ class Models:
             self.active.pop(kind, None)
             del inputs
             gc.collect()
-            torch.cuda.empty_cache()
+            self._clear_device_cache()
             raise ModelUnavailable('GPU memory is full. Close other GPU applications and retry; '
                                    'search remains available, or set SIGHTVAULT_DEVICE=cpu.') from exc
+        self.active[kind] = str(model.device)
+        self.errors.pop(kind, None)
         answer = processor.decode(outputs[0][inputs['input_ids'].shape[-1]:], skip_special_tokens=True)
         return re.sub(r'<think>.*?</think>', '', answer, flags=re.S).strip()
 
@@ -167,6 +237,7 @@ class Models:
                 except Exception as exc:
                     warning = str(exc)
                     self.errors['ocr'] = warning
+                    self.active.pop('ocr', None)
                     if backend == 'minicpm':
                         raise ModelUnavailable(warning) from exc
             try:
@@ -190,4 +261,5 @@ class Models:
                 return self._generate('vision', image, prompt, 384)
             except Exception as exc:
                 self.errors['vision'] = str(exc)
+                self.active.pop('vision', None)
                 raise ModelUnavailable('MiniCPM-V could not analyze this image: ' + str(exc)) from exc

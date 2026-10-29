@@ -68,7 +68,7 @@ def main():
         proof.append({'file':name,'cosine_fresh_vs_stored':round(float(fresh@decode_vector(row['embedding'])),4)})
     report={'offline_network_blocked':args.offline_check,'cases':rows,'passed':sum(r['top1_correct'] for r in rows),'total':len(rows),
             'negative_queries':negatives,'min_positive_semantic_top':min(positives),'max_negative_semantic_top':max(n['top_semantic'] for n in negatives),
-            'image_embedding_proof':proof,'database':db.stats()}
+            'image_embedding_proof':proof,'database':db.stats(),'models':models.status()}
     report['negatives_below_all_positives']=report['max_negative_semantic_top']<report['min_positive_semantic_top']
     Path(args.output).write_text(json.dumps(report,indent=2),encoding='utf8')
     print(json.dumps({k:report[k] for k in ('passed','total','min_positive_semantic_top','max_negative_semantic_top','negatives_below_all_positives','image_embedding_proof')},indent=2))

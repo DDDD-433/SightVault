@@ -1,0 +1,51 @@
+{
+  "outbound_network_connections_blocked": true,
+  "loopback_allowed_for_local_runtime": true,
+  "requested_device": "auto",
+  "isolation_method": "in-process socket.connect guard; not an OS firewall",
+  "semantic_search": {
+    "top_result": "terminal_cuda_02.png",
+    "latency_ms": 6622.9
+  },
+  "ocr": {
+    "text": "training.py \u2014 Python\n$ python train.py --batch-size 64\nEpoch 1/10 | training on cuda:0\nTraceback (most recent call last):\n  File \"train.py\", line 87, in train\n  lossbackward()\n  torch.OutOfMemoryError: CUDA out of memory.\n  Tried to allocate 512.00 MiB. GPU 0 has 12.00 GiB total.\n  Of which 96.00 MiB is free. Process holds 11.62 GiB.\n  Batch size: 64. Sequence length: 4096.\nSession 01 \u00b7 developer workstation\nSYNTHETIC DEMO / no personal information",
+    "backend": "MiniCPM-OCR 1.0",
+    "error": null,
+    "seconds": 7.18
+  },
+  "analysis": {
+    "answer": "The error shows CUDA out of memory. Visible: GPU total 12 GiB, 96 MiB free, process holds 11.62 GiB. Likely, insufficient GPU memory. Explanation: Memory usage exceeds available. Fact: 96 MiB free is minimal; 11.62 GiB used. Conclusion: Low memory likely caused.",
+    "seconds": 5.21
+  },
+  "peak_gpu_allocated_gib": null,
+  "models": {
+    "embedding": {
+      "available": true,
+      "loaded": true,
+      "device": "mps",
+      "error": null,
+      "runtime": "PyTorch",
+      "precision": "float32"
+    },
+    "ocr": {
+      "available": true,
+      "loaded": false,
+      "device": null,
+      "error": null,
+      "runtime": "MLX",
+      "precision": "mixed affine 4-bit / BF16"
+    },
+    "vision": {
+      "available": true,
+      "loaded": true,
+      "device": "mlx (Metal GPU)",
+      "error": null,
+      "runtime": "MLX",
+      "precision": "mixed affine 4-bit / BF16"
+    }
+  },
+  "mps_allocated_gib": 1.635,
+  "mlx_peak_gib": 3.242,
+  "process_ram_gib": 1.51,
+  "passed": true
+}

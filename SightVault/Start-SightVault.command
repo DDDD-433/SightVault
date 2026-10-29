@@ -9,6 +9,7 @@ if [[ ! -x .venv/bin/python ]]; then
   echo "Run bash Setup-Mac.sh first." >&2
   exit 1
 fi
-# Establish CPU correctness before explicitly selecting the still-unverified MPS path.
-export SIGHTVAULT_DEVICE="${SIGHTVAULT_DEVICE:-cpu}"
+# Auto selects validated MPS embedding and local MLX generative adapters on Apple Silicon.
+export SIGHTVAULT_DEVICE="${SIGHTVAULT_DEVICE:-auto}"
+export SIGHTVAULT_PORT="${SIGHTVAULT_PORT:-7861}"
 exec .venv/bin/python scripts/launch.py

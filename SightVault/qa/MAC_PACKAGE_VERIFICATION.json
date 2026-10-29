@@ -1,0 +1,27 @@
+{
+  "manifest": {
+    "scope": "immutable extraction",
+    "checked": 301,
+    "failures": [],
+    "passed": true
+  },
+  "relocation_dry_run": {
+    "dry_run": true,
+    "assets": 62,
+    "paths_to_rebase": 62,
+    "new_folder": "/private/var/folders/4s/hd8h8lz90f5c8k_79gpqvj800000gn/T/sightvault-mac-export-6dij_vyw/SightVault/samples",
+    "indexed_timestamps_preserved": true
+  },
+  "relocation_apply": {
+    "dry_run": false,
+    "assets": 62,
+    "paths_to_rebase": 62,
+    "new_folder": "/private/var/folders/4s/hd8h8lz90f5c8k_79gpqvj800000gn/T/sightvault-mac-export-6dij_vyw/SightVault/samples",
+    "indexed_timestamps_preserved": true,
+    "backup": "/private/var/folders/4s/hd8h8lz90f5c8k_79gpqvj800000gn/T/sightvault-mac-export-6dij_vyw/SightVault/data/sightvault.before-mac-20261029T225909Z-efa8bfa1.sqlite3",
+    "restored_sample_mtimes": 64
+  },
+  "archive_files": 302,
+  "excluded_weights_and_environments": true,
+  "passed": true
+}

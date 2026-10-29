@@ -2,7 +2,7 @@
 import json,os,shutil,subprocess,sys,tempfile,threading,time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent.parent
-WORK=Path(sys.argv[1] if len(sys.argv)>1 else Path(tempfile.gettempdir())/'sightvault_ingest_qa')
+WORK=Path(sys.argv[1] if len(sys.argv)>1 else Path(tempfile.gettempdir())/'sightvault_ingest_qa').resolve()
 if WORK.exists(): shutil.rmtree(WORK)
 os.environ['SIGHTVAULT_DATA']=str(WORK/'data')
 sys.path.insert(0,str(ROOT))
@@ -69,5 +69,5 @@ a=next(x for x in db.all() if x['folder']==str(one))
 out['minicpm_ocr_ingest']={'seconds':round(time.perf_counter()-t,1),'backend':a['ocr_backend'],'has_ModuleNotFoundError':'ModuleNotFoundError' in a['ocr_text'],'text_head':a['ocr_text'][:160],'errors':r['errors']}
 out['db_stats']=db.stats()
 print(json.dumps(out,indent=2))
-(ROOT/'qa'/'ingestion_qa.json').parent.mkdir(exist_ok=True)
-(ROOT/'qa'/'ingestion_qa.json').write_text(json.dumps(out,indent=2),encoding='utf8')
+(ROOT/'qa'/'mac_ingestion_qa.json').parent.mkdir(exist_ok=True)
+(ROOT/'qa'/'mac_ingestion_qa.json').write_text(json.dumps(out,indent=2),encoding='utf8')

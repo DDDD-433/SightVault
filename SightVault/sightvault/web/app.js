@@ -18,7 +18,7 @@ async function refreshStatus(){
     const data=await api('/api/status');
     $('asset-count').textContent=data.total.toLocaleString();$('nav-count').textContent=data.total;$('indexed-metric').textContent=data.total;
     const names={embedding:'EmbeddingGemma 2',ocr:'MiniCPM-OCR 1.0',vision:'MiniCPM-V 4.7 1B'};
-    $('model-status').innerHTML=Object.entries(data.models).map(([name,state])=>`<div><b>${names[name]}</b><br>${escapeHtml(state.loaded?`Loaded · ${state.device}`:state.available?'Downloaded · loads on demand':'Not downloaded')}${state.error?`<br>${escapeHtml(state.error.slice(0,120))}`:''}</div>`).join('');
+    $('model-status').innerHTML=Object.entries(data.models).map(([name,state])=>`<div><b>${names[name]}</b><br>${escapeHtml(state.loaded?`Loaded · ${state.device}`:state.available?'Downloaded · loads on demand':'Not downloaded')}${state.runtime?`<br>${escapeHtml(state.runtime+' · '+state.precision)}`:''}${state.error?`<br>${escapeHtml(state.error.slice(0,120))}`:''}</div>`).join('');
     $('model-status').innerHTML+=`<div>${data.with_embeddings} embeddings · ${data.with_ocr} OCR records</div>`;
     return data;
   }catch(error){notice('Could not reach the local app. '+error.message);}

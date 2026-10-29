@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "expected_corrupt_files": true,
+    "indexed_eight": true,
+    "direct_vectors": true,
+    "rerun_skips": true,
+    "rename_detected": true,
+    "cancel_resume": true,
+    "crash_recovery": true,
+    "preferred_ocr": true,
+    "marker_exact": true
+  },
+  "passed": true
+}

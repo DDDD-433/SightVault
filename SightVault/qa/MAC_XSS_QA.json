@@ -1,0 +1,15 @@
+{
+  "console_errors": [],
+  "failed_requests": [],
+  "http_errors": [],
+  "checks": {
+    "xss_card_escaped": {
+      "ok": true,
+      "detail": "QA marker ZX-447 1 <script>alert(1)</script>"
+    },
+    "xss_dialog_escaped": {
+      "ok": true,
+      "detail": null
+    }
+  }
+}

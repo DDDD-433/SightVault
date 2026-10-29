@@ -1,0 +1,53 @@
+{
+  "processes": [
+    {
+      "pid": 29801,
+      "rss_gib": 0.073822021484375
+    }
+  ],
+  "status": {
+    "total": 62,
+    "with_embeddings": 62,
+    "with_ocr": 61,
+    "folders": [
+      {
+        "folder": "/Users/ddddd-433/Documents/ChatGPT/vibathon-mac/SightVault/samples",
+        "count": 62
+      }
+    ],
+    "models": {
+      "embedding": {
+        "available": true,
+        "loaded": true,
+        "device": "mps",
+        "error": null,
+        "runtime": "PyTorch",
+        "precision": "float32"
+      },
+      "ocr": {
+        "available": true,
+        "loaded": false,
+        "device": null,
+        "error": null,
+        "runtime": "MLX",
+        "precision": "mixed affine 4-bit / BF16"
+      },
+      "vision": {
+        "available": true,
+        "loaded": true,
+        "device": "mlx (Metal GPU)",
+        "error": null,
+        "runtime": "MLX",
+        "precision": "mixed affine 4-bit / BF16"
+      }
+    },
+    "embedding_model": "EmbeddingGemma 2 \u00b7 768 dimensions",
+    "ocr_model": "MiniCPM-OCR 1.0 / RapidOCR",
+    "vision_model": "MiniCPM-V 4.7 1B",
+    "instance_root": "/Users/ddddd-433/Documents/ChatGPT/vibathon-mac/SightVault",
+    "local_only": true,
+    "cloud_api_calls": 0,
+    "demo_folder": "/Users/ddddd-433/Documents/ChatGPT/vibathon-mac/SightVault/samples",
+    "ocr_default": "auto"
+  }
+}

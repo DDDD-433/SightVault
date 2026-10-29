@@ -1,0 +1,3 @@
+Requested luna-max-standard is not an available selector in this Codex session. No paid substitute was silently selected. AGY help/models inspected; bounded read-only setup review ran using its listed GPT-OSS 120B (Medium). Review finished; incorrect stderr and subprocess environment findings were rejected against actual source. Orchestrator owns every edited file, environment, demo DB and heavy inference run.
+Cursor agent help/models inspected; model list blocked by authentication. No login or secret was changed.
+OpenCode model listing failed at startup creating its project SQLite table; global agent database left untouched.

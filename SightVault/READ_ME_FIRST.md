@@ -1,3 +1,7 @@
+# Mac migration completed
+
+This refreshed package includes the Mac migration. See `MAC_QA_REPORT.md` for actual results and `README.md` for setup and launch. Download pinned original weights and create local MLX conversions using the documented commands; weights and environments remain excluded. The Mac launcher defaults to port 7861. Original handoff instructions below describe the incoming Windows snapshot and are retained as history; the Mac report and README take precedence for this release.
+
 # SightVault: Windows to Mac handoff
 
 This is the current, QA-fixed project, with a consistent snapshot of the 62-image demo index. The Windows app has been exercised with real local models. This package has not been run on a Mac.

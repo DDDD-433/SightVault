@@ -1,6 +1,6 @@
 # Two-minute SightVault demo
 
-Before presenting, launch the app, run one search and one analysis to warm the models, then disconnect Wi-Fi. The demo collection should already show 62 indexed images.
+On this Mac, double-click `Start-SightVault.command` and open <http://127.0.0.1:7861/>. Before presenting, launch the app, run one search and one analysis to warm the models, then disconnect Wi-Fi. The demo collection should already show 62 indexed images.
 
 1. Choose **Visual meaning**. Search **GPU memory problem**. Open the CUDA screenshot. Point out that meaning-based retrieval found the actual image.
 2. Choose **Hybrid**. Search **Find ERESOLVE**. Show the OCR match badge and exact error text in the evidence panel.
@@ -13,4 +13,4 @@ Pitch: “I vaguely remember seeing a GPU error. SightVault finds the screenshot
 
 Optional: index your own small folder using RapidOCR, repeat the search, then re-index it to demonstrate safe duplicate skipping.
 
-> Before presenting: launch and run one search to warm the model (~12 s). After 'First occurrence', new searches automatically return to relevance order.
+> Before presenting: launch and run one search to warm the model (see MAC_QA_REPORT.md for this Mac’s measured timings). After 'First occurrence', new searches automatically return to relevance order.

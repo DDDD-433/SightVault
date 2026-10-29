@@ -4,25 +4,26 @@ A private, fully local visual memory for your computer.
 
 Index a folder of images, search by meaning or exact text, inspect the source, and ask a small vision model to explain it.
 
-## Run on this PC
+## Run on this Mac
 
-Double-click **Start-SightVault.cmd**, or open **http://127.0.0.1:7860** if the app is already running. The environment, three models and demo index have been prepared in this folder.
+Double-click **Start-SightVault.command** and open <http://127.0.0.1:7861/>. This extracted copy uses 7861 because another SightVault copy was already listening on 7860. Override with `SIGHTVAULT_PORT`. The launcher defaults to `SIGHTVAULT_DEVICE=auto`: direct EmbeddingGemma image/text inference uses PyTorch MPS in FP32, and MiniCPM OCR/analysis uses native MLX Metal with local mixed 4-bit weights. The generative models share one slot. CPU can be selected explicitly; it uses the original PyTorch weights.
 
-Enter an image folder and click **Index folder**. **Try the demo collection** indexes the included samples. Choose **RapidOCR** for faster bulk indexing, or leave **MiniCPM-OCR · auto fallback** selected for the preferred OCR model.
+## Reproduce setup
 
-## Setup on another machine
-
-Use Python 3.12 and allow about 15 GB free disk space for models and dependencies. NVIDIA CUDA is recommended; CPU inference is supported but slower. The source ZIP excludes the environment, downloaded weights and private index.
-
-```powershell
-python -m venv .venv
-.venv\Scripts\python.exe -m pip install torch==2.11.0 torchvision==0.26.0 --index-url https://download.pytorch.org/whl/cu128
-.venv\Scripts\python.exe -m pip install -r requirements.txt
-.venv\Scripts\python.exe scripts/download_models.py
-.venv\Scripts\python.exe app.py
+```bash
+bash Setup-Mac.sh
+.venv/bin/python handoff/download_pinned_models.py
+.venv/bin/python scripts/prepare_mac_models.py
+.venv/bin/python handoff/prepare_demo.py
+.venv/bin/python handoff/prepare_demo.py --apply
+bash Start-SightVault.command
 ```
 
-On Linux/macOS use `.venv/bin/python`; install the appropriate PyTorch build for your hardware instead of the CUDA command. Model downloads and installation need internet. The running app loads local files only.
+Use native ARM Python 3.12; setup can locate/install it through `uv`. Dependencies are pinned in `requirements-mac.lock.txt`; original Windows requirements are retained. Downloads require internet; runtime inference reads local files only. The downloader verifies exact baseline revisions and checksums. The MLX converter uses those verified weights, records sources, versions, quantization and output checksums in each checkpoint's `source.json`, and preserves vision and sensitive components at higher precision. “4-bit” describes selected layers, not the complete checkpoint.
+
+EmbeddingGemma stays FP32 because its activation range makes FP16 unsafe according to the model author. No unvalidated 8-bit embedding configuration is substituted. Direct image/text embeddings remain normalized 768-dimensional vectors, and the demo retains its existing vectors. See **MAC_QA_REPORT.md** for actual machine results, memory, tests and limitations. Windows evidence is historical under `handoff/history/windows-evidence/`.
+
+Windows launch/setup files remain available for their original environment.
 
 ## Models and storage
 
@@ -66,14 +67,14 @@ See **DEMO.md** for a two-minute walkthrough. There are 60 clearly marked synthe
 ## Limits and troubleshooting
 
 - Supported inputs: PNG, JPG, WebP, BMP, TIFF. Export PDFs/slides to images first. Limits: 30 MB, 40 megapixels per image; 2,000 images per indexing run.
-- File modified time is the default timestamp. EXIF capture dates are used only with an explicit timezone. Date filters use UTC; displayed timestamps use your browser's timezone. “First occurrence” means the earliest matching file in the index, not proven event history.
+- File modified time is the default timestamp. EXIF capture dates are used only with an explicit timezone. UI date filters and displayed timestamps use your browser's timezone. Plain date-only API filters use UTC days. “First occurrence” means the earliest matching file in the index, not proven event history.
 - OCR and model reasoning can make mistakes. Similarity scores are cosine values, not confidence percentages. All semantic searches return nearest candidates; an unrelated query may still have nearest images.
 - First model use takes longer. Subsequent searches reuse loaded models. MiniCPM generative models share a slot to reduce GPU memory pressure; switching OCR/reasoning may reload weights.
 - Windows uses PyTorch reference kernels for the small MiniCPM models. This is slower than optimized Linux kernels, but was tested on the RTX 4070.
 - A missing embedding model leaves text search available. A missing VLM leaves search available. A failed preferred OCR model can fall back to RapidOCR in auto mode. Status and warnings identify the active path.
 - If a file lacks an embedding, install the model and index its folder again. `--force` on the CLI refreshes existing inference. Set `SIGHTVAULT_DEVICE=cpu` for CPU-only execution.
-- If port 7860 is busy, run `python app.py --port 7861` and open that URL. The double-click launcher uses 7860.
-- The demo index was prepared with RapidOCR for speed. MiniCPM-OCR and MiniCPM-V were separately exercised on the CUDA example. The UI exposes the OCR backend on each evidence record.
+- If port 7860 is busy, run `python app.py --port 7861` and open that URL. The Mac double-click launcher defaults to 7861.
+- The demo index was prepared with RapidOCR for speed. MiniCPM-OCR and MiniCPM-V were separately exercised on the CUDA example. The UI exposes the OCR backend on each evidence record. Mac OCR and analysis measurements are recorded separately in MAC_QA_REPORT.md.
 
 Official model references: [EmbeddingGemma 2](https://huggingface.co/google/embeddinggemma-2), [MiniCPM-OCR](https://huggingface.co/openbmb/MiniCPM-OCR-1.0), [MiniCPM-V](https://huggingface.co/openbmb/MiniCPM-V-4.7-1B). Their model licenses apply to downloaded weights.
 

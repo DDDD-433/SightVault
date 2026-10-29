@@ -1,0 +1,47 @@
+{
+  "embedding": {
+    "repo": "google/embeddinggemma-2",
+    "revision": "f9972ac22e696a105c482202646979e33e4b5a1e",
+    "runtime": "PyTorch / SentenceTransformers",
+    "precision": "float32",
+    "reason": "Author explicitly prohibits FP16; no validated 8-bit direct-image path selected."
+  },
+  "minicpm-ocr": {
+    "repo": "openbmb/MiniCPM-OCR-1.0",
+    "revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+    "runtime": "mlx-vlm",
+    "runtime_version": "0.7.11",
+    "mlx_version": "0.32.4",
+    "quantization": {
+      "bits": 4,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "precision_note": "Mixed precision; runtime model predicate preserves vision, mergers and sensitive layers.",
+    "files": {
+      "model.safetensors": {
+        "bytes": 2157942509,
+        "sha256": "d87f333cfca410bb378ab449aaf45eb96dd7c32c10297745963938619455a055"
+      }
+    }
+  },
+  "minicpm-v": {
+    "repo": "openbmb/MiniCPM-V-4.7-1B",
+    "revision": "bb99eab4113676f30830ffa73bac1f0b2a5f1dea",
+    "runtime": "mlx-vlm",
+    "runtime_version": "0.7.11",
+    "mlx_version": "0.32.4",
+    "quantization": {
+      "bits": 4,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "precision_note": "Mixed precision; runtime model predicate preserves vision, mergers and sensitive layers.",
+    "files": {
+      "model.safetensors": {
+        "bytes": 2665920710,
+        "sha256": "fa64003068c92b9d3aec27ff4459b244cba7255e9becedf86cc8d848d7a8f028"
+      }
+    }
+  }
+}

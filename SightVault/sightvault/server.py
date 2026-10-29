@@ -64,7 +64,7 @@ def create_app(config=None, models=None):
     def status():
         return {**db.stats(), 'models':models.status(), 'embedding_model':'EmbeddingGemma 2 · 768 dimensions',
             'ocr_model':'MiniCPM-OCR 1.0 / RapidOCR', 'vision_model':'MiniCPM-V 4.7 1B',
-            'local_only':True,'cloud_api_calls':0,'demo_folder':str(config.root/'samples'), 'ocr_default':config.ocr}
+            'instance_root':str(config.root),'local_only':True,'cloud_api_calls':0,'demo_folder':str(config.root/'samples'), 'ocr_default':config.ocr}
 
     @app.get('/api/search')
     def find(q:str='',mode:str='hybrid',sort:str='relevance',top_k:int=5,start:str|None=None,end:str|None=None,folder:str|None=None,similar_id:int|None=None):

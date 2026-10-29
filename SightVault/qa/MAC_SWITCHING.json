@@ -1,0 +1,126 @@
+[
+  {
+    "kind": "ocr",
+    "seconds": 7.748042709001311,
+    "text": "torch.OutOfMemoryError: CUDA out of memory.",
+    "models": {
+      "embedding": {
+        "available": true,
+        "loaded": false,
+        "device": null,
+        "error": null,
+        "runtime": "PyTorch",
+        "precision": "float32"
+      },
+      "ocr": {
+        "available": true,
+        "loaded": true,
+        "device": "mlx (Metal GPU)",
+        "error": null,
+        "runtime": "MLX",
+        "precision": "mixed affine 4-bit / BF16"
+      },
+      "vision": {
+        "available": true,
+        "loaded": false,
+        "device": null,
+        "error": null,
+        "runtime": "MLX",
+        "precision": "mixed affine 4-bit / BF16"
+      }
+    }
+  },
+  {
+    "kind": "vision",
+    "seconds": 4.480996624999534,
+    "text": "The visible error is:  \n**`OutOfMemoryError: CUDA out of memory`**\n\nThis means the CUDA memory (CUDA) allocated for training exceeded available RAM, causing a system out-of-memory condition. Specifically:\n- 512.00 MiB was tried to be allocated.\n- GPU has 12.00 GiB total.\n- Of which 96.00 MiB is free; process holds 11.62 GiB.\n\nThe trace shows the error occurred in `loss.backward()` on line 87, likely during gradient computation. This typically happens when memory usage for tensors or buffers exceeds available GPU/CUDA memory.",
+    "models": {
+      "embedding": {
+        "available": true,
+        "loaded": false,
+        "device": null,
+        "error": null,
+        "runtime": "PyTorch",
+        "precision": "float32"
+      },
+      "ocr": {
+        "available": true,
+        "loaded": false,
+        "device": null,
+        "error": null,
+        "runtime": "MLX",
+        "precision": "mixed affine 4-bit / BF16"
+      },
+      "vision": {
+        "available": true,
+        "loaded": true,
+        "device": "mlx (Metal GPU)",
+        "error": null,
+        "runtime": "MLX",
+        "precision": "mixed affine 4-bit / BF16"
+      }
+    }
+  },
+  {
+    "kind": "ocr",
+    "seconds": 4.857701624998299,
+    "text": "torch.OutOfMemoryError: CUDA out of memory.",
+    "models": {
+      "embedding": {
+        "available": true,
+        "loaded": false,
+        "device": null,
+        "error": null,
+        "runtime": "PyTorch",
+        "precision": "float32"
+      },
+      "ocr": {
+        "available": true,
+        "loaded": true,
+        "device": "mlx (Metal GPU)",
+        "error": null,
+        "runtime": "MLX",
+        "precision": "mixed affine 4-bit / BF16"
+      },
+      "vision": {
+        "available": true,
+        "loaded": false,
+        "device": null,
+        "error": null,
+        "runtime": "MLX",
+        "precision": "mixed affine 4-bit / BF16"
+      }
+    }
+  },
+  {
+    "kind": "vision",
+    "seconds": 4.77289587499763,
+    "text": "The visible error is:  \n**`OutOfMemoryError: CUDA out of memory`**\n\nThis means the CUDA memory (CUDA) allocated for training exceeded available RAM, causing a system out-of-memory condition. Specifically:\n- 512.00 MiB was tried to be allocated.\n- GPU has 12.00 GiB total.\n- Of which 96.00 MiB is free; process holds 11.62 GiB.\n\nThe trace shows the error occurred in `loss.backward()` on line 87, likely during gradient computation. This typically happens when memory usage for tensors or buffers exceeds available GPU/CUDA memory.",
+    "models": {
+      "embedding": {
+        "available": true,
+        "loaded": false,
+        "device": null,
+        "error": null,
+        "runtime": "PyTorch",
+        "precision": "float32"
+      },
+      "ocr": {
+        "available": true,
+        "loaded": false,
+        "device": null,
+        "error": null,
+        "runtime": "MLX",
+        "precision": "mixed affine 4-bit / BF16"
+      },
+      "vision": {
+        "available": true,
+        "loaded": true,
+        "device": "mlx (Metal GPU)",
+        "error": null,
+        "runtime": "MLX",
+        "precision": "mixed affine 4-bit / BF16"
+      }
+    }
+  }
+]

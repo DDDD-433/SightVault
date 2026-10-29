@@ -1,0 +1,5 @@
+{
+  "csp": "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; frame-ancestors 'none'",
+  "method": "headed Playwright CLI default context, no CSP bypass; semantic query, evidence dialog and model analysis through native controls",
+  "bypass_csp": false
+}
