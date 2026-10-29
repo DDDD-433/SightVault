@@ -1,0 +1,184 @@
+{
+  "total_bytes": 7275820860,
+  "sources": {
+    "embeddinggemma-2": {
+      "repo": "google/embeddinggemma-2",
+      "revision": "f9972ac22e696a105c482202646979e33e4b5a1e"
+    },
+    "minicpm-ocr": {
+      "repo": "openbmb/MiniCPM-OCR-1.0",
+      "revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c"
+    },
+    "minicpm-v": {
+      "repo": "openbmb/MiniCPM-V-4.7-1B",
+      "revision": "bb99eab4113676f30830ffa73bac1f0b2a5f1dea"
+    }
+  },
+  "files": [
+    {
+      "path": ".models/embeddinggemma-2/1_Pooling/config.json",
+      "size": 90,
+      "sha256": "8759bdf7c77efc7df7723f64856a593c8943b71ee38baf2a88771fbaf78438f9"
+    },
+    {
+      "path": ".models/embeddinggemma-2/2_Normalize/config.json",
+      "size": 97,
+      "sha256": "cdb09dfca347a56aa2d691744e38d5ad3c7cbc2834e7181272b9a15328b82524"
+    },
+    {
+      "path": ".models/embeddinggemma-2/chat_template.jinja",
+      "size": 1016,
+      "sha256": "4b852efc0b9960283e735363331e6f325b33bc74bdbaa076f595bc4e9b94d85e"
+    },
+    {
+      "path": ".models/embeddinggemma-2/config.json",
+      "size": 4455,
+      "sha256": "b8f1e9931b57fbc054acdb445c41765d55b0074c58d145fa82839941ad1b5bb3"
+    },
+    {
+      "path": ".models/embeddinggemma-2/config_sentence_transformers.json",
+      "size": 1565,
+      "sha256": "031e56a498d33c349ab489a21885bcfe25b4fcba841149dc99e1e90d4a7c28f5"
+    },
+    {
+      "path": ".models/embeddinggemma-2/model.safetensors",
+      "size": 1488915288,
+      "sha256": "197a32965d4b1105faf060417baa899e193fb73cd401f42ec9295234d5553d79"
+    },
+    {
+      "path": ".models/embeddinggemma-2/modules.json",
+      "size": 413,
+      "sha256": "3d02572a0455b832de67fb8e63a54981bc7e8b46e337c95e917bd8122a533bfd"
+    },
+    {
+      "path": ".models/embeddinggemma-2/preprocessor_config.json",
+      "size": 511,
+      "sha256": "ea2ae257e901064abdd98dceb19f2b0da06af600bed15e0f99f5c85c37ee9d78"
+    },
+    {
+      "path": ".models/embeddinggemma-2/processor_config.json",
+      "size": 1788,
+      "sha256": "168f6a08522f3ce5dea596d94d003af2fd691742d4f41fe1f9d8cce76bfbf69c"
+    },
+    {
+      "path": ".models/embeddinggemma-2/sentence_bert_config.json",
+      "size": 747,
+      "sha256": "b1bcd9f2dce3ae863b359e87d0710b5dbc3314a59ecb4e2f97c7778fc8e4b228"
+    },
+    {
+      "path": ".models/embeddinggemma-2/source.json",
+      "size": 97,
+      "sha256": "26b088f3f1acddb10b8eee7cb6b96d4cf46a318785d8c110f678613cad1c66d5"
+    },
+    {
+      "path": ".models/embeddinggemma-2/tokenizer.json",
+      "size": 32170510,
+      "sha256": "4d777ef5bdc1aa36227abdfb77c3e49e7b9c892d16e1b6bda41c393504828be4"
+    },
+    {
+      "path": ".models/embeddinggemma-2/tokenizer.model",
+      "size": 4689013,
+      "sha256": "e594c8a90eb08d8bda498ff4747977dc827ae0c3c56b5c0d41a605a22d02ef03"
+    },
+    {
+      "path": ".models/embeddinggemma-2/tokenizer_config.json",
+      "size": 1599,
+      "sha256": "17bd5d6e9364ca49a534e1502076593317c298d4a663623091ed45388f004874"
+    },
+    {
+      "path": ".models/minicpm-ocr/chat_template.jinja",
+      "size": 7344,
+      "sha256": "c6a5f1387c6baa0befecc39e36f293e44baba865a9c7809ac93fae1604b2c210"
+    },
+    {
+      "path": ".models/minicpm-ocr/config.json",
+      "size": 2275,
+      "sha256": "762025491b206967a3c29c3e36ff2cccd8af6a8c750360b61dc91882b573f759"
+    },
+    {
+      "path": ".models/minicpm-ocr/generation_config.json",
+      "size": 133,
+      "sha256": "7cecf81e246f8db6bcc4c14f22313dd7decf2d6a70dd1b45c4d237a2e6927405"
+    },
+    {
+      "path": ".models/minicpm-ocr/model.safetensors",
+      "size": 2600969816,
+      "sha256": "83f4e433b044fd23f9ea7eb3acbc7d59e4fe11a1fdf3c3129b7021d0ab4f8fd4"
+    },
+    {
+      "path": ".models/minicpm-ocr/preprocessor_config.json",
+      "size": 340,
+      "sha256": "7b46cf09f350fa1cd3bfd4d20fe8b8532e76dcc5d892a0052660f803c8ad532b"
+    },
+    {
+      "path": ".models/minicpm-ocr/processor_config.json",
+      "size": 46,
+      "sha256": "b71fbc3e22a7dbe04622e1a2641e8553375bc1434875ac438066c58a88b974b1"
+    },
+    {
+      "path": ".models/minicpm-ocr/source.json",
+      "size": 88,
+      "sha256": "fc83ece1f672e98b847e02a7f94b20beeaabbba2fca279f43b9164cc8ae78d42"
+    },
+    {
+      "path": ".models/minicpm-ocr/tokenizer.json",
+      "size": 19993565,
+      "sha256": "6269eb38f25c20c0f2ba676577f2e5603f79eab3be573dfdaa727ca6eeb5522d"
+    },
+    {
+      "path": ".models/minicpm-ocr/tokenizer_config.json",
+      "size": 1463,
+      "sha256": "74f51078120066292803d9dfe5437f67b778c5ef6d16eb04dbc6a3f7a13e5826"
+    },
+    {
+      "path": ".models/minicpm-v/chat_template.jinja",
+      "size": 7249,
+      "sha256": "49c37bcc86c7f7f20ed2ebf79e9f872be41ba2b5f9d0d51e6712cc038ef51d6c"
+    },
+    {
+      "path": ".models/minicpm-v/config.json",
+      "size": 2575,
+      "sha256": "20ed1fe71b174719b88ed1ce37c840ec45e3657f1120391d45f33505be7638a4"
+    },
+    {
+      "path": ".models/minicpm-v/generation_config.json",
+      "size": 132,
+      "sha256": "4dc190baaab3bc4bccb796ee73deb2c3dd776cd4feae3587b29bc22083e03415"
+    },
+    {
+      "path": ".models/minicpm-v/model.safetensors",
+      "size": 3109054480,
+      "sha256": "8c4921ac83182c85190ad10c3aeb118d51e385d2d98ec13b88b514bbf6cac002"
+    },
+    {
+      "path": ".models/minicpm-v/preprocessor_config.json",
+      "size": 148,
+      "sha256": "c64289d04f36e48d9d059e3a0069f54062b2ef6044a807adb448b98449cb54de"
+    },
+    {
+      "path": ".models/minicpm-v/processor_config.json",
+      "size": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": ".models/minicpm-v/source.json",
+      "size": 98,
+      "sha256": "f2fe2eec188c2bc2a033e15e73e61b79def80e62739583e7f3b33a53d32bbdf8"
+    },
+    {
+      "path": ".models/minicpm-v/tokenizer.json",
+      "size": 19992481,
+      "sha256": "33861e37bb955af1e3f3061182b820f347eba2b9c2c1011c82794bf0d6e77b54"
+    },
+    {
+      "path": ".models/minicpm-v/tokenizer_config.json",
+      "size": 1436,
+      "sha256": "900ecc6ba690a07270dc23935d17bbb7d2ed69a073a90a9cf731e5313e86ebba"
+    }
+  ],
+  "source_json_bytes": {
+    "embeddinggemma-2": "{\n  \"repo\": \"google/embeddinggemma-2\",\n  \"revision\": \"f9972ac22e696a105c482202646979e33e4b5a1e\"\n}",
+    "minicpm-ocr": "{\"repo\":\"openbmb/MiniCPM-OCR-1.0\",\"revision\":\"c5833cddb363aa62f1cb60ddde48c832e8f1a92c\"}",
+    "minicpm-v": "{\n  \"repo\": \"openbmb/MiniCPM-V-4.7-1B\",\n  \"revision\": \"bb99eab4113676f30830ffa73bac1f0b2a5f1dea\"\n}"
+  }
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "bridge_photo.png",
+    "url": "https://raw.githubusercontent.com/google-gemma/cookbook/refs/heads/main/apps/sample-data/GoldenGate.png"
+  },
+  {
+    "name": "kitchen_photo.jpg",
+    "url": "https://raw.githubusercontent.com/google-gemma/cookbook/refs/heads/main/apps/sample-data/kitchen_painting.jpg"
+  }
+]

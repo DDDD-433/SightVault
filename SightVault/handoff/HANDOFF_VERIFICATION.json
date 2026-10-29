@@ -1,0 +1,25 @@
+{
+  "created_at_utc": "2026-10-29T22:32:01.495800+00:00",
+  "host_platform": "win32",
+  "checks": {
+    "python_helper_syntax": "pass",
+    "manifest_path_containment": "pass",
+    "demo_dry_run_does_not_modify_database": "pass",
+    "demo_rebase_all_62_paths": "pass",
+    "demo_rebase_preserves_vectors_ocr_and_timeline": "pass",
+    "pre_rebase_sqlite_backup_matches_snapshot": "pass",
+    "demo_mtime_restore": "pass",
+    "demo_rebase_second_dry_run_idempotent": "pass",
+    "changed_sample_refused_without_database_write": "pass",
+    "packaged_project_non_http_regression_subset": "...................................                                      [100%]\n35 passed, 4 deselected in 16.06s",
+    "full_regression_suite": "Attempted; TestClient stalled in restricted host and run was interrupted. Historical Windows 39/39 is not a new packaging-time pass. Re-run full suite on Mac.",
+    "test_temp_directory_note": "Initial default Windows sandbox TEMP was unwritable; explicit disposable workspace --basetemp used for subsequent run.",
+    "powershell_transfer_script_syntax": "pass (copy to physical drive not executed)",
+    "mac_setup_and_launcher": "not executed: host is Windows; shell scripts require real Mac verification",
+    "mac_real_model_inference": "not executed: host is Windows",
+    "mac_shell_syntax_attempt": "Blocked by Windows MSYS sandbox named-object permissions; shell syntax and execution remain for actual Mac QA."
+  },
+  "live_windows_code_modified": false,
+  "live_windows_database_modified": false,
+  "mac_execution_tested": false
+}

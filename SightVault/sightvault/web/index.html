@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0c0f14"><title>SightVault — your visual memory</title><link rel="icon" href="/static/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/static/style.css"><script defer src="/static/app.js"></script></head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="/"><img src="/static/icon.svg" alt="" width="34" height="34"><span>SightVault<span class="brand-dot">.</span></span></a>
+  <div class="workspace-label">YOUR WORKSPACE <span>LOCAL</span></div>
+  <nav aria-label="Views"><button class="nav-item active" id="memory-nav"><span class="nav-icon">▦</span> Visual memory <span id="nav-count" class="count">0</span></button><button class="nav-item" id="timeline-nav"><span class="nav-icon">◷</span> Timeline</button></nav>
+  <div class="side-rule"></div>
+  <div class="section-label">ADD TO YOUR MEMORY</div>
+  <label for="folder" class="field-label">Image folder</label>
+  <div class="folder-field"><span>▱</span><input id="folder" placeholder="C:\Pictures\Screenshots" autocomplete="off"></div>
+  <label class="field-label" for="ocr-backend">Text extraction</label>
+  <select id="ocr-backend"><option value="auto">MiniCPM-OCR · auto fallback</option><option value="rapid">RapidOCR · faster indexing</option><option value="minicpm">MiniCPM-OCR only</option><option value="off">Skip OCR</option></select>
+  <button id="index-button" class="button primary full"><span>＋</span> Index folder</button>
+  <button id="demo-button" class="button quiet full">Try the demo collection <span>↗</span></button>
+  <p class="side-hint">PNG, JPG, WebP, BMP and TIFF.<br>Only the folder you choose is indexed.</p>
+  <div id="job-panel" class="job-panel" hidden role="status"><div class="job-heading"><strong id="job-title">Indexing</strong><button id="cancel-job" class="text-button">Stop</button></div><progress id="job-progress" value="0" max="100"></progress><div id="job-current"></div><p id="job-detail"></p></div>
+  <div class="side-bottom"><div class="privacy-title"><span class="status-dot"></span> Your files stay here</div><p>Local models. Local storage.<br>No cloud inference. No screen capture.</p><details><summary>Model status</summary><div id="model-status"></div></details><div class="version">SIGHTVAULT <span>v1.0 / LOCAL EDITION</span></div></div>
+</aside>
+<main>
+  <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <b id="view-label">Visual memory</b></div><div class="local-pill"><span class="status-dot"></span> Runs on your computer</div></header>
+  <section class="content">
+    <div class="intro"><div><div class="eyebrow">LESS SEARCHING. MORE REMEMBERING.</div><h1>It's here. <span>Somewhere.</span></h1><p>Find what you remember seeing. Let the evidence do the talking.</p></div><div class="memory-count"><strong id="asset-count">0</strong><span>memories indexed</span></div></div>
+    <form id="search-form" class="search-shell"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><label class="sr-only" for="query">Search your visual memory</label><input id="query" placeholder="Find the screenshot where my GPU ran out of memory…" autocomplete="off"><kbd>/</kbd><button class="button primary" id="search-button" type="submit">Search <span>↵</span></button></form>
+    <div class="suggestions"><span>TRY</span><button data-query="Find the screenshot where my GPU ran out of memory">GPU memory error <span>↗</span></button><button data-query="Find ERESOLVE">ERESOLVE <span>↗</span></button><button data-query="Show slides about databases">Database slides <span>↗</span></button><button data-query="Find the image with a red backpack">A red backpack <span>↗</span></button></div>
+    <div class="filter-row"><div class="segments" role="group" aria-label="Search mode"><button class="selected" data-mode="hybrid">Hybrid</button><button data-mode="semantic">Visual meaning</button><button data-mode="exact">Exact text</button></div><div class="date-filters"><label>From <input type="date" id="date-start"></label><label>To <input type="date" id="date-end"></label><button id="clear-filters" class="text-button" title="Clear dates">Clear</button></div></div>
+    <div id="notice" class="notice" hidden role="status"></div>
+    <div class="results-header"><div><h2 id="results-title">Your collection</h2><span id="results-meta">A little context, always within reach.</span></div><div class="results-actions"><button id="first-button" class="button small" disabled>◷ First occurrence</button><label class="sr-only" for="sort">Sort results</label><select id="sort"><option value="relevance">Best match</option><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select></div></div>
+    <div id="temporal-note" class="temporal-note" hidden></div>
+    <div id="results" class="results" aria-live="polite"></div>
+    <div class="more-row"><button id="more-results" class="button small" hidden>Show more results</button></div>
+    <div id="empty" class="empty"><div class="empty-graphic"><span>▧</span><span>▤</span><span>▥</span></div><h3>Make room for a better memory.</h3><p>Add a folder of screenshots, slides or photos.<br>Or explore a collection made for the demo.</p><button id="empty-demo" class="button primary">Explore the demo <span>↗</span></button></div>
+    <footer class="metrics"><span><i class="status-dot"></i> <b id="indexed-metric">0</b> images</span><span><b id="latency-metric">—</b> retrieval</span><span>EmbeddingGemma 2 <span class="muted">/ 768d</span></span><span><b>0</b> cloud API calls</span></footer>
+  </section>
+</main>
+<dialog id="detail-dialog"><div class="detail-top"><div><span class="eyebrow">SOURCE EVIDENCE</span><h2 id="detail-title"></h2></div><button id="close-detail" class="icon-button" aria-label="Close evidence">✕</button></div><div class="detail-layout"><div class="evidence-column"><a id="image-link" target="_blank" rel="noopener"><img id="detail-image" alt="Selected indexed image"></a><div id="detail-meta" class="detail-meta"></div><div class="detail-tools"><button id="similar-button" class="button small">Find similar images</button><button id="copy-ocr" class="button small">Copy OCR text</button></div><details open><summary>Extracted text <span id="ocr-label"></span></summary><pre id="detail-ocr"></pre></details></div><div class="analysis-column"><div class="analysis-label"><span class="spark">✧</span> Ask about this image <span class="local-tag">LOCAL</span></div><p class="analysis-description">MiniCPM-V reads this image when you ask. Answers stay attached to their source.</p><label for="question" class="field-label">Your question</label><textarea id="question" rows="3">What is visible here, and what probably caused it?</textarea><button id="analyze-button" class="button primary full">Analyze with MiniCPM-V <span>↗</span></button><div id="analysis-result" class="analysis-result" aria-live="polite"><div class="analysis-placeholder">The image comes first.<br>The explanation comes next.</div></div><p class="analysis-footnote">Model explanations can be wrong. Check them against the screenshot and extracted text.</p></div></div></dialog>
+<div id="toast" class="toast" hidden role="status"></div>
+</body></html>

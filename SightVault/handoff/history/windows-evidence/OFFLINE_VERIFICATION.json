@@ -1,0 +1,22 @@
+{
+  "outbound_network_connections_blocked": true,
+  "loopback_allowed_for_local_runtime": true,
+  "device": "NVIDIA GeForce RTX 4070",
+  "semantic_search": {
+    "top_result": "terminal_cuda_02.png",
+    "latency_ms": 9309.7
+  },
+  "ocr": {
+    "text": "training.py \u2014 Python\n$ python train.py --batch-size 64\nEpoch 1/10 | training on cuda:0\nTraceback (most recent call last):\n  File \"train.py\", line 87, in train\n  lossbackward()\n  torch.OutOfMemoryError: CUDA out of memory.\n  Tried to allocate 512.00 MiB. GPU 0 has 12.00 GiB total.\n  Of which 96.00 MiB is free. Process holds 11.62 GiB.\n  Batch size: 64. Sequence length: 4096.\nSession 01 - developer workstation\nSYNTHETIC DEMO / no personal information",
+    "backend": "MiniCPM-OCR 1.0",
+    "error": null,
+    "seconds": 21.02
+  },
+  "analysis": {
+    "answer": "The error shows CUDA out of memory. The code allocates 512 MiB but GPU has only 12 GiB total. Likely, memory allocation exceeded available GPU RAM. No other evidence suggests causation.",
+    "seconds": 11.57
+  },
+  "peak_gpu_allocated_gib": 3.99,
+  "process_ram_gib": 1.51,
+  "passed": true
+}

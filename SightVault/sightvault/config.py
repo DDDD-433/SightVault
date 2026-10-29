@@ -1,0 +1,25 @@
+from dataclasses import dataclass
+from pathlib import Path
+import os
+
+ROOT = Path(__file__).resolve().parent.parent
+
+@dataclass
+class Config:
+    root: Path = ROOT
+    data: Path = Path(os.environ.get("SIGHTVAULT_DATA", str(ROOT / "data")))
+    models: Path = Path(os.environ.get("SIGHTVAULT_MODELS", str(ROOT / ".models")))
+    device: str = os.environ.get("SIGHTVAULT_DEVICE", "auto")
+    ocr: str = os.environ.get("SIGHTVAULT_OCR", "auto")
+    max_pixels: int = 40_000_000
+    max_file_bytes: int = 30 * 1024 * 1024
+    max_files: int = 2000
+
+    def prepare(self):
+        for directory in [self.data, self.data / "images", self.data / "thumbs"]:
+            directory.mkdir(parents=True, exist_ok=True)
+
+    @property
+    def db_path(self):
+        return self.data / "sightvault.sqlite3"
+

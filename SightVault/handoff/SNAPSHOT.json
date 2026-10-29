@@ -1,0 +1,10 @@
+{
+  "created_at_utc": "2026-10-29T22:24:33.654962+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "source": "C:\\Users\\digvi\\OneDrive\\Documents\\ChatGPT\\Vibathon 2",
+  "demo_assets": 62,
+  "demo_vectors": 62,
+  "models_bytes": 7275820860,
+  "mac_execution_tested": false,
+  "snapshot_method": "SQLite online backup + validated sample hashes + copied image evidence"
+}
