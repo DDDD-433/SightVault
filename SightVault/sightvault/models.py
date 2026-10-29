@@ -173,10 +173,16 @@ class Models:
             self._clear_device_cache()
             with torch.inference_mode():
                 value = model.encode(inputs, **kwargs)
+        value = np.asarray(value, dtype=np.float32)
         if not np.isfinite(value).all():
             raise ModelUnavailable('EmbeddingGemma returned non-finite embeddings; use bfloat16 or float32.')
-        value = np.asarray(value, dtype=np.float32)
-        return value / np.maximum(np.linalg.norm(value, axis=-1, keepdims=True), 1e-8)
+        norms = np.linalg.norm(value, axis=-1, keepdims=True)
+        if not np.isfinite(norms).all() or (norms < 1e-8).any():
+            raise ModelUnavailable('EmbeddingGemma returned an invalid or zero-norm embedding.')
+        if self.active.get('embedding') != 'cpu (backend fallback)':
+            self.active['embedding'] = str(getattr(model, 'device', 'cpu'))
+            self.errors.pop('embedding', None)
+        return value / norms
 
     def _load_generative(self, kind):
         attribute = '_ocr' if kind == 'ocr' else '_vlm'

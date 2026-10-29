@@ -1,0 +1,16 @@
+{
+  "cli_version": "2.1.312",
+  "requested_parent_model": "claude-opus-5-5",
+  "requested_parent_effort": "high",
+  "requested_subagent_model": "claude-sonnet-5-5",
+  "requested_subagent_effort": "xhigh",
+  "requested_subagent_count": 1,
+  "executed_parent_turns": 0,
+  "executed_subagents": 0,
+  "auth_method_observed": "api_key",
+  "api_error_status": 400,
+  "api_error": "Credit balance is too low",
+  "required_action": "Sign in with the subscription using claude auth login --claudeai; no claim that subscription itself lacks funds.",
+  "definitions": "qa/independent-review/claude-agents.json",
+  "task": "qa/independent-review/OPUS_TASK.md"
+}

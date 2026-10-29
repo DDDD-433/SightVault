@@ -74,6 +74,9 @@ class Database:
             return db.execute('SELECT id FROM assets WHERE filepath=?', (record['filepath'],)).fetchone()[0]
 
     def get(self, asset_id):
+        # SQLite INTEGER bindings are signed 64-bit; larger IDs cannot exist.
+        if not -(2**63) <= asset_id < 2**63:
+            return None
         with self.connect() as db:
             row = db.execute('SELECT * FROM assets WHERE id=?', (asset_id,)).fetchone()
             return dict(row) if row else None

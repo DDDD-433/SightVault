@@ -28,7 +28,7 @@ def date_bounds(start, end):
         try:
             low = _instant(start) if start else None
             high = _instant(end) if end else None
-        except ValueError as exc:
+        except (ValueError, OverflowError) as exc:
             raise ValueError('Dates must use YYYY-MM-DD or an ISO date-time with an offset.') from exc
         if low and high and low >= high:
             raise ValueError('The end date must be on or after the start date.')
@@ -36,7 +36,7 @@ def date_bounds(start, end):
     try:
         low = date.fromisoformat(start).isoformat()+'T00:00:00+00:00' if start else None
         high = (date.fromisoformat(end)+timedelta(days=1)).isoformat()+'T00:00:00+00:00' if end else None
-    except ValueError as exc:
+    except (ValueError, OverflowError) as exc:
         raise ValueError('Dates must use YYYY-MM-DD.') from exc
     if low and high and low >= high:
         raise ValueError('The end date must be on or after the start date.')
@@ -58,7 +58,7 @@ class Search:
         source = None
         if similar_id is not None:
             source = self.db.get(similar_id)
-            if not source or not source['embedding']:
+            if not source or not source['embedding'] or source['embedding_model'] != EMBEDDING_ID:
                 raise ValueError('This image has no semantic embedding. Re-index after installing the model.')
             qvec = decode_vector(source['embedding'])
         elif query and mode != 'exact' and any(row['embedding'] for row in rows):
