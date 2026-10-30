@@ -1,0 +1,122 @@
+[
+  {
+    "id": "00_hook",
+    "kind": "card",
+    "title": "You remember the image.",
+    "subtitle": "You don't remember the filename.",
+    "cue": "SightVault \u00b7 Private visual memory",
+    "min_seconds": 12,
+    "narration": "You remember seeing the image, but not what you named it. Maybe it was an error, a lecture slide, or a receipt. SightVault turns that vague memory into a search.",
+    "audio_seconds": 9.925,
+    "duration": 12,
+    "start": 0
+  },
+  {
+    "id": "01_home",
+    "kind": "screen",
+    "title": "A useful memory for your images",
+    "subtitle": "Choose a folder. Search what you remember.",
+    "cue": "A working local prototype \u00b7 62-image demo collection",
+    "min_seconds": 13,
+    "narration": "SightVault is a private visual memory for your computer. Choose an image folder, and it builds a searchable local collection. Here, we are using sixty two sample images to show the complete workflow.",
+    "audio_seconds": 12.925,
+    "duration": 14.73,
+    "start": 12
+  },
+  {
+    "id": "02_semantic",
+    "kind": "screen",
+    "title": "01 / Find it by meaning",
+    "subtitle": "\u201cGPU memory problem\u201d \u2192 the actual screenshot",
+    "cue": "Visual meaning \u00b7 Direct image and text embeddings",
+    "min_seconds": 18,
+    "narration": "I remember a graphics card memory problem, so I search for GPU memory problem. Visual meaning finds the actual error screenshot, even though those exact words are not the text on screen. Images go directly into the embedding model.",
+    "audio_seconds": 15.45,
+    "duration": 18,
+    "start": 26.73
+  },
+  {
+    "id": "03_exact",
+    "kind": "screen",
+    "title": "02 / Recover the exact evidence",
+    "subtitle": "Search an error code. Inspect the original image and OCR.",
+    "cue": "Hybrid retrieval \u00b7 OCR text stays attached to its source",
+    "min_seconds": 16,
+    "narration": "When I remember an exact detail, I can search for E resolve. Hybrid search combines visual meaning with extracted text. Opening the result shows the source image and its OCR transcription, so I can check the evidence instead of trusting a generated summary.",
+    "audio_seconds": 17.05,
+    "duration": 18.85,
+    "start": 44.73
+  },
+  {
+    "id": "04_timeline",
+    "kind": "screen",
+    "title": "03 / Find the earliest indexed match",
+    "subtitle": "File chronology, with a clear source timestamp",
+    "cue": "Demo screenshot dates are synthetic \u00b7 Not proven event history",
+    "min_seconds": 16,
+    "narration": "Next, I search for the CUDA memory error and choose First occurrence. SightVault finds the earliest matching file across the index. These demo screenshot dates are synthetic. This is file chronology, not a claim about when the real event happened.",
+    "audio_seconds": 16.4,
+    "duration": 18.2,
+    "start": 63.58
+  },
+  {
+    "id": "05_analysis",
+    "kind": "screen",
+    "title": "04 / Ask about what is visible",
+    "subtitle": "Local image reasoning, beside the source evidence",
+    "cue": "MiniCPM-V \u00b7 Visible facts and likely explanations stay distinct",
+    "min_seconds": 22,
+    "narration": "Now I ask what probably caused the error. A local vision model reads the image on demand. Its answer stays beside the screenshot and source reference. It identifies the visible memory shortage and offers a likely explanation, while making clear that a hypothesis is not a proven cause.",
+    "audio_seconds": 18.75,
+    "duration": 22,
+    "start": 81.78
+  },
+  {
+    "id": "06_visual",
+    "kind": "screen",
+    "title": "05 / Search beyond readable text",
+    "subtitle": "Find a red backpack, even without a text label",
+    "cue": "Direct visual retrieval \u00b7 Red versus blue object discrimination",
+    "min_seconds": 15,
+    "narration": "This is not limited to screenshots with text. Searching for a red backpack finds the illustration itself, with the blue backpack as a nearby alternative. That is direct visual retrieval, rather than a database of generated captions.",
+    "audio_seconds": 15.05,
+    "duration": 16.85,
+    "start": 103.78
+  },
+  {
+    "id": "07_private",
+    "kind": "screen",
+    "title": "Your collection stays on your computer",
+    "subtitle": "Local models. Local storage. Inspectable evidence.",
+    "cue": "EmbeddingGemma 2 \u00b7 MiniCPM-OCR 1.0 \u00b7 MiniCPM-V 4.7 1B",
+    "min_seconds": 17,
+    "narration": "The prototype runs on this Mac. Embedding Gemma creates the image and query vectors. Mini C P M handles OCR and image analysis, with a labeled local OCR fallback. After setup, inference uses local model files, with no cloud model calls.",
+    "audio_seconds": 17.8,
+    "duration": 19.6,
+    "start": 120.63
+  },
+  {
+    "id": "08_progress",
+    "kind": "card",
+    "title": "Built. Tested. Demonstrated.",
+    "subtitle": "A native Apple Silicon prototype with real model inference",
+    "cue": "123 tests passed \u00b7 17/17 retrieval cases \u00b7 30 browser checks",
+    "min_seconds": 15,
+    "narration": "We have a working native Mac prototype, not just a mockup. Validation includes one hundred twenty three passing tests, seventeen successful demo retrieval cases, browser checks, and real model recovery tests. The demo you have seen uses the running app.",
+    "audio_seconds": 16.875,
+    "duration": 18.68,
+    "start": 140.23
+  },
+  {
+    "id": "09_close",
+    "kind": "card",
+    "title": "Less searching. More remembering.",
+    "subtitle": "SightVault",
+    "cue": "Next: PDF imports \u00b7 Smarter collections \u00b7 Faster bulk indexing",
+    "min_seconds": 17,
+    "narration": "Our next steps are simpler document imports, smarter collections, and faster bulk indexing. For students, developers, and anyone with a growing screenshot folder, SightVault makes saved images useful again. Remember what you saw. Find the evidence. Keep it local.",
+    "audio_seconds": 17.275,
+    "duration": 19.07,
+    "start": 158.91
+  }
+]

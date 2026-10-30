@@ -1,0 +1,13 @@
+audio/
+raw/
+clips/
+art/
+*.png
+*.jpg
+*.wav
+*.log
+clips.ffconcat
+recording.json
+edit_timeline.json
+asr-transcript.json
+audio-loudness.json
