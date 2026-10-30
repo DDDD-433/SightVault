@@ -42,5 +42,10 @@ print('MPS availability is not proof that the three models run on MPS.')
 PY
 echo "Setup complete. Download pinned weights with: .venv/bin/python handoff/download_pinned_models.py"
 echo "For Apple Silicon quantization: .venv/bin/python scripts/prepare_mac_models.py"
-echo "Next: .venv/bin/python handoff/prepare_demo.py --apply"
+if [[ -f data/sightvault.sqlite3 ]]; then
+  echo "For a prepared demo: stop the app, dry-run handoff/prepare_demo.py, then use --apply to relocate it."
+else
+  echo "This checkout starts with an empty index. Launch the app and choose an image folder."
+  echo "For the dated 62-image demo, use the source/demo ZIP from the GitHub Mac preview release."
+fi
 echo "Then: bash Start-SightVault.command"

@@ -1,87 +1,83 @@
 # SightVault
 
-A private, fully local visual memory for your computer.
+A local visual-memory app for screenshots, documents and photos. Search by meaning or exact text, inspect the source image and timestamp, and ask a local vision model about the evidence.
 
-Index a folder of images, search by meaning or exact text, inspect the source, and ask a small vision model to explain it.
+See the [repository overview](https://github.com/DDDD-433/SightVault#readme) for screenshots and features.
 
-## Run on this Mac
+## Mac setup
 
-Double-click **Start-SightVault.command** and open <http://127.0.0.1:7861/>. This extracted copy uses 7861 because another SightVault copy was already listening on 7860. Override with `SIGHTVAULT_PORT`. The launcher defaults to `SIGHTVAULT_DEVICE=auto`: direct EmbeddingGemma image/text inference uses PyTorch MPS in FP32, and MiniCPM OCR/analysis uses native MLX Metal with local mixed 4-bit weights. The generative models share one slot. CPU can be selected explicitly; it uses the original PyTorch weights.
+Use native Python 3.12 on Apple Silicon. `Setup-Mac.sh` can locate or install it through `uv` if `uv` is already available.
 
-## Reproduce setup
+From this directory:
 
 ```bash
 bash Setup-Mac.sh
 .venv/bin/python handoff/download_pinned_models.py
 .venv/bin/python scripts/prepare_mac_models.py
+bash Start-SightVault.command
+```
+
+Open **http://127.0.0.1:7861/**. Select an image folder and click **Index folder**. A fresh Git checkout creates an empty database on first launch. Downloaded model weights, virtual environments and local indexes are not committed.
+
+The launcher defaults to `SIGHTVAULT_DEVICE=auto`. On the validated Apple Silicon setup, EmbeddingGemma uses FP32/MPS and the MiniCPM models use local MLX Metal conversions. OCR and vision generation share one slot. Set `SIGHTVAULT_DEVICE=cpu` to use the original PyTorch weights; CPU embedding was verified, while full CPU OCR/VLM performance was not requalified in the Mac QA run.
+
+To change the launcher port:
+
+```bash
+SIGHTVAULT_PORT=7862 bash Start-SightVault.command
+```
+
+## Prepared demo
+
+Download `SightVault_Source_Demo.zip` from the [Mac preview release](https://github.com/DDDD-433/SightVault/releases/tag/v0.1.0-mac-preview) and extract it. In that extracted `SightVault` directory, install dependencies and models as above, then run the relocation helper **before starting the app**:
+
+```bash
 .venv/bin/python handoff/prepare_demo.py
 .venv/bin/python handoff/prepare_demo.py --apply
 bash Start-SightVault.command
 ```
 
-Use native ARM Python 3.12; setup can locate/install it through `uv`. Dependencies are pinned in `requirements-mac.lock.txt`; original Windows requirements are retained. Downloads require internet; runtime inference reads local files only. The downloader verifies exact baseline revisions and checksums. The MLX converter uses those verified weights, records sources, versions, quantization and output checksums in each checkpoint's `source.json`, and preserves vision and sensitive components at higher precision. “4-bit” describes selected layers, not the complete checkpoint.
+The first command is a dry run. The second validates the known demo files, backs up its database, rebases source paths and restores sample dates. It preserves indexed timestamps, OCR and vectors.
 
-EmbeddingGemma stays FP32 because its activation range makes FP16 unsafe according to the model author. No unvalidated 8-bit embedding configuration is substituted. Direct image/text embeddings remain normalized 768-dimensional vectors, and the demo retains its existing vectors. See **MAC_QA_REPORT.md** for actual machine results, memory, tests and limitations. Windows evidence is historical under `handoff/history/windows-evidence/`.
+The demo contains 60 synthetic images with fictional file dates and two public photos. Photo sources are recorded in [`samples/photo_sources.json`](samples/photo_sources.json). Git does not preserve these sample mtimes, so use the prepared archive when reproducing the dated demo and benchmark. Do not regenerate the samples to set up an existing demo.
 
-Windows launch/setup files remain available for their original environment.
+Follow [DEMO.md](DEMO.md) for the walkthrough.
 
 ## Models and storage
 
 | Component | Role |
 | --- | --- |
-| Google EmbeddingGemma 2 | Direct image and query embeddings, full 768 dimensions; audio encoder disabled |
-| OpenBMB MiniCPM-OCR 1.0 | Text extraction; RapidOCR is an explicitly labeled local fallback |
-| OpenBMB MiniCPM-V 4.7 1B | On-demand reasoning over a selected image |
-| SQLite + FTS5 | Metadata, normalized vectors and full-text retrieval |
+| Google EmbeddingGemma 2 | Direct image/query embeddings, normalized 768d vectors; audio disabled |
+| OpenBMB MiniCPM-OCR 1.0 | Preferred OCR; RapidOCR is a labeled local fallback |
+| OpenBMB MiniCPM-V 4.7 1B | On-demand image analysis |
+| SQLite + FTS5 | Metadata, vectors and text retrieval |
 
-Images go directly to the embedding model. No caption generation is used for indexing. Hybrid ranking combines cosine similarity (0.70) and lexical coverage/FTS (0.30), with extra boosts for literal codes and OCR matches. **Visual meaning** uses only image/query embeddings; **Exact text** searches OCR and filenames.
+Hybrid search combines semantic similarity and lexical matching. **Visual meaning** uses direct embeddings; **Exact text** uses OCR and filenames. Earliest-match filtering considers the full relevant index before display limits.
 
-The app preserves a local copy of each indexed image and thumbnail under `data/`. Re-indexing updates changed files; identical files reuse inference but retain their individual paths and timestamps. Only the selected folder is scanned. The service listens on loopback and has no cloud inference integration.
+Models are loaded from local files. The pinned downloader verifies original revisions and checksums; the converter records provenance and output hashes in each checkpoint's `source.json`. Dependencies are pinned in `requirements-mac.lock.txt`. See [MAC_QA_REPORT.md](MAC_QA_REPORT.md) for precision choices, memory and timing measurements.
 
-```mermaid
-flowchart TD
-  A[Chosen image folder] --> B[Direct image embeddings]
-  A --> C[OCR and timestamps]
-  B --> D[SQLite index]
-  C --> D
-  Q[Text query] --> E[Hybrid ranking]
-  D --> E
-  E --> F[Image evidence and timeline]
-  F --> G[Optional MiniCPM-V analysis]
+Stored image copies, thumbnails and the SQLite index live under `data/`. Only your selected folder is scanned. The service binds loopback and has no cloud-inference integration.
+
+## Verification
+
+```bash
+.venv/bin/python -m pytest tests -q
+.venv/bin/python scripts/benchmark.py --offline-check --output qa/local-retrieval.json
+.venv/bin/python scripts/verify_offline.py
+.venv/bin/python scripts/qa_browser.py http://127.0.0.1:7861 output/playwright/local
 ```
 
-## Demo and verification
+The benchmark and full browser harness expect the prepared 62-image demo. The offline verifier uses an in-process socket guard; it is not an OS firewall test. Use a fresh disposable child directory for `scripts/qa_ingestion.py`: it deletes its supplied work directory.
 
-See **DEMO.md** for a two-minute walkthrough. There are 60 clearly marked synthetic screenshots, documents and object illustrations, plus two public sample images from Google's Gemma cookbook. `samples/photo_sources.json` records their sources. The benchmark manifest is never read by ingestion or retrieval.
+Latest recorded result: **123 tests passed, one expected retention failure; 17/17 retrieval cases; 30/30 browser checks; 5/5 normal-CSP edge checks; 40/40 concurrent requests**. See the [final QA report](qa/independent-review/FINAL_QA_REPORT.md). Windows evidence remains under `handoff/history/windows-evidence/` and is separate from Mac results.
 
-```powershell
-.venv\Scripts\python.exe scripts/make_demo.py
-.venv\Scripts\python.exe scripts/index_folder.py samples --ocr rapid
-.venv\Scripts\python.exe -m pytest tests -q
-.venv\Scripts\python.exe scripts/benchmark.py --offline-check
-.venv\Scripts\python.exe scripts/verify_offline.py
-```
+## Limits
 
-`make_demo.py` regenerates synthetic examples and restores their fictional dates. `benchmark.py` measures retrieval on the actual index. `verify_offline.py` blocks outbound socket connections before loading models, then performs semantic search, MiniCPM-OCR extraction and MiniCPM-V analysis. Results are saved as JSON.
+- PNG, JPG, WebP, BMP and TIFF; 30 MB and 40 megapixels per image; 2,000 images per indexing run. Export PDFs or slides to images first.
+- File mtime is the default date. EXIF capture dates are used only with an explicit timezone. UI date filters use the browser's local timezone; plain date-only API filters use UTC days.
+- First occurrence means the earliest matching indexed file. It does not establish when an event happened. Similarity values are not confidence percentages.
+- OCR and model analysis can be inaccurate. Keep the source image visible when interpreting an answer.
+- Renamed files can retain old and new records. Older saved copies of edited files are retained; automatic garbage collection is not implemented.
+- Reindexing repairs missing saved copies. `--force` on the indexing CLI refreshes inference. Failed refreshes preserve valid existing inference for unchanged content.
 
-## Limits and troubleshooting
-
-- Supported inputs: PNG, JPG, WebP, BMP, TIFF. Export PDFs/slides to images first. Limits: 30 MB, 40 megapixels per image; 2,000 images per indexing run.
-- File modified time is the default timestamp. EXIF capture dates are used only with an explicit timezone. UI date filters and displayed timestamps use your browser's timezone. Plain date-only API filters use UTC days. “First occurrence” means the earliest matching file in the index, not proven event history.
-- OCR and model reasoning can make mistakes. Similarity scores are cosine values, not confidence percentages. All semantic searches return nearest candidates; an unrelated query may still have nearest images.
-- First model use takes longer. Subsequent searches reuse loaded models. MiniCPM generative models share a slot to reduce GPU memory pressure; switching OCR/reasoning may reload weights.
-- Windows uses PyTorch reference kernels for the small MiniCPM models. This is slower than optimized Linux kernels, but was tested on the RTX 4070.
-- A missing embedding model leaves text search available. A missing VLM leaves search available. A failed preferred OCR model can fall back to RapidOCR in auto mode. Status and warnings identify the active path.
-- If a file lacks an embedding, install the model and index its folder again. `--force` on the CLI refreshes existing inference. Set `SIGHTVAULT_DEVICE=cpu` for CPU-only execution.
-- If port 7860 is busy, run `python app.py --port 7861` and open that URL. The Mac double-click launcher defaults to 7861.
-- The demo index was prepared with RapidOCR for speed. MiniCPM-OCR and MiniCPM-V were separately exercised on the CUDA example. The UI exposes the OCR backend on each evidence record. Mac OCR and analysis measurements are recorded separately in MAC_QA_REPORT.md.
-
-Official model references: [EmbeddingGemma 2](https://huggingface.co/google/embeddinggemma-2), [MiniCPM-OCR](https://huggingface.co/openbmb/MiniCPM-OCR-1.0), [MiniCPM-V](https://huggingface.co/openbmb/MiniCPM-V-4.7-1B). Their model licenses apply to downloaded weights.
-
-## QA notes (2026-10-29)
-- Date filters use your local timezone.
-- `Start-SightVault.cmd` waits up to 90 s, reports busy ports / startup errors (see `data\server.log`), and detects an already-running instance. Port: `SIGHTVAULT_PORT`.
-- First search after launch loads the embedding model (~12 s); later searches are ~0.15 s.
-- QA: `pytest tests`, `scripts\benchmark.py`, `scripts\qa_ingestion.py <workdir>`, `scripts\qa_browser.py <url> <shots>`. See QA_REPORT.md.
-
-Independent Claude QA: Opus 5.5 high and one Sonnet 5.5 xhigh worker completed a separate review. The integrated suite has 123 passing tests and one documented expected failure for retained superseded copies. See `qa/independent-review/FINAL_QA_REPORT.md`. Reindex repairs missing saved copies; processing transparent images composites onto white. EXIF capture timestamps are read from the standard sub-IFD only when a timezone offset is supplied. Existing rename-history and retained-copy behavior remain documented limitations.
+Official model references: [EmbeddingGemma 2](https://huggingface.co/google/embeddinggemma-2), [MiniCPM-OCR](https://huggingface.co/openbmb/MiniCPM-OCR-1.0), [MiniCPM-V](https://huggingface.co/openbmb/MiniCPM-V-4.7-1B). Their respective model licenses apply.
