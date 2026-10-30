@@ -1,4 +1,5 @@
 .venv/
+.venv-lfm3/
 .runtime/
 .models/
 data/
@@ -11,5 +12,6 @@ exports/
 
 .playwright-cli/
 .qa-venv/
+qa/screenshots/lfm3-experiment-*/
 
 qa/independent-review/CLAUDE_RUN.json

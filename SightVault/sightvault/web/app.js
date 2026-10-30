@@ -1,6 +1,6 @@
 'use strict';
 const $ = id => document.getElementById(id);
-let autoTemporal=false, mode='hybrid', view='memory', selected=null, jobId=null, currentResults=[], requestId=0, lastQuery='', visibleLimit=0;
+let autoTemporal=false, mode='hybrid', view='memory', selected=null, jobId=null, currentResults=[], requestId=0, lastQuery='', visibleLimit=0, visionLabel='MiniCPM-V 4.7 1B';
 const escapeHtml = value => String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmtDate = value => new Date(value).toLocaleString(undefined,{month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'});
 const duration = value => value>=1000 ? `${(value/1000).toFixed(2)} s` : `${Math.round(value)} ms`;
@@ -11,14 +11,21 @@ async function api(url, options={}) {
   return data;
 }
 function notice(message){$('notice').textContent=message||'';$('notice').hidden=!message;}
+function setVisionLabel(label){
+  visionLabel=label||'MiniCPM-V 4.7 1B';
+  $('analysis-description').textContent=`${visionLabel} analyzes this image locally when you ask. Answers stay attached to their source.`;
+  $('analyze-button').innerHTML=`Analyze with ${escapeHtml(visionLabel)} <span>↗</span>`;
+}
 let toastTimer;
 function toast(message){$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,3500);}
 async function refreshStatus(){
   try {
     const data=await api('/api/status');
     $('asset-count').textContent=data.total.toLocaleString();$('nav-count').textContent=data.total;$('indexed-metric').textContent=data.total;
-    const names={embedding:'EmbeddingGemma 2',ocr:'MiniCPM-OCR 1.0',vision:'MiniCPM-V 4.7 1B'};
-    $('model-status').innerHTML=Object.entries(data.models).map(([name,state])=>`<div><b>${names[name]}</b><br>${escapeHtml(state.loaded?`Loaded · ${state.device}`:state.available?'Downloaded · loads on demand':'Not downloaded')}${state.runtime?`<br>${escapeHtml(state.runtime+' · '+state.precision)}`:''}${state.error?`<br>${escapeHtml(state.error.slice(0,120))}`:''}</div>`).join('');
+    const names={embedding:'EmbeddingGemma 2',ocr:'MiniCPM-OCR 1.0'};
+    const vision=data.models.vision;
+    setVisionLabel(vision?.name||data.vision_model);
+    $('model-status').innerHTML=Object.entries(data.models).map(([name,state])=>`<div><b>${escapeHtml(state.name||names[name]||name)}</b><br>${escapeHtml(state.loaded?`Loaded · ${state.device}`:state.available?'Downloaded · loads on demand':state.availability_reason||'Not downloaded')}${state.runtime?`<br>${escapeHtml(state.runtime+' · '+state.precision)}`:''}${state.error?`<br>${escapeHtml(state.error.slice(0,120))}`:''}</div>`).join('');
     $('model-status').innerHTML+=`<div>${data.with_embeddings} embeddings · ${data.with_ocr} OCR records</div>`;
     return data;
   }catch(error){notice('Could not reach the local app. '+error.message);}
@@ -103,7 +110,7 @@ async function openDetail(id){
     $('detail-meta').innerHTML=`<strong>${escapeHtml(fmtDate(selected.timestamp))}</strong> · ${escapeHtml(selected.timestamp_source)}<br>${Number(selected.width)} × ${Number(selected.height)} · ${escapeHtml(selected.filepath)}${selected.source_exists===false?' <em>(original moved or deleted; saved copy shown)</em>':''}<br>Indexed ${escapeHtml(fmtDate(selected.indexed_at))}`;
     $('detail-ocr').textContent=selected.ocr_text||'No text was extracted.';$('ocr-label').textContent=selected.ocr_backend;
     $('analysis-result').innerHTML='<div class="analysis-placeholder">The image comes first.<br>The explanation comes next.</div>';
-    $('analyze-button').disabled=false;$('analyze-button').innerHTML='Analyze with MiniCPM-V <span>↗</span>';
+    $('analyze-button').disabled=false;setVisionLabel(visionLabel);
     $('detail-dialog').showModal();
   }catch(error){if(serial===detailSerial)notice(error.message);}
 }
@@ -112,7 +119,7 @@ async function analyze(){
   if(!selected)return;
   const id=selected.id,serial=++analysisSerial,question=$('question').value.trim();
   if(!question){toast('Enter a question about the image.');return;}
-  $('analyze-button').disabled=true;$('analyze-button').textContent='Reading the evidence…';$('analysis-result').textContent='Loading MiniCPM-V locally. The first question takes longer while the model loads.';
+  $('analyze-button').disabled=true;$('analyze-button').textContent='Reading the evidence…';$('analysis-result').textContent=`Loading ${visionLabel} locally. The first question takes longer while the model loads.`;
   try{
     const data=await api('/api/analyze',{method:'POST',body:JSON.stringify({asset_id:id,question})});
     if(selected?.id!==id||serial!==analysisSerial)return;
@@ -121,7 +128,7 @@ async function analyze(){
     const evidence=document.createElement('div');evidence.className='analysis-evidence';evidence.textContent=`Source: ${data.evidence.filename} · ${data.model} · ${duration(data.latency_ms)}`;$('analysis-result').append(evidence);
     refreshStatus();
   }catch(error){if(selected?.id===id&&serial===analysisSerial)$('analysis-result').textContent=error.message;}
-  finally{if(selected?.id===id&&serial===analysisSerial){$('analyze-button').disabled=false;$('analyze-button').innerHTML='Analyze with MiniCPM-V <span>↗</span>';}}
+  finally{if(selected?.id===id&&serial===analysisSerial){$('analyze-button').disabled=false;setVisionLabel(visionLabel);}}
 }
 $('search-form').addEventListener('submit',event=>{event.preventDefault();search({fresh:true});});
 $('index-button').onclick=()=>indexFolder();$('demo-button').onclick=$('empty-demo').onclick=()=>indexFolder(true);

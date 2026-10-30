@@ -1,5 +1,6 @@
 """Local model adapters. Model loading never accesses the network."""
 import gc
+import json
 import logging
 import os
 import re
@@ -14,6 +15,16 @@ os.environ.setdefault('HF_HUB_DISABLE_TELEMETRY', '1')
 os.environ.setdefault('TOKENIZERS_PARALLELISM', 'false')
 log = logging.getLogger(__name__)
 EMBEDDING_ID = 'google/embeddinggemma-2:768:text-image'
+LFM3_MODEL_ID = 'LiquidAI/LFM3-VL-2B'
+LFM3_MLX_MODEL_ID = 'LiquidAI/LFM3-VL-2B-MLX-4bit'
+LFM3_MODEL_REVISION = '4146d7fa689833cfa7a06c474e748350b458f41e'
+LFM3_RUNTIME_COMMIT = '918763c6875c80e82f9f48344dfad4763346fea8'
+LFM3_REQUIRED_FILES = (
+    'chat_template.jinja', 'config.json', 'configuration_lfm3.py', 'configuration_lfm3_vl.py',
+    'generation_config.json', 'image_processing_lfm3_vl.py', 'lfm3_conv.py', 'model.safetensors',
+    'model.safetensors.index.json', 'modeling_lfm3.py', 'modeling_lfm3_vl.py', 'processing_lfm3_vl.py',
+    'processor_config.json', 'tokenizer.json', 'tokenizer_config.json', 'video_processing_lfm3_vl.py',
+)
 
 class ModelUnavailable(RuntimeError):
     pass
@@ -43,14 +54,97 @@ class Models:
         self.active = {}
         self.fallbacks = {}
 
+    @property
+    def vision_label(self):
+        return 'LFM3-VL-2B' if self.config.vision == 'lfm3' else 'MiniCPM-V 4.7 1B'
+
+    @property
+    def vision_model_id(self):
+        return LFM3_MLX_MODEL_ID if self.config.vision == 'lfm3' else 'openbmb/MiniCPM-V-4.7-1B'
+
+    @staticmethod
+    def _mlx_platform_supported():
+        import platform
+        return platform.system() == 'Darwin' and platform.machine() in ('arm64', 'aarch64')
+
+    @staticmethod
+    def _lfm3_adapter_available():
+        # Inspect the installed package path without importing MLX or loading model weights.
+        import importlib.util
+        try:
+            spec = importlib.util.find_spec('mlx_vlm')
+        except (ImportError, ModuleNotFoundError, ValueError):
+            return False
+        if spec is None or not spec.submodule_search_locations:
+            return False
+        return any((Path(location) / 'models' / 'lfm3_vl' / '__init__.py').is_file()
+                   for location in spec.submodule_search_locations)
+
+    @staticmethod
+    def _lfm3_runtime_matches():
+        # The experiment is pinned because upstream MLX-VLM model APIs are moving quickly.
+        from importlib.metadata import distribution
+        try:
+            source = json.loads(distribution('mlx-vlm').read_text('direct_url.json') or '{}')
+        except Exception:
+            return False
+        return source.get('vcs_info', {}).get('commit_id') == LFM3_RUNTIME_COMMIT
+
+    @staticmethod
+    def _lfm3_missing_files(path):
+        return [name for name in LFM3_REQUIRED_FILES if not (path / name).is_file()]
+
+    @staticmethod
+    def _lfm3_source_matches(path):
+        try:
+            source = json.loads((path / 'source.json').read_text(encoding='utf-8'))
+        except (OSError, ValueError):
+            return False
+        return (source.get('repo') == LFM3_MLX_MODEL_ID
+                and source.get('revision') == LFM3_MODEL_REVISION
+                and source.get('runtime_commit') == LFM3_RUNTIME_COMMIT)
+
     def status(self):
         paths = {'embedding':'embeddinggemma-2', 'ocr':'minicpm-ocr', 'vision':'minicpm-v'}
-        return {name:{'available':bool(self._mlx_path(name)) or (self.config.models / folder / 'model.safetensors').is_file(),
-                      'loaded':name in self.active, 'device':self.active.get(name),
-                      'error':self.errors.get(name), 'runtime':('MLX' if self._mlx_path(name) else 'PyTorch'),
-                      'precision':self._precision(name)} for name,folder in paths.items()}
+        status = {}
+        for name, folder in paths.items():
+            if name == 'vision' and self.config.vision == 'lfm3':
+                path = self.config.models / 'lfm3-vl-2b-mlx-4bit'
+                supported = self._mlx_platform_supported() and self.config.device in ('auto', 'mps')
+                adapter_available = self._lfm3_adapter_available()
+                runtime_matches = self._lfm3_runtime_matches()
+                missing = self._lfm3_missing_files(path)
+                source_matches = self._lfm3_source_matches(path)
+                available = supported and adapter_available and runtime_matches and source_matches and not missing
+                reason = None
+                if not supported:
+                    reason = 'LFM3-VL experimental backend requires Apple Silicon and SIGHTVAULT_DEVICE=auto or mps.'
+                elif not adapter_available:
+                    reason = 'Installed MLX-VLM does not include the LFM3 adapter; install the pinned experimental environment from requirements-lfm3.lock.txt.'
+                elif not runtime_matches:
+                    reason = 'LFM3-VL requires the MLX-VLM commit pinned in requirements-lfm3.lock.txt; recreate the experimental environment and restart.'
+                elif missing:
+                    reason = 'LFM3-VL snapshot is incomplete (missing ' + ', '.join(missing) + '); run python scripts/download_models.py --vision lfm3 while online.'
+                elif not source_matches:
+                    reason = 'LFM3-VL provenance is missing or does not match the pinned revision; run python scripts/download_models.py --vision lfm3 while online.'
+                elif not available:
+                    reason = 'LFM3-VL weights are missing; run python scripts/download_models.py --vision lfm3 while online.'
+                runtime = 'MLX-VLM / MLX'
+            else:
+                available = bool(self._mlx_path(name)) or (self.config.models / folder / 'model.safetensors').is_file()
+                reason = None
+                runtime = 'MLX' if self._mlx_path(name) else 'PyTorch'
+            state = {'available':available, 'loaded':name in self.active, 'device':self.active.get(name),
+                     'error':self.errors.get(name), 'runtime':runtime, 'precision':self._precision(name)}
+            if name == 'vision':
+                state.update(name=self.vision_label, model_id=self.vision_model_id, backend=self.config.vision,
+                             availability_reason=reason)
+            status[name] = state
+        return status
 
     def _precision(self, kind):
+        if kind == 'vision' and self.config.vision == 'lfm3':
+            return 'QAD affine 4-bit (group 32); token embeddings 8-bit; BF16 tensors retained per checkpoint'
         if self._mlx_path(kind): return 'mixed affine 4-bit / BF16'
         device = self.active.get(kind, '')
         if device.startswith('cuda'):
@@ -58,10 +152,15 @@ class Models:
         return 'float32'
 
     def _mlx_path(self, kind):
-        import platform
-        if kind == 'embedding' or platform.system() != 'Darwin' or platform.machine() != 'arm64' or self.config.device not in ('auto', 'mps'):
+        if kind == 'embedding' or not self._mlx_platform_supported() or self.config.device not in ('auto', 'mps'):
             return None
-        path = self.config.models / ('minicpm-ocr-mlx-4bit' if kind == 'ocr' else 'minicpm-v-mlx-4bit')
+        if kind == 'ocr':
+            folder = 'minicpm-ocr-mlx-4bit'
+        elif kind == 'vision' and self.config.vision == 'lfm3':
+            folder = 'lfm3-vl-2b-mlx-4bit'
+        else:
+            folder = 'minicpm-v-mlx-4bit'
+        path = self.config.models / folder
         return path if (path / 'config.json').is_file() and (path / 'model.safetensors').is_file() else None
 
     def _generate_mlx(self, kind, image, prompt, max_tokens):
@@ -80,18 +179,36 @@ class Models:
                 model, processor = load(str(self._mlx_path(kind)), trust_remote_code=False)
                 setattr(self, attribute, (processor, model))
             processor, model = getattr(self, attribute)
-            formatted = apply_chat_template(processor, model.config, prompt, num_images=1)
+            # Both vision backends use the same bounded final-answer budget without hidden reasoning tokens.
+            template_options = {'enable_thinking':False} if kind == 'vision' else {}
+            formatted = apply_chat_template(processor, model.config, prompt, num_images=1, **template_options)
             result = generate(model, processor, formatted, image=[image], max_tokens=max_tokens,
                               temperature=0, verbose=False)
             answer = result.text
             self.active[kind] = 'mlx (Metal GPU)'
             self.errors.pop(kind, None)
             return re.sub(r'<think>.*?</think>', '', answer, flags=re.S).strip()
-        except Exception:
+        except Exception as exc:
             setattr(self, attribute, None)
             self.active.pop(kind, None)
+            # Break references before clearing Metal's cache. The traceback can otherwise
+            # keep a failed generation's local model/processor buffers alive.
+            model = processor = result = None
+            current_frame = __import__('sys')._getframe()
+            tb = exc.__traceback__
+            while tb:
+                if tb.tb_frame is not current_frame:
+                    try:
+                        tb.tb_frame.clear()
+                    except RuntimeError:
+                        # Active caller frames cannot be cleared; unwound generator frames can.
+                        pass
+                tb = tb.tb_next
             gc.collect()
-            mx.clear_cache()
+            try:
+                mx.clear_cache()
+            except Exception:
+                log.exception('MLX cache cleanup failed after %s generation error', kind)
             raise
 
     def _device(self):
@@ -224,6 +341,19 @@ class Models:
         return getattr(self, attribute)
 
     def _generate(self, kind, image, prompt, max_tokens):
+        if kind == 'vision' and self.config.vision == 'lfm3':
+            if not self._mlx_platform_supported() or self.config.device not in ('auto', 'mps'):
+                raise ModelUnavailable('LFM3-VL experimental backend requires Apple Silicon and SIGHTVAULT_DEVICE=auto or mps.')
+            if not self._lfm3_adapter_available():
+                raise ModelUnavailable('Installed MLX-VLM does not include the LFM3 adapter. Install the pinned experimental environment from requirements-lfm3.lock.txt, then restart.')
+            if not self._lfm3_runtime_matches():
+                raise ModelUnavailable('LFM3-VL requires the MLX-VLM commit pinned in requirements-lfm3.lock.txt. Recreate the experimental environment, then restart.')
+            missing = self._lfm3_missing_files(self.config.models / 'lfm3-vl-2b-mlx-4bit')
+            if missing:
+                raise ModelUnavailable('LFM3-VL snapshot is incomplete (missing ' + ', '.join(missing) + '). Run python scripts/download_models.py --vision lfm3 while online, then restart.')
+            if not self._lfm3_source_matches(self.config.models / 'lfm3-vl-2b-mlx-4bit'):
+                raise ModelUnavailable('LFM3-VL provenance is missing or does not match the pinned revision. Run python scripts/download_models.py --vision lfm3 while online, then restart.')
+            return self._generate_mlx(kind, image, prompt, max_tokens)
         if self._mlx_path(kind):
             return self._generate_mlx(kind, image, prompt, max_tokens)
         import torch
@@ -287,8 +417,19 @@ class Models:
                 'Do not claim to know the actual cause or unseen history. If the evidence is insufficient, say so. '
                 'Do not invent timestamps.\nQuestion: ' + question + '\nOCR transcription (may contain mistakes):\n' + ocr_text[:2200])
             try:
-                return self._generate('vision', image, prompt, 384)
+                answer = self._final_answer(self._generate('vision', image, prompt, 384))
+                if not answer:
+                    raise ModelUnavailable('The model returned no final answer within the response token budget.')
+                self.errors.pop('vision', None)
+                return answer
             except Exception as exc:
                 self.errors['vision'] = str(exc)
                 self.active.pop('vision', None)
-                raise ModelUnavailable('MiniCPM-V could not analyze this image: ' + str(exc)) from exc
+                raise ModelUnavailable(self.vision_label + ' could not analyze this image: ' + str(exc)) from exc
+
+    @staticmethod
+    def _final_answer(text):
+        answer = re.sub(r'<think>.*?</think>', '', str(text), flags=re.S).strip()
+        if '<think>' in answer:
+            answer = answer.split('</think>', 1)[1].strip() if '</think>' in answer else ''
+        return answer

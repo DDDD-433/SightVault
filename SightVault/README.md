@@ -52,6 +52,12 @@ Follow [DEMO.md](DEMO.md) for the walkthrough.
 | OpenBMB MiniCPM-V 4.7 1B | On-demand image analysis |
 | SQLite + FTS5 | Metadata, vectors and text retrieval |
 
+### Experimental LFM3 vision backend
+
+MiniCPM-V remains the default. On Apple Silicon, LFM3-VL can be enabled as an opt-in experiment after creating a separate `.venv-lfm3` from `requirements-lfm3.lock.txt` and downloading the pinned LFM3 snapshot with `scripts/download_models.py --vision lfm3`. Keep the normal `.venv` and its lock unchanged. Start the experiment with `SIGHTVAULT_VISION=lfm3 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 .venv-lfm3/bin/python app.py --port 7864`. Restart with `SIGHTVAULT_VISION=minicpm` to compare; use a free loopback port if 7864 is occupied.
+
+The experiment uses MLX on Apple Metal, not PyTorch MPS. It shares the existing single generative slot with MiniCPM-OCR and MiniCPM-V; EmbeddingGemma and direct 768-dimensional image/query embeddings keep their existing path. LFM3 is not promoted to the default. See [`qa/LFM3_EVALUATION.md`](qa/LFM3_EVALUATION.md) for the pinned model/runtime, installation steps, benchmark and recommendation.
+
 Hybrid search combines semantic similarity and lexical matching. **Visual meaning** uses direct embeddings; **Exact text** uses OCR and filenames. Earliest-match filtering considers the full relevant index before display limits.
 
 Models are loaded from local files. The pinned downloader verifies original revisions and checksums; the converter records provenance and output hashes in each checkpoint's `source.json`. Dependencies are pinned in `requirements-mac.lock.txt`. See [MAC_QA_REPORT.md](MAC_QA_REPORT.md) for precision choices, memory and timing measurements.

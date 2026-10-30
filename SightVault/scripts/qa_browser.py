@@ -1,10 +1,16 @@
 """Headless browser QA of the real UI (run with a separate Playwright env).
 usage: python qa_browser.py <base_url> <screenshot_dir> [--xss]"""
-import json,sys,time
+import argparse,json,sys,time
 from pathlib import Path
 from playwright.sync_api import sync_playwright
-BASE,SHOTS=sys.argv[1],Path(sys.argv[2]);SHOTS.mkdir(parents=True,exist_ok=True)
-XSS='--xss' in sys.argv
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('base_url');parser.add_argument('screenshot_dir')
+parser.add_argument('--xss',action='store_true')
+parser.add_argument('--expect-backend',choices=('minicpm','lfm3'))
+parser.add_argument('--expect-model')
+parser.add_argument('--expect-root')
+args=parser.parse_args();BASE=args.base_url;SHOTS=Path(args.screenshot_dir);SHOTS.mkdir(parents=True,exist_ok=True)
+XSS=args.xss
 log={'console_errors':[],'failed_requests':[],'http_errors':[],'checks':{}}
 def check(name,cond,detail=None):
     log['checks'][name]={'ok':bool(cond),'detail':detail};print(('PASS ' if cond else 'FAIL ')+name,detail if detail is not None else '',flush=True)
@@ -25,6 +31,21 @@ with sync_playwright() as p:
         pg.fill('#query',q);pg.press('#query','Enter');wait_idle()
     def broken_images(): return pg.evaluate("[...document.images].filter(i=>i.complete&&i.src&&i.naturalWidth===0).map(i=>i.src)")
     pg.goto(BASE);wait_idle()
+    status=pg.evaluate("async()=>await (await fetch('/api/status')).json()")
+    vision=status.get('models',{}).get('vision',{})
+    check('api_vision_identity_consistent',status.get('vision_backend')==vision.get('backend') and status.get('vision_model')==vision.get('name'),
+          {'status_backend':status.get('vision_backend'),'model_backend':vision.get('backend'),'status_model':status.get('vision_model'),'model_name':vision.get('name')})
+    if args.expect_backend:
+        check('expected_backend',vision.get('backend')==args.expect_backend,vision.get('backend'))
+    if args.expect_model:
+        check('expected_model_id',vision.get('model_id')==args.expect_model,vision.get('model_id'))
+    if args.expect_root:
+        root_matches=status.get('instance_root')==args.expect_root
+        check('expected_instance_root',root_matches,'experimental worktree root matched' if root_matches else 'mismatch')
+    if args.expect_model:
+        display_name=vision.get('name')
+        pg.wait_for_function("expected=>document.getElementById('analyze-button').textContent.includes(expected)",arg=display_name)
+        check('ui_selected_model_label',display_name in pg.locator('#analysis-description').inner_text(),pg.locator('#analysis-description').inner_text())
     if XSS:
         search('ZX-4471','exact')
         check('xss_card_escaped',pg.evaluate("window.__xss===undefined && !document.querySelector('.ocr-preview b, .ocr-preview img')"),pg.locator('.ocr-preview').first.inner_text())
@@ -68,9 +89,15 @@ with sync_playwright() as p:
     check('evidence_modal',pg.inner_text('#detail-title').startswith('terminal_cuda') and 'CUDA' in pg.inner_text('#detail-ocr'),pg.inner_text('#ocr-label'))
     pg.click('#copy-ocr');time.sleep(.5);clip=pg.evaluate('navigator.clipboard.readText()');check('ocr_copy','out of memory' in clip,len(clip))
     pg.fill('#question','What probably caused this error? Separate what is visible from your guess.')
-    t=time.perf_counter();pg.click('#analyze-button')
+    t=time.perf_counter()
+    with pg.expect_response(lambda response:response.url.endswith('/api/analyze'),timeout=420000) as analysis_response:
+        pg.click('#analyze-button')
+    analysis_payload=analysis_response.value.json()
     pg.wait_for_selector('.analysis-evidence',timeout=420000);analysis_s=round(time.perf_counter()-t,1)
     ans=pg.inner_text('#analysis-result');check('analysis',('memory' in ans.lower()) and 'terminal_cuda' in ans,[analysis_s,ans[:400]])
+    check('analysis_model_identity',analysis_payload.get('backend')==vision.get('backend') and analysis_payload.get('model')==vision.get('name'),
+          {'backend':analysis_payload.get('backend'),'model':analysis_payload.get('model'),'runtime':analysis_payload.get('runtime')})
+    check('analysis_evidence_identity',analysis_payload.get('evidence',{}).get('filename')=='terminal_cuda_01.png',analysis_payload.get('evidence',{}).get('filename'))
     log['analysis_seconds']=analysis_s;log['analysis_text']=ans
     pg.screenshot(path=str(SHOTS/'05_evidence_analysis.png'))
     pg.click('#similar-button');wait_idle();check('similar',pg.inner_text('#results-title')=='Visually related' and not pg.is_visible('#detail-dialog'),names())
@@ -100,6 +127,8 @@ with sync_playwright() as p:
     unexpected=[e for e in log['http_errors'] if '/api/index' not in e]
     check('no_unexpected_http_errors',not unexpected,unexpected[:5])
     b.close()
+log['provenance']={'instance_root':'.' if args.expect_root and status.get('instance_root')==args.expect_root else '<unverified>',
+                   'instance_root_verified':bool(args.expect_root and status.get('instance_root')==args.expect_root)}
 (SHOTS/'browser_qa.json').write_text(json.dumps(log,indent=2),encoding='utf8')
 print(json.dumps({'passed':sum(c['ok'] for c in log['checks'].values()),'total':len(log['checks'])}))
 sys.exit(0 if all(c['ok'] for c in log['checks'].values()) else 1)

@@ -1,0 +1,67 @@
+{
+  "outbound_socket_guard": true,
+  "fault_injection": "invalid safetensors in a disposable model directory; this is a load-failure test, not an OOM injection; original weights untouched",
+  "fallback": {
+    "backend": "RapidOCR (local)",
+    "error": "MiniCPM-OCR failed; used RapidOCR fallback: [load_safetensors] Invalid json header length file <temp>/models/minicpm-ocr-mlx-4bit/model.safetensors",
+    "text_characters": 437,
+    "text_sha256": "cf165309f229c9ffeb18677d493f74586f5e1148af010ce6667dabde52522024"
+  },
+  "failed_ocr_state": {
+    "available": true,
+    "loaded": false,
+    "device": null,
+    "error": "[load_safetensors] Invalid json header length file <temp>/models/minicpm-ocr-mlx-4bit/model.safetensors",
+    "runtime": "MLX",
+    "precision": "mixed affine 4-bit / BF16"
+  },
+  "recovered_ocr_state": {
+    "available": true,
+    "loaded": true,
+    "device": "mlx (Metal GPU)",
+    "error": null,
+    "runtime": "MLX",
+    "precision": "mixed affine 4-bit / BF16"
+  },
+  "vision_answer": "The error is CUDA out of memory. Visible text shows GPU has 12 GiB total, 96 MiB free, process holds 11.62 GiB. Batch size 64, sequence length 4096. Likely, high data volume or parallel usage exceeded GPU memory. No causation claimed; only observed state.",
+  "generator_status": {
+    "embedding": {
+      "available": true,
+      "loaded": false,
+      "device": null,
+      "error": null,
+      "runtime": "PyTorch",
+      "precision": "float32"
+    },
+    "ocr": {
+      "available": true,
+      "loaded": false,
+      "device": null,
+      "error": null,
+      "runtime": "MLX",
+      "precision": "mixed affine 4-bit / BF16"
+    },
+    "vision": {
+      "available": true,
+      "loaded": true,
+      "device": "mlx (Metal GPU)",
+      "error": null,
+      "runtime": "MLX",
+      "precision": "mixed affine 4-bit / BF16",
+      "name": "MiniCPM-V 4.7 1B",
+      "model_id": "openbmb/MiniCPM-V-4.7-1B",
+      "backend": "minicpm",
+      "availability_reason": null
+    }
+  },
+  "exif_timestamp": "2019-06-15T10:00:00+00:00",
+  "exif_source": "EXIF capture time (with timezone)",
+  "embedding_bytes": 3072,
+  "source_sha256": {
+    "models.py": "f780b3e85efd3e56a987f4d1a45dd45a0c91f07c750f4a7a809e8c243bda54fa",
+    "metadata.py": "133e02adba91211fee783dd100adc159ea80ef9505186b700f454978f5436a5d",
+    "ingestion.py": "579b674c3887dc6da403f6c8f9558f882dbb02111cf11d0a9f84301a36dc0279",
+    "database.py": "77eb175aeb723a3b308af47086e9455b1a0fa7770f955ceb53a66763a2beae21"
+  },
+  "passed": true
+}

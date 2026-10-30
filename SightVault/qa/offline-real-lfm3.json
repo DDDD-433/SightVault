@@ -1,0 +1,57 @@
+{
+  "outbound_network_connections_blocked": true,
+  "loopback_allowed_for_local_runtime": true,
+  "requested_device": "auto",
+  "instance_root": ".",
+  "isolation_method": "HF offline flags plus in-process non-loopback socket.connect guard; not an OS firewall",
+  "semantic_search": {
+    "top_result": "terminal_cuda_02.png",
+    "latency_ms": 4455.5
+  },
+  "ocr": {
+    "backend": "MiniCPM-OCR 1.0",
+    "error": null,
+    "text_characters": 452,
+    "text_sha256": "f935b25bb24d574b7cd9789f3dc9ee4a428621a0c045e14e092ba4caad57fffd",
+    "seconds": 6.99
+  },
+  "analysis": {
+    "answer": "The OCR shows a torch.OutOfMemoryError with CUDA out of memory, after trying to allocate 512.00 MiB on GPU 0 which has 12.00 GiB total, of which 96.00 MiB is free, but the process holds 11.62 GiB. The likely cause is insufficient memory for the model or batch, leading to out-of-memory error during training. The error occurs during loss.backward() in train.py line 87. The evidence suggests memory allocation exceeded available GPU memory, but the exact cause (e.g., model size, batch size) is not specified beyond the given numbers.",
+    "seconds": 4.35
+  },
+  "peak_gpu_allocated_gib": null,
+  "models": {
+    "embedding": {
+      "available": true,
+      "loaded": true,
+      "device": "mps:0",
+      "error": null,
+      "runtime": "PyTorch",
+      "precision": "float32"
+    },
+    "ocr": {
+      "available": true,
+      "loaded": false,
+      "device": null,
+      "error": null,
+      "runtime": "MLX",
+      "precision": "mixed affine 4-bit / BF16"
+    },
+    "vision": {
+      "available": true,
+      "loaded": true,
+      "device": "mlx (Metal GPU)",
+      "error": null,
+      "runtime": "MLX-VLM / MLX",
+      "precision": "QAD affine 4-bit (group 32); token embeddings 8-bit; BF16 tensors retained per checkpoint",
+      "name": "LFM3-VL-2B",
+      "model_id": "LiquidAI/LFM3-VL-2B-MLX-4bit",
+      "backend": "lfm3",
+      "availability_reason": null
+    }
+  },
+  "mps_allocated_gib": 1.635,
+  "mlx_peak_gib": 3.232,
+  "process_ram_gib": 2.36,
+  "passed": true
+}

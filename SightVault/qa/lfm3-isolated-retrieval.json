@@ -1,0 +1,398 @@
+{
+  "offline_network_blocked": true,
+  "cases": [
+    {
+      "query": "Find the screenshot where my GPU ran out of memory",
+      "mode": "hybrid",
+      "note": "demo",
+      "top1_correct": true,
+      "expected_prefix": "terminal_cuda",
+      "results": [
+        "terminal_cuda_01.png",
+        "terminal_success_02.png",
+        "terminal_success_01.png",
+        "terminal_cuda_02.png",
+        "object_study_08.png"
+      ],
+      "top_semantic": 0.6936,
+      "sort": "relevance",
+      "latency_ms": 5631.5,
+      "warning": null
+    },
+    {
+      "query": "GPU memory problem",
+      "mode": "semantic",
+      "note": "paraphrase; \"GPU memory problem\" is not an OCR phrase",
+      "top1_correct": true,
+      "expected_prefix": "terminal_cuda",
+      "results": [
+        "terminal_cuda_02.png",
+        "terminal_cuda_01.png",
+        "terminal_success_02.png",
+        "terminal_success_01.png",
+        "terminal_database_02.png"
+      ],
+      "top_semantic": 0.6997,
+      "sort": "relevance",
+      "latency_ms": 77.6,
+      "warning": null
+    },
+    {
+      "query": "Find ERESOLVE",
+      "mode": "hybrid",
+      "note": "exact code",
+      "top1_correct": true,
+      "expected_prefix": "terminal_eresolve",
+      "results": [
+        "terminal_eresolve_02.png",
+        "terminal_eresolve_01.png",
+        "terminal_database_01.png",
+        "terminal_database_02.png",
+        "terminal_module_02.png"
+      ],
+      "top_semantic": 0.655,
+      "sort": "relevance",
+      "latency_ms": 75.2,
+      "warning": null
+    },
+    {
+      "query": "ModuleNotFoundError",
+      "mode": "exact",
+      "note": "exact code",
+      "top1_correct": true,
+      "expected_prefix": "terminal_module",
+      "results": [
+        "terminal_module_01.png",
+        "terminal_module_02.png"
+      ],
+      "top_semantic": null,
+      "sort": "relevance",
+      "latency_ms": 4.3,
+      "warning": null
+    },
+    {
+      "query": "Show slides about databases",
+      "mode": "semantic",
+      "note": "\"database\" absent from these slides",
+      "top1_correct": true,
+      "expected_prefix": [
+        "lecture_normalization",
+        "lecture_erd",
+        "lecture_joins"
+      ],
+      "results": [
+        "lecture_normalization_01.png",
+        "lecture_normalization_02.png",
+        "lecture_erd_01.png",
+        "lecture_erd_02.png",
+        "lecture_joins_01.png"
+      ],
+      "top_semantic": 0.6939,
+      "sort": "relevance",
+      "latency_ms": 34.4,
+      "warning": null
+    },
+    {
+      "query": "Find the image with a red backpack",
+      "mode": "semantic",
+      "note": "no text in image; colour+object",
+      "top1_correct": true,
+      "expected_prefix": "object_study_01",
+      "results": [
+        "object_study_01.png",
+        "object_study_02.png",
+        "object_study_03.png",
+        "object_study_04.png",
+        "object_study_05.png"
+      ],
+      "top_semantic": 0.7168,
+      "sort": "relevance",
+      "latency_ms": 75.1,
+      "warning": null
+    },
+    {
+      "query": "When did the CUDA error first occur?",
+      "mode": "hybrid",
+      "note": "natural-language first occurrence",
+      "top1_correct": true,
+      "expected_prefix": "terminal_cuda_01",
+      "results": [
+        "terminal_cuda_01.png",
+        "terminal_cuda_02.png"
+      ],
+      "top_semantic": 0.7411,
+      "sort": "oldest",
+      "latency_ms": 74.5,
+      "warning": null
+    },
+    {
+      "query": "Find the receipt where I bought a keyboard",
+      "mode": "hybrid",
+      "note": "keyboard receipt",
+      "top1_correct": true,
+      "expected_prefix": [
+        "receipt_022",
+        "receipt_028"
+      ],
+      "results": [
+        "receipt_028.png",
+        "receipt_022.png",
+        "receipt_030.png",
+        "receipt_024.png",
+        "receipt_031.png"
+      ],
+      "top_semantic": 0.7238,
+      "sort": "relevance",
+      "latency_ms": 36.6,
+      "warning": null
+    },
+    {
+      "query": "javascript package installer version conflict",
+      "mode": "semantic",
+      "note": "paraphrase",
+      "top1_correct": true,
+      "expected_prefix": "terminal_eresolve",
+      "results": [
+        "terminal_eresolve_02.png",
+        "terminal_eresolve_01.png",
+        "terminal_database_01.png",
+        "terminal_database_02.png",
+        "terminal_module_02.png"
+      ],
+      "top_semantic": 0.7081,
+      "sort": "relevance",
+      "latency_ms": 76.2,
+      "warning": null
+    },
+    {
+      "query": "python could not find an installed library",
+      "mode": "semantic",
+      "note": "paraphrase",
+      "top1_correct": true,
+      "expected_prefix": "terminal_module",
+      "results": [
+        "terminal_module_01.png",
+        "terminal_module_02.png",
+        "terminal_eresolve_01.png",
+        "terminal_eresolve_02.png",
+        "terminal_cuda_01.png"
+      ],
+      "top_semantic": 0.7435,
+      "sort": "relevance",
+      "latency_ms": 37.0,
+      "warning": null
+    },
+    {
+      "query": "plants turning sunlight into sugar",
+      "mode": "semantic",
+      "note": "paraphrase",
+      "top1_correct": true,
+      "expected_prefix": "lecture_biology",
+      "results": [
+        "lecture_biology_01.png",
+        "lecture_biology_02.png",
+        "kitchen_photo.jpg",
+        "lecture_economics_01.png",
+        "lecture_economics_02.png"
+      ],
+      "top_semantic": 0.6512,
+      "sort": "relevance",
+      "latency_ms": 36.6,
+      "warning": null
+    },
+    {
+      "query": "graphics card ran out of VRAM while training a neural network",
+      "mode": "semantic",
+      "note": "paraphrase",
+      "top1_correct": true,
+      "expected_prefix": "terminal_cuda",
+      "results": [
+        "terminal_cuda_02.png",
+        "terminal_cuda_01.png",
+        "terminal_success_01.png",
+        "terminal_success_02.png",
+        "object_study_08.png"
+      ],
+      "top_semantic": 0.7098,
+      "sort": "relevance",
+      "latency_ms": 76.3,
+      "warning": null
+    },
+    {
+      "query": "blue rucksack drawing",
+      "mode": "semantic",
+      "note": "colour discrimination",
+      "top1_correct": true,
+      "expected_prefix": "object_study_02",
+      "results": [
+        "object_study_02.png",
+        "object_study_03.png",
+        "object_study_04.png",
+        "object_study_01.png",
+        "object_study_06.png"
+      ],
+      "top_semantic": 0.7285,
+      "sort": "relevance",
+      "latency_ms": 35.2,
+      "warning": null
+    },
+    {
+      "query": "a cup for hot drinks",
+      "mode": "semantic",
+      "note": "object paraphrase",
+      "top1_correct": true,
+      "expected_prefix": [
+        "object_study_05",
+        "object_study_06",
+        "object_study_07"
+      ],
+      "results": [
+        "object_study_05.png",
+        "object_study_07.png",
+        "object_study_06.png",
+        "kitchen_photo.jpg",
+        "receipt_029.png"
+      ],
+      "top_semantic": 0.7047,
+      "sort": "relevance",
+      "latency_ms": 35.0,
+      "warning": null
+    },
+    {
+      "query": "kanban board with tasks",
+      "mode": "semantic",
+      "note": "layout semantics",
+      "top1_correct": true,
+      "expected_prefix": "project_board",
+      "results": [
+        "project_board_02.png",
+        "project_board_03.png",
+        "project_board_01.png",
+        "project_board_06.png",
+        "project_board_07.png"
+      ],
+      "top_semantic": 0.7477,
+      "sort": "relevance",
+      "latency_ms": 34.1,
+      "warning": null
+    },
+    {
+      "query": "photograph of a kitchen",
+      "mode": "semantic",
+      "note": "real photo, no OCR text",
+      "top1_correct": true,
+      "expected_prefix": "kitchen_photo",
+      "results": [
+        "kitchen_photo.jpg",
+        "object_study_05.png",
+        "bridge_photo.png",
+        "object_study_07.png",
+        "object_study_06.png"
+      ],
+      "top_semantic": 0.6821,
+      "sort": "relevance",
+      "latency_ms": 33.7,
+      "warning": null
+    },
+    {
+      "query": "a bridge over water",
+      "mode": "semantic",
+      "note": "real photo",
+      "top1_correct": true,
+      "expected_prefix": "bridge_photo",
+      "results": [
+        "bridge_photo.png",
+        "lecture_economics_02.png",
+        "object_study_10.png",
+        "lecture_economics_01.png",
+        "kitchen_photo.jpg"
+      ],
+      "top_semantic": 0.7161,
+      "sort": "relevance",
+      "latency_ms": 34.1,
+      "warning": null
+    }
+  ],
+  "passed": 17,
+  "total": 17,
+  "negative_queries": [
+    {
+      "query": "a dog playing in the snow",
+      "top": "project_board_02.png",
+      "top_semantic": 0.544
+    },
+    {
+      "query": "fireworks over a city skyline at night",
+      "top": "terminal_cuda_01.png",
+      "top_semantic": 0.5328
+    },
+    {
+      "query": "handwritten wedding invitation",
+      "top": "receipt_025.png",
+      "top_semantic": 0.5613
+    },
+    {
+      "query": "satellite image of a hurricane",
+      "top": "bridge_photo.png",
+      "top_semantic": 0.5457
+    }
+  ],
+  "min_positive_semantic_top": 0.6512,
+  "max_negative_semantic_top": 0.5613,
+  "image_embedding_proof": [
+    {
+      "file": "terminal_cuda_01.png",
+      "cosine_fresh_vs_stored": 0.9999
+    },
+    {
+      "file": "object_study_01.png",
+      "cosine_fresh_vs_stored": 1.0
+    },
+    {
+      "file": "kitchen_photo.jpg",
+      "cosine_fresh_vs_stored": 1.0
+    }
+  ],
+  "database": {
+    "total": 62,
+    "with_embeddings": 62,
+    "with_ocr": 61,
+    "folders": [
+      {
+        "folder": "./samples",
+        "count": 62
+      }
+    ]
+  },
+  "models": {
+    "embedding": {
+      "available": true,
+      "loaded": true,
+      "device": "mps:0",
+      "error": null,
+      "runtime": "PyTorch",
+      "precision": "float32"
+    },
+    "ocr": {
+      "available": true,
+      "loaded": false,
+      "device": null,
+      "error": null,
+      "runtime": "MLX",
+      "precision": "mixed affine 4-bit / BF16"
+    },
+    "vision": {
+      "available": true,
+      "loaded": false,
+      "device": null,
+      "error": null,
+      "runtime": "MLX-VLM / MLX",
+      "precision": "QAD affine 4-bit (group 32); token embeddings 8-bit; BF16 tensors retained per checkpoint",
+      "name": "LFM3-VL-2B",
+      "model_id": "LiquidAI/LFM3-VL-2B-MLX-4bit",
+      "backend": "lfm3",
+      "availability_reason": null
+    }
+  },
+  "negatives_below_all_positives": true
+}

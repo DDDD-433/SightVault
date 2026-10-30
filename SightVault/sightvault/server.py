@@ -62,8 +62,12 @@ def create_app(config=None, models=None):
 
     @app.get('/api/status')
     def status():
-        return {**db.stats(), 'models':models.status(), 'embedding_model':'EmbeddingGemma 2 · 768 dimensions',
-            'ocr_model':'MiniCPM-OCR 1.0 / RapidOCR', 'vision_model':'MiniCPM-V 4.7 1B',
+        model_status = models.status()
+        vision_status = model_status.get('vision', {})
+        return {**db.stats(), 'models':model_status, 'embedding_model':'EmbeddingGemma 2 · 768 dimensions',
+            'ocr_model':'MiniCPM-OCR 1.0 / RapidOCR', 'vision_model':vision_status.get('name', getattr(models, 'vision_label', 'MiniCPM-V 4.7 1B')),
+            'vision_backend':vision_status.get('backend', getattr(config, 'vision', 'minicpm')),
+            'vision_runtime':vision_status.get('runtime'), 'vision_precision':vision_status.get('precision'),
             'instance_root':str(config.root),'local_only':True,'cloud_api_calls':0,'demo_folder':str(config.root/'samples'), 'ocr_default':config.ocr}
 
     @app.get('/api/search')
@@ -151,7 +155,12 @@ def create_app(config=None, models=None):
         except Exception as exc:
             logging.exception('Analysis failed')
             raise HTTPException(503,'Analysis could not finish. Search and OCR remain available. '+str(exc)[:300]) from exc
-        return {'answer':answer,'evidence':public_asset(row),'model':'MiniCPM-V 4.7 1B','latency_ms':round((time.perf_counter()-started)*1000,1)}
+        vision_status = models.status().get('vision', {})
+        return {'answer':answer,'evidence':public_asset(row),
+            'model':vision_status.get('name', getattr(models, 'vision_label', 'MiniCPM-V 4.7 1B')),
+            'backend':vision_status.get('backend', getattr(config, 'vision', 'minicpm')),
+            'runtime':vision_status.get('runtime'), 'precision':vision_status.get('precision'),
+            'device':vision_status.get('device'), 'latency_ms':round((time.perf_counter()-started)*1000,1)}
 
     static = Path(__file__).resolve().parent/'web'
     app.mount('/static',StaticFiles(directory=static),name='static')

@@ -1,0 +1,1038 @@
+{
+  "result": "completed; answer quality requires reviewer assessment",
+  "provenance": {
+    "source": "copied synthetic demo database and evidence images in the experimental worktree",
+    "source_database": "data/sightvault.sqlite3",
+    "instance_root": ".",
+    "backends_ran_serially": true
+  },
+  "method": {
+    "same_question_per_image": true,
+    "same_stored_ocr_per_image": true,
+    "thinking_tokens_disabled": true,
+    "max_new_tokens": 384,
+    "generation_workers": 1
+  },
+  "comparisons": [
+    {
+      "filename": "terminal_cuda_01.png",
+      "category": "terminal",
+      "question": "What error is displayed, and what does the visible text suggest about the failure?",
+      "image_sha256": "e111e96e05c86eae8728d6e2970788576653482405065ceb215b4b540a946c2f",
+      "same_image": true,
+      "same_question": true,
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "backends": {
+          "minicpm": {
+            "score_1_to_5": 2,
+            "comment": "Recognizes CUDA out of memory, but misrenders the exception spelling and omits the visible allocation and free-memory figures."
+          },
+          "lfm3": {
+            "score_1_to_5": 4,
+            "comment": "Reports the visible allocation and memory figures accurately; \u201closs module\u201d is a mild inference from the visible `loss.backward()` call."
+          }
+        }
+      }
+    },
+    {
+      "filename": "terminal_eresolve_01.png",
+      "category": "terminal",
+      "question": "Which package versions appear to conflict, and what is the immediate install error?",
+      "image_sha256": "dde7d4e3d8ed3bd7bdb671ecf7da43950e5289c9a7725e8a5df3006553f7a77b",
+      "same_image": true,
+      "same_question": true,
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "backends": {
+          "minicpm": {
+            "score_1_to_5": 5,
+            "comment": "Correctly identifies ERESOLVE, React 19, the React 18 peer requirement, and the unresolved dependency tree."
+          },
+          "lfm3": {
+            "score_1_to_5": 5,
+            "comment": "Correctly names both package versions and the immediate install error; no material unsupported detail."
+          }
+        }
+      }
+    },
+    {
+      "filename": "terminal_module_01.png",
+      "category": "terminal",
+      "question": "What missing dependency is reported, and what command led to it?",
+      "image_sha256": "bf8489c712daa8444d16a4657cf95f0fd1127ed44528761043b88463cac4f85d",
+      "same_image": true,
+      "same_question": true,
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "backends": {
+          "minicpm": {
+            "score_1_to_5": 4,
+            "comment": "Names pandas and `python app.py` correctly; treats the missing installation as a likely explanation."
+          },
+          "lfm3": {
+            "score_1_to_5": 5,
+            "comment": "Names the missing pandas module, command, import line, and visible environment; distinguishes the likely explanation."
+          }
+        }
+      }
+    },
+    {
+      "filename": "terminal_database_01.png",
+      "category": "terminal",
+      "question": "Which database error is visible, and what condition does it indicate?",
+      "image_sha256": "f3d5be9b4211bef77c3a63194e7c68a166fe9424d6cc34e8525ff01ea5e2212e",
+      "same_image": true,
+      "same_question": true,
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "backends": {
+          "minicpm": {
+            "score_1_to_5": 5,
+            "comment": "Accurately reports MongoDB E11000, the duplicate key, index, collection, and conflicting SKU."
+          },
+          "lfm3": {
+            "score_1_to_5": 5,
+            "comment": "Accurately reports E11000 and the duplicate SKU; added write-path detail is supported by the visible command and message."
+          }
+        }
+      }
+    },
+    {
+      "filename": "terminal_success_01.png",
+      "category": "terminal",
+      "question": "What completed task and visible validation result are shown? Use only visible evidence.",
+      "image_sha256": "c939eaf696b0d956e782c134eeed3885e537b3a2d3c1580f2441f36847668e25",
+      "same_image": true,
+      "same_question": true,
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "backends": {
+          "minicpm": {
+            "score_1_to_5": 3,
+            "comment": "Reports the completed training and 94.2% validation accuracy, but incorrectly says those are the only visible elements."
+          },
+          "lfm3": {
+            "score_1_to_5": 5,
+            "comment": "Accurately reports completion, validation accuracy, epoch, loss, and checkpoint path shown in the screenshot."
+          }
+        }
+      }
+    },
+    {
+      "filename": "lecture_normalization_01.png",
+      "category": "slide",
+      "question": "Summarize the normal forms named and the rule given for each.",
+      "image_sha256": "d29b82c504ea40365c841584349bcfbc35d98a0a1428460483d48e82930dbf87",
+      "same_image": true,
+      "same_question": true,
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "backends": {
+          "minicpm": {
+            "score_1_to_5": 2,
+            "comment": "States the three normal-form rules correctly, then invents a concrete schema example that is not visible."
+          },
+          "lfm3": {
+            "score_1_to_5": 5,
+            "comment": "Accurately summarizes 1NF, 2NF, and 3NF and does not invent the discussion example."
+          }
+        }
+      }
+    },
+    {
+      "filename": "lecture_joins_01.png",
+      "category": "slide",
+      "question": "Compare what the slide says INNER JOIN and LEFT JOIN return.",
+      "image_sha256": "c425f0dc5cdf48888518e30804149c68a9d91acb8aff85be7506360f8babc1f1",
+      "same_image": true,
+      "same_question": true,
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "backends": {
+          "minicpm": {
+            "score_1_to_5": 5,
+            "comment": "Correctly distinguishes matching rows for INNER JOIN from keeping every left row for LEFT JOIN."
+          },
+          "lfm3": {
+            "score_1_to_5": 5,
+            "comment": "Correctly summarizes both join behaviors; the explanation remains consistent with the slide."
+          }
+        }
+      }
+    },
+    {
+      "filename": "lecture_biology_01.png",
+      "category": "slide",
+      "question": "What inputs and output does the slide give for photosynthesis?",
+      "image_sha256": "89e7c5795020c7994d6269a6a269f89b1193bff79dddfe2de8787d5d43c8855f",
+      "same_image": true,
+      "same_question": true,
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "backends": {
+          "minicpm": {
+            "score_1_to_5": 5,
+            "comment": "Correctly gives carbon dioxide and water as inputs and glucose and oxygen as outputs."
+          },
+          "lfm3": {
+            "score_1_to_5": 3,
+            "comment": "Gives the correct products and much useful slide detail, but incorrectly lists chloroplasts as an input."
+          }
+        }
+      }
+    },
+    {
+      "filename": "receipt_022.png",
+      "category": "receipt",
+      "question": "What item was purchased and what total is shown? Use only visible evidence.",
+      "image_sha256": "77638caff7f6e6fcdc3cf1c4648eaea5acfd9f2a6ff3d0925b29a65e794e6d82",
+      "same_image": true,
+      "same_question": true,
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "backends": {
+          "minicpm": {
+            "score_1_to_5": 5,
+            "comment": "Correctly identifies the mechanical keyboard and $84.79 total."
+          },
+          "lfm3": {
+            "score_1_to_5": 5,
+            "comment": "Correctly identifies the mechanical keyboard and $84.79 total."
+          }
+        }
+      }
+    },
+    {
+      "filename": "receipt_024.png",
+      "category": "receipt",
+      "question": "What item was purchased and what total is shown? Use only visible evidence.",
+      "image_sha256": "5581c00d20ba66c1d04bc83f73971d687c2ccf1ca2da2b0b01fc8a2ec4e37e92",
+      "same_image": true,
+      "same_question": true,
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "backends": {
+          "minicpm": {
+            "score_1_to_5": 5,
+            "comment": "Correctly identifies the USB-C charger and $26.45 total."
+          },
+          "lfm3": {
+            "score_1_to_5": 5,
+            "comment": "Correctly identifies the USB-C charger and $26.45 total; the additional subtotal and tax are visible."
+          }
+        }
+      }
+    },
+    {
+      "filename": "bridge_photo.png",
+      "category": "public_photo",
+      "question": "Describe the visible structure and surroundings.",
+      "image_sha256": "74e269d44281bc7a7289cdb0263ad776a183d7191a3f4712294c65bc7530e874",
+      "same_image": true,
+      "same_question": true,
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "backends": {
+          "minicpm": {
+            "score_1_to_5": 4,
+            "comment": "Recognizes the bridge and describes visible water, shoreline, vehicles, and hills; the scene description is useful."
+          },
+          "lfm3": {
+            "score_1_to_5": 4,
+            "comment": "Detailed description, including the bird on the rock, is grounded; it overlooks small people visible near the left-side building when it says no people are clearly visible."
+          }
+        }
+      }
+    },
+    {
+      "filename": "kitchen_photo.jpg",
+      "category": "public_photo",
+      "question": "Describe the visible objects and room setting.",
+      "image_sha256": "f73248d8fcf9a9922b7a2a8dc6b8d6c72d11c1aa28883e2e0b2bc92c659111a5",
+      "same_image": true,
+      "same_question": true,
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "backends": {
+          "minicpm": {
+            "score_1_to_5": 4,
+            "comment": "Identifies the kitchen island, utensils, stove, cabinets, window, and plants; adds subjective organization language."
+          },
+          "lfm3": {
+            "score_1_to_5": 4,
+            "comment": "Detailed and accurate description of the counter, utensils, cookware, cabinets, and window; includes a mild subjective inference."
+          }
+        }
+      }
+    },
+    {
+      "filename": "project_board_01.png",
+      "category": "ui",
+      "question": "What status columns are visible, and name one task shown in progress?",
+      "image_sha256": "95baa84d1fc525624c1f61dfd06f3a398dcd59ca69c26b9e5ce8c062ff4c0994",
+      "same_image": true,
+      "same_question": true,
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "backends": {
+          "minicpm": {
+            "score_1_to_5": 5,
+            "comment": "Correctly lists all three columns and a task in progress."
+          },
+          "lfm3": {
+            "score_1_to_5": 5,
+            "comment": "Correctly lists all three columns and visible in-progress tasks."
+          }
+        }
+      }
+    },
+    {
+      "filename": "document_05.png",
+      "category": "document",
+      "question": "What behavior does the design note specify for GET /items and POST /items?",
+      "image_sha256": "8b0c7d7a0e6dc012f7309538e7b47ac545cd144d6f2d1d4488e5bc9e6b7e1e26",
+      "same_image": true,
+      "same_question": true,
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "backends": {
+          "minicpm": {
+            "score_1_to_5": 2,
+            "comment": "Gets both endpoint behaviors right, but adds an unsupported claim that the document has a word count of 158."
+          },
+          "lfm3": {
+            "score_1_to_5": 5,
+            "comment": "Accurately states GET and POST behavior and also reports the visible error and request-ID requirements."
+          }
+        }
+      }
+    },
+    {
+      "filename": "object_study_01.png",
+      "category": "visual_object",
+      "question": "Describe the main visible subject, its colors, and the setting.",
+      "image_sha256": "32a5b97d35e7853853572739885ed61c7a6912955d7133b5df8f7f515e9fe704",
+      "same_image": true,
+      "same_question": true,
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "backends": {
+          "minicpm": {
+            "score_1_to_5": 5,
+            "comment": "Correctly describes the red backpack-like illustration, dark handle, beige patch, and plain background."
+          },
+          "lfm3": {
+            "score_1_to_5": 4,
+            "comment": "Detailed and visually accurate; the \u201cUI mockup\u201d characterization goes beyond what the image establishes."
+          }
+        }
+      }
+    },
+    {
+      "filename": "object_study_02.png",
+      "category": "visual_object",
+      "question": "Describe the main visible subject, its colors, and the setting.",
+      "image_sha256": "8a759f3bd7c69b847c31b6fbc0f61118fce1541323938d124efa906d83727156",
+      "same_image": true,
+      "same_question": true,
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "backends": {
+          "minicpm": {
+            "score_1_to_5": 4,
+            "comment": "Correctly identifies a blue bag with beige and white details on a plain background."
+          },
+          "lfm3": {
+            "score_1_to_5": 4,
+            "comment": "Detailed description of the blue bag and its details; calling it a suitcase is slightly uncertain, though \u201cbag\u201d is also given."
+          }
+        }
+      }
+    }
+  ],
+  "backends": {
+    "minicpm": {
+      "backend": "minicpm",
+      "model": "MiniCPM-V 4.7 1B",
+      "model_id": "openbmb/MiniCPM-V-4.7-1B",
+      "runtime": "MLX",
+      "precision": "mixed affine 4-bit / BF16",
+      "device": "mlx (Metal GPU)",
+      "instance_root": ".",
+      "dataset": {
+        "database": "./data/sightvault.sqlite3",
+        "image_count": 16,
+        "ocr_source": "isolated copied demo database"
+      },
+      "settings": {
+        "max_new_tokens": 384,
+        "thinking_enabled": false,
+        "workers": 1,
+        "repeats_per_case": 1
+      },
+      "timing": {
+        "model_load_s": 2.285,
+        "warm_latency_s": [
+          1.682,
+          1.524,
+          1.559,
+          1.467,
+          1.994,
+          1.564,
+          1.636,
+          1.55,
+          1.618,
+          1.475,
+          2.173,
+          1.403,
+          1.609,
+          1.668,
+          1.391
+        ],
+        "median_warm_latency_s": 1.564
+      },
+      "memory": {
+        "process_initial_rss_bytes": 384106496,
+        "process_current_rss_bytes": 1021247488,
+        "process_peak_rss_bytes": 2483093504,
+        "mlx_active_memory_bytes": 2668284290,
+        "mlx_peak_memory_bytes": 3503048014,
+        "mlx_device_info": {
+          "device_name": "Apple M1 Pro",
+          "max_recommended_working_set_size": 12713115648,
+          "memory_size": 17179869184,
+          "architecture": "applegpu_g13s",
+          "max_buffer_length": 9534832640,
+          "resource_limit": 499000
+        },
+        "whole_machine_pressure": {
+          "exit_code": 0,
+          "stdout": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 37%",
+          "stderr": ""
+        }
+      },
+      "status": {
+        "available": true,
+        "loaded": true,
+        "device": "mlx (Metal GPU)",
+        "error": null,
+        "runtime": "MLX",
+        "precision": "mixed affine 4-bit / BF16",
+        "name": "MiniCPM-V 4.7 1B",
+        "model_id": "openbmb/MiniCPM-V-4.7-1B",
+        "backend": "minicpm",
+        "availability_reason": null
+      },
+      "answers": [
+        {
+          "filename": "terminal_cuda_01.png",
+          "category": "terminal",
+          "question": "What error is displayed, and what does the visible text suggest about the failure?",
+          "image_sha256": "e111e96e05c86eae8728d6e2970788576653482405065ceb215b4b540a946c2f",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The visible text displays: `torch.OutofMemoryError: CUDA out of memory`. The visible text suggests the failure is due to insufficient CUDA memory, as the error indicates CUDA out of memory. The visible text implies the system is trying to allocate memory but is insufficient, likely causing the error.",
+          "answer_chars": 301,
+          "visible_answer_tokens": 59,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 4.489,
+          "model_load_s": 2.285,
+          "generation_and_preparation_s": 2.204
+        },
+        {
+          "filename": "terminal_eresolve_01.png",
+          "category": "terminal",
+          "question": "Which package versions appear to conflict, and what is the immediate install error?",
+          "image_sha256": "dde7d4e3d8ed3bd7bdb671ecf7da43950e5289c9a7725e8a5df3006553f7a77b",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The visible error is \"npm ERR! code ERESOLVE.\" The conflicting packages are react@19.0.0 and peer react@\"^18.0.0\" from legacy-widget@2.3.1. The immediate error is the inability to resolve dependency trees.",
+          "answer_chars": 205,
+          "visible_answer_tokens": 58,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 1.682,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 1.682
+        },
+        {
+          "filename": "terminal_module_01.png",
+          "category": "terminal",
+          "question": "What missing dependency is reported, and what command led to it?",
+          "image_sha256": "bf8489c712daa8444d16a4657cf95f0fd1127ed44528761043b88463cac4f85d",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The missing dependency is pandas. The command was `python app.py`. Visible: traceback shows `import pandas`. Explanation: Likely, the virtual environment (.venv) lacks pandas. Fact: Environment is .venv.",
+          "answer_chars": 203,
+          "visible_answer_tokens": 44,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 1.524,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 1.524
+        },
+        {
+          "filename": "terminal_database_01.png",
+          "category": "terminal",
+          "question": "Which database error is visible, and what condition does it indicate?",
+          "image_sha256": "f3d5be9b4211bef77c3a63194e7c68a166fe9424d6cc34e8525ff01ea5e2212e",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The visible error is MongoDB ServerError E11000 duplicate key. It indicates a duplicate key exists: \"sku: KB-104\" in inventory.products index. This means a document with that identifier is already present.",
+          "answer_chars": 205,
+          "visible_answer_tokens": 48,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 1.559,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 1.559
+        },
+        {
+          "filename": "terminal_success_01.png",
+          "category": "terminal",
+          "question": "What completed task and visible validation result are shown? Use only visible evidence.",
+          "image_sha256": "c939eaf696b0d956e782c134eeed3885e537b3a2d3c1580f2441f36847668e25",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The task is \"training.py\u2014completed.\" The visible validation result is \"Validation accuracy: 94.2%.\" These are the only visible elements. Keep it short.",
+          "answer_chars": 151,
+          "visible_answer_tokens": 36,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 1.467,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 1.467
+        },
+        {
+          "filename": "lecture_normalization_01.png",
+          "category": "slide",
+          "question": "Summarize the normal forms named and the rule given for each.",
+          "image_sha256": "d29b82c504ea40365c841584349bcfbc35d98a0a1428460483d48e82930dbf87",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "First normal form: atomic values  \nSecond normal form: no partial dependencies  \nThird normal form: no transitive dependencies  \nGoal: reduce redundancy and update anomalies  \n\nExample: A table with customer (id, name, email) and orders (order_id, customer_id, amount). Normalization splits into: customers (id, name, email), orders (order_id, date, amount), customer_orders (order_id, customer_id). No partial dependencies or transitive links.",
+          "answer_chars": 444,
+          "visible_answer_tokens": 95,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 1.994,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 1.994
+        },
+        {
+          "filename": "lecture_joins_01.png",
+          "category": "slide",
+          "question": "Compare what the slide says INNER JOIN and LEFT JOIN return.",
+          "image_sha256": "c425f0dc5cdf48888518e30804149c68a9d91acb8aff85be7506360f8babc1f1",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "Visible: Slide on relational algebra joins.\n\nExplanation 1 (likely): INNER JOIN returns matching rows.\nExplanation 2 (likely): LEFT JOIN keeps all rows from the left.\nFacts: Definitions are clear. No inference needed.",
+          "answer_chars": 217,
+          "visible_answer_tokens": 49,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 1.564,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 1.564
+        },
+        {
+          "filename": "lecture_biology_01.png",
+          "category": "slide",
+          "question": "What inputs and output does the slide give for photosynthesis?",
+          "image_sha256": "89e7c5795020c7994d6269a6a269f89b1193bff79dddfe2de8787d5d43c8855f",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "Inputs visible: Carbon dioxide, water. Outputs visible: glucose, oxygen. Chlorophyll absorbs red/blue wavelengths. Light-dependent reactions occur in thylakoids.\n\nExplanation: Inputs are CO2 and water; outputs are glucose and oxygen. Chlorophyll handles specific wavelengths.",
+          "answer_chars": 275,
+          "visible_answer_tokens": 56,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 1.636,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 1.636
+        },
+        {
+          "filename": "receipt_022.png",
+          "category": "receipt",
+          "question": "What item was purchased and what total is shown? Use only visible evidence.",
+          "image_sha256": "77638caff7f6e6fcdc3cf1c4648eaea5acfd9f2a6ff3d0925b29a65e794e6d82",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "Visible text: Mechanical keyboard; subtotal $79.99; tax $4.80; total $84.79.\n\nPurchased item: Mechanical keyboard. Total shown: $84.79.",
+          "answer_chars": 135,
+          "visible_answer_tokens": 47,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 1.55,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 1.55
+        },
+        {
+          "filename": "receipt_024.png",
+          "category": "receipt",
+          "question": "What item was purchased and what total is shown? Use only visible evidence.",
+          "image_sha256": "5581c00d20ba66c1d04bc83f73971d687c2ccf1ca2da2b0b01fc8a2ec4e37e92",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "Visible text: \"USB-C charger\" is the item; \"Subtotal: $24.95\" and \"TOTAL: $26.45\" are totals.\n\nItem: USB-C charger. Total shown: $26.45.",
+          "answer_chars": 136,
+          "visible_answer_tokens": 54,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 1.618,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 1.618
+        },
+        {
+          "filename": "bridge_photo.png",
+          "category": "public_photo",
+          "question": "Describe the visible structure and surroundings.",
+          "image_sha256": "74e269d44281bc7a7289cdb0263ad776a183d7191a3f4712294c65bc7530e874",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "Visible structure: Golden Gate Bridge. Surroundings: water, rocks, buildings, vehicles, hills.\n\nExplanation: Bridge is red; water is blue-green; rocks are brown. No explanation provided.",
+          "answer_chars": 186,
+          "visible_answer_tokens": 40,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 1.475,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 1.475
+        },
+        {
+          "filename": "kitchen_photo.jpg",
+          "category": "public_photo",
+          "question": "Describe the visible objects and room setting.",
+          "image_sha256": "f73248d8fcf9a9922b7a2a8dc6b8d6c72d11c1aa28883e2e0b2bc92c659111a5",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "Visible objects: kitchen island with utensils, pots, bowls, a cutting board, a stove, cabinets, a pendant light, a window with plants.\n\nLikely explanation: Utensils in containers. Fact: Utensils are present in blue, yellow, and gray containers.\nExplanation: The room has a cozy, organized kitchen.",
+          "answer_chars": 297,
+          "visible_answer_tokens": 70,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 2.173,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 2.173
+        },
+        {
+          "filename": "project_board_01.png",
+          "category": "ui",
+          "question": "What status columns are visible, and name one task shown in progress?",
+          "image_sha256": "95baa84d1fc525624c1f61dfd06f3a398dcd59ca69c26b9e5ce8c062ff4c0994",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "Visible status columns: To do, In progress, Completed. One task in progress is \"Build image index\" (Task #102).",
+          "answer_chars": 111,
+          "visible_answer_tokens": 29,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 1.403,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 1.403
+        },
+        {
+          "filename": "document_05.png",
+          "category": "document",
+          "question": "What behavior does the design note specify for GET /items and POST /items?",
+          "image_sha256": "8b0c7d7a0e6dc012f7309538e7b47ac545cd144d6f2d1d4488e5bc9e6b7e1e26",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "Visible: API design notes.  \nGET /items: returns a list of stored records.  \nPOST /items: creates a validated new record.  \nExplanation: These are listed behaviors. Fact: Working draft is fictional.  \nWord count: 158.",
+          "answer_chars": 217,
+          "visible_answer_tokens": 53,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 1.609,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 1.609
+        },
+        {
+          "filename": "object_study_01.png",
+          "category": "visual_object",
+          "question": "Describe the main visible subject, its colors, and the setting.",
+          "image_sha256": "32a5b97d35e7853853572739885ed61c7a6912955d7133b5df8f7f515e9fe704",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "Main subject: A red bag with a dark handle. Colors: Red, dark blue, beige. Setting: Light background. Visible text: \"Object study/illustrated demo,\" \"ILLUSTRATION/visualretrieval test,\" \"SYNTHETIC DEMO / no personal information.\"",
+          "answer_chars": 229,
+          "visible_answer_tokens": 61,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 1.668,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 1.668
+        },
+        {
+          "filename": "object_study_02.png",
+          "category": "visual_object",
+          "question": "Describe the main visible subject, its colors, and the setting.",
+          "image_sha256": "8a759f3bd7c69b847c31b6fbc0f61118fce1541323938d124efa906d83727156",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "Main subject: blue backpack with a beige rectangle and white lines. Setting: light background. Colors: blue, beige, white. No additional details visible.",
+          "answer_chars": 153,
+          "visible_answer_tokens": 31,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 1.391,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 1.391
+        }
+      ],
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "score_sum": 65,
+        "score_max": 80,
+        "score_mean": 4.06
+      }
+    },
+    "lfm3": {
+      "backend": "lfm3",
+      "model": "LFM3-VL-2B",
+      "model_id": "LiquidAI/LFM3-VL-2B-MLX-4bit",
+      "runtime": "MLX-VLM / MLX",
+      "precision": "QAD affine 4-bit (group 32); token embeddings 8-bit; BF16 tensors retained per checkpoint",
+      "device": "mlx (Metal GPU)",
+      "instance_root": ".",
+      "dataset": {
+        "database": "./data/sightvault.sqlite3",
+        "image_count": 16,
+        "ocr_source": "isolated copied demo database"
+      },
+      "settings": {
+        "max_new_tokens": 384,
+        "thinking_enabled": false,
+        "workers": 1,
+        "repeats_per_case": 1
+      },
+      "timing": {
+        "model_load_s": 0.937,
+        "warm_latency_s": [
+          2.89,
+          2.696,
+          2.813,
+          2.864,
+          2.774,
+          2.318,
+          2.769,
+          1.983,
+          2.792,
+          2.832,
+          3.568,
+          2.738,
+          2.131,
+          3.121,
+          3.132
+        ],
+        "median_warm_latency_s": 2.792
+      },
+      "memory": {
+        "process_initial_rss_bytes": 382697472,
+        "process_current_rss_bytes": 2077687808,
+        "process_peak_rss_bytes": 2364588032,
+        "mlx_active_memory_bytes": 1591035918,
+        "mlx_peak_memory_bytes": 2643417732,
+        "mlx_device_info": {
+          "device_name": "Apple M1 Pro",
+          "max_recommended_working_set_size": 12713115648,
+          "memory_size": 17179869184,
+          "architecture": "applegpu_g13s",
+          "max_buffer_length": 9534832640,
+          "resource_limit": 499000
+        },
+        "whole_machine_pressure": {
+          "exit_code": 0,
+          "stdout": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+          "stderr": ""
+        }
+      },
+      "status": {
+        "available": true,
+        "loaded": true,
+        "device": "mlx (Metal GPU)",
+        "error": null,
+        "runtime": "MLX-VLM / MLX",
+        "precision": "QAD affine 4-bit (group 32); token embeddings 8-bit; BF16 tensors retained per checkpoint",
+        "name": "LFM3-VL-2B",
+        "model_id": "LiquidAI/LFM3-VL-2B-MLX-4bit",
+        "backend": "lfm3",
+        "availability_reason": null
+      },
+      "answers": [
+        {
+          "filename": "terminal_cuda_01.png",
+          "category": "terminal",
+          "question": "What error is displayed, and what does the visible text suggest about the failure?",
+          "image_sha256": "e111e96e05c86eae8728d6e2970788576653482405065ceb215b4b540a946c2f",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The visible text displays a Python training session that resulted in a \"torch.OutOfMemoryError: CUDA out of memory.\" The failure occurs during the backward pass in the loss module, as indicated by the traceback pointing to line 87 of train.py. The error suggests that the model is attempting to allocate 512.00 MiB but GPU 0 only has 12.00 GiB total memory, with 96.00 MiB free and 11.62 GiB held by the process. This indicates a memory allocation issue where the model parameters or gradients exceed the available GPU memory. The session is labeled \"SYNTHETIC DEMO / no personal information,\" implying this is a simulated environment.",
+          "answer_chars": 635,
+          "visible_answer_tokens": 145,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 4.278,
+          "model_load_s": 0.937,
+          "generation_and_preparation_s": 3.341
+        },
+        {
+          "filename": "terminal_eresolve_01.png",
+          "category": "terminal",
+          "question": "Which package versions appear to conflict, and what is the immediate install error?",
+          "image_sha256": "dde7d4e3d8ed3bd7bdb671ecf7da43950e5289c9a7725e8a5df3006553f7a77b",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The screenshot shows an npm install command failing with \"npm ERR! code ERESOLVE\" and \"npm ERR! ERESOLVE unable to resolve dependency tree.\" The conflict involves react@19.0.0 being found, but a dependency \"peer react@^18.0.0\" from legacy-widget@2.3.1 could not be resolved. The immediate error is an unresolved dependency tree, likely due to version incompatibility between react@19.0.0 and the peer dependency. The evidence indicates a dependency resolution issue, but the exact cause is not specified.",
+          "answer_chars": 504,
+          "visible_answer_tokens": 121,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 2.89,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 2.89
+        },
+        {
+          "filename": "terminal_module_01.png",
+          "category": "terminal",
+          "question": "What missing dependency is reported, and what command led to it?",
+          "image_sha256": "bf8489c712daa8444d16a4657cf95f0fd1127ed44528761043b88463cac4f85d",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The screenshot shows a Python error: \"ModuleNotFoundError: No module named 'pandas'\". The command that led to this is \"python app.py\". The traceback indicates the error occurred in the file \"app.py\", line 2, when attempting to import pandas. The environment is Python 3.12 with a virtual environment named \".venv\". The likely explanation is that the pandas module is not installed in the current virtual environment. The evidence is sufficient to identify the missing dependency and the command that triggered the error.",
+          "answer_chars": 520,
+          "visible_answer_tokens": 107,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 2.696,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 2.696
+        },
+        {
+          "filename": "terminal_database_01.png",
+          "category": "terminal",
+          "question": "Which database error is visible, and what condition does it indicate?",
+          "image_sha256": "f3d5be9b4211bef77c3a63194e7c68a166fe9424d6cc34e8525ff01ea5e2212e",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The visible error is a MongoServerError with code E11000, described as a duplicate key error. The error message indicates that a document with the unique identifier sku_1 in the inventory.products collection already exists, specifically the key { sku: \"KB-104\" }. This means an attempt was made to insert or update a document with that unique ID, but one already exists in the database. The error occurs during the write operation of the seed.js script, which connects to the inventory database. The evidence shows the exact error details and the specific duplicate key causing the failure.",
+          "answer_chars": 590,
+          "visible_answer_tokens": 118,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 2.813,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 2.813
+        },
+        {
+          "filename": "terminal_success_01.png",
+          "category": "terminal",
+          "question": "What completed task and visible validation result are shown? Use only visible evidence.",
+          "image_sha256": "c939eaf696b0d956e782c134eeed3885e537b3a2d3c1580f2441f36847668e25",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The visible evidence shows a completed Python training run. The completed task is training.py, with the output indicating \"Training completed successfully.\" The validation result displayed is \"Validation accuracy: 94.2%.\" Additional visible details include Epoch 10/10, loss: 0.021, and checkpoint saved to ./runs/experiment-04. The session is labeled \"Session 01 \u00b7 developer workstation\" on a \"SYNTHETIC DEMO / no personal information\" environment. These facts are directly from the screenshot; no unseen history or cause is inferred.",
+          "answer_chars": 535,
+          "visible_answer_tokens": 120,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 2.864,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 2.864
+        },
+        {
+          "filename": "lecture_normalization_01.png",
+          "category": "slide",
+          "question": "Summarize the normal forms named and the rule given for each.",
+          "image_sha256": "d29b82c504ea40365c841584349bcfbc35d98a0a1428460483d48e82930dbf87",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The image shows a lecture note titled \"Database normalization\" with a subtitle \"CONCEPTS AND WORKED EXAMPLES.\" It lists three normal forms: First normal form (1NF) with atomic values, Second normal form (2NF) with no partial dependencies, and Third normal form (3NF) with no transitive dependencies. The goal is to reduce redundancy and update anomalies. A discussion prompt asks to explain the idea with a concrete example. The evidence is sufficient to summarize the normal forms and their rules as stated in the OCR transcription.",
+          "answer_chars": 533,
+          "visible_answer_tokens": 115,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 2.774,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 2.774
+        },
+        {
+          "filename": "lecture_joins_01.png",
+          "category": "slide",
+          "question": "Compare what the slide says INNER JOIN and LEFT JOIN return.",
+          "image_sha256": "c425f0dc5cdf48888518e30804149c68a9d91acb8aff85be7506360f8babc1f1",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The slide states that INNER JOIN returns only matching rows. It states that LEFT JOIN keeps every row on the left. Therefore, INNER JOIN returns rows where the condition is met in both tables, while LEFT JOIN returns all rows from the left table, including those that do not have matching rows in the right table.",
+          "answer_chars": 313,
+          "visible_answer_tokens": 66,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 2.318,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 2.318
+        },
+        {
+          "filename": "lecture_biology_01.png",
+          "category": "slide",
+          "question": "What inputs and output does the slide give for photosynthesis?",
+          "image_sha256": "89e7c5795020c7994d6269a6a269f89b1193bff79dddfe2de8787d5d43c8855f",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The slide lists inputs and outputs for photosynthesis. Inputs are chloroplasts, light, carbon dioxide, and water. The output is glucose and oxygen. The slide states chloroplasts convert light into chemical energy, and the chemical equation is carbon dioxide plus water yields glucose plus oxygen. It also notes chlorophyll absorbs red and blue wavelengths, and light-dependent reactions occur in thylakoids. These are factual statements from the slide. The discussion prompt asks for a concrete example, but no example is provided. The evidence is sufficient to answer the question.",
+          "answer_chars": 582,
+          "visible_answer_tokens": 112,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 2.769,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 2.769
+        },
+        {
+          "filename": "receipt_022.png",
+          "category": "receipt",
+          "question": "What item was purchased and what total is shown? Use only visible evidence.",
+          "image_sha256": "77638caff7f6e6fcdc3cf1c4648eaea5acfd9f2a6ff3d0925b29a65e794e6d82",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The item purchased is a Mechanical keyboard. The total shown is $84.79. These details are directly visible in the receipt under the item description and the cost breakdown section.",
+          "answer_chars": 180,
+          "visible_answer_tokens": 35,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 1.983,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 1.983
+        },
+        {
+          "filename": "receipt_024.png",
+          "category": "receipt",
+          "question": "What item was purchased and what total is shown? Use only visible evidence.",
+          "image_sha256": "5581c00d20ba66c1d04bc83f73971d687c2ccf1ca2da2b0b01fc8a2ec4e37e92",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The receipt shows a USB-C charger was purchased with a quantity of 1. The visible item is \"USB-C charger\" and the total amount displayed is $26.45. This total includes a subtotal of $24.95 and tax of $1.50. The receipt is from \"CAMPUS CORNER\" located at \"123 Example Lane\" and is labeled as a \"SYNTHETIC DEMO RECEIPT\" with transaction number #4200. The footer indicates \"PAID - DEMO DATA\" and thanks the customer for shopping locally.",
+          "answer_chars": 434,
+          "visible_answer_tokens": 117,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 2.792,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 2.792
+        },
+        {
+          "filename": "bridge_photo.png",
+          "category": "public_photo",
+          "question": "Describe the visible structure and surroundings.",
+          "image_sha256": "74e269d44281bc7a7289cdb0263ad776a183d7191a3f4712294c65bc7530e874",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The image shows a large red suspension bridge spanning a body of water, with two prominent towers and hanging cables. The bridge connects to a landmass on the left, which features a brick building and a flagpole. In the background, there are hills or mountains under a clear blue sky. The foreground includes a rocky outcrop in the water, with a bird perched on it. The bridge's design and color suggest it is the Golden Gate Bridge, but this identification is based on visual characteristics alone. The water appears calm, and the scene is well-lit, indicating daytime conditions. No people or moving vehicles are clearly visible, and there are no discernible texts or signs in the image. The overall setting is an outdoor, natural environment with man-made structures.",
+          "answer_chars": 770,
+          "visible_answer_tokens": 155,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 2.832,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 2.832
+        },
+        {
+          "filename": "kitchen_photo.jpg",
+          "category": "public_photo",
+          "question": "Describe the visible objects and room setting.",
+          "image_sha256": "f73248d8fcf9a9922b7a2a8dc6b8d6c72d11c1aa28883e2e0b2bc92c659111a5",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The image depicts a kitchen scene with a wooden island counter featuring green cabinetry. On the counter, there are several utensil holders containing wooden spoons, spatulas, and a whisk, along with a pink pot, a blue bowl, and a small pitcher. A stove with a green pot is visible to the left, and a range hood is mounted above it. Green upper cabinets are present, and a window on the right allows natural light in, with potted plants on the sill. Hanging above the island is a pink pendant lamp. Below the counter, storage containers are partially visible. The overall setting suggests a cozy, well-used kitchen. The OCR text does not provide additional specific details beyond what is visually evident.",
+          "answer_chars": 706,
+          "visible_answer_tokens": 151,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 3.568,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 3.568
+        },
+        {
+          "filename": "project_board_01.png",
+          "category": "ui",
+          "question": "What status columns are visible, and name one task shown in progress?",
+          "image_sha256": "95baa84d1fc525624c1f61dfd06f3a398dcd59ca69c26b9e5ce8c062ff4c0994",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The screenshot shows a project board with three status columns: \"To do,\" \"In progress,\" and \"Completed.\" Under \"In progress,\" one task is \"Build image index\" (Task #102). Other visible tasks include \"Design search view\" (To do), \"Set up environment\" (Completed), \"Write README\" (To do), \"Add OCR extraction\" (In progress), and \"Create demo files\" (Completed). The header reads \"Sprint planning\" for \"Local team workspace \u00b7 example project.\"",
+          "answer_chars": 440,
+          "visible_answer_tokens": 109,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 2.738,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 2.738
+        },
+        {
+          "filename": "document_05.png",
+          "category": "document",
+          "question": "What behavior does the design note specify for GET /items and POST /items?",
+          "image_sha256": "8b0c7d7a0e6dc012f7309538e7b47ac545cd144d6f2d1d4488e5bc9e6b7e1e26",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The design note specifies that GET /items returns a list of stored records and POST /items creates a validated new record. Additionally, it states that the design should return clear errors and preserve request IDs. These points outline the expected behaviors for the specified API endpoints.",
+          "answer_chars": 292,
+          "visible_answer_tokens": 52,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 2.131,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 2.131
+        },
+        {
+          "filename": "object_study_01.png",
+          "category": "visual_object",
+          "question": "Describe the main visible subject, its colors, and the setting.",
+          "image_sha256": "32a5b97d35e7853853572739885ed61c7a6912955d7133b5df8f7f515e9fe704",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The main visible subject is a stylized illustration of a red bag or case. It features a dark navy blue handle at the top, a rounded rectangular body in red, a horizontal white line near the top, a small beige rectangular patch in the center, and a lower pocket section outlined in dark navy blue with a white horizontal line and a small white zipper pull on the right. The bag sits on a light gray oval shadow. The setting is minimal, with a plain off-white background. Text elements include a header reading \"Object study / illustrated demo,\" a label \"ILLUSTRATION / visual retrieval test,\" and a footer stating \"SYNTHETIC DEMO / no personal information.\" The design appears flat and vector-based, typical of a UI mockup or illustration asset.",
+          "answer_chars": 744,
+          "visible_answer_tokens": 158,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 3.121,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 3.121
+        },
+        {
+          "filename": "object_study_02.png",
+          "category": "visual_object",
+          "question": "Describe the main visible subject, its colors, and the setting.",
+          "image_sha256": "8a759f3bd7c69b847c31b6fbc0f61118fce1541323938d124efa906d83727156",
+          "ocr_backend": "RapidOCR (local)",
+          "answer": "The main visible subject is a stylized illustration of a blue suitcase or bag. It features a dark navy handle at the top, a blue body with a lighter blue front pocket, and a small beige rectangular label or clasp in the center. The front pocket has a white zipper line and a small zipper pull tab. The suitcase has rounded corners and a soft gray oval shadow beneath it, suggesting it is resting on a surface. The setting is minimal, with a plain off-white background. Text elements include a header reading \u201cObject study / illustrated demo,\u201d a label \u201cILLUSTRATION / visual retrieval test,\u201d and a footer stating \u201cSYNTHETIC DEMO / no personal information.\u201d These appear to be interface or demo labels, not part of the illustrated scene.",
+          "answer_chars": 735,
+          "visible_answer_tokens": 159,
+          "max_new_tokens": 384,
+          "thinking_enabled": false,
+          "latency_s": 3.132,
+          "model_load_s": 0.0,
+          "generation_and_preparation_s": 3.132
+        }
+      ],
+      "reviewer_assessment": {
+        "reviewer": "Codex/Luna",
+        "ground_truth": false,
+        "score_sum": 73,
+        "score_max": 80,
+        "score_mean": 4.56
+      }
+    }
+  },
+  "quality_review": {
+    "reviewer": "Codex/Luna",
+    "ground_truth": false,
+    "label": "Reviewer-assessed AI evaluation; not human or ground-truth scoring.",
+    "rubric": {
+      "5": "Accurate, sufficiently complete, and no material unsupported claim.",
+      "4": "Accurate and useful with a minor omission or inference.",
+      "3": "Mostly correct but with a meaningful omission or questionable detail.",
+      "2": "Material hallucination or notable reliability issue despite some correct content.",
+      "1": "Mostly incorrect or nonresponsive."
+    },
+    "scope": "Sixteen curated demo images. Scores are qualitative review notes, not a statistical estimate of general model quality.",
+    "parent_reviewed_subset": {
+      "reviewer": "Parent Codex",
+      "cases": [
+        "terminal_cuda_01.png",
+        "lecture_biology_01.png",
+        "bridge_photo.png"
+      ],
+      "notes": "Parent Codex independently checked these images against both final answers. The review confirmed that LFM3 adds grounded CUDA memory details with a mild loss-module inference; it makes a substantive input error on photosynthesis; and its bridge description is richer but overlooks small people near the building. MiniCPM correctly gives the photosynthesis inputs and mentions visible vehicles by the bridge."
+    }
+  }
+}

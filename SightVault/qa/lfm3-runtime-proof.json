@@ -1,0 +1,89 @@
+{
+  "result": "passed",
+  "hardware": {
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "memory_bytes": 17179869184
+  },
+  "runtime": {
+    "name": "MLX-VLM / MLX / Apple Metal GPU (not PyTorch MPS)",
+    "mlx_vlm_version": "0.7.11",
+    "mlx_version": "0.32.4",
+    "git_revision": "918763c6875c80e82f9f48344dfad4763346fea8",
+    "device": "Device(gpu, 0)"
+  },
+  "supersedes": {
+    "runtime_commit": "f309b59a0c088b8b508fe5c49ca02e85bcdc2b06",
+    "reason": "The newer pinned upstream commit was verified to retain LFM3-VL while restoring the MiniCPM-OCR 1.0 adapter."
+  },
+  "model": {
+    "repo": "LiquidAI/LFM3-VL-2B-MLX-4bit",
+    "revision": "4146d7fa689833cfa7a06c474e748350b458f41e",
+    "path": "./.models/lfm3-vl-2b-mlx-4bit",
+    "weight_bytes": 1590959088,
+    "weight_sha256": "58268dfdf441ae4020d2a52fc97a814645e8a9624946e2d490403d4dcd71a255",
+    "expected_weight_sha256": "58268dfdf441ae4020d2a52fc97a814645e8a9624946e2d490403d4dcd71a255",
+    "precision": "Vendor QAD affine 4-bit (group size 32); token embeddings 8-bit; BF16 tensors retained per checkpoint"
+  },
+  "image": {
+    "path": "samples/terminal_eresolve_01.png",
+    "sha256": "dde7d4e3d8ed3bd7bdb671ecf7da43950e5289c9a7725e8a5df3006553f7a77b",
+    "size": [
+      1100,
+      700
+    ]
+  },
+  "prompt": {
+    "question": "What error is shown? State the visible text that supports your answer.",
+    "formatted_contains_image_token": true,
+    "image_objects_passed": 1,
+    "thinking_enabled": false,
+    "max_new_tokens": 384
+  },
+  "offline": {
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "guard": "Blocked non-loopback DNS and socket connections; this is an in-process check, not a firewall test.",
+    "blocked_attempts": []
+  },
+  "load_s": 0.764,
+  "responses": [
+    {
+      "attempt": 1,
+      "latency_s": 2.982,
+      "answer": "The screenshot shows a terminal output from running `npm install`. The visible error text includes: \"npm ERR! code ERESOLVE\" and \"npm ERR! ERESOLVE unable to resolve dependency tree\". It also lists a dependency conflict: \"peer react@^18.0.0\" from legacy-widget@2.3.1\", with a recommendation to \"Fix the upstream dependency conflict, or choose compatible package versions.\" This indicates an unresolved dependency conflict during installation. The session is labeled \"Session 01 \u00b7 developer workstation\" and the project is \"SYNTHETIC DEMO / no personal information\". No cause or unseen history is provided.",
+      "answer_chars": 605,
+      "final_answer_present": true,
+      "generation_tokens": 143
+    },
+    {
+      "attempt": 2,
+      "latency_s": 2.932,
+      "answer": "The screenshot shows a terminal output from running `npm install`. The visible error text includes: \"npm ERR! code ERESOLVE\" and \"npm ERR! ERESOLVE unable to resolve dependency tree\". It also lists a dependency conflict: \"peer react@^18.0.0\" from legacy-widget@2.3.1\", with a recommendation to \"Fix the upstream dependency conflict, or choose compatible package versions.\" This indicates an unresolved dependency conflict during installation. The session is labeled \"Session 01 \u00b7 developer workstation\" and the project is \"SYNTHETIC DEMO / no personal information\". No cause or unseen history is provided.",
+      "answer_chars": 605,
+      "final_answer_present": true,
+      "generation_tokens": 143
+    }
+  ],
+  "memory": {
+    "process_peak_rss_bytes": 2357657600,
+    "process_current_rss_bytes": 1907376128,
+    "mlx_active_memory_bytes": 1591298062,
+    "mlx_peak_memory_bytes": 2608224148,
+    "mlx_device_info": {
+      "device_name": "Apple M1 Pro",
+      "max_recommended_working_set_size": 12713115648,
+      "memory_size": 17179869184,
+      "architecture": "applegpu_g13s",
+      "max_buffer_length": 9534832640,
+      "resource_limit": 499000
+    },
+    "whole_machine_pressure": {
+      "exit_code": 0,
+      "stdout": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 43%",
+      "stderr": ""
+    },
+    "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   112961.\nPages active:                                 163705.\nPages inactive:                               158822.\nPages speculative:                              4420.\nPages throttled:                                   0.\nPages wired down:                             257308.\nPages purgeable:                                 653.\n\"Translation faults\":                      339134354.\nPages copy-on-write:                         9425273.\nPages zero filled:                         231137530.\nPages reactivated:                          37289808.\nPages purged:                                6348091.\nFile-backed pages:                            156997.\nAnonymous pages:                              169950.\nPages stored in compressor:                  1667499.\nPages occupied by compressor:                 311689.\nDecompressions:                             36864807.\nCompressions:                               49779226.\nPageins:                                    39471314.\nPageouts:                                     194316.\nSwapins:                                     1250844.\nSwapouts:                                    2573981."
+  },
+  "command": "HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_HUB_DISABLE_TELEMETRY=1 .venv-lfm3/bin/python scripts/qa_lfm3_runtime.py --image samples/terminal_eresolve_01.png --repeat 2 --max-tokens 384 --output qa/lfm3-runtime-proof.json"
+}
