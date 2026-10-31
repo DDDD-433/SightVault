@@ -1,5 +1,6 @@
 from concurrent.futures import ThreadPoolExecutor
-from contextlib import asynccontextmanager
+from contextlib import asynccontextmanager, nullcontext
+from copy import deepcopy
 from pathlib import Path
 import logging
 import threading
@@ -155,15 +156,20 @@ def create_app(config=None, models=None):
         file = stored_image(row)
         started = time.perf_counter()
         def run():
-            with Image.open(file) as image:
-                return models.analyze(image.convert('RGB'),body.question,row['ocr_text'])
-        try: answer = await run_in_threadpool(run)
+            model_lock = getattr(models, 'lock', None)
+            with model_lock if model_lock is not None else nullcontext():
+                with Image.open(file) as image:
+                    answer = models.analyze(image.convert('RGB'),body.question,row['ocr_text'])
+                model_status = models.status()
+                vision_status = deepcopy(model_status.get('vision') or {})
+                generation = deepcopy(getattr(models, 'last_vision_generation', {}) or {})
+                return answer, vision_status, generation
+        try: answer, vision_status, generation = await run_in_threadpool(run)
         except FileNotFoundError as exc: raise HTTPException(404, 'Stored image is missing. Re-index the source folder.') from exc
         except ModelUnavailable as exc: raise HTTPException(503,str(exc)) from exc
         except Exception as exc:
             logging.exception('Analysis failed')
             raise HTTPException(503,'Analysis could not finish. Search and OCR remain available. '+str(exc)[:300]) from exc
-        vision_status = models.status().get('vision', {})
         return {'answer':answer,'evidence':public_asset(row),
             'model':vision_status.get('name', getattr(models, 'vision_label', 'MiniCPM-V 4.7 1B')),
             'backend':vision_status.get('backend', getattr(config, 'vision', 'minicpm')),
@@ -178,7 +184,7 @@ def create_app(config=None, models=None):
             'device_evidence':vision_status.get('device_evidence'),
             'reasoning_mode':vision_status.get('reasoning_mode', 'off'),
             'thinking_token_budget':vision_status.get('thinking_token_budget', 0),
-            'generation':getattr(models, 'last_vision_generation', {}),
+            'generation':generation,
             'latency_ms':round((time.perf_counter()-started)*1000,1)}
 
     static = Path(__file__).resolve().parent/'web'

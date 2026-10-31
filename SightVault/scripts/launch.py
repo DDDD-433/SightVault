@@ -24,17 +24,58 @@ def selected_vision(status):
     vision = models.get('vision') or {}
     return status.get('vision_backend') or vision.get('backend')
 
+def selected_lfm3_reasoning(status):
+    if not isinstance(status, dict):
+        return None, None
+    vision = ((status.get('models') or {}).get('vision') or {})
+    mode = status.get('vision_reasoning_mode', vision.get('reasoning_mode'))
+    budget = status.get('vision_thinking_token_budget', vision.get('thinking_token_budget'))
+    return mode, budget
+
+def expected_lfm3_reasoning():
+    try:
+        budget = int(os.environ.get('SIGHTVAULT_LFM3_THINKING_TOKENS', '0'))
+    except ValueError:
+        return None, None
+    if budget not in (0, 128):
+        return None, None
+    return ('bounded-thinking' if budget else 'off', budget)
+
 def compatible_instance(status):
     if not isinstance(status, dict) or status.get('instance_root') != str(ROOT):
         return False
     expected = os.environ.get('SIGHTVAULT_VISION', 'minicpm').strip().lower()
-    return selected_vision(status) == expected
+    if selected_vision(status) != expected:
+        return False
+    if expected == 'lfm3':
+        expected_mode, expected_budget = expected_lfm3_reasoning()
+        actual_mode, actual_budget = selected_lfm3_reasoning(status)
+        return (expected_mode is not None and actual_mode == expected_mode
+                and actual_budget == expected_budget)
+    return True
 
 def provider_mismatch(status):
     if not isinstance(status, dict) or status.get('instance_root') != str(ROOT):
         return False
     expected = os.environ.get('SIGHTVAULT_VISION', 'minicpm').strip().lower()
-    return selected_vision(status) != expected
+    return not compatible_instance(status)
+
+def instance_mismatch_message(status):
+    expected = os.environ.get('SIGHTVAULT_VISION', 'minicpm').strip().lower()
+    active = selected_vision(status) or 'unknown (the running service did not report it)'
+    if active != expected:
+        return (f'SightVault is already running from this checkout at {URL} with vision backend {active}; '
+                f'this launch selected {expected}. Stop the existing server and relaunch. '
+                'The launcher will not terminate a running process.')
+    if expected == 'lfm3':
+        expected_mode, expected_budget = expected_lfm3_reasoning()
+        active_mode, active_budget = selected_lfm3_reasoning(status)
+        return (f'SightVault is already running from this checkout at {URL} with LFM3 thinking mode '
+                f'{active_mode!r} and thinking-token budget {active_budget!r}; this launch selected '
+                f'{expected_mode!r} and budget {expected_budget!r}. Stop the existing server and relaunch '
+                'to apply the LFM3 thinking setting. The launcher will not terminate a running process.')
+    return (f'SightVault is already running from this checkout at {URL}, but its configuration does not '
+            'match this launch. Stop the existing server and relaunch. The launcher will not terminate a running process.')
 
 def port_busy():
     with socket.socket() as s:
@@ -51,11 +92,7 @@ def main():
         print('SightVault is already running at '+URL)
     else:
         if provider_mismatch(status):
-            selected = os.environ.get('SIGHTVAULT_VISION', 'minicpm').strip().lower()
-            active = selected_vision(status) or 'unknown (the running service did not report it)'
-            print(f'SightVault is already running from this checkout at {URL} with vision backend {active}; '
-                  f'this launch selected {selected}. Stop the existing server and relaunch. '
-                  'The launcher will not terminate a running process.')
+            print(instance_mismatch_message(status))
             return 1
         if port_busy():
             print(f'Port {PORT} is used by another program, not SightVault. Close it, or run app.py with a free --port and set SIGHTVAULT_PORT accordingly')
