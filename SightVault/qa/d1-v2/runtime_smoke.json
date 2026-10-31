@@ -1,0 +1,150 @@
+{
+  "experiment": "d1-v2-reference-runtime-smoke",
+  "baseline_commit": "766027c79d4c6f17ba7b88b1df3bc079dfbbd141",
+  "model": {
+    "repo": "LiquidAI/d1-2B",
+    "revision": "10e7671d44e4b37700020b1eed3f594c5f2af0b4",
+    "format": "BF16 safetensors reference checkpoint",
+    "model_file_bytes": 3836417920,
+    "model_file_sha256": "b5e573687315e82ea80f4f7dd8d76b5cec3b6ee97e3509fd0493cfebb203719f",
+    "image": "samples/terminal_cuda_01.png",
+    "image_sha256": "e111e96e05c86eae8728d6e2970788576653482405065ceb215b4b540a946c2f",
+    "negative_image": "samples/document_02.png",
+    "negative_image_sha256": "8c41efe6afcdceb067319b65bc689f11c65f5afc78467e23ab0d1bcc4f570264"
+  },
+  "platform": {
+    "os": "macOS-26.5.1-arm64-arm-64bit",
+    "arch": "arm64",
+    "hardware": "arm",
+    "ram_bytes": 17179869184,
+    "python": "3.12.9"
+  },
+  "runtime": {
+    "name": "Transformers + PyTorch reference SystemOne API",
+    "transformers_version": "5.22.0",
+    "torch_version": "2.11.0",
+    "device": "mps:0",
+    "dtype": "bfloat16",
+    "offline_flags": {
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1",
+      "HF_HUB_DISABLE_TELEMETRY": "1"
+    },
+    "mps_built": true,
+    "mps_available": true,
+    "network_guard": "DNS and non-loopback sockets blocked and recorded; loopback allowed",
+    "blocked_network_attempts": []
+  },
+  "performance": {
+    "cold_model_load_s": 16.618988375004847,
+    "processor_and_tokenizer_init_s": 1.1119737089975388,
+    "first_request_s": 9.086119999999937,
+    "peak_process_rss_bytes": 465158144,
+    "max_mps_memory_sample_after_request_bytes": {
+      "current_allocated_bytes": 4049621248,
+      "driver_allocated_bytes": 8757821440
+    },
+    "memory_pressure_before": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 73%",
+    "memory_pressure_after_unload": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 37%",
+    "memory_pressure_after_unload_scope_note": "This was sampled after deleting local engine/model names but before process exit. The old call-counter closure retained a bound method, engine, and model until function exit, so this is not a true in-process unloaded reading. Use the coordinator-observed whole-machine free gauge after process exit for release evidence."
+  },
+  "classification_probe": {
+    "image_id": "I053",
+    "question_count": 10,
+    "forward_passes": 1,
+    "elapsed_s": 9.085777291998966,
+    "raw_output": {
+      "contains_error": {
+        "type": "noul",
+        "noul": 0.9923105135798858
+      },
+      "contains_terminal": {
+        "type": "noul",
+        "noul": 0.9875005279025064
+      },
+      "contains_code": {
+        "type": "noul",
+        "noul": 0.9762291044359378
+      },
+      "contains_receipt": {
+        "type": "noul",
+        "noul": 0.0020895962307740405
+      },
+      "contains_document": {
+        "type": "noul",
+        "noul": 0.1043596416576101
+      },
+      "contains_chart": {
+        "type": "noul",
+        "noul": 0.00904355476109049
+      },
+      "contains_table": {
+        "type": "noul",
+        "noul": 0.008634214954272976
+      },
+      "contains_ui": {
+        "type": "noul",
+        "noul": 0.9893664894355324
+      },
+      "contains_person": {
+        "type": "noul",
+        "noul": 0.00440336872232889
+      },
+      "content_type": {
+        "type": "choice",
+        "choice": "terminal_screenshot",
+        "confidence": 0.9751219848705259,
+        "probabilities": {
+          "photo": 0.001654623673980061,
+          "document_page": 0.008693521174943306,
+          "lecture_slide": 0.005843626824609188,
+          "illustration": 0.0014049613248981981,
+          "project_board": 0.0017337836749602529,
+          "receipt": 0.0007833726859622662,
+          "terminal_screenshot": 0.9751219848705259,
+          "chart": 0.001654623673980061,
+          "table": 0.0031095020961406828
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 1692,
+      "output_tokens": 0
+    }
+  },
+  "query_conditioned_relevance_probe": {
+    "method": "one typed noul P(yes) for query plus one candidate image; no filenames, OCR, labels, or lexical score",
+    "query": "Find a terminal screenshot showing a CUDA out-of-memory failure.",
+    "positive": {
+      "image_id": "I053",
+      "elapsed_s": 3.586488790999283,
+      "forward_passes": 1,
+      "p_yes": 0.9846200978912212,
+      "raw_output": {
+        "relevance": {
+          "type": "noul",
+          "noul": 0.9846200978912212
+        }
+      }
+    },
+    "negative": {
+      "image_id": "I003",
+      "elapsed_s": 2.404303125003935,
+      "forward_passes": 1,
+      "p_yes": 0.0016939632455425155,
+      "raw_output": {
+        "relevance": {
+          "type": "noul",
+          "noul": 0.0016939632455425155
+        }
+      }
+    },
+    "positive_minus_negative_p_yes": 0.9829261346456787
+  },
+  "stability": {
+    "requests": 3,
+    "failures": 0,
+    "ooms": 0,
+    "notes": "Three bounded real-image requests; no concurrency."
+  }
+}

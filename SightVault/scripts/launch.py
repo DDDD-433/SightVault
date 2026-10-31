@@ -7,10 +7,34 @@ PORT=int(os.environ.get('SIGHTVAULT_PORT','7860'))
 URL=f'http://127.0.0.1:{PORT}'
 
 def running():
+    status = running_status()
+    return compatible_instance(status)
+
+def running_status():
     try:
         with urllib.request.urlopen(URL+'/api/status',timeout=2) as r:
-            return json.load(r).get('instance_root') == str(ROOT)
-    except Exception:return False
+            return json.load(r)
+    except Exception:
+        return None
+
+def selected_vision(status):
+    if not isinstance(status, dict):
+        return None
+    models = status.get('models') or {}
+    vision = models.get('vision') or {}
+    return status.get('vision_backend') or vision.get('backend')
+
+def compatible_instance(status):
+    if not isinstance(status, dict) or status.get('instance_root') != str(ROOT):
+        return False
+    expected = os.environ.get('SIGHTVAULT_VISION', 'minicpm').strip().lower()
+    return selected_vision(status) == expected
+
+def provider_mismatch(status):
+    if not isinstance(status, dict) or status.get('instance_root') != str(ROOT):
+        return False
+    expected = os.environ.get('SIGHTVAULT_VISION', 'minicpm').strip().lower()
+    return selected_vision(status) != expected
 
 def port_busy():
     with socket.socket() as s:
@@ -22,9 +46,17 @@ def tail(path,lines=12):
     except OSError:return ''
 
 def main():
-    if running():
+    status = running_status()
+    if compatible_instance(status):
         print('SightVault is already running at '+URL)
     else:
+        if provider_mismatch(status):
+            selected = os.environ.get('SIGHTVAULT_VISION', 'minicpm').strip().lower()
+            active = selected_vision(status) or 'unknown (the running service did not report it)'
+            print(f'SightVault is already running from this checkout at {URL} with vision backend {active}; '
+                  f'this launch selected {selected}. Stop the existing server and relaunch. '
+                  'The launcher will not terminate a running process.')
+            return 1
         if port_busy():
             print(f'Port {PORT} is used by another program, not SightVault. Close it, or run app.py with a free --port and set SIGHTVAULT_PORT accordingly')
             return 1

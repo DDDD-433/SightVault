@@ -1,0 +1,4254 @@
+{
+  "experiment": "d1-v2-full-classification-routing-partial",
+  "status": "stopped_for_system_memory_pressure",
+  "completed_request_count": 50,
+  "expected_request_count": 68,
+  "forward_passes": 50,
+  "failures": [],
+  "execution_order": [
+    {
+      "request_index": 1,
+      "image_id": "I001",
+      "sha256": "ff6b23c20b29e03631d5b27590abb7fd89f2998f08227aee21d58a491346b85b",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 5.603215791001276,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 2,
+      "image_id": "I002",
+      "sha256": "211489dd7efe3cdedc26042cc4a5ae5ec342070492c1f5189242f73130aa706d",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.648533374995168,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 3,
+      "image_id": "I003",
+      "sha256": "8c41efe6afcdceb067319b65bc689f11c65f5afc78467e23ab0d1bcc4f570264",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.316892792005092,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 4,
+      "image_id": "I004",
+      "sha256": "85f6be89ad699d3a00b2c2507f5f65a1595a1676a9bf3fc9875ec06a6189591c",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.031652249999752,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 5,
+      "image_id": "I005",
+      "sha256": "0e2ee553d0a14a35cf64cc4b6a173c7d63ab153ae1945f94cb5fcf36321b0a73",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.09375058299338,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 6,
+      "image_id": "I006",
+      "sha256": "8b0c7d7a0e6dc012f7309538e7b47ac545cd144d6f2d1d4488e5bc9e6b7e1e26",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.24297537500388,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 7,
+      "image_id": "I007",
+      "sha256": "cbaaa509c27585a757624a63d794250c418af99ec40c2ff3c8be3669b1917a73",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.314037875003123,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 8,
+      "image_id": "I008",
+      "sha256": "211489dd7efe3cdedc26042cc4a5ae5ec342070492c1f5189242f73130aa706d",
+      "dataset": "baseline",
+      "repeat_pixel_content": true,
+      "elapsed_s": 3.9741892919992097,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 9,
+      "image_id": "I009",
+      "sha256": "8c41efe6afcdceb067319b65bc689f11c65f5afc78467e23ab0d1bcc4f570264",
+      "dataset": "baseline",
+      "repeat_pixel_content": true,
+      "elapsed_s": 3.953858916000172,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 10,
+      "image_id": "I010",
+      "sha256": "fe4499f5da92938ab3dd7fd1eb6c8ac24df650c317982f6affa8778702b3aeed",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 5.482716291997349,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 11,
+      "image_id": "I011",
+      "sha256": "89e7c5795020c7994d6269a6a269f89b1193bff79dddfe2de8787d5d43c8855f",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.323832959002175,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 12,
+      "image_id": "I012",
+      "sha256": "33ee02abd16ba7af3e624be24c480076ac512ee0c7ac96941d2f1ec7abf8e68e",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 3.9523666669992963,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 13,
+      "image_id": "I013",
+      "sha256": "47655fe138ccd4bf6843e42d066620b5b80226f505a4d991c312a75e00223e2b",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 3.895699832995888,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 14,
+      "image_id": "I014",
+      "sha256": "7543504c4fc662171ef866cb7f0a3485b5ecb692eb5b56517b299f6ee2e1533b",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 3.8855515830000513,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 15,
+      "image_id": "I015",
+      "sha256": "ba9f4a29e2f6a9f745ce41c42d56bcc9733bb6933267538bb8b8d8d914e3b830",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 3.9144674170020153,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 16,
+      "image_id": "I016",
+      "sha256": "286a8b781dc3c6540b4d4ff68c071dfd0f4c8422d5efa142fb3f1fef15a03a19",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.055019791005179,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 17,
+      "image_id": "I017",
+      "sha256": "c425f0dc5cdf48888518e30804149c68a9d91acb8aff85be7506360f8babc1f1",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.251552250003442,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 18,
+      "image_id": "I018",
+      "sha256": "35f0cf7cac13628ab40f0f2e92d1635757a3fb799638187674e450ecd33130f5",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 3.997904208001273,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 19,
+      "image_id": "I019",
+      "sha256": "d29b82c504ea40365c841584349bcfbc35d98a0a1428460483d48e82930dbf87",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.190624957998807,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 20,
+      "image_id": "I020",
+      "sha256": "2903a11578ee22ac700e497f0856c960c9b46a6e28f6fbe38497b1c7a563b15f",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 3.972629625000991,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 21,
+      "image_id": "I021",
+      "sha256": "654719def250740e7b3e22ae44ebbc03a1e8dadee428be905d1e668812afffcd",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 3.992572208000638,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 22,
+      "image_id": "I022",
+      "sha256": "0f093a11503c88934d9cc1cdd24876ee0246ff49ef869207519d990639ab8c28",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.036503041999822,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 23,
+      "image_id": "I023",
+      "sha256": "32a5b97d35e7853853572739885ed61c7a6912955d7133b5df8f7f515e9fe704",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.420114792003005,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 24,
+      "image_id": "I024",
+      "sha256": "8a759f3bd7c69b847c31b6fbc0f61118fce1541323938d124efa906d83727156",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.2028500419983175,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 25,
+      "image_id": "I025",
+      "sha256": "ece388a6052e538dd162c56c268636d95c31ffffb9d17736a4b154f65135f763",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.177264332996856,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 26,
+      "image_id": "I026",
+      "sha256": "c59bcc3dc35e41c5c590579df928aecc2366a63bf261a91eb63559a213177e9f",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.201393249997636,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 27,
+      "image_id": "I027",
+      "sha256": "c505342d4541fc58b8b7629782e7346a39a65b4f040c962c4259cdb3b695fff7",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.1595130420028,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 28,
+      "image_id": "I028",
+      "sha256": "971b9ded21d713ce40aca1685c966c8782091df1c04811b6b3bed3d8d33ac215",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.09299716699752,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 29,
+      "image_id": "I029",
+      "sha256": "d121a197af9c775131338bd95d519c6b23554414bd644cf4ae83006b4e6f0566",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.09515900000406,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 30,
+      "image_id": "I030",
+      "sha256": "dd81426ea974cbc9705978e402bd61f07076a740a3795029f3ae98cc8fba98e8",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.158090958000685,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 31,
+      "image_id": "I031",
+      "sha256": "6370d3a2cca4cdbec571252bf04ac11aa9a680ec18a8c48b8189a7734f943bfd",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.15224420800223,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 32,
+      "image_id": "I032",
+      "sha256": "d89f19b6f7cffe02191a0a6473203ccb6b42ddfb92ae87b507d4347f8050ab14",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.231176707995473,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 33,
+      "image_id": "I033",
+      "sha256": "95baa84d1fc525624c1f61dfd06f3a398dcd59ca69c26b9e5ce8c062ff4c0994",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.390773125000123,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 34,
+      "image_id": "I034",
+      "sha256": "326ca52093a73995e4d8151dceb4a39634346b7bc1f4ca1c82e76e9f5ea82365",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 3.9837155419954797,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 35,
+      "image_id": "I035",
+      "sha256": "fe1037ebc3c648b1fa1324b713a0fe611b7aac9055b9ec233649a5f505f6d939",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 3.9776845420055906,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 36,
+      "image_id": "I036",
+      "sha256": "2ffc66a91714d04ba713424139913208018cb68353cabca65b9e198566b14345",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.011923375001061,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 37,
+      "image_id": "I037",
+      "sha256": "708caf8ff529efc2e48c9049522ae295e40ddabbadbd1780a9316d4a5faf3fc8",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 3.9595421249978244,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 38,
+      "image_id": "I038",
+      "sha256": "821116432612509a3da7fac14ef2b24a40d0cb0cd60ed95befa56c7faa0a77ab",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.000243665999733,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 39,
+      "image_id": "I039",
+      "sha256": "0f9709530eddcdef9f3ce9cbfd3017fd14354e1081613e55d5818aee54049c4a",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.020975374995032,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 40,
+      "image_id": "I040",
+      "sha256": "9eb745209c69a70137aaca22a5d7aebd1331494e351ead08e7fa5625cd8f9ffd",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.027768040999945,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 41,
+      "image_id": "I041",
+      "sha256": "77638caff7f6e6fcdc3cf1c4648eaea5acfd9f2a6ff3d0925b29a65e794e6d82",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.241446583997458,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 42,
+      "image_id": "I042",
+      "sha256": "67aeb094ef4d7e0315019dd508c4c84099fbd58fe5ed78c760364288f9218f21",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.187187458999688,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 43,
+      "image_id": "I043",
+      "sha256": "5581c00d20ba66c1d04bc83f73971d687c2ccf1ca2da2b0b01fc8a2ec4e37e92",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.210794333004742,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 44,
+      "image_id": "I044",
+      "sha256": "dfc906404fd888dff209b10ca859899283d80a221244f76862b5b203f9a2445c",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.240047833998688,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 45,
+      "image_id": "I045",
+      "sha256": "d612c027f7d6449cd59662342cc1a83e5481943caacbbb1ab96d225ff207a690",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.193981875003374,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 46,
+      "image_id": "I046",
+      "sha256": "aff0a110a9b17f07623a151d41d528dcd9268af13db6ebd498bb5d0d6b678915",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.1710896249933285,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 47,
+      "image_id": "I047",
+      "sha256": "8ea79a2e7c0d9d3d19e75e90b148c6eb4100adb2c7a4365b29783c16b85cec99",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.1916399159963476,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 48,
+      "image_id": "I048",
+      "sha256": "77541f91fc62303d1e8c8e019304cb77130703a2efe54761ff5e060f3f1c2ef0",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.190665458001604,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 49,
+      "image_id": "I049",
+      "sha256": "524e3682dba2e3ec1a09eda6c1e0c044bfc411660da3c172411d339cfb627a89",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.192093916994054,
+      "forward_passes": 1
+    },
+    {
+      "request_index": 50,
+      "image_id": "I050",
+      "sha256": "c045060ab6633559ec5591450cc2351e1924182ca1a6a02a4d5e3535fc730023",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "elapsed_s": 4.206295625001076,
+      "forward_passes": 1
+    }
+  ],
+  "baseline_predictions": [
+    {
+      "request_index": 1,
+      "image_id": "I001",
+      "filename": "bridge_photo.png",
+      "sha256": "ff6b23c20b29e03631d5b27590abb7fd89f2998f08227aee21d58a491346b85b",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 5.603215791001276,
+      "usage": {
+        "input_tokens": 1634,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.002577392577463825
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.00048022905755102605
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.0035712261656179857
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0002872630979221786
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.004106492392372854
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.003489035101650414
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.006536821893410608
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.0009021042107591445
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.5696430902105154
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "photo",
+          "confidence": 0.9937936262433326,
+          "probabilities": {
+            "photo": 0.9937936262433326,
+            "document_page": 0.0006174182582066777,
+            "lecture_slide": 0.0013349288377953162,
+            "illustration": 0.002032914881651303,
+            "project_board": 0.0003692555546464532,
+            "receipt": 0.0004054323401833514,
+            "terminal_screenshot": 0.0003692555546464532,
+            "chart": 0.0006320148839142047,
+            "table": 0.00044515344562367246
+          }
+        },
+        "route_R25": {
+          "type": "choice",
+          "choice": "vision_language_model",
+          "confidence": 0.9952976080397765,
+          "probabilities": {
+            "fast_ocr": 0.0035671720385299,
+            "document_specialist": 0.001135219921693545,
+            "vision_language_model": 0.9952976080397765
+          }
+        }
+      }
+    },
+    {
+      "request_index": 2,
+      "image_id": "I002",
+      "filename": "document_01.png",
+      "sha256": "211489dd7efe3cdedc26042cc4a5ae5ec342070492c1f5189242f73130aa706d",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.648533374995168,
+      "usage": {
+        "input_tokens": 1805,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.005686579975721973
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.003741440440000827
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.019798239282674497
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.00234795145466705
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.8432181983887297
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.008243249033100631
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.007340981985932693
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.183106521027646
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0028291910366753433
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "document_page",
+          "confidence": 0.7304910090426164,
+          "probabilities": {
+            "photo": 0.0022230595949652137,
+            "document_page": 0.7304910090426164,
+            "lecture_slide": 0.24935285037044674,
+            "illustration": 0.002557632441354725,
+            "project_board": 0.005036460446508736,
+            "receipt": 0.002275615813382668,
+            "terminal_screenshot": 0.0017598381471354365,
+            "chart": 0.002498562940945694,
+            "table": 0.003804971202644562
+          }
+        },
+        "route_R01": {
+          "type": "choice",
+          "choice": "fast_ocr",
+          "confidence": 0.9453503191167958,
+          "probabilities": {
+            "fast_ocr": 0.9453503191167958,
+            "document_specialist": 0.02196801884215903,
+            "vision_language_model": 0.03268166204104508
+          }
+        }
+      }
+    },
+    {
+      "request_index": 3,
+      "image_id": "I003",
+      "filename": "document_02.png",
+      "sha256": "8c41efe6afcdceb067319b65bc689f11c65f5afc78467e23ab0d1bcc4f570264",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.316892792005092,
+      "usage": {
+        "input_tokens": 1804,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.010882165854379903
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.004403368722328894
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.028517501696544136
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0022938490050986335
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.8432181983887297
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.010882165854379894
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.008634214954272976
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.19020046722272982
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.00382955455680808
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "lecture_slide",
+          "confidence": 0.6767989060322972,
+          "probabilities": {
+            "photo": 0.003064143643233258,
+            "document_page": 0.29183507523994084,
+            "lecture_slide": 0.6767989060322972,
+            "illustration": 0.004666273613606093,
+            "project_board": 0.009188772439509022,
+            "receipt": 0.003364344590898445,
+            "terminal_screenshot": 0.00279072966894258,
+            "chart": 0.0032866437645502566,
+            "table": 0.0050051110070221914
+          }
+        },
+        "route_R02": {
+          "type": "choice",
+          "choice": "fast_ocr",
+          "confidence": 0.9407232541191103,
+          "probabilities": {
+            "fast_ocr": 0.9407232541191103,
+            "document_specialist": 0.02186049526174915,
+            "vision_language_model": 0.03741625061914047
+          }
+        }
+      }
+    },
+    {
+      "request_index": 4,
+      "image_id": "I004",
+      "filename": "document_03.png",
+      "sha256": "85f6be89ad699d3a00b2c2507f5f65a1595a1676a9bf3fc9875ec06a6189591c",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 4.031652249999752,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.007689486420114144
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.003919735671661359
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.025453063830758762
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.004403368722328894
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.4883189957953333
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.009920781893157137
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.008243249033100631
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.23716005280164995
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.003489035101650414
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "document_page",
+          "confidence": 0.5326457403847685,
+          "probabilities": {
+            "photo": 0.0034237772163151527,
+            "document_page": 0.5326457403847685,
+            "lecture_slide": 0.4418305647848932,
+            "illustration": 0.00497589150154096,
+            "project_board": 0.003118273087007811,
+            "receipt": 0.003587576521293988,
+            "terminal_screenshot": 0.002840029134729247,
+            "chart": 0.0030462553762491433,
+            "table": 0.004531891993201997
+          }
+        }
+      }
+    },
+    {
+      "request_index": 5,
+      "image_id": "I005",
+      "filename": "document_04.png",
+      "sha256": "0e2ee553d0a14a35cf64cc4b6a173c7d63ab153ae1945f94cb5fcf36321b0a73",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 4.09375058299338,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.006690327527564767
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.0035712261656179857
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.024879841148189936
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.006240230226491051
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.65796873860874
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.01279119712822937
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.012791197128229381
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.19020046722272982
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0028958833506947663
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "document_page",
+          "confidence": 0.6333188012671627,
+          "probabilities": {
+            "photo": 0.0029350782992085566,
+            "document_page": 0.6333188012671627,
+            "lecture_slide": 0.3292175079901752,
+            "illustration": 0.005388445240421222,
+            "project_board": 0.010365802539454128,
+            "receipt": 0.0042656487974142825,
+            "terminal_screenshot": 0.0026114427089677945,
+            "chart": 0.0032988219856027613,
+            "table": 0.008598451171593495
+          }
+        }
+      }
+    },
+    {
+      "request_index": 6,
+      "image_id": "I006",
+      "filename": "document_05.png",
+      "sha256": "8b0c7d7a0e6dc012f7309538e7b47ac545cd144d6f2d1d4488e5bc9e6b7e1e26",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.24297537500388,
+      "usage": {
+        "input_tokens": 1806,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0035712261656179857
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.00440336872232889
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.03575543551377068
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0029641431245208535
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.6473755032668405
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.009255378144072167
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.006690327527564761
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.13362264652269545
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0033302654504572824
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "document_page",
+          "confidence": 0.5692284470471767,
+          "probabilities": {
+            "photo": 0.0023471709268762606,
+            "document_page": 0.5692284470471767,
+            "lecture_slide": 0.41040899128260044,
+            "illustration": 0.0038339752992371553,
+            "project_board": 0.0038339752992371553,
+            "receipt": 0.002402661309669141,
+            "terminal_screenshot": 0.002402661309669141,
+            "chart": 0.0025771284675863695,
+            "table": 0.0029649890579477823
+          }
+        },
+        "route_R03": {
+          "type": "choice",
+          "choice": "fast_ocr",
+          "confidence": 0.9653801248282821,
+          "probabilities": {
+            "fast_ocr": 0.9653801248282821,
+            "document_specialist": 0.008810143035144317,
+            "vision_language_model": 0.02580973213657359
+          }
+        }
+      }
+    },
+    {
+      "request_index": 7,
+      "image_id": "I007",
+      "filename": "document_06.png",
+      "sha256": "cbaaa509c27585a757624a63d794250c418af99ec40c2ff3c8be3669b1917a73",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.314037875003123,
+      "usage": {
+        "input_tokens": 1804,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.009920781893157137
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.003489035101650414
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.019798239282674497
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0019484097915435225
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.7084603092882742
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.009255378144072167
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.008054401445736888
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.24571823842906892
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.002764030391743826
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "lecture_slide",
+          "confidence": 0.7340965080435072,
+          "probabilities": {
+            "photo": 0.0031718084752441595,
+            "document_page": 0.2391425989377032,
+            "lecture_slide": 0.7340965080435072,
+            "illustration": 0.003823751474680399,
+            "project_board": 0.006393550335546898,
+            "receipt": 0.002693221611524016,
+            "terminal_screenshot": 0.002822069898153015,
+            "chart": 0.003246794435755877,
+            "table": 0.004609696787885349
+          }
+        },
+        "route_R04": {
+          "type": "choice",
+          "choice": "fast_ocr",
+          "confidence": 0.956125474930321,
+          "probabilities": {
+            "fast_ocr": 0.956125474930321,
+            "document_specialist": 0.010038909112389518,
+            "vision_language_model": 0.03383561595728944
+          }
+        }
+      }
+    },
+    {
+      "request_index": 8,
+      "image_id": "I008",
+      "filename": "document_07.png",
+      "sha256": "211489dd7efe3cdedc26042cc4a5ae5ec342070492c1f5189242f73130aa706d",
+      "dataset": "baseline",
+      "repeat_pixel_content": true,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 3.9741892919992097,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0046130615363931616
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.004012031883594129
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.020725789525189255
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0026381649683548665
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.8492976788831786
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.008436486778387032
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.007869845905445094
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.22066796438600825
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0031055123639533453
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "document_page",
+          "confidence": 0.6927182393864795,
+          "probabilities": {
+            "photo": 0.0022611864091748517,
+            "document_page": 0.6927182393864795,
+            "lecture_slide": 0.2850616451103536,
+            "illustration": 0.002601497381875854,
+            "project_board": 0.006471263241184772,
+            "receipt": 0.002369365399468225,
+            "terminal_screenshot": 0.0019200012082713513,
+            "chart": 0.0025414148038720294,
+            "table": 0.004055387059319971
+          }
+        }
+      }
+    },
+    {
+      "request_index": 9,
+      "image_id": "I009",
+      "filename": "document_08.png",
+      "sha256": "8c41efe6afcdceb067319b65bc689f11c65f5afc78467e23ab0d1bcc4f570264",
+      "dataset": "baseline",
+      "repeat_pixel_content": true,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 3.953858916000172,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.007513229073981228
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.004403368722328894
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.029172027482451207
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0023479514546670484
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.8492976788831786
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.010633510564467619
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.009472115552830297
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.21273618805435204
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.003655346299119824
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "lecture_slide",
+          "confidence": 0.6870227216138748,
+          "probabilities": {
+            "photo": 0.002899860189082301,
+            "document_page": 0.2827178730343478,
+            "lecture_slide": 0.6870227216138748,
+            "illustration": 0.004314100936766794,
+            "project_board": 0.009112155261254204,
+            "receipt": 0.0031104310104920715,
+            "terminal_screenshot": 0.002703544649554565,
+            "chart": 0.003038594415492829,
+            "table": 0.005080718889134637
+          }
+        }
+      }
+    },
+    {
+      "request_index": 10,
+      "image_id": "I010",
+      "filename": "kitchen_photo.jpg",
+      "sha256": "fe4499f5da92938ab3dd7fd1eb6c8ac24df650c317982f6affa8778702b3aeed",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 5.482716291997349,
+      "usage": {
+        "input_tokens": 2082,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0016167463828462715
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.0021388915264829687
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.006096988421428471
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0009452216111176774
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.010882165854379894
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.003253601941649006
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.02025681581225996
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.0031055123639533453
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0017339414506529268
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "illustration",
+          "confidence": 0.9791516814234434,
+          "probabilities": {
+            "photo": 0.009811285899217608,
+            "document_page": 0.0011702339491590499,
+            "lecture_slide": 0.003592269463858295,
+            "illustration": 0.9791516814234434,
+            "project_board": 0.00147826083510386,
+            "receipt": 0.0015132089757221516,
+            "terminal_screenshot": 0.0008636759014246637,
+            "chart": 0.0010411984290647509,
+            "table": 0.0013781851230061774
+          }
+        },
+        "route_R26": {
+          "type": "choice",
+          "choice": "vision_language_model",
+          "confidence": 0.9970898928345576,
+          "probabilities": {
+            "fast_ocr": 0.0017728429934783592,
+            "document_specialist": 0.0011372641719639652,
+            "vision_language_model": 0.9970898928345576
+          }
+        }
+      }
+    },
+    {
+      "request_index": 11,
+      "image_id": "I011",
+      "filename": "lecture_biology_01.png",
+      "sha256": "89e7c5795020c7994d6269a6a269f89b1193bff79dddfe2de8787d5d43c8855f",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.323832959002175,
+      "usage": {
+        "input_tokens": 1803,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0021893471874490943
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.004302108749526725
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.027877239657695525
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0016167463828462715
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9118653035583676
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.014026800942463996
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.01166314863955385
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.5349920935972962
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.003655346299119824
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "lecture_slide",
+          "confidence": 0.9497667814067999,
+          "probabilities": {
+            "photo": 0.0017694920376034847,
+            "document_page": 0.03605119678474375,
+            "lecture_slide": 0.9497667814067999,
+            "illustration": 0.0031735442428585696,
+            "project_board": 0.0018113252885999277,
+            "receipt": 0.0013059505167656376,
+            "terminal_screenshot": 0.001854147535789484,
+            "chart": 0.0021836305052677306,
+            "table": 0.002083931681571441
+          }
+        },
+        "route_R05": {
+          "type": "choice",
+          "choice": "fast_ocr",
+          "confidence": 0.8678520395364295,
+          "probabilities": {
+            "fast_ocr": 0.8678520395364295,
+            "document_specialist": 0.010241333529474855,
+            "vision_language_model": 0.12190662693409576
+          }
+        }
+      }
+    },
+    {
+      "request_index": 12,
+      "image_id": "I012",
+      "filename": "lecture_biology_02.png",
+      "sha256": "33ee02abd16ba7af3e624be24c480076ac512ee0c7ac96941d2f1ec7abf8e68e",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 3.9523666669992963,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0020414347255243086
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.0042031675228025875
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.02984111431528748
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0017339414506529253
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9118653035583676
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.015379902108778673
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.01249947209749359
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.5465969131922935
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.003741440440000827
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "lecture_slide",
+          "confidence": 0.9444174735356919,
+          "probabilities": {
+            "photo": 0.0018011234824164217,
+            "document_page": 0.04124333265861919,
+            "lecture_slide": 0.9444174735356919,
+            "illustration": 0.0031556701020379278,
+            "project_board": 0.001843704544729402,
+            "receipt": 0.0012985950990827152,
+            "terminal_screenshot": 0.001843704544729402,
+            "chart": 0.0022752119823180755,
+            "table": 0.0021211840503748843
+          }
+        }
+      }
+    },
+    {
+      "request_index": 13,
+      "image_id": "I013",
+      "filename": "lecture_economics_01.png",
+      "sha256": "47655fe138ccd4bf6843e42d066620b5b80226f505a4d991c312a75e00223e2b",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 3.895699832995888,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0018167454409354963
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.003655346299119827
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.022197367967054835
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.001438732776777913
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9080365553847334
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.015737782076367345
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.012214318034517346
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.45340308680770647
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.003178697616637482
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "lecture_slide",
+          "confidence": 0.9543663388844016,
+          "probabilities": {
+            "photo": 0.0015097738034240648,
+            "document_page": 0.03148696468462811,
+            "lecture_slide": 0.9543663388844016,
+            "illustration": 0.002973029244222726,
+            "project_board": 0.0015820039410912217,
+            "receipt": 0.001223436253201482,
+            "terminal_screenshot": 0.0016968797791068778,
+            "chart": 0.003341476183898221,
+            "table": 0.0018200972260256697
+          }
+        }
+      }
+    },
+    {
+      "request_index": 14,
+      "image_id": "I014",
+      "filename": "lecture_economics_02.png",
+      "sha256": "7543504c4fc662171ef866cb7f0a3485b5ecb692eb5b56517b299f6ee2e1533b",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 3.8855515830000513,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0018167454409354963
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.003489035101650414
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.02025681581225996
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.001438732776777913
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9155494731325662
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.016103853468224853
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.011935590646023035
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.4076086011626682
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0031786976166374792
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "lecture_slide",
+          "confidence": 0.9593023990151565,
+          "probabilities": {
+            "photo": 0.0014482936529544815,
+            "document_page": 0.02750959443859859,
+            "lecture_slide": 0.9593023990151565,
+            "illustration": 0.0027860960547679784,
+            "project_board": 0.0014825333277385842,
+            "receipt": 0.0011465110627244838,
+            "terminal_screenshot": 0.0015901861938197117,
+            "chart": 0.002988405992670424,
+            "table": 0.0017459802615694393
+          }
+        }
+      }
+    },
+    {
+      "request_index": 15,
+      "image_id": "I015",
+      "filename": "lecture_erd_01.png",
+      "sha256": "ba9f4a29e2f6a9f745ce41c42d56bcc9733bb6933267538bb8b8d8d914e3b830",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 3.9144674170020153,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0016549052602730589
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.003253601941649006
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.024319205737347565
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0019484097915435207
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.8551819046258005
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.01468801025026251
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.011136570278991375
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.44184868934326865
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0030340069750520865
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "lecture_slide",
+          "confidence": 0.9490728240083769,
+          "probabilities": {
+            "photo": 0.0015368948244214376,
+            "document_page": 0.03602485558686176,
+            "lecture_slide": 0.9490728240083769,
+            "illustration": 0.0030979847922953745,
+            "project_board": 0.002340481583467198,
+            "receipt": 0.0016484951032270387,
+            "terminal_screenshot": 0.0018100018241351973,
+            "chart": 0.0022864272652561293,
+            "table": 0.00218203501195904
+          }
+        }
+      }
+    },
+    {
+      "request_index": 16,
+      "image_id": "I016",
+      "filename": "lecture_erd_02.png",
+      "sha256": "286a8b781dc3c6540b4d4ff68c071dfd0f4c8422d5efa142fb3f1fef15a03a19",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 4.055019791005179,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0017339414506529268
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.0029641431245208535
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.021695833770502368
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0018167454409354963
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.8551819046258005
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.01503003612134495
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.010882165854379894
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.4189396762768919
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0028958833506947663
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "lecture_slide",
+          "confidence": 0.9511756030487428,
+          "probabilities": {
+            "photo": 0.0015047261721507805,
+            "document_page": 0.03445622839522613,
+            "lecture_slide": 0.9511756030487428,
+            "illustration": 0.003033141060675252,
+            "project_board": 0.0022385701949677534,
+            "receipt": 0.0016139905522955494,
+            "terminal_screenshot": 0.0016521475320644503,
+            "chart": 0.0022385701949677534,
+            "table": 0.0020870228489093634
+          }
+        }
+      }
+    },
+    {
+      "request_index": 17,
+      "image_id": "I017",
+      "filename": "lecture_joins_01.png",
+      "sha256": "c425f0dc5cdf48888518e30804149c68a9d91acb8aff85be7506360f8babc1f1",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.251552250003442,
+      "usage": {
+        "input_tokens": 1803,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0022409904058060173
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.003741440440000827
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.03912143091081847
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0021388915264829705
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.8956403583423898
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.01339495260319998
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.01063351056446763
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.45340308680770647
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.003489035101650414
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "lecture_slide",
+          "confidence": 0.9525550693122786,
+          "probabilities": {
+            "photo": 0.001579001492781039,
+            "document_page": 0.03450619940424649,
+            "lecture_slide": 0.9525550693122786,
+            "illustration": 0.002640188723259815,
+            "project_board": 0.0018595908690900627,
+            "receipt": 0.0013097844748512825,
+            "terminal_screenshot": 0.0017746868426270744,
+            "chart": 0.002041779110298397,
+            "table": 0.0017336997705672066
+          }
+        },
+        "route_R06": {
+          "type": "choice",
+          "choice": "fast_ocr",
+          "confidence": 0.9485608857412938,
+          "probabilities": {
+            "fast_ocr": 0.9485608857412938,
+            "document_specialist": 0.005956407666028802,
+            "vision_language_model": 0.04548270659267732
+          }
+        }
+      }
+    },
+    {
+      "request_index": 18,
+      "image_id": "I018",
+      "filename": "lecture_joins_02.png",
+      "sha256": "35f0cf7cac13628ab40f0f2e92d1635757a3fb799638187674e450ecd33130f5",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 3.997904208001273,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0020414347255243086
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.003741440440000827
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.0365698309244458
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0021388915264829687
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9118653035583676
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.01249947209749359
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.010390477312342881
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.45340308680770647
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0033302654504572824
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "lecture_slide",
+          "confidence": 0.9492447921569973,
+          "probabilities": {
+            "photo": 0.0015735142167818883,
+            "document_page": 0.03775518558379667,
+            "lecture_slide": 0.9492447921569973,
+            "illustration": 0.002631013656433971,
+            "project_board": 0.001896939034563606,
+            "receipt": 0.0013676773178472523,
+            "terminal_screenshot": 0.001768519529573806,
+            "chart": 0.002034683610035268,
+            "table": 0.0017276748939700278
+          }
+        }
+      }
+    },
+    {
+      "request_index": 19,
+      "image_id": "I019",
+      "filename": "lecture_normalization_01.png",
+      "sha256": "d29b82c504ea40365c841584349bcfbc35d98a0a1428460483d48e82930dbf87",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.190624957998807,
+      "usage": {
+        "input_tokens": 1804,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0016549052602730589
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.003655346299119827
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.022197367967054835
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0014726963273953427
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.922501009523351
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.013089640476221564
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.011396853668704186
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.4303569097894846
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0038295545568080764
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "lecture_slide",
+          "confidence": 0.9587617814643035,
+          "probabilities": {
+            "photo": 0.0015892900399412432,
+            "document_page": 0.028809455258557645,
+            "lecture_slide": 0.9587617814643035,
+            "illustration": 0.0023097690952387584,
+            "project_board": 0.0017449963095082161,
+            "receipt": 0.0012006850642137298,
+            "terminal_screenshot": 0.0018717076963652654,
+            "chart": 0.0020076201201939983,
+            "table": 0.001704694951677592
+          }
+        },
+        "route_R07": {
+          "type": "choice",
+          "choice": "fast_ocr",
+          "confidence": 0.9190278849487031,
+          "probabilities": {
+            "fast_ocr": 0.9190278849487031,
+            "document_specialist": 0.007289978847537497,
+            "vision_language_model": 0.07368213620375932
+          }
+        }
+      }
+    },
+    {
+      "request_index": 20,
+      "image_id": "I020",
+      "filename": "lecture_normalization_02.png",
+      "sha256": "2903a11578ee22ac700e497f0856c960c9b46a6e28f6fbe38497b1c7a563b15f",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 3.972629625000991,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0019484097915435207
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.004012031883594129
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.021695833770502368
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0015430438986208852
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9190933028563437
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.013707287139740938
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.011136570278991375
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.46500790640270395
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.003919735671661359
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "lecture_slide",
+          "confidence": 0.9525976186832187,
+          "probabilities": {
+            "photo": 0.001654617506707961,
+            "document_page": 0.034507740750385416,
+            "lecture_slide": 0.9525976186832187,
+            "illustration": 0.002404711717425946,
+            "project_board": 0.0018167240530619715,
+            "receipt": 0.001250038996887099,
+            "terminal_screenshot": 0.0019036392109209157,
+            "chart": 0.002090142965858479,
+            "table": 0.0017747661155333894
+          }
+        }
+      }
+    },
+    {
+      "request_index": 21,
+      "image_id": "I021",
+      "filename": "lecture_physics_01.png",
+      "sha256": "654719def250740e7b3e22ae44ebbc03a1e8dadee428be905d1e668812afffcd",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 3.992572208000638,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.001774861479849591
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.0035712261656179827
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.025453063830758762
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.001341463704341683
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9257767780784363
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.01279119712822937
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.011935590646023035
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.5349920935972962
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.003253601941649009
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "lecture_slide",
+          "confidence": 0.9439528572554223,
+          "probabilities": {
+            "photo": 0.0016017347254695792,
+            "document_page": 0.043195222784744323,
+            "lecture_slide": 0.9439528572554223,
+            "illustration": 0.002616346045813356,
+            "project_board": 0.0015286037320997843,
+            "receipt": 0.0011821394208032037,
+            "terminal_screenshot": 0.0017180432972043495,
+            "chart": 0.0022740926674412634,
+            "table": 0.0019309600710016536
+          }
+        }
+      }
+    },
+    {
+      "request_index": 22,
+      "image_id": "I022",
+      "filename": "lecture_physics_02.png",
+      "sha256": "0f093a11503c88934d9cc1cdd24876ee0246ff49ef869207519d990639ab8c28",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 4.036503041999822,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0017339414506529268
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.0034087291776665634
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.024879841148189936
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.001472696327395344
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9319490286655202
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.01339495260319998
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.01166314863955384
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.5
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.003178697616637482
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "lecture_slide",
+          "confidence": 0.9479288700937788,
+          "probabilities": {
+            "photo": 0.001535042346080211,
+            "document_page": 0.039506614271039124,
+            "lecture_slide": 0.9479288700937788,
+            "illustration": 0.002627366326527356,
+            "project_board": 0.0014995899554147108,
+            "receipt": 0.0011871186964923593,
+            "terminal_screenshot": 0.0016854338487818326,
+            "chart": 0.0021794049213794994,
+            "table": 0.0018505595405060628
+          }
+        }
+      }
+    },
+    {
+      "request_index": 23,
+      "image_id": "I023",
+      "filename": "object_study_01.png",
+      "sha256": "32a5b97d35e7853853572739885ed61c7a6912955d7133b5df8f7f515e9fe704",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.420114792003005,
+      "usage": {
+        "input_tokens": 1800,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0021388915264829687
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.005555975921211912
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.02725094926430798
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.004507001291944963
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.23716005280164998
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.02984111431528748
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.00518179495055069
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.39637493571544424
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0024033268843448685
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "illustration",
+          "confidence": 0.7997899329286937,
+          "probabilities": {
+            "photo": 0.0032217083075370082,
+            "document_page": 0.005778061519508678,
+            "lecture_slide": 0.1792727643703759,
+            "illustration": 0.7997899329286937,
+            "project_board": 0.004264422934349995,
+            "receipt": 0.0023777397918073673,
+            "terminal_screenshot": 0.001972339278198056,
+            "chart": 0.0021155589766761232,
+            "table": 0.0012074718928532738
+          }
+        },
+        "route_R27": {
+          "type": "choice",
+          "choice": "vision_language_model",
+          "confidence": 0.9892990403933886,
+          "probabilities": {
+            "fast_ocr": 0.009241873752750013,
+            "document_specialist": 0.0014590858538614164,
+            "vision_language_model": 0.9892990403933886
+          }
+        }
+      }
+    },
+    {
+      "request_index": 24,
+      "image_id": "I024",
+      "filename": "object_study_02.png",
+      "sha256": "8a759f3bd7c69b847c31b6fbc0f61118fce1541323938d124efa906d83727156",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.2028500419983175,
+      "usage": {
+        "input_tokens": 1800,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0021893471874490943
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.006386815709344172
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.028517501696544136
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.004302108749526725
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.2544822299746939
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.0326692027734308
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.005062725296719824
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.4076086011626682
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0022409904058060173
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "illustration",
+          "confidence": 0.7937335081102216,
+          "probabilities": {
+            "photo": 0.0031973118587342642,
+            "document_page": 0.005346104327809943,
+            "lecture_slide": 0.18642698344754846,
+            "illustration": 0.7937335081102216,
+            "project_board": 0.003765475818305702,
+            "receipt": 0.002305235343676125,
+            "terminal_screenshot": 0.0020510492113008276,
+            "chart": 0.002003679444532582,
+            "table": 0.0011706524378704542
+          }
+        },
+        "route_R28": {
+          "type": "choice",
+          "choice": "vision_language_model",
+          "confidence": 0.9901155428521247,
+          "probabilities": {
+            "fast_ocr": 0.008424167060371192,
+            "document_specialist": 0.0014602900875041692,
+            "vision_language_model": 0.9901155428521247
+          }
+        }
+      }
+    },
+    {
+      "request_index": 25,
+      "image_id": "I025",
+      "filename": "object_study_03.png",
+      "sha256": "ece388a6052e538dd162c56c268636d95c31ffffb9d17736a4b154f65135f763",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.177264332996856,
+      "usage": {
+        "input_tokens": 1800,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0020895962307740422
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.005957014960505337
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.02663834356192146
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.004012031883594129
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.26344962851666953
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.03052506474269055
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.004946378075874996
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.37424278402473204
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0020895962307740422
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "illustration",
+          "confidence": 0.7939223782124099,
+          "probabilities": {
+            "photo": 0.003124211951441299,
+            "document_page": 0.005473795852334277,
+            "lecture_slide": 0.18647134403338056,
+            "illustration": 0.7939223782124099,
+            "project_board": 0.003594409191175756,
+            "receipt": 0.002305783877951772,
+            "terminal_screenshot": 0.0019126517229470462,
+            "chart": 0.002051537261597525,
+            "table": 0.0011438878967616954
+          }
+        },
+        "route_R29": {
+          "type": "choice",
+          "choice": "vision_language_model",
+          "confidence": 0.9897500277000993,
+          "probabilities": {
+            "fast_ocr": 0.008823934807350291,
+            "document_specialist": 0.0014260374925504267,
+            "vision_language_model": 0.9897500277000993
+          }
+        }
+      }
+    },
+    {
+      "request_index": 26,
+      "image_id": "I026",
+      "filename": "object_study_04.png",
+      "sha256": "c59bcc3dc35e41c5c590579df928aecc2366a63bf261a91eb63559a213177e9f",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.201393249997636,
+      "usage": {
+        "input_tokens": 1800,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0021388915264829687
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.005820236164801843
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.02725094926430797
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.00440336872232889
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.22880952207337427
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.027877239657695514
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.00518179495055069
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.37424278402473204
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0021388915264829687
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "illustration",
+          "confidence": 0.8066596552069448,
+          "probabilities": {
+            "photo": 0.0031010226939794843,
+            "document_page": 0.005827691649010713,
+            "lecture_slide": 0.17255718322618077,
+            "illustration": 0.8066596552069448,
+            "project_board": 0.004104677094822314,
+            "receipt": 0.0024548590799623577,
+            "terminal_screenshot": 0.0019433373106793202,
+            "chart": 0.00213373037648333,
+            "table": 0.0012178433619368136
+          }
+        },
+        "route_R30": {
+          "type": "choice",
+          "choice": "vision_language_model",
+          "confidence": 0.9892990403933886,
+          "probabilities": {
+            "fast_ocr": 0.009241873752750013,
+            "document_specialist": 0.0014590858538614177,
+            "vision_language_model": 0.9892990403933886
+          }
+        }
+      }
+    },
+    {
+      "request_index": 27,
+      "image_id": "I027",
+      "filename": "object_study_05.png",
+      "sha256": "c505342d4541fc58b8b7629782e7346a39a65b4f040c962c4259cdb3b695fff7",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.1595130420028,
+      "usage": {
+        "input_tokens": 1801,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0035712261656179857
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.007869845905445101
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.038252468526105636
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.006690327527564761
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.183106521027646
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.03052506474269055
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.007008160987501107
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.5810603237231081
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0030340069750520865
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "illustration",
+          "confidence": 0.8016777552812256,
+          "probabilities": {
+            "photo": 0.005527266256995443,
+            "document_page": 0.0071472109635018965,
+            "lecture_slide": 0.1714914765024742,
+            "illustration": 0.8016777552812256,
+            "project_board": 0.004693269802440287,
+            "receipt": 0.0027420492588285193,
+            "terminal_screenshot": 0.0026787205814169357,
+            "chart": 0.0026168545040552217,
+            "table": 0.0014253968490618347
+          }
+        },
+        "route_R31": {
+          "type": "choice",
+          "choice": "vision_language_model",
+          "confidence": 0.9827311033175671,
+          "probabilities": {
+            "fast_ocr": 0.015350395752277278,
+            "document_specialist": 0.0019185009301557175,
+            "vision_language_model": 0.9827311033175671
+          }
+        }
+      }
+    },
+    {
+      "request_index": 28,
+      "image_id": "I028",
+      "filename": "object_study_06.png",
+      "sha256": "971b9ded21d713ce40aca1685c966c8782091df1c04811b6b3bed3d8d33ac215",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.09299716699752,
+      "usage": {
+        "input_tokens": 1801,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.00382955455680808
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.007513229073981228
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.034178733152988895
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.006240230226491056
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.21273618805435204
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.0365698309244458
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.007172655268493546
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.5696430902105154
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0029641431245208535
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "illustration",
+          "confidence": 0.7495194151709428,
+          "probabilities": {
+            "photo": 0.004931712649847265,
+            "document_page": 0.007687881525390521,
+            "lecture_slide": 0.2223797934215357,
+            "illustration": 0.7495194151709428,
+            "project_board": 0.0051676541417617775,
+            "receipt": 0.0028813598163987043,
+            "terminal_screenshot": 0.0029494791669518274,
+            "chart": 0.0029494791669518274,
+            "table": 0.0015332249402196382
+          }
+        },
+        "route_R32": {
+          "type": "choice",
+          "choice": "vision_language_model",
+          "confidence": 0.9837087517561305,
+          "probabilities": {
+            "fast_ocr": 0.014325437585474594,
+            "document_specialist": 0.001965810658394864,
+            "vision_language_model": 0.9837087517561305
+          }
+        }
+      }
+    },
+    {
+      "request_index": 29,
+      "image_id": "I029",
+      "filename": "object_study_07.png",
+      "sha256": "d121a197af9c775131338bd95d519c6b23554414bd644cf4ae83006b4e6f0566",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.09515900000406,
+      "usage": {
+        "input_tokens": 1801,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.003655346299119824
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.007689486420114151
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.034178733152988895
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.006240230226491051
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.21273618805435204
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.029841114315287465
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.006690327527564761
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.48831899579533333
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.002764030391743826
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "illustration",
+          "confidence": 0.75830128337076,
+          "probabilities": {
+            "photo": 0.004874261559346905,
+            "document_page": 0.007251403511932575,
+            "lecture_slide": 0.2147131042302029,
+            "illustration": 0.75830128337076,
+            "project_board": 0.00535180377330784,
+            "receipt": 0.0027177711600743747,
+            "terminal_screenshot": 0.002655003194648261,
+            "chart": 0.002655003194648261,
+            "table": 0.0014803660050789723
+          }
+        },
+        "route_R33": {
+          "type": "choice",
+          "choice": "vision_language_model",
+          "confidence": 0.9847948716235174,
+          "probabilities": {
+            "fast_ocr": 0.013370376184550429,
+            "document_specialist": 0.0018347521919322453,
+            "vision_language_model": 0.9847948716235174
+          }
+        }
+      }
+    },
+    {
+      "request_index": 30,
+      "image_id": "I030",
+      "filename": "object_study_08.png",
+      "sha256": "dd81426ea974cbc9705978e402bd61f07076a740a3795029f3ae98cc8fba98e8",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.158090958000685,
+      "usage": {
+        "input_tokens": 1806,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.005555975921211917
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.01015294168311961
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.03740205616943622
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.004832691659941948
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.15678180161127034
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.062357420050625445
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.007172655268493546
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.4303569097894846
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.003655346299119827
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "illustration",
+          "confidence": 0.8764368814737447,
+          "probabilities": {
+            "photo": 0.004459737597165263,
+            "document_page": 0.0069521354376553485,
+            "lecture_slide": 0.09745943592957666,
+            "illustration": 0.8764368814737447,
+            "project_board": 0.005376405399930585,
+            "receipt": 0.0021613561449343715,
+            "terminal_screenshot": 0.0026672079390753067,
+            "chart": 0.0029285202155734263,
+            "table": 0.0015583198623442104
+          }
+        },
+        "route_R34": {
+          "type": "choice",
+          "choice": "vision_language_model",
+          "confidence": 0.97380225492426,
+          "probabilities": {
+            "fast_ocr": 0.02316416932602939,
+            "document_specialist": 0.003033575749710655,
+            "vision_language_model": 0.97380225492426
+          }
+        }
+      }
+    },
+    {
+      "request_index": 31,
+      "image_id": "I031",
+      "filename": "object_study_09.png",
+      "sha256": "6370d3a2cca4cdbec571252bf04ac11aa9a680ec18a8c48b8189a7734f943bfd",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.15224420800223,
+      "usage": {
+        "input_tokens": 1806,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.005686579975721973
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.009693878739969698
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.0365698309244458
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0046130615363931616
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.15678180161127034
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.05711103357953928
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.0060969884214284766
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.36336463315018025
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0034087291776665665
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "illustration",
+          "confidence": 0.8898901896872252,
+          "probabilities": {
+            "photo": 0.003420983875364184,
+            "document_page": 0.005209692706618521,
+            "lecture_slide": 0.09012563061219053,
+            "illustration": 0.8898901896872252,
+            "project_board": 0.003844945745906324,
+            "receipt": 0.0018203688994154466,
+            "terminal_screenshot": 0.0022464147761793725,
+            "chart": 0.0022464147761793725,
+            "table": 0.0011953589209212248
+          }
+        },
+        "route_R35": {
+          "type": "choice",
+          "choice": "vision_language_model",
+          "confidence": 0.9739371501743038,
+          "probabilities": {
+            "fast_ocr": 0.023167378125760037,
+            "document_specialist": 0.0028954716999362072,
+            "vision_language_model": 0.9739371501743038
+          }
+        }
+      }
+    },
+    {
+      "request_index": 32,
+      "image_id": "I032",
+      "filename": "object_study_10.png",
+      "sha256": "d89f19b6f7cffe02191a0a6473203ccb6b42ddfb92ae87b507d4347f8050ab14",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.231176707995473,
+      "usage": {
+        "input_tokens": 1806,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.004946378075875
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.011396853668704176
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.04000931189590814
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.005555975921211912
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.15678180161127034
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.05968025853067284
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.007340981985932693
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.46500790640270395
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.004106492392372854
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "illustration",
+          "confidence": 0.8828761746864227,
+          "probabilities": {
+            "photo": 0.005290824099193038,
+            "document_page": 0.007168779364680017,
+            "lecture_slide": 0.08941527046618991,
+            "illustration": 0.8828761746864227,
+            "project_board": 0.005675012682041322,
+            "receipt": 0.002228708786023798,
+            "terminal_screenshot": 0.002750324041644725,
+            "chart": 0.002950036425977104,
+            "table": 0.0016448694478274403
+          }
+        },
+        "route_R36": {
+          "type": "choice",
+          "choice": "vision_language_model",
+          "confidence": 0.9733374166529232,
+          "probabilities": {
+            "fast_ocr": 0.023700483805201917,
+            "document_specialist": 0.002962099541874995,
+            "vision_language_model": 0.9733374166529232
+          }
+        }
+      }
+    },
+    {
+      "request_index": 33,
+      "image_id": "I033",
+      "filename": "project_board_01.png",
+      "sha256": "95baa84d1fc525624c1f61dfd06f3a398dcd59ca69c26b9e5ce8c062ff4c0994",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.390773125000123,
+      "usage": {
+        "input_tokens": 1805,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0012802944161110447
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.002577392577463825
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.017653730878869123
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0025180165962706245
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.0979869483379792
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.01647829736943524
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.6786817655540728
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.1762195832970915
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.002460005099478043
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "project_board",
+          "confidence": 0.9790298748012706,
+          "probabilities": {
+            "photo": 0.0009481741770536797,
+            "document_page": 0.0012550533196710584,
+            "lecture_slide": 0.003852639652958453,
+            "illustration": 0.0007683473245635085,
+            "project_board": 0.9790298748012706,
+            "receipt": 0.0008635684600075672,
+            "terminal_screenshot": 0.000904883038794069,
+            "chart": 0.0008241401961889985,
+            "table": 0.011553319029492169
+          }
+        },
+        "route_R12": {
+          "type": "choice",
+          "choice": "fast_ocr",
+          "confidence": 0.9254202333319629,
+          "probabilities": {
+            "fast_ocr": 0.9254202333319629,
+            "document_specialist": 0.007005528341937433,
+            "vision_language_model": 0.06757423832609971
+          }
+        }
+      }
+    },
+    {
+      "request_index": 34,
+      "image_id": "I034",
+      "filename": "project_board_02.png",
+      "sha256": "326ca52093a73995e4d8151dceb4a39634346b7bc1f4ca1c82e76e9f5ea82365",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 3.9837155419954797,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0012802944161110447
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.002700366433162206
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.017253045611704876
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.002577392577463825
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.10656393334589653
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.015737782076367345
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.688786641098781
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.183106521027646
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.002700366433162206
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "project_board",
+          "confidence": 0.9781139863725538,
+          "probabilities": {
+            "photo": 0.0009926069773356263,
+            "document_page": 0.001344928556110257,
+            "lecture_slide": 0.004033179866350617,
+            "illustration": 0.0007857763362638818,
+            "project_board": 0.9781139863725538,
+            "receipt": 0.0008831574457596756,
+            "terminal_screenshot": 0.0009472871543187016,
+            "chart": 0.0008043531809195455,
+            "table": 0.012094724110387948
+          }
+        }
+      }
+    },
+    {
+      "request_index": 35,
+      "image_id": "I035",
+      "filename": "project_board_03.png",
+      "sha256": "fe1037ebc3c648b1fa1324b713a0fe611b7aac9055b9ec233649a5f505f6d939",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 3.9776845420055906,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0012802944161110447
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.0026381649683548665
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.01725304561170486
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.002577392577463825
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.10656393334589653
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.015379902108778673
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.6786817655540728
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.17621958329709145
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0027003664331622036
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "project_board",
+          "confidence": 0.9780128129193131,
+          "probabilities": {
+            "photo": 0.0009925043047667784,
+            "document_page": 0.0013765821317033669,
+            "lecture_slide": 0.004128102799766027,
+            "illustration": 0.0008042699808119174,
+            "project_board": 0.9780128129193131,
+            "receipt": 0.0008626713448267739,
+            "terminal_screenshot": 0.000925313473013075,
+            "chart": 0.0008042699808119174,
+            "table": 0.012093473064987014
+          }
+        }
+      }
+    },
+    {
+      "request_index": 36,
+      "image_id": "I036",
+      "filename": "project_board_04.png",
+      "sha256": "2ffc66a91714d04ba713424139913208018cb68353cabca65b9e198566b14345",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 4.011923375001061,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.001341463704341683
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.002700366433162206
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.017653730878869123
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0026381649683548665
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.0979869483379792
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.015737782076367345
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.6786817655540728
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.19750280069729007
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0026381649683548665
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "project_board",
+          "confidence": 0.9793240480526418,
+          "probabilities": {
+            "photo": 0.000970881969751308,
+            "document_page": 0.0013465924179207212,
+            "lecture_slide": 0.003944906395393783,
+            "illustration": 0.0007867484497873371,
+            "project_board": 0.9793240480526418,
+            "receipt": 0.0008438775030907693,
+            "terminal_screenshot": 0.0009484590789629167,
+            "chart": 0.0008053482765577311,
+            "table": 0.011029137855893413
+          }
+        }
+      }
+    },
+    {
+      "request_index": 37,
+      "image_id": "I037",
+      "filename": "project_board_05.png",
+      "sha256": "708caf8ff529efc2e48c9049522ae295e40ddabbadbd1780a9316d4a5faf3fc8",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 3.9595421249978244,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.001341463704341683
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.002700366433162206
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.016478297369435225
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.002577392577463825
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.0979869483379792
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.015737782076367345
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.6786817655540728
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.16953791579070765
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.002577392577463825
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "project_board",
+          "confidence": 0.9794572010985562,
+          "probabilities": {
+            "photo": 0.0009710139749764974,
+            "document_page": 0.0012852852801033918,
+            "lecture_slide": 0.003854321250507263,
+            "illustration": 0.0008054577751208056,
+            "project_board": 0.9794572010985562,
+            "receipt": 0.0008639453897846514,
+            "terminal_screenshot": 0.0009266800316356814,
+            "chart": 0.0008054577751208056,
+            "table": 0.011030637424194877
+          }
+        }
+      }
+    },
+    {
+      "request_index": 38,
+      "image_id": "I038",
+      "filename": "project_board_06.png",
+      "sha256": "821116432612509a3da7fac14ef2b24a40d0cb0cd60ed95befa56c7faa0a77ab",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 4.000243665999733,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0013105226886307737
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.002764030391743826
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.016478297369435225
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.002700366433162206
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.10007167517526983
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.015030036121344936
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.6786817655540728
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.2050145141967262
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0027003664331622036
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "project_board",
+          "confidence": 0.9785212475843474,
+          "probabilities": {
+            "photo": 0.0010164966523992089,
+            "document_page": 0.001345488549363772,
+            "lecture_slide": 0.004130248856071732,
+            "illustration": 0.0008046880926534899,
+            "project_board": 0.9785212475843474,
+            "receipt": 0.0008631198174954831,
+            "terminal_screenshot": 0.0009476815800397928,
+            "chart": 0.0008237120375136289,
+            "table": 0.011547316830115577
+          }
+        }
+      }
+    },
+    {
+      "request_index": 39,
+      "image_id": "I039",
+      "filename": "project_board_07.png",
+      "sha256": "0f9709530eddcdef9f3ce9cbfd3017fd14354e1081613e55d5818aee54049c4a",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 4.020975374995032,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0012802944161110436
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.0027003664331622036
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.016103853468224842
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.0026381649683548665
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.10435964165761012
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.015737782076367345
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.6786817655540728
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.183106521027646
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.002764030391743826
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "project_board",
+          "confidence": 0.9785628368221698,
+          "probabilities": {
+            "photo": 0.0009930624785290214,
+            "document_page": 0.0013455457354937667,
+            "lecture_slide": 0.0041304244004478664,
+            "illustration": 0.0008047222936118655,
+            "project_board": 0.9785628368221698,
+            "receipt": 0.0008631565019266568,
+            "terminal_screenshot": 0.0009477218585260388,
+            "chart": 0.0008047222936118655,
+            "table": 0.011547807615683121
+          }
+        }
+      }
+    },
+    {
+      "request_index": 40,
+      "image_id": "I040",
+      "filename": "project_board_08.png",
+      "sha256": "9eb745209c69a70137aaca22a5d7aebd1331494e351ead08e7fa5625cd8f9ffd",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 10,
+      "elapsed_s": 4.027768040999945,
+      "usage": {
+        "input_tokens": 1692,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0012219109682032388
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.002700366433162206
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.016103853468224853
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.002577392577463825
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.0979869483379792
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.015737782076367345
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.688786641098781
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.183106521027646
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0026381649683548665
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "project_board",
+          "confidence": 0.97790025794735,
+          "probabilities": {
+            "photo": 0.0010398677055597787,
+            "document_page": 0.0013764237072316312,
+            "lecture_slide": 0.004032298573174765,
+            "illustration": 0.0008231892929739179,
+            "project_board": 0.97790025794735,
+            "receipt": 0.000903838973482318,
+            "terminal_screenshot": 0.0009694704531601584,
+            "chart": 0.0008625720639709939,
+            "table": 0.012092081283096445
+          }
+        }
+      }
+    },
+    {
+      "request_index": 41,
+      "image_id": "I041",
+      "filename": "receipt_022.png",
+      "sha256": "77638caff7f6e6fcdc3cf1c4648eaea5acfd9f2a6ff3d0925b29a65e794e6d82",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.241446583997458,
+      "usage": {
+        "input_tokens": 1810,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0015794659824469688
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.006386815709344172
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.020725789525189265
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.9971708089633248
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9958935076076273
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.007689486420114151
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.018911398451298484
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.009472115552830297
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.001250762510075763
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "receipt",
+          "confidence": 0.9855989756422375,
+          "probabilities": {
+            "photo": 0.0009109546287262205,
+            "document_page": 0.00435915064972936,
+            "lecture_slide": 0.0028624690404603207,
+            "illustration": 0.0007735027862974718,
+            "project_board": 0.00036621073711800927,
+            "receipt": 0.9855989756422375,
+            "terminal_screenshot": 0.001672401426129959,
+            "chart": 0.000849284569563723,
+            "table": 0.0026070505197376935
+          }
+        },
+        "route_R13": {
+          "type": "choice",
+          "choice": "document_specialist",
+          "confidence": 0.8035767425333876,
+          "probabilities": {
+            "fast_ocr": 0.18873889857035442,
+            "document_specialist": 0.8035767425333876,
+            "vision_language_model": 0.007684358896257983
+          }
+        }
+      }
+    },
+    {
+      "request_index": 42,
+      "image_id": "I042",
+      "filename": "receipt_023.png",
+      "sha256": "67aeb094ef4d7e0315019dd508c4c84099fbd58fe5ed78c760364288f9218f21",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.187187458999688,
+      "usage": {
+        "input_tokens": 1810,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0013731342229992471
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.006536821893410608
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.019349839040364688
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.996170445443192
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9955966312776711
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.008054401445736882
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.02025681581225996
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.009472115552830306
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.001341463704341683
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "receipt",
+          "confidence": 0.9845083821586824,
+          "probabilities": {
+            "photo": 0.0009314590343520281,
+            "document_page": 0.005128093291367852,
+            "lecture_slide": 0.002996095473029782,
+            "illustration": 0.0008483448118730802,
+            "project_board": 0.0004111397211644353,
+            "receipt": 0.9845083821586824,
+            "terminal_screenshot": 0.0013857248386618447,
+            "chart": 0.0009314590343520281,
+            "table": 0.0028593016365165715
+          }
+        },
+        "route_R14": {
+          "type": "choice",
+          "choice": "document_specialist",
+          "confidence": 0.8180467731284884,
+          "probabilities": {
+            "fast_ocr": 0.1749930667873858,
+            "document_specialist": 0.8180467731284884,
+            "vision_language_model": 0.006960160084125852
+          }
+        }
+      }
+    },
+    {
+      "request_index": 43,
+      "image_id": "I043",
+      "filename": "receipt_024.png",
+      "sha256": "5581c00d20ba66c1d04bc83f73971d687c2ccf1ca2da2b0b01fc8a2ec4e37e92",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.210794333004742,
+      "usage": {
+        "input_tokens": 1810,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0013105226886307737
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.0060969884214284766
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.020725789525189265
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.9971708089633248
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9955966312776711
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.007513229073981228
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.018482705080871437
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.009255378144072167
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0011937241540849013
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "receipt",
+          "confidence": 0.9863271187636738,
+          "probabilities": {
+            "photo": 0.0008905732368896326,
+            "document_page": 0.004362371113264076,
+            "lecture_slide": 0.002733794423334794,
+            "illustration": 0.0008302829628456695,
+            "project_board": 0.0003580172615127484,
+            "receipt": 0.9863271187636738,
+            "terminal_screenshot": 0.0012352059320927338,
+            "chart": 0.0008302829628456695,
+            "table": 0.002432353343540966
+          }
+        },
+        "route_R15": {
+          "type": "choice",
+          "choice": "document_specialist",
+          "confidence": 0.8107067419259132,
+          "probabilities": {
+            "fast_ocr": 0.18171976507200813,
+            "document_specialist": 0.8107067419259132,
+            "vision_language_model": 0.007573493002078775
+          }
+        }
+      }
+    },
+    {
+      "request_index": 44,
+      "image_id": "I044",
+      "filename": "receipt_025.png",
+      "sha256": "dfc906404fd888dff209b10ca859899283d80a221244f76862b5b203f9a2445c",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.240047833998688,
+      "usage": {
+        "input_tokens": 1810,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0015074604306892663
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.005555975921211917
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.01891139845129849
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.9968944876360466
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9957968324771975
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.008054401445736888
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.021205385642087092
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.009255378144072167
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0013731342229992482
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "receipt",
+          "confidence": 0.9853122026413467,
+          "probabilities": {
+            "photo": 0.0008896568501057374,
+            "document_page": 0.0047848336900117965,
+            "lecture_slide": 0.0032923154708349696,
+            "illustration": 0.000773277725475874,
+            "project_board": 0.0003881273846411704,
+            "receipt": 0.9853122026413467,
+            "terminal_screenshot": 0.0011238307341350528,
+            "chart": 0.0008896568501057374,
+            "table": 0.0025460986533429562
+          }
+        },
+        "route_R16": {
+          "type": "choice",
+          "choice": "document_specialist",
+          "confidence": 0.8105616125712352,
+          "probabilities": {
+            "fast_ocr": 0.18168723435421186,
+            "document_specialist": 0.8105616125712352,
+            "vision_language_model": 0.007751153074553052
+          }
+        }
+      }
+    },
+    {
+      "request_index": 45,
+      "image_id": "I045",
+      "filename": "receipt_026.png",
+      "sha256": "d612c027f7d6449cd59662342cc1a83e5481943caacbbb1ab96d225ff207a690",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.193981875003374,
+      "usage": {
+        "input_tokens": 1810,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0014726963273953427
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.008634214954272976
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.023770895564062183
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.9965912708223333
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9956978912504734
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.007513229073981221
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.018063550631270617
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.010882165854379894
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.001250762510075764
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "receipt",
+          "confidence": 0.9864588566739738,
+          "probabilities": {
+            "photo": 0.0008500255237549943,
+            "document_page": 0.003792220525071714,
+            "lecture_slide": 0.0026710130983713426,
+            "illustration": 0.0007388307115575836,
+            "project_board": 0.00034979542967136996,
+            "receipt": 0.9864588566739738,
+            "terminal_screenshot": 0.0018378523301505062,
+            "chart": 0.0008112155947739893,
+            "table": 0.002490190112674796
+          }
+        },
+        "route_R17": {
+          "type": "choice",
+          "choice": "document_specialist",
+          "confidence": 0.8041281142362606,
+          "probabilities": {
+            "fast_ocr": 0.1888684011833532,
+            "document_specialist": 0.8041281142362606,
+            "vision_language_model": 0.0070034845803860395
+          }
+        }
+      }
+    },
+    {
+      "request_index": 46,
+      "image_id": "I046",
+      "filename": "receipt_027.png",
+      "sha256": "aff0a110a9b17f07623a151d41d528dcd9268af13db6ebd498bb5d0d6b678915",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.1710896249933285,
+      "usage": {
+        "input_tokens": 1810,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.001472696327395344
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.005820236164801843
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.016861298567095215
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.9965912708223333
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9958935076076273
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.008054401445736882
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.020725789525189255
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.008243249033100631
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0013105226886307737
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "receipt",
+          "confidence": 0.9868251885667487,
+          "probabilities": {
+            "photo": 0.0008704444372141832,
+            "document_page": 0.003975122438026136,
+            "lecture_slide": 0.0026720050072353897,
+            "illustration": 0.0007927745559396826,
+            "project_board": 0.00035819805101305386,
+            "receipt": 0.9868251885667487,
+            "terminal_screenshot": 0.0011255564207536923,
+            "chart": 0.0008307022343671899,
+            "table": 0.0025500082887020496
+          }
+        },
+        "route_R18": {
+          "type": "choice",
+          "choice": "document_specialist",
+          "confidence": 0.8179121874303663,
+          "probabilities": {
+            "fast_ocr": 0.17496427679048865,
+            "document_specialist": 0.8179121874303663,
+            "vision_language_model": 0.007123535779144983
+          }
+        }
+      }
+    },
+    {
+      "request_index": 47,
+      "image_id": "I047",
+      "filename": "receipt_028.png",
+      "sha256": "8ea79a2e7c0d9d3d19e75e90b148c6eb4100adb2c7a4365b29783c16b85cec99",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.1916399159963476,
+      "usage": {
+        "input_tokens": 1810,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0014055513962673248
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.006536821893410608
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.021695833770502358
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.9972996335668377
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9958935076076273
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.007513229073981221
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.01934983904036467
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.009472115552830297
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0012219109682032388
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "receipt",
+          "confidence": 0.9857075367658426,
+          "probabilities": {
+            "photo": 0.0009110549679721934,
+            "document_page": 0.004160581526664777,
+            "lecture_slide": 0.00279666723367132,
+            "illustration": 0.0007735879855860946,
+            "project_board": 0.00035779236548593677,
+            "receipt": 0.9857075367658426,
+            "terminal_screenshot": 0.0017940389856631665,
+            "chart": 0.000829761403246324,
+            "table": 0.0026689787658676517
+          }
+        },
+        "route_R19": {
+          "type": "choice",
+          "choice": "document_specialist",
+          "confidence": 0.8174893252626114,
+          "probabilities": {
+            "fast_ocr": 0.1748738199242134,
+            "document_specialist": 0.8174893252626114,
+            "vision_language_model": 0.007636854813175191
+          }
+        }
+      }
+    },
+    {
+      "request_index": 48,
+      "image_id": "I048",
+      "filename": "receipt_029.png",
+      "sha256": "77541f91fc62303d1e8c8e019304cb77130703a2efe54761ff5e060f3f1c2ef0",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.190665458001604,
+      "usage": {
+        "input_tokens": 1810,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0011661867889411278
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.006536821893410608
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.020256815812259972
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.9962585595599993
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9956978912504734
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.008054401445736882
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.019798239282674497
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.00904355476109049
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0013105226886307737
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "receipt",
+          "confidence": 0.98509307861851,
+          "probabilities": {
+            "photo": 0.0009104870458179464,
+            "document_page": 0.004783769588700609,
+            "lecture_slide": 0.0029978748447935296,
+            "illustration": 0.0008100924455923526,
+            "project_board": 0.0004066056112399152,
+            "receipt": 0.98509307861851,
+            "terminal_screenshot": 0.0012926809176143908,
+            "chart": 0.0009104870458179464,
+            "table": 0.0027949238819133097
+          }
+        },
+        "route_R20": {
+          "type": "choice",
+          "choice": "document_specialist",
+          "confidence": 0.8180467731284884,
+          "probabilities": {
+            "fast_ocr": 0.1749930667873858,
+            "document_specialist": 0.8180467731284884,
+            "vision_language_model": 0.006960160084125852
+          }
+        }
+      }
+    },
+    {
+      "request_index": 49,
+      "image_id": "I049",
+      "filename": "receipt_030.png",
+      "sha256": "524e3682dba2e3ec1a09eda6c1e0c044bfc411660da3c172411d339cfb627a89",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.192093916994054,
+      "usage": {
+        "input_tokens": 1810,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.001250762510075763
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.005303650062031831
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.018911398451298484
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.9969659930249479
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9957968324771975
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.007689486420114151
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.019349839040364678
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.00904355476109049
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0012219109682032377
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "receipt",
+          "confidence": 0.9866789353455845,
+          "probabilities": {
+            "photo": 0.0008502151641914269,
+            "document_page": 0.0041646817113901195,
+            "lecture_slide": 0.0027347695503401933,
+            "illustration": 0.0008305791194740842,
+            "project_board": 0.000353985057490915,
+            "receipt": 0.9866789353455845,
+            "terminal_screenshot": 0.001179230152965619,
+            "chart": 0.0008305791194740842,
+            "table": 0.0023770247790891545
+          }
+        },
+        "route_R21": {
+          "type": "choice",
+          "choice": "document_specialist",
+          "confidence": 0.7963857070718292,
+          "probabilities": {
+            "fast_ocr": 0.19599869970717138,
+            "document_specialist": 0.7963857070718292,
+            "vision_language_model": 0.007615593220999485
+          }
+        }
+      }
+    },
+    {
+      "request_index": 50,
+      "image_id": "I050",
+      "filename": "receipt_031.png",
+      "sha256": "c045060ab6633559ec5591450cc2351e1924182ca1a6a02a4d5e3535fc730023",
+      "dataset": "baseline",
+      "repeat_pixel_content": false,
+      "forward_passes": 1,
+      "question_count": 11,
+      "elapsed_s": 4.206295625001076,
+      "usage": {
+        "input_tokens": 1810,
+        "output_tokens": 0
+      },
+      "raw_output": {
+        "contains_error": {
+          "type": "noul",
+          "noul": 0.0015074604306892663
+        },
+        "contains_terminal": {
+          "type": "noul",
+          "noul": 0.005062725296719824
+        },
+        "contains_code": {
+          "type": "noul",
+          "noul": 0.018482705080871444
+        },
+        "contains_receipt": {
+          "type": "noul",
+          "noul": 0.996746398058351
+        },
+        "contains_document": {
+          "type": "noul",
+          "noul": 0.9958935076076273
+        },
+        "contains_chart": {
+          "type": "noul",
+          "noul": 0.008634214954272976
+        },
+        "contains_table": {
+          "type": "noul",
+          "noul": 0.021695833770502368
+        },
+        "contains_ui": {
+          "type": "noul",
+          "noul": 0.00904355476109049
+        },
+        "contains_person": {
+          "type": "noul",
+          "noul": 0.0014055513962673248
+        },
+        "content_type": {
+          "type": "choice",
+          "choice": "receipt",
+          "confidence": 0.9855406816442456,
+          "probabilities": {
+            "photo": 0.0009109007496246688,
+            "document_page": 0.004461943108790839,
+            "lecture_slide": 0.0033709318711231577,
+            "illustration": 0.0007917426361864305,
+            "project_board": 0.00038370818341774,
+            "receipt": 0.9855406816442456,
+            "terminal_screenshot": 0.0011240913334911492,
+            "chart": 0.0008693114179943558,
+            "table": 0.002546689055126308
+          }
+        },
+        "route_R22": {
+          "type": "choice",
+          "choice": "document_specialist",
+          "confidence": 0.8105616125712352,
+          "probabilities": {
+            "fast_ocr": 0.18168723435421186,
+            "document_specialist": 0.8105616125712352,
+            "vision_language_model": 0.007751153074553052
+          }
+        }
+      }
+    }
+  ],
+  "supplement_predictions": [],
+  "completion_status": "partial; no model error or OOM",
+  "stop_record": {
+    "attempted_request_count": 51,
+    "last_completed_checkpoint_requests": 50,
+    "stopped_after_parent_instruction": true,
+    "signal": "SIGINT",
+    "reason": "Parent requested a graceful stop before OOM after the whole-machine free-memory gauge declined to 14% while the d1 process was active.",
+    "manual_termination_not_counted_as_inference_failure": true,
+    "observed_memory_pressure_free_percent": [
+      {
+        "checkpoint": "pre-model",
+        "percent": 82
+      },
+      {
+        "checkpoint": "model-loaded early request",
+        "percent": 51
+      },
+      {
+        "requests_completed": 15,
+        "percent": 27
+      },
+      {
+        "requests_completed": 25,
+        "percent": 19
+      },
+      {
+        "requests_completed": 35,
+        "percent": 15
+      },
+      {
+        "requests_completed": 45,
+        "percent": 14
+      },
+      {
+        "checkpoint": "post-process-exit",
+        "percent": 74
+      }
+    ],
+    "process_rss_bytes": "not captured in checkpoint; ps showed approximately 1.0% MEM at the final live check, so no exact-byte estimate is reported.",
+    "mps_current_and_driver_bytes": "not captured in checkpoint; prior three-image smoke counters are a separate run and are not attributed to this segment."
+  }
+}

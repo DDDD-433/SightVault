@@ -1,5 +1,7 @@
 # Mac migration and acceptance checklist
 
+> Historical migration checklist from baseline `766027c`, retained for context. It predates the Phase 2 provider selection and current launch/setup guides. Follow `docs/PORTABLE_SETUP.md` for current setup, and treat the report below as historical unless the current QA report confirms it.
+
 ## 1. Inventory the actual Mac
 
 Record `sw_vers`, `uname -m`, `sysctl -n hw.memsize`, Python version/architecture, available disk and installed CLI capabilities. Hardware is not known in this handoff. An Intel Mac needs a CPU baseline; Apple Silicon may support MPS but each model still needs real inference tests. Reserve at least 20 GB free for the transferred models, environment and working copies; more if caching downloads or keeping multiple environments.
@@ -13,7 +15,7 @@ Move the folder outside a synced directory while developing if convenient. Do no
 Copy this Windows folder, including its dot-prefixed name, into the Mac project root:
 
 ```text
-C:\Users\digvi\OneDrive\Documents\ChatGPT\Vibathon 2\.models
+C:\path\to\SightVault\.models
 ```
 
 Use a drive/file-transfer tool that supports files above 4 GB; some model files may exceed limits of older filesystems. `Copy-Models-To-Drive.ps1` copies only model files listed in the manifest and verifies each source and destination checksum. It never mirrors or deletes other files. Example from Windows:

@@ -1,0 +1,24 @@
+{
+  "dataset": "SightVault synthetic demo 62-image fixture",
+  "baseline_mode": "semantic",
+  "candidate_count": 20,
+  "queries": [
+    {"id": "Q01", "text": "Find a photo of the Golden Gate Bridge seen from the waterfront."},
+    {"id": "Q02", "text": "Show the kitchen scene with pots, utensils, and cookware."},
+    {"id": "Q03", "text": "Find an illustration of a red backpack."},
+    {"id": "Q04", "text": "Find an illustration of a blue backpack."},
+    {"id": "Q05", "text": "Find an illustration of a green mug."},
+    {"id": "Q06", "text": "Find the laptop illustrations."},
+    {"id": "Q07", "text": "Find the receipt where the total is $84.79."},
+    {"id": "Q08", "text": "Find the receipt for coffee and a muffin."},
+    {"id": "Q09", "text": "Find a terminal screenshot showing a CUDA out-of-memory failure."},
+    {"id": "Q10", "text": "Find the MongoDB duplicate-key error terminal."},
+    {"id": "Q11", "text": "Find npm's ERESOLVE dependency-resolution error screenshot."},
+    {"id": "Q12", "text": "Find the Python import error that says pandas is missing."},
+    {"id": "Q13", "text": "Find the lecture slide about database normalization."},
+    {"id": "Q14", "text": "Find the relational algebra and joins slide that defines INNER JOIN."},
+    {"id": "Q15", "text": "Find the sprint-planning board with To do, In progress, and Completed columns."},
+    {"id": "Q16", "text": "Find the project meeting notes about keeping inference on the local machine."}
+  ],
+  "retrieval_inputs": "Query text only; the EmbeddingGemma baseline receives no expected IDs, classification labels, filenames, OCR, or relevance judgments."
+}

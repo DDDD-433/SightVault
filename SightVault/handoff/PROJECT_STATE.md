@@ -1,5 +1,7 @@
 # Current project state
 
+> Historical project snapshot from baseline `766027c`, prepared before the Phase 2 model selection. It is retained for architecture and transfer context; its model inventory, unresolved work and status claims are superseded by the current setup guide and release-selected QA reports.
+
 Snapshot prepared October 29, 2026, from the QA-fixed Windows workspace. See `SNAPSHOT.json` for precise creation time and Python version. This document describes observed source and saved evidence, not a new Mac test run.
 
 ## Product and architecture

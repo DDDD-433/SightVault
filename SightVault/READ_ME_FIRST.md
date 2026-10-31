@@ -12,10 +12,10 @@ This is the current, QA-fixed project, with a consistent snapshot of the 62-imag
 2. Transfer the Windows project's **`.models` directory** into this folder. It contains **7,275,820,860 bytes (7.28 GB / 6.78 GiB)** and is excluded from this ZIP. Finder hides dot folders: press **Command+Shift+.** to show them. Use an external drive or your preferred file-transfer method. Do not copy `.venv`, `.runtime`, caches or credentials.
 3. Open this folder in your Mac agent environment and give the orchestrator `handoff/ORCHESTRATOR_PROMPT.md`. It contains the full continuation task and delegation rules.
 
-Windows source location:
+Historical Windows source location (genericized):
 
 ```text
-C:\Users\digvi\OneDrive\Documents\ChatGPT\Vibathon 2
+C:\path\to\previous\SightVault
 ```
 
 The original project and its running service have not been changed by this handoff. The database here was copied using SQLite's backup API. It includes only the demo collection, its stored image copies, thumbnails, OCR and embeddings.
@@ -54,4 +54,4 @@ Dependency installation may expose Mac wheel or native-library gaps. The orchest
 
 The active source is the project at this ZIP's root. `README.md` and the old result JSON files are preserved as historical Windows evidence; migration notes take precedence where the old README contradicts itself about dates.
 
-No Mac success claims, throughput figures or MPS claims are established by this handoff.
+The original Windows handoff did not establish Mac results. Current Mac validation is recorded in `MAC_QA_REPORT.md`; the older checklist and Windows report remain historical context.

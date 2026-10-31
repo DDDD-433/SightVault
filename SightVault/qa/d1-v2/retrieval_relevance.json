@@ -1,0 +1,22 @@
+{
+  "annotation_method": "Single-annotator visual review of anonymized source pixels and visible text. The judgments were frozen separately from ranking code; not human ground truth and not independently double-annotated.",
+  "relevance_rule": "An image is relevant only if its pixels directly depict the requested target or visibly contain the requested text/detail. All exact duplicate or repeated fixture instances satisfying the request are included.",
+  "queries": {
+    "Q01": ["I001"],
+    "Q02": ["I010"],
+    "Q03": ["I023"],
+    "Q04": ["I024"],
+    "Q05": ["I029"],
+    "Q06": ["I030", "I031", "I032"],
+    "Q07": ["I041", "I047"],
+    "Q08": ["I042", "I048"],
+    "Q09": ["I053", "I054"],
+    "Q10": ["I055", "I056"],
+    "Q11": ["I057", "I058"],
+    "Q12": ["I059", "I060"],
+    "Q13": ["I019", "I020"],
+    "Q14": ["I017", "I018"],
+    "Q15": ["I033", "I034", "I035", "I036", "I037", "I038", "I039", "I040"],
+    "Q16": ["I002", "I008"]
+  }
+}

@@ -1,5 +1,7 @@
 # Agent coordination plan
 
+> Historical coordination plan from the original migration snapshot at baseline `766027c`. It records requested roles and boundaries from that phase and is retained for context. Current setup and model choices are in `docs/PORTABLE_SETUP.md` and the release-selected QA reports.
+
 User preference: 6.1 Sol medium/high orchestrator, luna-max-standard subagents, AGY CLI, Cursor agent CLI and free OpenCode models. These are requested roles, not claims that these tools/models are installed on the Mac. The orchestrator checks actual availability, tool help and model selectors first. Do not invent a command syntax or substitute a paid backend silently.
 
 ## Ownership

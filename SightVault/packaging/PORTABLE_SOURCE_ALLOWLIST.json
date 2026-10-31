@@ -1,0 +1,56 @@
+{
+  "format_version": 1,
+  "root_files": [
+    "AGENTS.md",
+    "DEMO.md",
+    "MAC_QA_REPORT.md",
+    "QA_REPORT.md",
+    "README.md",
+    "READ_ME_FIRST.md",
+    "Setup-Mac.sh",
+    "Setup-Windows.ps1",
+    "Start-SightVault.cmd",
+    "Start-SightVault.command",
+    "Validate-SightVault-Windows.ps1",
+    "app.py",
+    "requirements-mac.lock.txt",
+    "requirements-windows.lock.txt",
+    "requirements.txt"
+  ],
+  "trees": [
+    {"path": "docs", "extensions": [".md"]},
+    {"path": "handoff", "files": [
+      "AGENT_TASKS.md",
+      "DEMO_EVIDENCE_MANIFEST.json",
+      "MAC_MIGRATION.md",
+      "MAC_CONVERTED_MODEL_MANIFEST.json",
+      "MODEL_MANIFEST.json",
+      "ORCHESTRATOR_PROMPT.md",
+      "PROJECT_STATE.md",
+      "SAMPLE_MANIFEST.json",
+      "download_pinned_models.py",
+      "history/SightVault_Changes.md",
+      "prepare_demo.py",
+      "verify_transfer.py"
+    ]},
+    {"path": "packaging", "extensions": [".json"]},
+    {"path": "samples", "extensions": [".png", ".jpg", ".jpeg", ".webp", ".bmp", ".tif", ".tiff"], "reviewed_manifest": "handoff/SAMPLE_MANIFEST.json", "files": [
+      "manifest.json",
+      "photo_sources.json"
+    ]},
+    {"path": "scripts", "extensions": [".py"]},
+    {"path": "sightvault", "extensions": [".py", ".html", ".css", ".js"]},
+    {"path": "tests", "extensions": [".py"]}
+  ],
+  "excluded": [
+    ".git",
+    ".venv",
+    ".venv-lfm3",
+    ".models",
+    "data",
+    "output",
+    "qa",
+    "*.log",
+    "*.pyc"
+  ]
+}

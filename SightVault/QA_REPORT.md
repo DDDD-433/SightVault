@@ -1,5 +1,7 @@
 # SightVault QA Report — 2026-10-29
 
+> Historical Windows QA report. Its model runs and measurements describe the Windows baseline only; they are not current Mac or Windows validation of this portable source-and-setup bundle. See `MAC_QA_REPORT.md` for the Mac migration record.
+
 **Verdict: demo-ready.** Real local inference throughout (EmbeddingGemma, MiniCPM-OCR 1.0, MiniCPM-V 4.7 1B, RapidOCR fallback); no mocks in the app path. Originals of every changed file: `qa_backups\20261029_174416\` (incl. DB backup).
 
 ## Results

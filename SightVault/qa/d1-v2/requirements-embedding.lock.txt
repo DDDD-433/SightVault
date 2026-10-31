@@ -1,0 +1,13 @@
+# Separate environment for reproducing the app's existing EmbeddingGemma query path.
+# SentenceTransformer and all core ML packages use the same pinned versions as
+# requirements-lfm3.lock.txt; resolved transitive versions are recorded in output.
+accelerate==1.15.0
+huggingface-hub==2.4.0
+numpy==2.5.4
+pillow==13.0.0
+safetensors==0.8.0
+sentence-transformers==6.2.0
+tokenizers==0.23.3
+torch==2.11.0
+torchvision==0.26.0
+transformers==5.22.0

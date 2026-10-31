@@ -1,0 +1,3569 @@
+{
+  "created_at_utc": "2026-10-30T20:50:01+00:00",
+  "experiment": "SightVault Phase 2 D1 v2",
+  "dataset_caveat": "Single-annotator, correlated synthetic demo fixture. These metrics are exploratory, not human ground truth or broad generalization claims.",
+  "classification": {
+    "baseline": {
+      "dataset": "frozen 62-image baseline",
+      "image_count": 62,
+      "annotation_method": "Single-annotator AI-agent visual fixture annotation; exploratory, not human ground truth.",
+      "threshold_metrics": {
+        "0.5": {
+          "per_label": {
+            "contains_error": {
+              "support_positive": 8,
+              "support_negative": 54,
+              "tp": 8,
+              "fp": 0,
+              "fn": 0,
+              "tn": 54,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_terminal": {
+              "support_positive": 10,
+              "support_negative": 52,
+              "tp": 10,
+              "fp": 0,
+              "fn": 0,
+              "tn": 52,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_code": {
+              "support_positive": 12,
+              "support_negative": 50,
+              "tp": 10,
+              "fp": 0,
+              "fn": 2,
+              "tn": 50,
+              "precision": 1.0,
+              "recall": 0.8333333333333334,
+              "f1": 0.9090909090909091,
+              "accuracy": 0.967741935483871,
+              "status": "defined"
+            },
+            "contains_receipt": {
+              "support_positive": 12,
+              "support_negative": 50,
+              "tp": 12,
+              "fp": 0,
+              "fn": 0,
+              "tn": 50,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_document": {
+              "support_positive": 32,
+              "support_negative": 30,
+              "tp": 31,
+              "fp": 0,
+              "fn": 1,
+              "tn": 30,
+              "precision": 1.0,
+              "recall": 0.96875,
+              "f1": 0.9841269841269841,
+              "accuracy": 0.9838709677419355,
+              "status": "defined"
+            },
+            "contains_chart": {
+              "support_positive": 0,
+              "support_negative": 62,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 62,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_table": {
+              "support_positive": 0,
+              "support_negative": 62,
+              "tp": 0,
+              "fp": 8,
+              "fn": 0,
+              "tn": 54,
+              "precision": 0.0,
+              "recall": null,
+              "f1": null,
+              "accuracy": 0.8709677419354839,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_ui": {
+              "support_positive": 38,
+              "support_negative": 24,
+              "tp": 14,
+              "fp": 2,
+              "fn": 24,
+              "tn": 22,
+              "precision": 0.875,
+              "recall": 0.3684210526315789,
+              "f1": 0.5185185185185185,
+              "accuracy": 0.5806451612903226,
+              "status": "defined"
+            },
+            "contains_person": {
+              "support_positive": 1,
+              "support_negative": 61,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "tn": 61,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            }
+          },
+          "macro_over_labels_with_positive_gold_support_only": {
+            "label_count": 7,
+            "precision": 0.9821428571428571,
+            "recall": 0.881500626566416,
+            "f1": 0.9159623445337731,
+            "accuracy": 0.9331797235023042,
+            "undefined_labels_excluded": [
+              "contains_chart",
+              "contains_table"
+            ]
+          }
+        },
+        "0.7": {
+          "per_label": {
+            "contains_error": {
+              "support_positive": 8,
+              "support_negative": 54,
+              "tp": 8,
+              "fp": 0,
+              "fn": 0,
+              "tn": 54,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_terminal": {
+              "support_positive": 10,
+              "support_negative": 52,
+              "tp": 10,
+              "fp": 0,
+              "fn": 0,
+              "tn": 52,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_code": {
+              "support_positive": 12,
+              "support_negative": 50,
+              "tp": 10,
+              "fp": 0,
+              "fn": 2,
+              "tn": 50,
+              "precision": 1.0,
+              "recall": 0.8333333333333334,
+              "f1": 0.9090909090909091,
+              "accuracy": 0.967741935483871,
+              "status": "defined"
+            },
+            "contains_receipt": {
+              "support_positive": 12,
+              "support_negative": 50,
+              "tp": 12,
+              "fp": 0,
+              "fn": 0,
+              "tn": 50,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_document": {
+              "support_positive": 32,
+              "support_negative": 30,
+              "tp": 29,
+              "fp": 0,
+              "fn": 3,
+              "tn": 30,
+              "precision": 1.0,
+              "recall": 0.90625,
+              "f1": 0.9508196721311475,
+              "accuracy": 0.9516129032258065,
+              "status": "defined"
+            },
+            "contains_chart": {
+              "support_positive": 0,
+              "support_negative": 62,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 62,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_table": {
+              "support_positive": 0,
+              "support_negative": 62,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 62,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_ui": {
+              "support_positive": 38,
+              "support_negative": 24,
+              "tp": 10,
+              "fp": 0,
+              "fn": 28,
+              "tn": 24,
+              "precision": 1.0,
+              "recall": 0.2631578947368421,
+              "f1": 0.4166666666666667,
+              "accuracy": 0.5483870967741935,
+              "status": "defined"
+            },
+            "contains_person": {
+              "support_positive": 1,
+              "support_negative": 61,
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 61,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "accuracy": 0.9838709677419355,
+              "status": "defined"
+            }
+          },
+          "macro_over_labels_with_positive_gold_support_only": {
+            "label_count": 7,
+            "precision": 0.8571428571428571,
+            "recall": 0.7146773182957393,
+            "f1": 0.7537967496983891,
+            "accuracy": 0.9216589861751152,
+            "undefined_labels_excluded": [
+              "contains_chart",
+              "contains_table"
+            ]
+          }
+        },
+        "0.8": {
+          "per_label": {
+            "contains_error": {
+              "support_positive": 8,
+              "support_negative": 54,
+              "tp": 8,
+              "fp": 0,
+              "fn": 0,
+              "tn": 54,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_terminal": {
+              "support_positive": 10,
+              "support_negative": 52,
+              "tp": 10,
+              "fp": 0,
+              "fn": 0,
+              "tn": 52,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_code": {
+              "support_positive": 12,
+              "support_negative": 50,
+              "tp": 10,
+              "fp": 0,
+              "fn": 2,
+              "tn": 50,
+              "precision": 1.0,
+              "recall": 0.8333333333333334,
+              "f1": 0.9090909090909091,
+              "accuracy": 0.967741935483871,
+              "status": "defined"
+            },
+            "contains_receipt": {
+              "support_positive": 12,
+              "support_negative": 50,
+              "tp": 12,
+              "fp": 0,
+              "fn": 0,
+              "tn": 50,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_document": {
+              "support_positive": 32,
+              "support_negative": 30,
+              "tp": 28,
+              "fp": 0,
+              "fn": 4,
+              "tn": 30,
+              "precision": 1.0,
+              "recall": 0.875,
+              "f1": 0.9333333333333333,
+              "accuracy": 0.9354838709677419,
+              "status": "defined"
+            },
+            "contains_chart": {
+              "support_positive": 0,
+              "support_negative": 62,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 62,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_table": {
+              "support_positive": 0,
+              "support_negative": 62,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 62,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_ui": {
+              "support_positive": 38,
+              "support_negative": 24,
+              "tp": 10,
+              "fp": 0,
+              "fn": 28,
+              "tn": 24,
+              "precision": 1.0,
+              "recall": 0.2631578947368421,
+              "f1": 0.4166666666666667,
+              "accuracy": 0.5483870967741935,
+              "status": "defined"
+            },
+            "contains_person": {
+              "support_positive": 1,
+              "support_negative": 61,
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 61,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "accuracy": 0.9838709677419355,
+              "status": "defined"
+            }
+          },
+          "macro_over_labels_with_positive_gold_support_only": {
+            "label_count": 7,
+            "precision": 0.8571428571428571,
+            "recall": 0.7102130325814536,
+            "f1": 0.7512987012987014,
+            "accuracy": 0.9193548387096774,
+            "undefined_labels_excluded": [
+              "contains_chart",
+              "contains_table"
+            ]
+          }
+        },
+        "0.9": {
+          "per_label": {
+            "contains_error": {
+              "support_positive": 8,
+              "support_negative": 54,
+              "tp": 8,
+              "fp": 0,
+              "fn": 0,
+              "tn": 54,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_terminal": {
+              "support_positive": 10,
+              "support_negative": 52,
+              "tp": 10,
+              "fp": 0,
+              "fn": 0,
+              "tn": 52,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_code": {
+              "support_positive": 12,
+              "support_negative": 50,
+              "tp": 10,
+              "fp": 0,
+              "fn": 2,
+              "tn": 50,
+              "precision": 1.0,
+              "recall": 0.8333333333333334,
+              "f1": 0.9090909090909091,
+              "accuracy": 0.967741935483871,
+              "status": "defined"
+            },
+            "contains_receipt": {
+              "support_positive": 12,
+              "support_negative": 50,
+              "tp": 12,
+              "fp": 0,
+              "fn": 0,
+              "tn": 50,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_document": {
+              "support_positive": 32,
+              "support_negative": 30,
+              "tp": 21,
+              "fp": 0,
+              "fn": 11,
+              "tn": 30,
+              "precision": 1.0,
+              "recall": 0.65625,
+              "f1": 0.7924528301886793,
+              "accuracy": 0.8225806451612904,
+              "status": "defined"
+            },
+            "contains_chart": {
+              "support_positive": 0,
+              "support_negative": 62,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 62,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_table": {
+              "support_positive": 0,
+              "support_negative": 62,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 62,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_ui": {
+              "support_positive": 38,
+              "support_negative": 24,
+              "tp": 10,
+              "fp": 0,
+              "fn": 28,
+              "tn": 24,
+              "precision": 1.0,
+              "recall": 0.2631578947368421,
+              "f1": 0.4166666666666667,
+              "accuracy": 0.5483870967741935,
+              "status": "defined"
+            },
+            "contains_person": {
+              "support_positive": 1,
+              "support_negative": 61,
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "tn": 61,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "accuracy": 0.9838709677419355,
+              "status": "defined"
+            }
+          },
+          "macro_over_labels_with_positive_gold_support_only": {
+            "label_count": 7,
+            "precision": 0.8571428571428571,
+            "recall": 0.6789630325814536,
+            "f1": 0.7311729151351793,
+            "accuracy": 0.9032258064516129,
+            "undefined_labels_excluded": [
+              "contains_chart",
+              "contains_table"
+            ]
+          }
+        }
+      },
+      "binary_calibration": {
+        "overall_brier_score_across_all_image_label_pairs": 0.041576812995783856,
+        "overall_equal_width_ece_10_bins": 0.04456127655364954,
+        "per_label": {
+          "contains_error": {
+            "brier_score": 3.08965169335331e-05,
+            "expected_calibration_error_10_equal_width_bins": 0.004046995181486105,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 54,
+                "mean_probability": 0.0028800898732557656,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 8,
+                "mean_probability": 0.9880763939879591,
+                "observed_rate": 1.0
+              }
+            ]
+          },
+          "contains_terminal": {
+            "brier_score": 0.00010853379892683563,
+            "expected_calibration_error_10_equal_width_bins": 0.007622505498227622,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 52,
+                "mean_probability": 0.0049132892661388995,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 10,
+                "mean_probability": 0.978289570094911,
+                "observed_rate": 1.0
+              }
+            ]
+          },
+          "contains_code": {
+            "brier_score": 0.03062855785320056,
+            "expected_calibration_error_10_equal_width_bins": 0.01864955461127405,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 52,
+                "mean_probability": 0.023877260626463316,
+                "observed_rate": 0.038461538461538464
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 10,
+                "mean_probability": 0.9602110061524917,
+                "observed_rate": 1.0
+              }
+            ]
+          },
+          "contains_receipt": {
+            "brier_score": 1.0886712543212966e-05,
+            "expected_calibration_error_10_equal_width_bins": 0.0030068504607093363,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 50,
+                "mean_probability": 0.002956972552205115,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 12,
+                "mean_probability": 0.9967853249205231,
+                "observed_rate": 1.0
+              }
+            ]
+          },
+          "contains_document": {
+            "brier_score": 0.02405203057855163,
+            "expected_calibration_error_10_equal_width_bins": 0.12047282400379106,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 6,
+                "mean_probability": 0.0678227419331116,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 18,
+                "mean_probability": 0.1307894505683765,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 6,
+                "mean_probability": 0.2348956349125153,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 1,
+                "mean_probability": 0.4883189957953333,
+                "observed_rate": 1.0
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 2,
+                "mean_probability": 0.6526721209377901,
+                "observed_rate": 1.0
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 1,
+                "mean_probability": 0.7084603092882742,
+                "observed_rate": 1.0
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 7,
+                "mean_probability": 0.8558622745911153,
+                "observed_rate": 1.0
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 21,
+                "mean_probability": 0.9622878959034522,
+                "observed_rate": 1.0
+              }
+            ]
+          },
+          "contains_chart": {
+            "brier_score": 0.000391767733015605,
+            "expected_calibration_error_10_equal_width_bins": 0.015508525891316795,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 62,
+                "mean_probability": 0.015508525891316795,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              }
+            ]
+          },
+          "contains_table": {
+            "brier_score": 0.06001636184075085,
+            "expected_calibration_error_10_equal_width_bins": 0.09788323891127129,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 54,
+                "mean_probability": 0.011464758092163385,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 8,
+                "mean_probability": 0.6812079844402498,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              }
+            ]
+          },
+          "contains_ui": {
+            "brier_score": 0.2559561950128787,
+            "expected_calibration_error_10_equal_width_bins": 0.29239867398030434,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 14,
+                "mean_probability": 0.00840646309790713,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 11,
+                "mean_probability": 0.17872086801462908,
+                "observed_rate": 1.0
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 5,
+                "mean_probability": 0.22425939157356106,
+                "observed_rate": 1.0
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 4,
+                "mean_probability": 0.37705628422877213,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 12,
+                "mean_probability": 0.44293862137902723,
+                "observed_rate": 0.6666666666666666
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 6,
+                "mean_probability": 0.5445474190534183,
+                "observed_rate": 0.6666666666666666
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 10,
+                "mean_probability": 0.9827423356609357,
+                "observed_rate": 1.0
+              }
+            ]
+          },
+          "contains_person": {
+            "brier_score": 0.0029960869152534744,
+            "expected_calibration_error_10_equal_width_bins": 0.00974045351718116,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 61,
+                "mean_probability": 0.002845101775012252,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 1,
+                "mean_probability": 0.5696430902105154,
+                "observed_rate": 1.0
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              }
+            ]
+          }
+        }
+      },
+      "content_type": {
+        "accuracy": 0.9354838709677419,
+        "correct": 58,
+        "count": 62,
+        "per_class": {
+          "document_page": {
+            "support_positive": 8,
+            "support_negative": 54,
+            "tp": 5,
+            "fp": 0,
+            "fn": 3,
+            "tn": 54,
+            "precision": 1.0,
+            "recall": 0.625,
+            "f1": 0.7692307692307693,
+            "accuracy": 0.9516129032258065,
+            "status": "defined"
+          },
+          "illustration": {
+            "support_positive": 10,
+            "support_negative": 52,
+            "tp": 10,
+            "fp": 1,
+            "fn": 0,
+            "tn": 51,
+            "precision": 0.9090909090909091,
+            "recall": 1.0,
+            "f1": 0.9523809523809523,
+            "accuracy": 0.9838709677419355,
+            "status": "defined"
+          },
+          "lecture_slide": {
+            "support_positive": 12,
+            "support_negative": 50,
+            "tp": 12,
+            "fp": 3,
+            "fn": 0,
+            "tn": 47,
+            "precision": 0.8,
+            "recall": 1.0,
+            "f1": 0.888888888888889,
+            "accuracy": 0.9516129032258065,
+            "status": "defined"
+          },
+          "photo": {
+            "support_positive": 2,
+            "support_negative": 60,
+            "tp": 1,
+            "fp": 0,
+            "fn": 1,
+            "tn": 60,
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "accuracy": 0.9838709677419355,
+            "status": "defined"
+          },
+          "project_board": {
+            "support_positive": 8,
+            "support_negative": 54,
+            "tp": 8,
+            "fp": 0,
+            "fn": 0,
+            "tn": 54,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "accuracy": 1.0,
+            "status": "defined"
+          },
+          "receipt": {
+            "support_positive": 12,
+            "support_negative": 50,
+            "tp": 12,
+            "fp": 0,
+            "fn": 0,
+            "tn": 50,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "accuracy": 1.0,
+            "status": "defined"
+          },
+          "terminal_screenshot": {
+            "support_positive": 10,
+            "support_negative": 52,
+            "tp": 10,
+            "fp": 0,
+            "fn": 0,
+            "tn": 52,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "accuracy": 1.0,
+            "status": "defined"
+          }
+        },
+        "macro_f1_over_supported_classes": 0.8967381824524682,
+        "multiclass_brier_sum_per_image_mean": 0.11377249787906116,
+        "top_choice_probability_calibration": {
+          "brier_score": 0.05733906454115455,
+          "expected_calibration_error_10_equal_width_bins": 0.05432057800718527,
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.1,
+              "count": 0,
+              "mean_probability": null,
+              "observed_rate": null
+            },
+            {
+              "lower": 0.1,
+              "upper": 0.2,
+              "count": 0,
+              "mean_probability": null,
+              "observed_rate": null
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.3,
+              "count": 0,
+              "mean_probability": null,
+              "observed_rate": null
+            },
+            {
+              "lower": 0.3,
+              "upper": 0.4,
+              "count": 0,
+              "mean_probability": null,
+              "observed_rate": null
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.5,
+              "count": 0,
+              "mean_probability": null,
+              "observed_rate": null
+            },
+            {
+              "lower": 0.5,
+              "upper": 0.6,
+              "count": 2,
+              "mean_probability": 0.5509370937159725,
+              "observed_rate": 1.0
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.7,
+              "count": 4,
+              "mean_probability": 0.6724646670749536,
+              "observed_rate": 0.5
+            },
+            {
+              "lower": 0.7,
+              "upper": 0.8,
+              "count": 7,
+              "mean_probability": 0.7656934335541645,
+              "observed_rate": 0.8571428571428571
+            },
+            {
+              "lower": 0.8,
+              "upper": 0.9,
+              "count": 5,
+              "mean_probability": 0.8515081312671124,
+              "observed_rate": 1.0
+            },
+            {
+              "lower": 0.9,
+              "upper": 1.0,
+              "count": 44,
+              "mean_probability": 0.9682434989365379,
+              "observed_rate": 0.9772727272727273
+            }
+          ]
+        }
+      }
+    },
+    "supplement": {
+      "dataset": "separate 6-image diagnostic supplement",
+      "image_count": 6,
+      "annotation_method": "Single-annotator AI-agent visual fixture annotation; exploratory, not human ground truth.",
+      "threshold_metrics": {
+        "0.5": {
+          "per_label": {
+            "contains_error": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_terminal": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_code": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_receipt": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_document": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 3,
+              "fn": 0,
+              "tn": 3,
+              "precision": 0.0,
+              "recall": null,
+              "f1": null,
+              "accuracy": 0.5,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_chart": {
+              "support_positive": 2,
+              "support_negative": 4,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_table": {
+              "support_positive": 2,
+              "support_negative": 4,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_ui": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_person": {
+              "support_positive": 2,
+              "support_negative": 4,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            }
+          },
+          "macro_over_labels_with_positive_gold_support_only": {
+            "label_count": 3,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "accuracy": 1.0,
+            "undefined_labels_excluded": [
+              "contains_error",
+              "contains_terminal",
+              "contains_code",
+              "contains_receipt",
+              "contains_document",
+              "contains_ui"
+            ]
+          }
+        },
+        "0.7": {
+          "per_label": {
+            "contains_error": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_terminal": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_code": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_receipt": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_document": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 2,
+              "fn": 0,
+              "tn": 4,
+              "precision": 0.0,
+              "recall": null,
+              "f1": null,
+              "accuracy": 0.6666666666666666,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_chart": {
+              "support_positive": 2,
+              "support_negative": 4,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_table": {
+              "support_positive": 2,
+              "support_negative": 4,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_ui": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_person": {
+              "support_positive": 2,
+              "support_negative": 4,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            }
+          },
+          "macro_over_labels_with_positive_gold_support_only": {
+            "label_count": 3,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "accuracy": 1.0,
+            "undefined_labels_excluded": [
+              "contains_error",
+              "contains_terminal",
+              "contains_code",
+              "contains_receipt",
+              "contains_document",
+              "contains_ui"
+            ]
+          }
+        },
+        "0.8": {
+          "per_label": {
+            "contains_error": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_terminal": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_code": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_receipt": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_document": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 2,
+              "fn": 0,
+              "tn": 4,
+              "precision": 0.0,
+              "recall": null,
+              "f1": null,
+              "accuracy": 0.6666666666666666,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_chart": {
+              "support_positive": 2,
+              "support_negative": 4,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_table": {
+              "support_positive": 2,
+              "support_negative": 4,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_ui": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_person": {
+              "support_positive": 2,
+              "support_negative": 4,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            }
+          },
+          "macro_over_labels_with_positive_gold_support_only": {
+            "label_count": 3,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "accuracy": 1.0,
+            "undefined_labels_excluded": [
+              "contains_error",
+              "contains_terminal",
+              "contains_code",
+              "contains_receipt",
+              "contains_document",
+              "contains_ui"
+            ]
+          }
+        },
+        "0.9": {
+          "per_label": {
+            "contains_error": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_terminal": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_code": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_receipt": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_document": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_chart": {
+              "support_positive": 2,
+              "support_negative": 4,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_table": {
+              "support_positive": 2,
+              "support_negative": 4,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            },
+            "contains_ui": {
+              "support_positive": 0,
+              "support_negative": 6,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "tn": 6,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "accuracy": 1.0,
+              "status": "undefined_no_positive_gold"
+            },
+            "contains_person": {
+              "support_positive": 2,
+              "support_negative": 4,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "tn": 4,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "accuracy": 1.0,
+              "status": "defined"
+            }
+          },
+          "macro_over_labels_with_positive_gold_support_only": {
+            "label_count": 3,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "accuracy": 1.0,
+            "undefined_labels_excluded": [
+              "contains_error",
+              "contains_terminal",
+              "contains_code",
+              "contains_receipt",
+              "contains_document",
+              "contains_ui"
+            ]
+          }
+        }
+      },
+      "binary_calibration": {
+        "overall_brier_score_across_all_image_label_pairs": 0.03399459413314846,
+        "overall_equal_width_ece_10_bins": 0.061444065001101396,
+        "per_label": {
+          "contains_error": {
+            "brier_score": 1.7083387345092716e-05,
+            "expected_calibration_error_10_equal_width_bins": 0.0030208106357958835,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 6,
+                "mean_probability": 0.0030208106357958835,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              }
+            ]
+          },
+          "contains_terminal": {
+            "brier_score": 7.996804900969844e-06,
+            "expected_calibration_error_10_equal_width_bins": 0.0027044753816412013,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 6,
+                "mean_probability": 0.0027044753816412013,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              }
+            ]
+          },
+          "contains_code": {
+            "brier_score": 6.59939207427402e-05,
+            "expected_calibration_error_10_equal_width_bins": 0.0077859171977119985,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 6,
+                "mean_probability": 0.0077859171977119985,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              }
+            ]
+          },
+          "contains_receipt": {
+            "brier_score": 0.0030416013278215695,
+            "expected_calibration_error_10_equal_width_bins": 0.02697307422385406,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 5,
+                "mean_probability": 0.005643159764085786,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 1,
+                "mean_probability": 0.13362264652269545,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              }
+            ]
+          },
+          "contains_document": {
+            "brier_score": 0.29244945801625083,
+            "expected_calibration_error_10_equal_width_bins": 0.41332808943473176,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 2,
+                "mean_probability": 0.013311800448142772,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 1,
+                "mean_probability": 0.20501451419672623,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 1,
+                "mean_probability": 0.6147504720352002,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 2,
+                "mean_probability": 0.8167899747400893,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              }
+            ]
+          },
+          "contains_chart": {
+            "brier_score": 0.0029961863454714944,
+            "expected_calibration_error_10_equal_width_bins": 0.033031950887425506,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 3,
+                "mean_probability": 0.027188775900244294,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 1,
+                "mean_probability": 0.1134242979626445,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 2,
+                "mean_probability": 0.9983994601694122,
+                "observed_rate": 1.0
+              }
+            ]
+          },
+          "contains_table": {
+            "brier_score": 0.007191503770129182,
+            "expected_calibration_error_10_equal_width_bins": 0.051572854414154344,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 2,
+                "mean_probability": 0.006543821674474919,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 2,
+                "mean_probability": 0.14568200177725374,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 2,
+                "mean_probability": 0.9975072602092656,
+                "observed_rate": 1.0
+              }
+            ]
+          },
+          "contains_ui": {
+            "brier_score": 0.00010882189431726974,
+            "expected_calibration_error_10_equal_width_bins": 0.00923592949172712,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 6,
+                "mean_probability": 0.00923592949172712,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              }
+            ]
+          },
+          "contains_person": {
+            "brier_score": 7.27017313570575e-05,
+            "expected_calibration_error_10_equal_width_bins": 0.005343483342870768,
+            "bins": [
+              {
+                "lower": 0.0,
+                "upper": 0.1,
+                "count": 4,
+                "mean_probability": 0.0007861764514914516,
+                "observed_rate": 0.0
+              },
+              {
+                "lower": 0.1,
+                "upper": 0.2,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.3,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.3,
+                "upper": 0.4,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.5,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.5,
+                "upper": 0.6,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.7,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.7,
+                "upper": 0.8,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 0.9,
+                "count": 0,
+                "mean_probability": null,
+                "observed_rate": null
+              },
+              {
+                "lower": 0.9,
+                "upper": 1.0,
+                "count": 2,
+                "mean_probability": 0.9855419028743706,
+                "observed_rate": 1.0
+              }
+            ]
+          }
+        }
+      },
+      "content_type": {
+        "accuracy": 1.0,
+        "correct": 6,
+        "count": 6,
+        "per_class": {
+          "chart": {
+            "support_positive": 2,
+            "support_negative": 4,
+            "tp": 2,
+            "fp": 0,
+            "fn": 0,
+            "tn": 4,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "accuracy": 1.0,
+            "status": "defined"
+          },
+          "photo": {
+            "support_positive": 2,
+            "support_negative": 4,
+            "tp": 2,
+            "fp": 0,
+            "fn": 0,
+            "tn": 4,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "accuracy": 1.0,
+            "status": "defined"
+          },
+          "table": {
+            "support_positive": 2,
+            "support_negative": 4,
+            "tp": 2,
+            "fp": 0,
+            "fn": 0,
+            "tn": 4,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "accuracy": 1.0,
+            "status": "defined"
+          }
+        },
+        "macro_f1_over_supported_classes": 1.0,
+        "multiclass_brier_sum_per_image_mean": 0.012249533811429712,
+        "top_choice_probability_calibration": {
+          "brier_score": 0.008081568823589999,
+          "expected_calibration_error_10_equal_width_bins": 0.0635371917028599,
+          "bins": [
+            {
+              "lower": 0.0,
+              "upper": 0.1,
+              "count": 0,
+              "mean_probability": null,
+              "observed_rate": null
+            },
+            {
+              "lower": 0.1,
+              "upper": 0.2,
+              "count": 0,
+              "mean_probability": null,
+              "observed_rate": null
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.3,
+              "count": 0,
+              "mean_probability": null,
+              "observed_rate": null
+            },
+            {
+              "lower": 0.3,
+              "upper": 0.4,
+              "count": 0,
+              "mean_probability": null,
+              "observed_rate": null
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.5,
+              "count": 0,
+              "mean_probability": null,
+              "observed_rate": null
+            },
+            {
+              "lower": 0.5,
+              "upper": 0.6,
+              "count": 0,
+              "mean_probability": null,
+              "observed_rate": null
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.7,
+              "count": 0,
+              "mean_probability": null,
+              "observed_rate": null
+            },
+            {
+              "lower": 0.7,
+              "upper": 0.8,
+              "count": 0,
+              "mean_probability": null,
+              "observed_rate": null
+            },
+            {
+              "lower": 0.8,
+              "upper": 0.9,
+              "count": 2,
+              "mean_probability": 0.8517870380078765,
+              "observed_rate": 1.0
+            },
+            {
+              "lower": 0.9,
+              "upper": 1.0,
+              "count": 4,
+              "mean_probability": 0.9788006934417719,
+              "observed_rate": 1.0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "routing": {
+    "annotation_method": "Routing targets follow the declared request-intent rubric; the model sees the image and task text, while the target is withheld until scoring. Single-annotator fixture design, not independent human ground truth.",
+    "count": 36,
+    "accuracy": 1.0,
+    "correct": 36,
+    "confusion": {
+      "document_specialist": {
+        "document_specialist": 12
+      },
+      "fast_ocr": {
+        "fast_ocr": 12
+      },
+      "vision_language_model": {
+        "vision_language_model": 12
+      }
+    },
+    "per_class": {
+      "document_specialist": {
+        "support_positive": 12,
+        "support_negative": 24,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "tn": 24,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0,
+        "status": "defined"
+      },
+      "fast_ocr": {
+        "support_positive": 12,
+        "support_negative": 24,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "tn": 24,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0,
+        "status": "defined"
+      },
+      "vision_language_model": {
+        "support_positive": 12,
+        "support_negative": 24,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "tn": 24,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0,
+        "status": "defined"
+      }
+    },
+    "macro_f1": 1.0,
+    "latency_of_shared_classification_and_route_call": {
+      "mean_s": 4.377000731582383,
+      "median_s": 4.238880833505391,
+      "p95_s": 5.468465042002208,
+      "note": "The route choice shared one SystemOne image pass with the 10 classification questions; this is the full call latency."
+    },
+    "per_case": [
+      {
+        "route_id": "R01",
+        "image_id": "I002",
+        "gold": "fast_ocr",
+        "predicted": "fast_ocr",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.49532112399902,
+        "probabilities": {
+          "fast_ocr": 0.9453503191167958,
+          "document_specialist": 0.02196801884215903,
+          "vision_language_model": 0.03268166204104508
+        }
+      },
+      {
+        "route_id": "R02",
+        "image_id": "I003",
+        "gold": "fast_ocr",
+        "predicted": "fast_ocr",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.2069851249980275,
+        "probabilities": {
+          "fast_ocr": 0.9407232541191103,
+          "document_specialist": 0.02186049526174915,
+          "vision_language_model": 0.03741625061914047
+        }
+      },
+      {
+        "route_id": "R03",
+        "image_id": "I006",
+        "gold": "fast_ocr",
+        "predicted": "fast_ocr",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.184108249995916,
+        "probabilities": {
+          "fast_ocr": 0.9653801248282821,
+          "document_specialist": 0.008810143035144317,
+          "vision_language_model": 0.02580973213657359
+        }
+      },
+      {
+        "route_id": "R04",
+        "image_id": "I007",
+        "gold": "fast_ocr",
+        "predicted": "fast_ocr",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.3245031669939635,
+        "probabilities": {
+          "fast_ocr": 0.956125474930321,
+          "document_specialist": 0.010038909112389518,
+          "vision_language_model": 0.03383561595728944
+        }
+      },
+      {
+        "route_id": "R05",
+        "image_id": "I011",
+        "gold": "fast_ocr",
+        "predicted": "fast_ocr",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.224717333010631,
+        "probabilities": {
+          "fast_ocr": 0.8678520395364295,
+          "document_specialist": 0.010241333529474855,
+          "vision_language_model": 0.12190662693409576
+        }
+      },
+      {
+        "route_id": "R06",
+        "image_id": "I017",
+        "gold": "fast_ocr",
+        "predicted": "fast_ocr",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.19555004099675,
+        "probabilities": {
+          "fast_ocr": 0.9485608857412938,
+          "document_specialist": 0.005956407666028802,
+          "vision_language_model": 0.04548270659267732
+        }
+      },
+      {
+        "route_id": "R07",
+        "image_id": "I019",
+        "gold": "fast_ocr",
+        "predicted": "fast_ocr",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.127451751002809,
+        "probabilities": {
+          "fast_ocr": 0.9190278849487031,
+          "document_specialist": 0.007289978847537497,
+          "vision_language_model": 0.07368213620375932
+        }
+      },
+      {
+        "route_id": "R08",
+        "image_id": "I053",
+        "gold": "fast_ocr",
+        "predicted": "fast_ocr",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.318782667003688,
+        "probabilities": {
+          "fast_ocr": 0.9317434404229831,
+          "document_specialist": 0.009120622133215048,
+          "vision_language_model": 0.05913593744380196
+        }
+      },
+      {
+        "route_id": "R09",
+        "image_id": "I055",
+        "gold": "fast_ocr",
+        "predicted": "fast_ocr",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.5388909579924075,
+        "probabilities": {
+          "fast_ocr": 0.8802879930830568,
+          "document_specialist": 0.012234056005405511,
+          "vision_language_model": 0.10747795091153754
+        }
+      },
+      {
+        "route_id": "R10",
+        "image_id": "I057",
+        "gold": "fast_ocr",
+        "predicted": "fast_ocr",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.626065499993274,
+        "probabilities": {
+          "fast_ocr": 0.9302357708088197,
+          "document_specialist": 0.010723980594888318,
+          "vision_language_model": 0.059040248596291985
+        }
+      },
+      {
+        "route_id": "R11",
+        "image_id": "I059",
+        "gold": "fast_ocr",
+        "predicted": "fast_ocr",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.30337850000069,
+        "probabilities": {
+          "fast_ocr": 0.9324033834418887,
+          "document_specialist": 0.005587626478917753,
+          "vision_language_model": 0.06200899007919358
+        }
+      },
+      {
+        "route_id": "R12",
+        "image_id": "I033",
+        "gold": "fast_ocr",
+        "predicted": "fast_ocr",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.209407291993557,
+        "probabilities": {
+          "fast_ocr": 0.9254202333319629,
+          "document_specialist": 0.007005528341937433,
+          "vision_language_model": 0.06757423832609971
+        }
+      },
+      {
+        "route_id": "R13",
+        "image_id": "I041",
+        "gold": "document_specialist",
+        "predicted": "document_specialist",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 5.468465042002208,
+        "probabilities": {
+          "fast_ocr": 0.18873889857035442,
+          "document_specialist": 0.8035767425333876,
+          "vision_language_model": 0.007684358896257983
+        }
+      },
+      {
+        "route_id": "R14",
+        "image_id": "I042",
+        "gold": "document_specialist",
+        "predicted": "document_specialist",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.3257673749976675,
+        "probabilities": {
+          "fast_ocr": 0.1749930667873858,
+          "document_specialist": 0.8180467731284884,
+          "vision_language_model": 0.006960160084125852
+        }
+      },
+      {
+        "route_id": "R15",
+        "image_id": "I043",
+        "gold": "document_specialist",
+        "predicted": "document_specialist",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.544809375998739,
+        "probabilities": {
+          "fast_ocr": 0.18171976507200813,
+          "document_specialist": 0.8107067419259132,
+          "vision_language_model": 0.007573493002078775
+        }
+      },
+      {
+        "route_id": "R16",
+        "image_id": "I044",
+        "gold": "document_specialist",
+        "predicted": "document_specialist",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.720497917005559,
+        "probabilities": {
+          "fast_ocr": 0.18168723435421186,
+          "document_specialist": 0.8105616125712352,
+          "vision_language_model": 0.007751153074553052
+        }
+      },
+      {
+        "route_id": "R17",
+        "image_id": "I045",
+        "gold": "document_specialist",
+        "predicted": "document_specialist",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.417266249998647,
+        "probabilities": {
+          "fast_ocr": 0.1888684011833532,
+          "document_specialist": 0.8041281142362606,
+          "vision_language_model": 0.0070034845803860395
+        }
+      },
+      {
+        "route_id": "R18",
+        "image_id": "I046",
+        "gold": "document_specialist",
+        "predicted": "document_specialist",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.35373116700066,
+        "probabilities": {
+          "fast_ocr": 0.17496427679048865,
+          "document_specialist": 0.8179121874303663,
+          "vision_language_model": 0.007123535779144983
+        }
+      },
+      {
+        "route_id": "R19",
+        "image_id": "I047",
+        "gold": "document_specialist",
+        "predicted": "document_specialist",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.18527449999965,
+        "probabilities": {
+          "fast_ocr": 0.1748738199242134,
+          "document_specialist": 0.8174893252626114,
+          "vision_language_model": 0.007636854813175191
+        }
+      },
+      {
+        "route_id": "R20",
+        "image_id": "I048",
+        "gold": "document_specialist",
+        "predicted": "document_specialist",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.254227707991959,
+        "probabilities": {
+          "fast_ocr": 0.1749930667873858,
+          "document_specialist": 0.8180467731284884,
+          "vision_language_model": 0.006960160084125852
+        }
+      },
+      {
+        "route_id": "R21",
+        "image_id": "I049",
+        "gold": "document_specialist",
+        "predicted": "document_specialist",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.154751500005659,
+        "probabilities": {
+          "fast_ocr": 0.19599869970717138,
+          "document_specialist": 0.7963857070718292,
+          "vision_language_model": 0.007615593220999485
+        }
+      },
+      {
+        "route_id": "R22",
+        "image_id": "I050",
+        "gold": "document_specialist",
+        "predicted": "document_specialist",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.2208572089948575,
+        "probabilities": {
+          "fast_ocr": 0.18168723435421186,
+          "document_specialist": 0.8105616125712352,
+          "vision_language_model": 0.007751153074553052
+        }
+      },
+      {
+        "route_id": "R23",
+        "image_id": "I051",
+        "gold": "document_specialist",
+        "predicted": "document_specialist",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.210373124995385,
+        "probabilities": {
+          "fast_ocr": 0.18883713502067423,
+          "document_specialist": 0.8039949950893999,
+          "vision_language_model": 0.007167869889925808
+        }
+      },
+      {
+        "route_id": "R24",
+        "image_id": "I052",
+        "gold": "document_specialist",
+        "predicted": "document_specialist",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.1871370840017335,
+        "probabilities": {
+          "fast_ocr": 0.17490466892507842,
+          "document_specialist": 0.8176335362652254,
+          "vision_language_model": 0.007461794809696148
+        }
+      },
+      {
+        "route_id": "R25",
+        "image_id": "I001",
+        "gold": "vision_language_model",
+        "predicted": "vision_language_model",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 5.0334344590010005,
+        "probabilities": {
+          "fast_ocr": 0.0035671720385299,
+          "document_specialist": 0.001135219921693545,
+          "vision_language_model": 0.9952976080397765
+        }
+      },
+      {
+        "route_id": "R26",
+        "image_id": "I010",
+        "gold": "vision_language_model",
+        "predicted": "vision_language_model",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 5.862543332994392,
+        "probabilities": {
+          "fast_ocr": 0.0017728429934783592,
+          "document_specialist": 0.0011372641719639652,
+          "vision_language_model": 0.9970898928345576
+        }
+      },
+      {
+        "route_id": "R27",
+        "image_id": "I023",
+        "gold": "vision_language_model",
+        "predicted": "vision_language_model",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.253044334000151,
+        "probabilities": {
+          "fast_ocr": 0.009241873752750013,
+          "document_specialist": 0.0014590858538614164,
+          "vision_language_model": 0.9892990403933886
+        }
+      },
+      {
+        "route_id": "R28",
+        "image_id": "I024",
+        "gold": "vision_language_model",
+        "predicted": "vision_language_model",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.132291000001715,
+        "probabilities": {
+          "fast_ocr": 0.008424167060371192,
+          "document_specialist": 0.0014602900875041692,
+          "vision_language_model": 0.9901155428521247
+        }
+      },
+      {
+        "route_id": "R29",
+        "image_id": "I025",
+        "gold": "vision_language_model",
+        "predicted": "vision_language_model",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.115682290997938,
+        "probabilities": {
+          "fast_ocr": 0.008823934807350291,
+          "document_specialist": 0.0014260374925504267,
+          "vision_language_model": 0.9897500277000993
+        }
+      },
+      {
+        "route_id": "R30",
+        "image_id": "I026",
+        "gold": "vision_language_model",
+        "predicted": "vision_language_model",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.121118333998311,
+        "probabilities": {
+          "fast_ocr": 0.009241873752750013,
+          "document_specialist": 0.0014590858538614177,
+          "vision_language_model": 0.9892990403933886
+        }
+      },
+      {
+        "route_id": "R31",
+        "image_id": "I027",
+        "gold": "vision_language_model",
+        "predicted": "vision_language_model",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.168972125000437,
+        "probabilities": {
+          "fast_ocr": 0.015350395752277278,
+          "document_specialist": 0.0019185009301557175,
+          "vision_language_model": 0.9827311033175671
+        }
+      },
+      {
+        "route_id": "R32",
+        "image_id": "I028",
+        "gold": "vision_language_model",
+        "predicted": "vision_language_model",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.12730804199964,
+        "probabilities": {
+          "fast_ocr": 0.014325437585474594,
+          "document_specialist": 0.001965810658394864,
+          "vision_language_model": 0.9837087517561305
+        }
+      },
+      {
+        "route_id": "R33",
+        "image_id": "I029",
+        "gold": "vision_language_model",
+        "predicted": "vision_language_model",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.098332417008351,
+        "probabilities": {
+          "fast_ocr": 0.013370376184550429,
+          "document_specialist": 0.0018347521919322453,
+          "vision_language_model": 0.9847948716235174
+        }
+      },
+      {
+        "route_id": "R34",
+        "image_id": "I030",
+        "gold": "vision_language_model",
+        "predicted": "vision_language_model",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.204873749993567,
+        "probabilities": {
+          "fast_ocr": 0.02316416932602939,
+          "document_specialist": 0.003033575749710655,
+          "vision_language_model": 0.97380225492426
+        }
+      },
+      {
+        "route_id": "R35",
+        "image_id": "I031",
+        "gold": "vision_language_model",
+        "predicted": "vision_language_model",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.393532707996201,
+        "probabilities": {
+          "fast_ocr": 0.023167378125760037,
+          "document_specialist": 0.0028954716999362072,
+          "vision_language_model": 0.9739371501743038
+        }
+      },
+      {
+        "route_id": "R36",
+        "image_id": "I032",
+        "gold": "vision_language_model",
+        "predicted": "vision_language_model",
+        "correct": true,
+        "image_call_latency_including_memory_policy_s": 4.262573583000631,
+        "probabilities": {
+          "fast_ocr": 0.023700483805201917,
+          "document_specialist": 0.002962099541874995,
+          "vision_language_model": 0.9733374166529232
+        }
+      }
+    ]
+  },
+  "retrieval": null,
+  "performance": {
+    "cold_model_load_s": 5.623996542002715,
+    "processor_and_tokenizer_init_s": 0.3938895839964971,
+    "evaluation_wall_seconds": 419.50556291700195,
+    "peak_process_rss_bytes": 729694208,
+    "max_mps_memory_sample_after_request_bytes": {
+      "current_allocated_bytes": 4050478080,
+      "driver_allocated_bytes": 9986719744
+    },
+    "max_mps_memory_sample_after_answer_release_bytes": {
+      "current_allocated_bytes": 4050478080,
+      "driver_allocated_bytes": 9986719744
+    },
+    "max_mps_memory_sample_after_cache_release_bytes": {
+      "current_allocated_bytes": 4050478080,
+      "driver_allocated_bytes": 8894906368
+    },
+    "python_gc_after_each_successful_request": true,
+    "empty_cache_every_successful_requests": 5,
+    "memory_pressure_checkpoints": [
+      {
+        "completed_request_count": 5,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 32%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5505.\nPages active:                                 161946.\nPages inactive:                               159835.\nPages speculative:                              2768.\nPages throttled:                                   0.\nPages wired down:                             583608.\nPages purgeable:                               76605.\n\"Translation faults\":                      447625458.\nPages copy-on-write:                        12887886.\nPages zero filled:                         354638596.\nPages reactivated:                          52148707.\nPages purged:                               12085083.\nFile-backed pages:                             62144.\nAnonymous pages:                              262405.\nPages stored in compressor:                  1648780.\nPages occupied by compressor:                  95360.\nDecompressions:                             65732355.\nCompressions:                               85219683.\nPageins:                                    50376668.\nPageouts:                                     227604.\nSwapins:                                     1820605.\nSwapouts:                                    3535292.",
+          "swap_usage": "vm.swapusage: total = 16384.00M  used = 15516.88M  free = 867.12M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 10,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 30%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     4999.\nPages active:                                 152584.\nPages inactive:                               142719.\nPages speculative:                             10257.\nPages throttled:                                   0.\nPages wired down:                             608807.\nPages purgeable:                                 175.\n\"Translation faults\":                      448459571.\nPages copy-on-write:                        12894125.\nPages zero filled:                         355379592.\nPages reactivated:                          52519094.\nPages purged:                               12277817.\nFile-backed pages:                             64370.\nAnonymous pages:                              241190.\nPages stored in compressor:                  1717935.\nPages occupied by compressor:                  89444.\nDecompressions:                             66466533.\nCompressions:                               86043790.\nPageins:                                    50417861.\nPageouts:                                     227994.\nSwapins:                                     1828062.\nSwapouts:                                    3591028.",
+          "swap_usage": "vm.swapusage: total = 17408.00M  used = 16283.75M  free = 1124.25M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 15,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 39%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    95732.\nPages active:                                 150695.\nPages inactive:                               149737.\nPages speculative:                              2083.\nPages throttled:                                   0.\nPages wired down:                             508321.\nPages purgeable:                               39654.\n\"Translation faults\":                      448705533.\nPages copy-on-write:                        12899394.\nPages zero filled:                         355762220.\nPages reactivated:                          52652433.\nPages purged:                               12557420.\nFile-backed pages:                            133698.\nAnonymous pages:                              168817.\nPages stored in compressor:                  1740148.\nPages occupied by compressor:                 102439.\nDecompressions:                             66737905.\nCompressions:                               86345545.\nPageins:                                    50880012.\nPageouts:                                     228270.\nSwapins:                                     1833712.\nSwapouts:                                    3591028.",
+          "swap_usage": "vm.swapusage: total = 17408.00M  used = 16187.75M  free = 1220.25M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 20,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 43%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    69973.\nPages active:                                 182385.\nPages inactive:                               180609.\nPages speculative:                              2268.\nPages throttled:                                   0.\nPages wired down:                             514336.\nPages purgeable:                               75595.\n\"Translation faults\":                      448880453.\nPages copy-on-write:                        12903439.\nPages zero filled:                         356136152.\nPages reactivated:                          52683253.\nPages purged:                               12702545.\nFile-backed pages:                            101431.\nAnonymous pages:                              263831.\nPages stored in compressor:                  1649714.\nPages occupied by compressor:                  59478.\nDecompressions:                             66845803.\nCompressions:                               86383830.\nPageins:                                    50890914.\nPageouts:                                     228431.\nSwapins:                                     1840933.\nSwapouts:                                    3591028.",
+          "swap_usage": "vm.swapusage: total = 17408.00M  used = 16075.69M  free = 1332.31M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 25,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 40%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    69325.\nPages active:                                 170858.\nPages inactive:                               164182.\nPages speculative:                              6967.\nPages throttled:                                   0.\nPages wired down:                             514159.\nPages purgeable:                               75038.\n\"Translation faults\":                      449270618.\nPages copy-on-write:                        12907904.\nPages zero filled:                         356642834.\nPages reactivated:                          52783570.\nPages purged:                               12829220.\nFile-backed pages:                             62783.\nAnonymous pages:                              279224.\nPages stored in compressor:                  1671575.\nPages occupied by compressor:                  83455.\nDecompressions:                             66946399.\nCompressions:                               86510096.\nPageins:                                    50912608.\nPageouts:                                     228614.\nSwapins:                                     1849489.\nSwapouts:                                    3591028.",
+          "swap_usage": "vm.swapusage: total = 17408.00M  used = 15947.62M  free = 1460.38M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 30,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 35%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     5491.\nPages active:                                 174789.\nPages inactive:                               173285.\nPages speculative:                              2016.\nPages throttled:                                   0.\nPages wired down:                             577391.\nPages purgeable:                                 585.\n\"Translation faults\":                      449408316.\nPages copy-on-write:                        12913533.\nPages zero filled:                         356862137.\nPages reactivated:                          52870170.\nPages purged:                               12886817.\nFile-backed pages:                             59831.\nAnonymous pages:                              290259.\nPages stored in compressor:                  1653330.\nPages occupied by compressor:                  75988.\nDecompressions:                             66991093.\nCompressions:                               86538221.\nPageins:                                    50918630.\nPageouts:                                     228809.\nSwapins:                                     1851321.\nSwapouts:                                    3591028.",
+          "swap_usage": "vm.swapusage: total = 17408.00M  used = 15907.62M  free = 1500.38M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 35,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 34%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    67129.\nPages active:                                 136218.\nPages inactive:                               141104.\nPages speculative:                              5124.\nPages throttled:                                   0.\nPages wired down:                             513171.\nPages purgeable:                                 921.\n\"Translation faults\":                      450345007.\nPages copy-on-write:                        12917626.\nPages zero filled:                         357763342.\nPages reactivated:                          53202875.\nPages purged:                               13027749.\nFile-backed pages:                             73661.\nAnonymous pages:                              208785.\nPages stored in compressor:                  1738794.\nPages occupied by compressor:                 146189.\nDecompressions:                             67765214.\nCompressions:                               87428420.\nPageins:                                    50940813.\nPageouts:                                     229111.\nSwapins:                                     1871599.\nSwapouts:                                    3591028.",
+          "swap_usage": "vm.swapusage: total = 16384.00M  used = 15374.81M  free = 1009.19M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 40,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 37%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    65705.\nPages active:                                 155635.\nPages inactive:                               137986.\nPages speculative:                             17557.\nPages throttled:                                   0.\nPages wired down:                             508985.\nPages purgeable:                                1766.\n\"Translation faults\":                      451453688.\nPages copy-on-write:                        12925481.\nPages zero filled:                         358758906.\nPages reactivated:                          53723355.\nPages purged:                               13386154.\nFile-backed pages:                            111041.\nAnonymous pages:                              200137.\nPages stored in compressor:                  1717579.\nPages occupied by compressor:                 123084.\nDecompressions:                             68850795.\nCompressions:                               88526706.\nPageins:                                    51701375.\nPageouts:                                     229838.\nSwapins:                                     1875245.\nSwapouts:                                    3602196.",
+          "swap_usage": "vm.swapusage: total = 16384.00M  used = 15501.31M  free = 882.69M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 45,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 34%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    66550.\nPages active:                                 140137.\nPages inactive:                               138680.\nPages speculative:                              1722.\nPages throttled:                                   0.\nPages wired down:                             515474.\nPages purgeable:                                4608.\n\"Translation faults\":                      452576782.\nPages copy-on-write:                        12931643.\nPages zero filled:                         359851470.\nPages reactivated:                          54055986.\nPages purged:                               13632875.\nFile-backed pages:                             58738.\nAnonymous pages:                              221801.\nPages stored in compressor:                  1749400.\nPages occupied by compressor:                 146407.\nDecompressions:                             69608322.\nCompressions:                               89350812.\nPageins:                                    51719117.\nPageouts:                                     230191.\nSwapins:                                     1879897.\nSwapouts:                                    3602196.",
+          "swap_usage": "vm.swapusage: total = 16384.00M  used = 15413.31M  free = 970.69M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 50,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 37%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    94938.\nPages active:                                 143537.\nPages inactive:                               142534.\nPages speculative:                              1829.\nPages throttled:                                   0.\nPages wired down:                             496347.\nPages purgeable:                               42547.\n\"Translation faults\":                      452871880.\nPages copy-on-write:                        12937420.\nPages zero filled:                         360319341.\nPages reactivated:                          54252287.\nPages purged:                               13837867.\nFile-backed pages:                             60709.\nAnonymous pages:                              227191.\nPages stored in compressor:                  1725076.\nPages occupied by compressor:                 129798.\nDecompressions:                             69830822.\nCompressions:                               89560102.\nPageins:                                    51723416.\nPageouts:                                     230323.\nSwapins:                                     1880379.\nSwapouts:                                    3602196.",
+          "swap_usage": "vm.swapusage: total = 16384.00M  used = 15405.31M  free = 978.69M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 55,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 35%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    68759.\nPages active:                                 130235.\nPages inactive:                               159056.\nPages speculative:                               293.\nPages throttled:                                   0.\nPages wired down:                             508639.\nPages purgeable:                                1215.\n\"Translation faults\":                      453086822.\nPages copy-on-write:                        12940860.\nPages zero filled:                         360811741.\nPages reactivated:                          54453237.\nPages purged:                               14025699.\nFile-backed pages:                             64152.\nAnonymous pages:                              225432.\nPages stored in compressor:                  1753681.\nPages occupied by compressor:                 141959.\nDecompressions:                             70089919.\nCompressions:                               89855101.\nPageins:                                    51731755.\nPageouts:                                     230533.\nSwapins:                                     1883592.\nSwapouts:                                    3602196.",
+          "swap_usage": "vm.swapusage: total = 16384.00M  used = 15365.31M  free = 1018.69M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 60,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 34%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    68896.\nPages active:                                 140763.\nPages inactive:                               139841.\nPages speculative:                              1330.\nPages throttled:                                   0.\nPages wired down:                             505980.\nPages purgeable:                                 100.\n\"Translation faults\":                      453453510.\nPages copy-on-write:                        12942617.\nPages zero filled:                         361313489.\nPages reactivated:                          54700240.\nPages purged:                               14264574.\nFile-backed pages:                             67377.\nAnonymous pages:                              214557.\nPages stored in compressor:                  1753789.\nPages occupied by compressor:                 152161.\nDecompressions:                             70511537.\nCompressions:                               90283558.\nPageins:                                    51739728.\nPageouts:                                     230707.\nSwapins:                                     1888612.\nSwapouts:                                    3602196.",
+          "swap_usage": "vm.swapusage: total = 16384.00M  used = 15277.31M  free = 1106.69M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 65,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 37%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   104610.\nPages active:                                 136605.\nPages inactive:                               135783.\nPages speculative:                              1250.\nPages throttled:                                   0.\nPages wired down:                             500225.\nPages purgeable:                                1761.\n\"Translation faults\":                      453825956.\nPages copy-on-write:                        12949388.\nPages zero filled:                         361747068.\nPages reactivated:                          54850965.\nPages purged:                               14452197.\nFile-backed pages:                             71157.\nAnonymous pages:                              202481.\nPages stored in compressor:                  1706420.\nPages occupied by compressor:                 130423.\nDecompressions:                             70817606.\nCompressions:                               90559321.\nPageins:                                    51748439.\nPageouts:                                     230886.\nSwapins:                                     1893123.\nSwapouts:                                    3602196.",
+          "swap_usage": "vm.swapusage: total = 16384.00M  used = 15221.31M  free = 1162.69M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 70,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 27%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     6441.\nPages active:                                 132530.\nPages inactive:                               185474.\nPages speculative:                              1005.\nPages throttled:                                   0.\nPages wired down:                             525041.\nPages purgeable:                               77037.\n\"Translation faults\":                      454060794.\nPages copy-on-write:                        12951232.\nPages zero filled:                         362141855.\nPages reactivated:                          54969221.\nPages purged:                               14501565.\nFile-backed pages:                             68739.\nAnonymous pages:                              250271.\nPages stored in compressor:                  1785698.\nPages occupied by compressor:                 158448.\nDecompressions:                             70989207.\nCompressions:                               90810947.\nPageins:                                    51751061.\nPageouts:                                     230996.\nSwapins:                                     1893919.\nSwapouts:                                    3602196.",
+          "swap_usage": "vm.swapusage: total = 16384.00M  used = 15205.31M  free = 1178.69M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 75,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 33%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    64592.\nPages active:                                 135356.\nPages inactive:                               131052.\nPages speculative:                              4883.\nPages throttled:                                   0.\nPages wired down:                             509783.\nPages purgeable:                                 413.\n\"Translation faults\":                      454596346.\nPages copy-on-write:                        12958239.\nPages zero filled:                         362727478.\nPages reactivated:                          55275241.\nPages purged:                               14720254.\nFile-backed pages:                             64372.\nAnonymous pages:                              206919.\nPages stored in compressor:                  1763795.\nPages occupied by compressor:                 163374.\nDecompressions:                             71553456.\nCompressions:                               91363764.\nPageins:                                    51762397.\nPageouts:                                     231149.\nSwapins:                                     1895136.\nSwapouts:                                    3602196.",
+          "swap_usage": "vm.swapusage: total = 16384.00M  used = 15181.31M  free = 1202.69M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 80,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 37%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    70388.\nPages active:                                 156137.\nPages inactive:                               143871.\nPages speculative:                             12700.\nPages throttled:                                   0.\nPages wired down:                             521024.\nPages purgeable:                               76339.\n\"Translation faults\":                      454955067.\nPages copy-on-write:                        12960406.\nPages zero filled:                         363271827.\nPages reactivated:                          55470161.\nPages purged:                               14963753.\nFile-backed pages:                             68215.\nAnonymous pages:                              244493.\nPages stored in compressor:                  1711105.\nPages occupied by compressor:                 104954.\nDecompressions:                             71904822.\nCompressions:                               91694159.\nPageins:                                    51776651.\nPageouts:                                     231364.\nSwapins:                                     1896262.\nSwapouts:                                    3627948.",
+          "swap_usage": "vm.swapusage: total = 16384.00M  used = 15567.62M  free = 816.38M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 85,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 38%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    86225.\nPages active:                                 148959.\nPages inactive:                               145965.\nPages speculative:                              3787.\nPages throttled:                                   0.\nPages wired down:                             513140.\nPages purgeable:                               39737.\n\"Translation faults\":                      455433737.\nPages copy-on-write:                        12967703.\nPages zero filled:                         363824380.\nPages reactivated:                          55626683.\nPages purged:                               15278634.\nFile-backed pages:                             63931.\nAnonymous pages:                              234780.\nPages stored in compressor:                  1716652.\nPages occupied by compressor:                 110857.\nDecompressions:                             72132175.\nCompressions:                               91933164.\nPageins:                                    51787266.\nPageouts:                                     231534.\nSwapins:                                     1897223.\nSwapouts:                                    3627948.",
+          "swap_usage": "vm.swapusage: total = 16384.00M  used = 15559.62M  free = 824.38M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 90,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 37%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   104029.\nPages active:                                 137834.\nPages inactive:                               138146.\nPages speculative:                               497.\nPages throttled:                                   0.\nPages wired down:                             505220.\nPages purgeable:                               41030.\n\"Translation faults\":                      455665063.\nPages copy-on-write:                        12971990.\nPages zero filled:                         364182977.\nPages reactivated:                          55803449.\nPages purged:                               15465654.\nFile-backed pages:                             61738.\nAnonymous pages:                              214739.\nPages stored in compressor:                  1731254.\nPages occupied by compressor:                 123294.\nDecompressions:                             72317572.\nCompressions:                               92140581.\nPageins:                                    51790783.\nPageouts:                                     231772.\nSwapins:                                     1897991.\nSwapouts:                                    3627948.",
+          "swap_usage": "vm.swapusage: total = 16384.00M  used = 15543.62M  free = 840.38M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 95,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 41%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   100167.\nPages active:                                 155734.\nPages inactive:                               155503.\nPages speculative:                              4685.\nPages throttled:                                   0.\nPages wired down:                             495244.\nPages purgeable:                               41454.\n\"Translation faults\":                      455856381.\nPages copy-on-write:                        12976831.\nPages zero filled:                         364535830.\nPages reactivated:                          55884636.\nPages purged:                               15692405.\nFile-backed pages:                             69911.\nAnonymous pages:                              246011.\nPages stored in compressor:                  1676201.\nPages occupied by compressor:                  97561.\nDecompressions:                             72414488.\nCompressions:                               92204088.\nPageins:                                    51798025.\nPageouts:                                     231955.\nSwapins:                                     1904847.\nSwapouts:                                    3627948.",
+          "swap_usage": "vm.swapusage: total = 16384.00M  used = 15439.62M  free = 944.38M  (encrypted)"
+        }
+      },
+      {
+        "completed_request_count": 100,
+        "memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 39%",
+        "system_memory": {
+          "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   102631.\nPages active:                                 147797.\nPages inactive:                               147946.\nPages speculative:                               452.\nPages throttled:                                   0.\nPages wired down:                             508200.\nPages purgeable:                               39229.\n\"Translation faults\":                      455940253.\nPages copy-on-write:                        12980311.\nPages zero filled:                         365072814.\nPages reactivated:                          55985177.\nPages purged:                               15890280.\nFile-backed pages:                             64325.\nAnonymous pages:                              231870.\nPages stored in compressor:                  1685150.\nPages occupied by compressor:                 101842.\nDecompressions:                             72446562.\nCompressions:                               92245886.\nPageins:                                    51799058.\nPageouts:                                     232050.\nSwapins:                                     1905555.\nSwapouts:                                    3627948.",
+          "swap_usage": "vm.swapusage: total = 16384.00M  used = 15439.62M  free = 944.38M  (encrypted)"
+        }
+      }
+    ],
+    "memory_pressure_before": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 81%",
+    "system_memory_before": {
+      "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     4107.\nPages active:                                 409542.\nPages inactive:                               404471.\nPages speculative:                              4682.\nPages throttled:                                   0.\nPages wired down:                             120563.\nPages purgeable:                                1138.\n\"Translation faults\":                      447264192.\nPages copy-on-write:                        12650368.\nPages zero filled:                         353898808.\nPages reactivated:                          51963200.\nPages purged:                               12074267.\nFile-backed pages:                            389142.\nAnonymous pages:                              429553.\nPages stored in compressor:                  1419390.\nPages occupied by compressor:                  65560.\nDecompressions:                             65435305.\nCompressions:                               84433566.\nPageins:                                    50112132.\nPageouts:                                     227276.\nSwapins:                                     1813069.\nSwapouts:                                    3442648.",
+      "swap_usage": "vm.swapusage: total = 15360.00M  used = 14189.31M  free = 1170.69M  (encrypted)"
+    },
+    "memory_pressure_after_model_unload_in_process": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 39%",
+    "system_memory_after_model_unload_in_process": {
+      "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   121617.\nPages active:                                 138676.\nPages inactive:                               138712.\nPages speculative:                               477.\nPages throttled:                                   0.\nPages wired down:                             507677.\nPages purgeable:                               39231.\n\"Translation faults\":                      455952566.\nPages copy-on-write:                        12981549.\nPages zero filled:                         365073790.\nPages reactivated:                          55985177.\nPages purged:                               15908712.\nFile-backed pages:                             64354.\nAnonymous pages:                              213511.\nPages stored in compressor:                  1685001.\nPages occupied by compressor:                 101809.\nDecompressions:                             72446711.\nCompressions:                               92245886.\nPageins:                                    51799075.\nPageouts:                                     232050.\nSwapins:                                     1905555.\nSwapouts:                                    3627948.",
+      "swap_usage": "vm.swapusage: total = 16384.00M  used = 15439.62M  free = 944.38M  (encrypted)"
+    },
+    "mps_memory_after_model_unload_in_process_bytes": {
+      "current_allocated_bytes": 0,
+      "driver_allocated_bytes": 1858158592
+    },
+    "process_rss_after_model_unload_in_process_bytes": 366346240,
+    "python_object_refs_after_model_unload": {
+      "model_object_alive_after_cleanup": false,
+      "engine_object_alive_after_cleanup": false
+    },
+    "model_loaded_once": true,
+    "concurrency": 1,
+    "throughput": [
+      {
+        "requests": 10,
+        "unique_image_ids": 10,
+        "unique_pixel_contents": 8,
+        "repeated_pixel_requests": 2,
+        "d1_question_count_per_request": "10 classification questions plus a route choice on routed cases",
+        "inference_wall_seconds_sum": 44.43178474797605,
+        "requests_per_second_after_load": 0.22506410797408982,
+        "images_per_second_after_load": 0.22506410797408982,
+        "scope": "serial one-image system_one calls; model load excluded; includes local image preprocessing, answer readout, and the recorded cache policy overhead"
+      },
+      {
+        "requests": 50,
+        "unique_image_ids": 50,
+        "unique_pixel_contents": 48,
+        "repeated_pixel_requests": 2,
+        "d1_question_count_per_request": "10 classification questions plus a route choice on routed cases",
+        "inference_wall_seconds_sum": 215.0969215869991,
+        "requests_per_second_after_load": 0.2324533500112263,
+        "images_per_second_after_load": 0.2324533500112263,
+        "scope": "serial one-image system_one calls; model load excluded; includes local image preprocessing, answer readout, and the recorded cache policy overhead"
+      },
+      {
+        "requests": 62,
+        "unique_image_ids": 62,
+        "unique_pixel_contents": 60,
+        "repeated_pixel_requests": 2,
+        "d1_question_count_per_request": "10 classification questions plus a route choice on routed cases",
+        "inference_wall_seconds_sum": 265.37371737798094,
+        "requests_per_second_after_load": 0.23363278252492226,
+        "images_per_second_after_load": 0.23363278252492226,
+        "scope": "serial one-image system_one calls; model load excluded; includes local image preprocessing, answer readout, and the recorded cache policy overhead"
+      },
+      {
+        "requests": 68,
+        "unique_image_ids": 68,
+        "unique_pixel_contents": 66,
+        "repeated_pixel_requests": 2,
+        "d1_question_count_per_request": "10 classification questions plus a route choice on routed cases",
+        "inference_wall_seconds_sum": 285.4071305009784,
+        "requests_per_second_after_load": 0.2382561356495853,
+        "images_per_second_after_load": 0.2382561356495853,
+        "scope": "serial one-image system_one calls; model load excluded; includes local image preprocessing, answer readout, and the recorded cache policy overhead"
+      },
+      {
+        "requests": 100,
+        "unique_image_ids": 68,
+        "unique_pixel_contents": 66,
+        "repeated_pixel_requests": 34,
+        "d1_question_count_per_request": "10 classification questions plus a route choice on routed cases",
+        "inference_wall_seconds_sum": 418.17114083898923,
+        "requests_per_second_after_load": 0.23913654060241224,
+        "images_per_second_after_load": 0.23913654060241224,
+        "scope": "serial one-image system_one calls; model load excluded; includes local image preprocessing, answer readout, and the recorded cache policy overhead"
+      }
+    ]
+  }
+}

@@ -1,0 +1,2460 @@
+{
+  "experiment": "d1-v2-embeddinggemma-baseline-top20",
+  "baseline_commit": "766027c79d4c6f17ba7b88b1df3bc079dfbbd141",
+  "input_isolation": {
+    "query_source": "/Users/ddddd-433/.codex/worktrees/phase2-d1/vibathon-mac/SightVault/qa/d1-v2/retrieval_queries.json",
+    "image_manifest": "/Users/ddddd-433/.codex/worktrees/phase2-d1/vibathon-mac/SightVault/qa/d1-v2/image_manifest.json",
+    "database_snapshot": "/Users/ddddd-433/.codex/worktrees/phase2-d1/d1-data/canonical/sightvault.sqlite3",
+    "read_only_database": true,
+    "labels_read": false,
+    "relevance_judgments_read": false,
+    "ocr_or_filenames_in_query": false,
+    "retrieval_mode": "semantic only; exact app query embedding and normalized 768d cosine score",
+    "database_snapshot_sha256": "b9ae9210334e17e6a7044a341f5c3fc3baa73194be5f5d9866ce7d0228054c52",
+    "sort_order": "semantic_score descending, timestamp ascending, actual SQLite assets.id ascending (matches Search.run)",
+    "tie_break_equivalence_audit": "The frozen model scores were re-sorted with actual asset IDs after scoring; all 16 saved top-20 orders were unchanged. See embedding_top20_tiebreak_audit.json. No model inference was rerun."
+  },
+  "model": {
+    "repo": "google/embeddinggemma-2",
+    "revision": "f9972ac22e696a105c482202646979e33e4b5a1e",
+    "model_file_bytes": 1488915288,
+    "model_file_sha256": "197a32965d4b1105faf060417baa899e193fb73cd401f42ec9295234d5553d79",
+    "embedding_id": "google/embeddinggemma-2:768:text-image",
+    "prompt_name": "SearchQuery",
+    "pooling_and_normalization": "SentenceTransformer model pipeline; normalize_embeddings=True"
+  },
+  "runtime": {
+    "name": "SentenceTransformers / PyTorch existing app query path",
+    "sentence_transformers_version": "6.2.0",
+    "transformers_version": "5.22.0",
+    "torch_version": "2.11.0",
+    "numpy_version": "2.5.4",
+    "python": "3.12.9",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "device": "mps:0",
+    "dtype": "float32",
+    "offline_flags": {
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1",
+      "HF_HUB_DISABLE_TELEMETRY": "1"
+    },
+    "network_guard": "DNS and non-loopback sockets blocked and recorded; loopback allowed",
+    "blocked_network_attempts": []
+  },
+  "performance": {
+    "model_load_s": 3.310304457998427,
+    "total_query_embedding_and_ranking_s": 1.5735675000032643,
+    "mean_query_embedding_s": 0.09834625243729533,
+    "peak_process_rss_bytes": 2934046720,
+    "mps_memory_after_run_bytes": {
+      "current_allocated_bytes": 1755051776,
+      "driver_allocated_bytes": 2846883840
+    },
+    "memory_pressure_before": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 79%",
+    "memory_pressure_after_unload": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 49%",
+    "query_count": 16,
+    "unique_images": 62
+  },
+  "queries": [
+    {
+      "query_id": "Q01",
+      "query_text": "Find a photo of the Golden Gate Bridge seen from the waterfront.",
+      "query_embedding_norm": 1.0,
+      "query_embedding_sha256": "e928a9b10fe3aec9c82fc4e264330d3f1452b1935a39a50baa3d0923406819c5",
+      "embedding_latency_s": 0.3813424580002902,
+      "corpus_count": 62,
+      "top20": [
+        {
+          "image_id": "I001",
+          "filename": "bridge_photo.png",
+          "timestamp": "2026-10-29T18:04:23+00:00",
+          "semantic_score": 0.7442871332168579,
+          "asset_id": 61
+        },
+        {
+          "image_id": "I002",
+          "filename": "document_01.png",
+          "timestamp": "2026-10-14T18:34:00+00:00",
+          "semantic_score": 0.5732507705688477,
+          "asset_id": 1
+        },
+        {
+          "image_id": "I008",
+          "filename": "document_07.png",
+          "timestamp": "2026-10-20T18:34:00+00:00",
+          "semantic_score": 0.5732507705688477,
+          "asset_id": 7
+        },
+        {
+          "image_id": "I032",
+          "filename": "object_study_10.png",
+          "timestamp": "2026-10-17T19:34:00+00:00",
+          "semantic_score": 0.5541689395904541,
+          "asset_id": 30
+        },
+        {
+          "image_id": "I027",
+          "filename": "object_study_05.png",
+          "timestamp": "2026-10-26T18:34:00+00:00",
+          "semantic_score": 0.5526330471038818,
+          "asset_id": 25
+        },
+        {
+          "image_id": "I035",
+          "filename": "project_board_03.png",
+          "timestamp": "2026-10-22T17:34:00+00:00",
+          "semantic_score": 0.5466395616531372,
+          "asset_id": 33
+        },
+        {
+          "image_id": "I028",
+          "filename": "object_study_06.png",
+          "timestamp": "2026-10-27T18:34:00+00:00",
+          "semantic_score": 0.5458571910858154,
+          "asset_id": 26
+        },
+        {
+          "image_id": "I030",
+          "filename": "object_study_08.png",
+          "timestamp": "2026-10-15T19:34:00+00:00",
+          "semantic_score": 0.5445495247840881,
+          "asset_id": 28
+        },
+        {
+          "image_id": "I004",
+          "filename": "document_03.png",
+          "timestamp": "2026-10-16T18:34:00+00:00",
+          "semantic_score": 0.5439716577529907,
+          "asset_id": 3
+        },
+        {
+          "image_id": "I055",
+          "filename": "terminal_database_01.png",
+          "timestamp": "2026-10-17T15:34:00+00:00",
+          "semantic_score": 0.542273998260498,
+          "asset_id": 53
+        },
+        {
+          "image_id": "I031",
+          "filename": "object_study_09.png",
+          "timestamp": "2026-10-16T19:34:00+00:00",
+          "semantic_score": 0.5420576333999634,
+          "asset_id": 29
+        },
+        {
+          "image_id": "I056",
+          "filename": "terminal_database_02.png",
+          "timestamp": "2026-10-22T15:34:00+00:00",
+          "semantic_score": 0.5419895052909851,
+          "asset_id": 54
+        },
+        {
+          "image_id": "I034",
+          "filename": "project_board_02.png",
+          "timestamp": "2026-10-21T17:34:00+00:00",
+          "semantic_score": 0.5418917536735535,
+          "asset_id": 32
+        },
+        {
+          "image_id": "I005",
+          "filename": "document_04.png",
+          "timestamp": "2026-10-17T18:34:00+00:00",
+          "semantic_score": 0.540217399597168,
+          "asset_id": 4
+        },
+        {
+          "image_id": "I033",
+          "filename": "project_board_01.png",
+          "timestamp": "2026-10-20T17:34:00+00:00",
+          "semantic_score": 0.5387399196624756,
+          "asset_id": 31
+        },
+        {
+          "image_id": "I036",
+          "filename": "project_board_04.png",
+          "timestamp": "2026-10-23T17:34:00+00:00",
+          "semantic_score": 0.5380488634109497,
+          "asset_id": 34
+        },
+        {
+          "image_id": "I039",
+          "filename": "project_board_07.png",
+          "timestamp": "2026-10-26T17:34:00+00:00",
+          "semantic_score": 0.5379666090011597,
+          "asset_id": 37
+        },
+        {
+          "image_id": "I037",
+          "filename": "project_board_05.png",
+          "timestamp": "2026-10-24T17:34:00+00:00",
+          "semantic_score": 0.5356559753417969,
+          "asset_id": 35
+        },
+        {
+          "image_id": "I040",
+          "filename": "project_board_08.png",
+          "timestamp": "2026-10-27T17:34:00+00:00",
+          "semantic_score": 0.5354587435722351,
+          "asset_id": 38
+        },
+        {
+          "image_id": "I029",
+          "filename": "object_study_07.png",
+          "timestamp": "2026-10-14T19:34:00+00:00",
+          "semantic_score": 0.5339916944503784,
+          "asset_id": 27
+        }
+      ]
+    },
+    {
+      "query_id": "Q02",
+      "query_text": "Show the kitchen scene with pots, utensils, and cookware.",
+      "query_embedding_norm": 1.0,
+      "query_embedding_sha256": "7d997e451f24d0103bed8112c3ae0900b9eaa39aed4ef3e3f03bd0c73cafa979",
+      "embedding_latency_s": 0.09703420800360618,
+      "corpus_count": 62,
+      "top20": [
+        {
+          "image_id": "I010",
+          "filename": "kitchen_photo.jpg",
+          "timestamp": "2026-10-29T18:04:23+00:00",
+          "semantic_score": 0.7491610646247864,
+          "asset_id": 62
+        },
+        {
+          "image_id": "I027",
+          "filename": "object_study_05.png",
+          "timestamp": "2026-10-26T18:34:00+00:00",
+          "semantic_score": 0.579387903213501,
+          "asset_id": 25
+        },
+        {
+          "image_id": "I029",
+          "filename": "object_study_07.png",
+          "timestamp": "2026-10-14T19:34:00+00:00",
+          "semantic_score": 0.5759471654891968,
+          "asset_id": 27
+        },
+        {
+          "image_id": "I004",
+          "filename": "document_03.png",
+          "timestamp": "2026-10-16T18:34:00+00:00",
+          "semantic_score": 0.5724830031394958,
+          "asset_id": 3
+        },
+        {
+          "image_id": "I028",
+          "filename": "object_study_06.png",
+          "timestamp": "2026-10-27T18:34:00+00:00",
+          "semantic_score": 0.570366382598877,
+          "asset_id": 26
+        },
+        {
+          "image_id": "I032",
+          "filename": "object_study_10.png",
+          "timestamp": "2026-10-17T19:34:00+00:00",
+          "semantic_score": 0.560972273349762,
+          "asset_id": 30
+        },
+        {
+          "image_id": "I030",
+          "filename": "object_study_08.png",
+          "timestamp": "2026-10-15T19:34:00+00:00",
+          "semantic_score": 0.5582966208457947,
+          "asset_id": 28
+        },
+        {
+          "image_id": "I031",
+          "filename": "object_study_09.png",
+          "timestamp": "2026-10-16T19:34:00+00:00",
+          "semantic_score": 0.5551434755325317,
+          "asset_id": 29
+        },
+        {
+          "image_id": "I055",
+          "filename": "terminal_database_01.png",
+          "timestamp": "2026-10-17T15:34:00+00:00",
+          "semantic_score": 0.5424990653991699,
+          "asset_id": 53
+        },
+        {
+          "image_id": "I056",
+          "filename": "terminal_database_02.png",
+          "timestamp": "2026-10-22T15:34:00+00:00",
+          "semantic_score": 0.5415948033332825,
+          "asset_id": 54
+        },
+        {
+          "image_id": "I026",
+          "filename": "object_study_04.png",
+          "timestamp": "2026-10-25T18:34:00+00:00",
+          "semantic_score": 0.5384840965270996,
+          "asset_id": 24
+        },
+        {
+          "image_id": "I024",
+          "filename": "object_study_02.png",
+          "timestamp": "2026-10-23T18:34:00+00:00",
+          "semantic_score": 0.5369319915771484,
+          "asset_id": 22
+        },
+        {
+          "image_id": "I023",
+          "filename": "object_study_01.png",
+          "timestamp": "2026-10-22T18:34:00+00:00",
+          "semantic_score": 0.5359310507774353,
+          "asset_id": 21
+        },
+        {
+          "image_id": "I025",
+          "filename": "object_study_03.png",
+          "timestamp": "2026-10-24T18:34:00+00:00",
+          "semantic_score": 0.5358964204788208,
+          "asset_id": 23
+        },
+        {
+          "image_id": "I053",
+          "filename": "terminal_cuda_01.png",
+          "timestamp": "2026-10-14T15:34:00+00:00",
+          "semantic_score": 0.5251294374465942,
+          "asset_id": 51
+        },
+        {
+          "image_id": "I054",
+          "filename": "terminal_cuda_02.png",
+          "timestamp": "2026-10-19T15:34:00+00:00",
+          "semantic_score": 0.5227600336074829,
+          "asset_id": 52
+        },
+        {
+          "image_id": "I006",
+          "filename": "document_05.png",
+          "timestamp": "2026-10-18T18:34:00+00:00",
+          "semantic_score": 0.5216047763824463,
+          "asset_id": 5
+        },
+        {
+          "image_id": "I001",
+          "filename": "bridge_photo.png",
+          "timestamp": "2026-10-29T18:04:23+00:00",
+          "semantic_score": 0.51835036277771,
+          "asset_id": 61
+        },
+        {
+          "image_id": "I018",
+          "filename": "lecture_joins_02.png",
+          "timestamp": "2026-10-18T16:34:00+00:00",
+          "semantic_score": 0.5173414945602417,
+          "asset_id": 16
+        },
+        {
+          "image_id": "I035",
+          "filename": "project_board_03.png",
+          "timestamp": "2026-10-22T17:34:00+00:00",
+          "semantic_score": 0.515745997428894,
+          "asset_id": 33
+        }
+      ]
+    },
+    {
+      "query_id": "Q03",
+      "query_text": "Find an illustration of a red backpack.",
+      "query_embedding_norm": 0.9999999403953552,
+      "query_embedding_sha256": "daf3f177ebc097f44217c63e7d7411024aab108d518d5f12062a46921ff3542c",
+      "embedding_latency_s": 0.14432604100147728,
+      "corpus_count": 62,
+      "top20": [
+        {
+          "image_id": "I023",
+          "filename": "object_study_01.png",
+          "timestamp": "2026-10-22T18:34:00+00:00",
+          "semantic_score": 0.7803254127502441,
+          "asset_id": 21
+        },
+        {
+          "image_id": "I024",
+          "filename": "object_study_02.png",
+          "timestamp": "2026-10-23T18:34:00+00:00",
+          "semantic_score": 0.7265280485153198,
+          "asset_id": 22
+        },
+        {
+          "image_id": "I025",
+          "filename": "object_study_03.png",
+          "timestamp": "2026-10-24T18:34:00+00:00",
+          "semantic_score": 0.722948431968689,
+          "asset_id": 23
+        },
+        {
+          "image_id": "I026",
+          "filename": "object_study_04.png",
+          "timestamp": "2026-10-25T18:34:00+00:00",
+          "semantic_score": 0.7209355235099792,
+          "asset_id": 24
+        },
+        {
+          "image_id": "I027",
+          "filename": "object_study_05.png",
+          "timestamp": "2026-10-26T18:34:00+00:00",
+          "semantic_score": 0.6897028088569641,
+          "asset_id": 25
+        },
+        {
+          "image_id": "I030",
+          "filename": "object_study_08.png",
+          "timestamp": "2026-10-15T19:34:00+00:00",
+          "semantic_score": 0.6367571353912354,
+          "asset_id": 28
+        },
+        {
+          "image_id": "I031",
+          "filename": "object_study_09.png",
+          "timestamp": "2026-10-16T19:34:00+00:00",
+          "semantic_score": 0.6313877105712891,
+          "asset_id": 29
+        },
+        {
+          "image_id": "I029",
+          "filename": "object_study_07.png",
+          "timestamp": "2026-10-14T19:34:00+00:00",
+          "semantic_score": 0.6267585158348083,
+          "asset_id": 27
+        },
+        {
+          "image_id": "I028",
+          "filename": "object_study_06.png",
+          "timestamp": "2026-10-27T18:34:00+00:00",
+          "semantic_score": 0.6254685521125793,
+          "asset_id": 26
+        },
+        {
+          "image_id": "I032",
+          "filename": "object_study_10.png",
+          "timestamp": "2026-10-17T19:34:00+00:00",
+          "semantic_score": 0.6236368417739868,
+          "asset_id": 30
+        },
+        {
+          "image_id": "I001",
+          "filename": "bridge_photo.png",
+          "timestamp": "2026-10-29T18:04:23+00:00",
+          "semantic_score": 0.597878098487854,
+          "asset_id": 61
+        },
+        {
+          "image_id": "I005",
+          "filename": "document_04.png",
+          "timestamp": "2026-10-17T18:34:00+00:00",
+          "semantic_score": 0.5899063348770142,
+          "asset_id": 4
+        },
+        {
+          "image_id": "I010",
+          "filename": "kitchen_photo.jpg",
+          "timestamp": "2026-10-29T18:04:23+00:00",
+          "semantic_score": 0.5804653167724609,
+          "asset_id": 62
+        },
+        {
+          "image_id": "I004",
+          "filename": "document_03.png",
+          "timestamp": "2026-10-16T18:34:00+00:00",
+          "semantic_score": 0.5595149397850037,
+          "asset_id": 3
+        },
+        {
+          "image_id": "I003",
+          "filename": "document_02.png",
+          "timestamp": "2026-10-15T18:34:00+00:00",
+          "semantic_score": 0.5575050115585327,
+          "asset_id": 2
+        },
+        {
+          "image_id": "I009",
+          "filename": "document_08.png",
+          "timestamp": "2026-10-21T18:34:00+00:00",
+          "semantic_score": 0.5575050115585327,
+          "asset_id": 8
+        },
+        {
+          "image_id": "I006",
+          "filename": "document_05.png",
+          "timestamp": "2026-10-18T18:34:00+00:00",
+          "semantic_score": 0.5518166422843933,
+          "asset_id": 5
+        },
+        {
+          "image_id": "I060",
+          "filename": "terminal_module_02.png",
+          "timestamp": "2026-10-21T15:34:00+00:00",
+          "semantic_score": 0.5466388463973999,
+          "asset_id": 58
+        },
+        {
+          "image_id": "I059",
+          "filename": "terminal_module_01.png",
+          "timestamp": "2026-10-16T15:34:00+00:00",
+          "semantic_score": 0.5454725027084351,
+          "asset_id": 57
+        },
+        {
+          "image_id": "I035",
+          "filename": "project_board_03.png",
+          "timestamp": "2026-10-22T17:34:00+00:00",
+          "semantic_score": 0.5450922250747681,
+          "asset_id": 33
+        }
+      ]
+    },
+    {
+      "query_id": "Q04",
+      "query_text": "Find an illustration of a blue backpack.",
+      "query_embedding_norm": 1.0,
+      "query_embedding_sha256": "7174bbc61f09216c14e3eb06eb552eba96f1ada24f9dd1813d6417e2d3512e2e",
+      "embedding_latency_s": 0.05585574999713572,
+      "corpus_count": 62,
+      "top20": [
+        {
+          "image_id": "I024",
+          "filename": "object_study_02.png",
+          "timestamp": "2026-10-23T18:34:00+00:00",
+          "semantic_score": 0.7845680713653564,
+          "asset_id": 22
+        },
+        {
+          "image_id": "I026",
+          "filename": "object_study_04.png",
+          "timestamp": "2026-10-25T18:34:00+00:00",
+          "semantic_score": 0.7251949310302734,
+          "asset_id": 24
+        },
+        {
+          "image_id": "I025",
+          "filename": "object_study_03.png",
+          "timestamp": "2026-10-24T18:34:00+00:00",
+          "semantic_score": 0.723410964012146,
+          "asset_id": 23
+        },
+        {
+          "image_id": "I023",
+          "filename": "object_study_01.png",
+          "timestamp": "2026-10-22T18:34:00+00:00",
+          "semantic_score": 0.7202750444412231,
+          "asset_id": 21
+        },
+        {
+          "image_id": "I028",
+          "filename": "object_study_06.png",
+          "timestamp": "2026-10-27T18:34:00+00:00",
+          "semantic_score": 0.692227840423584,
+          "asset_id": 26
+        },
+        {
+          "image_id": "I031",
+          "filename": "object_study_09.png",
+          "timestamp": "2026-10-16T19:34:00+00:00",
+          "semantic_score": 0.6623683571815491,
+          "asset_id": 29
+        },
+        {
+          "image_id": "I032",
+          "filename": "object_study_10.png",
+          "timestamp": "2026-10-17T19:34:00+00:00",
+          "semantic_score": 0.6358094215393066,
+          "asset_id": 30
+        },
+        {
+          "image_id": "I030",
+          "filename": "object_study_08.png",
+          "timestamp": "2026-10-15T19:34:00+00:00",
+          "semantic_score": 0.6296036243438721,
+          "asset_id": 28
+        },
+        {
+          "image_id": "I029",
+          "filename": "object_study_07.png",
+          "timestamp": "2026-10-14T19:34:00+00:00",
+          "semantic_score": 0.6287102699279785,
+          "asset_id": 27
+        },
+        {
+          "image_id": "I027",
+          "filename": "object_study_05.png",
+          "timestamp": "2026-10-26T18:34:00+00:00",
+          "semantic_score": 0.6255797147750854,
+          "asset_id": 25
+        },
+        {
+          "image_id": "I010",
+          "filename": "kitchen_photo.jpg",
+          "timestamp": "2026-10-29T18:04:23+00:00",
+          "semantic_score": 0.5840312242507935,
+          "asset_id": 62
+        },
+        {
+          "image_id": "I005",
+          "filename": "document_04.png",
+          "timestamp": "2026-10-17T18:34:00+00:00",
+          "semantic_score": 0.5763694047927856,
+          "asset_id": 4
+        },
+        {
+          "image_id": "I053",
+          "filename": "terminal_cuda_01.png",
+          "timestamp": "2026-10-14T15:34:00+00:00",
+          "semantic_score": 0.5507373809814453,
+          "asset_id": 51
+        },
+        {
+          "image_id": "I054",
+          "filename": "terminal_cuda_02.png",
+          "timestamp": "2026-10-19T15:34:00+00:00",
+          "semantic_score": 0.550453782081604,
+          "asset_id": 52
+        },
+        {
+          "image_id": "I001",
+          "filename": "bridge_photo.png",
+          "timestamp": "2026-10-29T18:04:23+00:00",
+          "semantic_score": 0.5500800609588623,
+          "asset_id": 61
+        },
+        {
+          "image_id": "I011",
+          "filename": "lecture_biology_01.png",
+          "timestamp": "2026-10-14T16:34:00+00:00",
+          "semantic_score": 0.5487415790557861,
+          "asset_id": 9
+        },
+        {
+          "image_id": "I060",
+          "filename": "terminal_module_02.png",
+          "timestamp": "2026-10-21T15:34:00+00:00",
+          "semantic_score": 0.5483380556106567,
+          "asset_id": 58
+        },
+        {
+          "image_id": "I059",
+          "filename": "terminal_module_01.png",
+          "timestamp": "2026-10-16T15:34:00+00:00",
+          "semantic_score": 0.5474334955215454,
+          "asset_id": 57
+        },
+        {
+          "image_id": "I012",
+          "filename": "lecture_biology_02.png",
+          "timestamp": "2026-10-20T16:34:00+00:00",
+          "semantic_score": 0.5465844869613647,
+          "asset_id": 10
+        },
+        {
+          "image_id": "I003",
+          "filename": "document_02.png",
+          "timestamp": "2026-10-15T18:34:00+00:00",
+          "semantic_score": 0.545768141746521,
+          "asset_id": 2
+        }
+      ]
+    },
+    {
+      "query_id": "Q05",
+      "query_text": "Find an illustration of a green mug.",
+      "query_embedding_norm": 1.0,
+      "query_embedding_sha256": "fb046b682d22398a5823c8b48f21ac564effaded957b7c1f2163d61e79665cc0",
+      "embedding_latency_s": 0.03715966600429965,
+      "corpus_count": 62,
+      "top20": [
+        {
+          "image_id": "I029",
+          "filename": "object_study_07.png",
+          "timestamp": "2026-10-14T19:34:00+00:00",
+          "semantic_score": 0.8023509383201599,
+          "asset_id": 27
+        },
+        {
+          "image_id": "I027",
+          "filename": "object_study_05.png",
+          "timestamp": "2026-10-26T18:34:00+00:00",
+          "semantic_score": 0.737335205078125,
+          "asset_id": 25
+        },
+        {
+          "image_id": "I028",
+          "filename": "object_study_06.png",
+          "timestamp": "2026-10-27T18:34:00+00:00",
+          "semantic_score": 0.7355942726135254,
+          "asset_id": 26
+        },
+        {
+          "image_id": "I010",
+          "filename": "kitchen_photo.jpg",
+          "timestamp": "2026-10-29T18:04:23+00:00",
+          "semantic_score": 0.6929842233657837,
+          "asset_id": 62
+        },
+        {
+          "image_id": "I025",
+          "filename": "object_study_03.png",
+          "timestamp": "2026-10-24T18:34:00+00:00",
+          "semantic_score": 0.6749628782272339,
+          "asset_id": 23
+        },
+        {
+          "image_id": "I032",
+          "filename": "object_study_10.png",
+          "timestamp": "2026-10-17T19:34:00+00:00",
+          "semantic_score": 0.6665905714035034,
+          "asset_id": 30
+        },
+        {
+          "image_id": "I030",
+          "filename": "object_study_08.png",
+          "timestamp": "2026-10-15T19:34:00+00:00",
+          "semantic_score": 0.6658897399902344,
+          "asset_id": 28
+        },
+        {
+          "image_id": "I031",
+          "filename": "object_study_09.png",
+          "timestamp": "2026-10-16T19:34:00+00:00",
+          "semantic_score": 0.6656128764152527,
+          "asset_id": 29
+        },
+        {
+          "image_id": "I026",
+          "filename": "object_study_04.png",
+          "timestamp": "2026-10-25T18:34:00+00:00",
+          "semantic_score": 0.6225199699401855,
+          "asset_id": 24
+        },
+        {
+          "image_id": "I024",
+          "filename": "object_study_02.png",
+          "timestamp": "2026-10-23T18:34:00+00:00",
+          "semantic_score": 0.6220059394836426,
+          "asset_id": 22
+        },
+        {
+          "image_id": "I023",
+          "filename": "object_study_01.png",
+          "timestamp": "2026-10-22T18:34:00+00:00",
+          "semantic_score": 0.6139103174209595,
+          "asset_id": 21
+        },
+        {
+          "image_id": "I056",
+          "filename": "terminal_database_02.png",
+          "timestamp": "2026-10-22T15:34:00+00:00",
+          "semantic_score": 0.5617214441299438,
+          "asset_id": 54
+        },
+        {
+          "image_id": "I055",
+          "filename": "terminal_database_01.png",
+          "timestamp": "2026-10-17T15:34:00+00:00",
+          "semantic_score": 0.561585545539856,
+          "asset_id": 53
+        },
+        {
+          "image_id": "I035",
+          "filename": "project_board_03.png",
+          "timestamp": "2026-10-22T17:34:00+00:00",
+          "semantic_score": 0.5539078116416931,
+          "asset_id": 33
+        },
+        {
+          "image_id": "I039",
+          "filename": "project_board_07.png",
+          "timestamp": "2026-10-26T17:34:00+00:00",
+          "semantic_score": 0.5529567003250122,
+          "asset_id": 37
+        },
+        {
+          "image_id": "I037",
+          "filename": "project_board_05.png",
+          "timestamp": "2026-10-24T17:34:00+00:00",
+          "semantic_score": 0.5517110228538513,
+          "asset_id": 35
+        },
+        {
+          "image_id": "I036",
+          "filename": "project_board_04.png",
+          "timestamp": "2026-10-23T17:34:00+00:00",
+          "semantic_score": 0.5515215396881104,
+          "asset_id": 34
+        },
+        {
+          "image_id": "I038",
+          "filename": "project_board_06.png",
+          "timestamp": "2026-10-25T17:34:00+00:00",
+          "semantic_score": 0.5513441562652588,
+          "asset_id": 36
+        },
+        {
+          "image_id": "I034",
+          "filename": "project_board_02.png",
+          "timestamp": "2026-10-21T17:34:00+00:00",
+          "semantic_score": 0.5508111715316772,
+          "asset_id": 32
+        },
+        {
+          "image_id": "I033",
+          "filename": "project_board_01.png",
+          "timestamp": "2026-10-20T17:34:00+00:00",
+          "semantic_score": 0.5504941940307617,
+          "asset_id": 31
+        }
+      ]
+    },
+    {
+      "query_id": "Q06",
+      "query_text": "Find the laptop illustrations.",
+      "query_embedding_norm": 1.0,
+      "query_embedding_sha256": "aba6d9aea0f6317bc7361b70fef67419659197c048828bb8661fa47a0f5d01d4",
+      "embedding_latency_s": 0.12197274999925867,
+      "corpus_count": 62,
+      "top20": [
+        {
+          "image_id": "I031",
+          "filename": "object_study_09.png",
+          "timestamp": "2026-10-16T19:34:00+00:00",
+          "semantic_score": 0.7037258148193359,
+          "asset_id": 29
+        },
+        {
+          "image_id": "I030",
+          "filename": "object_study_08.png",
+          "timestamp": "2026-10-15T19:34:00+00:00",
+          "semantic_score": 0.6914441585540771,
+          "asset_id": 28
+        },
+        {
+          "image_id": "I032",
+          "filename": "object_study_10.png",
+          "timestamp": "2026-10-17T19:34:00+00:00",
+          "semantic_score": 0.6798043251037598,
+          "asset_id": 30
+        },
+        {
+          "image_id": "I026",
+          "filename": "object_study_04.png",
+          "timestamp": "2026-10-25T18:34:00+00:00",
+          "semantic_score": 0.6537208557128906,
+          "asset_id": 24
+        },
+        {
+          "image_id": "I024",
+          "filename": "object_study_02.png",
+          "timestamp": "2026-10-23T18:34:00+00:00",
+          "semantic_score": 0.6537163257598877,
+          "asset_id": 22
+        },
+        {
+          "image_id": "I023",
+          "filename": "object_study_01.png",
+          "timestamp": "2026-10-22T18:34:00+00:00",
+          "semantic_score": 0.6494271755218506,
+          "asset_id": 21
+        },
+        {
+          "image_id": "I025",
+          "filename": "object_study_03.png",
+          "timestamp": "2026-10-24T18:34:00+00:00",
+          "semantic_score": 0.6450896859169006,
+          "asset_id": 23
+        },
+        {
+          "image_id": "I027",
+          "filename": "object_study_05.png",
+          "timestamp": "2026-10-26T18:34:00+00:00",
+          "semantic_score": 0.6259602308273315,
+          "asset_id": 25
+        },
+        {
+          "image_id": "I028",
+          "filename": "object_study_06.png",
+          "timestamp": "2026-10-27T18:34:00+00:00",
+          "semantic_score": 0.624019205570221,
+          "asset_id": 26
+        },
+        {
+          "image_id": "I029",
+          "filename": "object_study_07.png",
+          "timestamp": "2026-10-14T19:34:00+00:00",
+          "semantic_score": 0.6191473007202148,
+          "asset_id": 27
+        },
+        {
+          "image_id": "I010",
+          "filename": "kitchen_photo.jpg",
+          "timestamp": "2026-10-29T18:04:23+00:00",
+          "semantic_score": 0.6137094497680664,
+          "asset_id": 62
+        },
+        {
+          "image_id": "I002",
+          "filename": "document_01.png",
+          "timestamp": "2026-10-14T18:34:00+00:00",
+          "semantic_score": 0.6055541634559631,
+          "asset_id": 1
+        },
+        {
+          "image_id": "I008",
+          "filename": "document_07.png",
+          "timestamp": "2026-10-20T18:34:00+00:00",
+          "semantic_score": 0.6055541634559631,
+          "asset_id": 7
+        },
+        {
+          "image_id": "I005",
+          "filename": "document_04.png",
+          "timestamp": "2026-10-17T18:34:00+00:00",
+          "semantic_score": 0.6032965183258057,
+          "asset_id": 4
+        },
+        {
+          "image_id": "I035",
+          "filename": "project_board_03.png",
+          "timestamp": "2026-10-22T17:34:00+00:00",
+          "semantic_score": 0.5909238457679749,
+          "asset_id": 33
+        },
+        {
+          "image_id": "I038",
+          "filename": "project_board_06.png",
+          "timestamp": "2026-10-25T17:34:00+00:00",
+          "semantic_score": 0.5903752446174622,
+          "asset_id": 36
+        },
+        {
+          "image_id": "I039",
+          "filename": "project_board_07.png",
+          "timestamp": "2026-10-26T17:34:00+00:00",
+          "semantic_score": 0.5896415710449219,
+          "asset_id": 37
+        },
+        {
+          "image_id": "I034",
+          "filename": "project_board_02.png",
+          "timestamp": "2026-10-21T17:34:00+00:00",
+          "semantic_score": 0.5887394547462463,
+          "asset_id": 32
+        },
+        {
+          "image_id": "I040",
+          "filename": "project_board_08.png",
+          "timestamp": "2026-10-27T17:34:00+00:00",
+          "semantic_score": 0.5875841379165649,
+          "asset_id": 38
+        },
+        {
+          "image_id": "I036",
+          "filename": "project_board_04.png",
+          "timestamp": "2026-10-23T17:34:00+00:00",
+          "semantic_score": 0.5855492353439331,
+          "asset_id": 34
+        }
+      ]
+    },
+    {
+      "query_id": "Q07",
+      "query_text": "Find the receipt where the total is $84.79.",
+      "query_embedding_norm": 1.0000001192092896,
+      "query_embedding_sha256": "dc62cfc2cd4d5114c99c7031378f913a9abd8f3538e864f0637a8c90a4f37904",
+      "embedding_latency_s": 0.10368408299837029,
+      "corpus_count": 62,
+      "top20": [
+        {
+          "image_id": "I047",
+          "filename": "receipt_028.png",
+          "timestamp": "2026-10-14T17:34:00+00:00",
+          "semantic_score": 0.7130355834960938,
+          "asset_id": 45
+        },
+        {
+          "image_id": "I041",
+          "filename": "receipt_022.png",
+          "timestamp": "2026-10-22T16:34:00+00:00",
+          "semantic_score": 0.706994891166687,
+          "asset_id": 39
+        },
+        {
+          "image_id": "I048",
+          "filename": "receipt_029.png",
+          "timestamp": "2026-10-15T17:34:00+00:00",
+          "semantic_score": 0.6691043376922607,
+          "asset_id": 46
+        },
+        {
+          "image_id": "I042",
+          "filename": "receipt_023.png",
+          "timestamp": "2026-10-23T16:34:00+00:00",
+          "semantic_score": 0.663615882396698,
+          "asset_id": 40
+        },
+        {
+          "image_id": "I052",
+          "filename": "receipt_033.png",
+          "timestamp": "2026-10-19T17:34:00+00:00",
+          "semantic_score": 0.6546393036842346,
+          "asset_id": 50
+        },
+        {
+          "image_id": "I046",
+          "filename": "receipt_027.png",
+          "timestamp": "2026-10-27T16:34:00+00:00",
+          "semantic_score": 0.6494340896606445,
+          "asset_id": 44
+        },
+        {
+          "image_id": "I050",
+          "filename": "receipt_031.png",
+          "timestamp": "2026-10-17T17:34:00+00:00",
+          "semantic_score": 0.6433100700378418,
+          "asset_id": 48
+        },
+        {
+          "image_id": "I051",
+          "filename": "receipt_032.png",
+          "timestamp": "2026-10-18T17:34:00+00:00",
+          "semantic_score": 0.639099657535553,
+          "asset_id": 49
+        },
+        {
+          "image_id": "I044",
+          "filename": "receipt_025.png",
+          "timestamp": "2026-10-25T16:34:00+00:00",
+          "semantic_score": 0.6379050016403198,
+          "asset_id": 42
+        },
+        {
+          "image_id": "I049",
+          "filename": "receipt_030.png",
+          "timestamp": "2026-10-16T17:34:00+00:00",
+          "semantic_score": 0.635766863822937,
+          "asset_id": 47
+        },
+        {
+          "image_id": "I045",
+          "filename": "receipt_026.png",
+          "timestamp": "2026-10-26T16:34:00+00:00",
+          "semantic_score": 0.6339501142501831,
+          "asset_id": 43
+        },
+        {
+          "image_id": "I043",
+          "filename": "receipt_024.png",
+          "timestamp": "2026-10-24T16:34:00+00:00",
+          "semantic_score": 0.6304838061332703,
+          "asset_id": 41
+        },
+        {
+          "image_id": "I017",
+          "filename": "lecture_joins_01.png",
+          "timestamp": "2026-10-26T15:34:00+00:00",
+          "semantic_score": 0.578768253326416,
+          "asset_id": 15
+        },
+        {
+          "image_id": "I056",
+          "filename": "terminal_database_02.png",
+          "timestamp": "2026-10-22T15:34:00+00:00",
+          "semantic_score": 0.576736330986023,
+          "asset_id": 54
+        },
+        {
+          "image_id": "I055",
+          "filename": "terminal_database_01.png",
+          "timestamp": "2026-10-17T15:34:00+00:00",
+          "semantic_score": 0.5765645503997803,
+          "asset_id": 53
+        },
+        {
+          "image_id": "I018",
+          "filename": "lecture_joins_02.png",
+          "timestamp": "2026-10-18T16:34:00+00:00",
+          "semantic_score": 0.5737410187721252,
+          "asset_id": 16
+        },
+        {
+          "image_id": "I004",
+          "filename": "document_03.png",
+          "timestamp": "2026-10-16T18:34:00+00:00",
+          "semantic_score": 0.5709145665168762,
+          "asset_id": 3
+        },
+        {
+          "image_id": "I061",
+          "filename": "terminal_success_01.png",
+          "timestamp": "2026-10-18T15:34:00+00:00",
+          "semantic_score": 0.5688011646270752,
+          "asset_id": 59
+        },
+        {
+          "image_id": "I062",
+          "filename": "terminal_success_02.png",
+          "timestamp": "2026-10-23T15:34:00+00:00",
+          "semantic_score": 0.5687059164047241,
+          "asset_id": 60
+        },
+        {
+          "image_id": "I015",
+          "filename": "lecture_erd_01.png",
+          "timestamp": "2026-10-25T15:34:00+00:00",
+          "semantic_score": 0.5648884773254395,
+          "asset_id": 13
+        }
+      ]
+    },
+    {
+      "query_id": "Q08",
+      "query_text": "Find the receipt for coffee and a muffin.",
+      "query_embedding_norm": 1.0,
+      "query_embedding_sha256": "13b339a5c021df00366404840d20143502d9fc3213f1aa7d28a669232019aa0b",
+      "embedding_latency_s": 0.0929648749952321,
+      "corpus_count": 62,
+      "top20": [
+        {
+          "image_id": "I048",
+          "filename": "receipt_029.png",
+          "timestamp": "2026-10-15T17:34:00+00:00",
+          "semantic_score": 0.7504891753196716,
+          "asset_id": 46
+        },
+        {
+          "image_id": "I042",
+          "filename": "receipt_023.png",
+          "timestamp": "2026-10-23T16:34:00+00:00",
+          "semantic_score": 0.749045729637146,
+          "asset_id": 40
+        },
+        {
+          "image_id": "I052",
+          "filename": "receipt_033.png",
+          "timestamp": "2026-10-19T17:34:00+00:00",
+          "semantic_score": 0.6372821927070618,
+          "asset_id": 50
+        },
+        {
+          "image_id": "I046",
+          "filename": "receipt_027.png",
+          "timestamp": "2026-10-27T16:34:00+00:00",
+          "semantic_score": 0.6364535093307495,
+          "asset_id": 44
+        },
+        {
+          "image_id": "I051",
+          "filename": "receipt_032.png",
+          "timestamp": "2026-10-18T17:34:00+00:00",
+          "semantic_score": 0.6315359473228455,
+          "asset_id": 49
+        },
+        {
+          "image_id": "I045",
+          "filename": "receipt_026.png",
+          "timestamp": "2026-10-26T16:34:00+00:00",
+          "semantic_score": 0.6297942399978638,
+          "asset_id": 43
+        },
+        {
+          "image_id": "I050",
+          "filename": "receipt_031.png",
+          "timestamp": "2026-10-17T17:34:00+00:00",
+          "semantic_score": 0.6257773637771606,
+          "asset_id": 48
+        },
+        {
+          "image_id": "I044",
+          "filename": "receipt_025.png",
+          "timestamp": "2026-10-25T16:34:00+00:00",
+          "semantic_score": 0.6247636675834656,
+          "asset_id": 42
+        },
+        {
+          "image_id": "I049",
+          "filename": "receipt_030.png",
+          "timestamp": "2026-10-16T17:34:00+00:00",
+          "semantic_score": 0.6235204339027405,
+          "asset_id": 47
+        },
+        {
+          "image_id": "I043",
+          "filename": "receipt_024.png",
+          "timestamp": "2026-10-24T16:34:00+00:00",
+          "semantic_score": 0.6233326196670532,
+          "asset_id": 41
+        },
+        {
+          "image_id": "I047",
+          "filename": "receipt_028.png",
+          "timestamp": "2026-10-14T17:34:00+00:00",
+          "semantic_score": 0.6226892471313477,
+          "asset_id": 45
+        },
+        {
+          "image_id": "I041",
+          "filename": "receipt_022.png",
+          "timestamp": "2026-10-22T16:34:00+00:00",
+          "semantic_score": 0.6220803260803223,
+          "asset_id": 39
+        },
+        {
+          "image_id": "I028",
+          "filename": "object_study_06.png",
+          "timestamp": "2026-10-27T18:34:00+00:00",
+          "semantic_score": 0.6206655502319336,
+          "asset_id": 26
+        },
+        {
+          "image_id": "I027",
+          "filename": "object_study_05.png",
+          "timestamp": "2026-10-26T18:34:00+00:00",
+          "semantic_score": 0.619969367980957,
+          "asset_id": 25
+        },
+        {
+          "image_id": "I029",
+          "filename": "object_study_07.png",
+          "timestamp": "2026-10-14T19:34:00+00:00",
+          "semantic_score": 0.6119571328163147,
+          "asset_id": 27
+        },
+        {
+          "image_id": "I056",
+          "filename": "terminal_database_02.png",
+          "timestamp": "2026-10-22T15:34:00+00:00",
+          "semantic_score": 0.6019103527069092,
+          "asset_id": 54
+        },
+        {
+          "image_id": "I055",
+          "filename": "terminal_database_01.png",
+          "timestamp": "2026-10-17T15:34:00+00:00",
+          "semantic_score": 0.6016772985458374,
+          "asset_id": 53
+        },
+        {
+          "image_id": "I002",
+          "filename": "document_01.png",
+          "timestamp": "2026-10-14T18:34:00+00:00",
+          "semantic_score": 0.5703327059745789,
+          "asset_id": 1
+        },
+        {
+          "image_id": "I008",
+          "filename": "document_07.png",
+          "timestamp": "2026-10-20T18:34:00+00:00",
+          "semantic_score": 0.5703327059745789,
+          "asset_id": 7
+        },
+        {
+          "image_id": "I032",
+          "filename": "object_study_10.png",
+          "timestamp": "2026-10-17T19:34:00+00:00",
+          "semantic_score": 0.5692120790481567,
+          "asset_id": 30
+        }
+      ]
+    },
+    {
+      "query_id": "Q09",
+      "query_text": "Find a terminal screenshot showing a CUDA out-of-memory failure.",
+      "query_embedding_norm": 1.0000001192092896,
+      "query_embedding_sha256": "92a6b13950ec891170f0ccf0e1e421ee02c15d6a46ce4170a8d0daad3d71da22",
+      "embedding_latency_s": 0.035601499999756925,
+      "corpus_count": 62,
+      "top20": [
+        {
+          "image_id": "I053",
+          "filename": "terminal_cuda_01.png",
+          "timestamp": "2026-10-14T15:34:00+00:00",
+          "semantic_score": 0.7715436220169067,
+          "asset_id": 51
+        },
+        {
+          "image_id": "I054",
+          "filename": "terminal_cuda_02.png",
+          "timestamp": "2026-10-19T15:34:00+00:00",
+          "semantic_score": 0.7702639102935791,
+          "asset_id": 52
+        },
+        {
+          "image_id": "I060",
+          "filename": "terminal_module_02.png",
+          "timestamp": "2026-10-21T15:34:00+00:00",
+          "semantic_score": 0.6508154273033142,
+          "asset_id": 58
+        },
+        {
+          "image_id": "I062",
+          "filename": "terminal_success_02.png",
+          "timestamp": "2026-10-23T15:34:00+00:00",
+          "semantic_score": 0.6504734754562378,
+          "asset_id": 60
+        },
+        {
+          "image_id": "I061",
+          "filename": "terminal_success_01.png",
+          "timestamp": "2026-10-18T15:34:00+00:00",
+          "semantic_score": 0.6497213244438171,
+          "asset_id": 59
+        },
+        {
+          "image_id": "I059",
+          "filename": "terminal_module_01.png",
+          "timestamp": "2026-10-16T15:34:00+00:00",
+          "semantic_score": 0.6490986347198486,
+          "asset_id": 57
+        },
+        {
+          "image_id": "I056",
+          "filename": "terminal_database_02.png",
+          "timestamp": "2026-10-22T15:34:00+00:00",
+          "semantic_score": 0.6376205086708069,
+          "asset_id": 54
+        },
+        {
+          "image_id": "I055",
+          "filename": "terminal_database_01.png",
+          "timestamp": "2026-10-17T15:34:00+00:00",
+          "semantic_score": 0.6365098357200623,
+          "asset_id": 53
+        },
+        {
+          "image_id": "I057",
+          "filename": "terminal_eresolve_01.png",
+          "timestamp": "2026-10-15T15:34:00+00:00",
+          "semantic_score": 0.6093026995658875,
+          "asset_id": 55
+        },
+        {
+          "image_id": "I058",
+          "filename": "terminal_eresolve_02.png",
+          "timestamp": "2026-10-20T15:34:00+00:00",
+          "semantic_score": 0.608585000038147,
+          "asset_id": 56
+        },
+        {
+          "image_id": "I030",
+          "filename": "object_study_08.png",
+          "timestamp": "2026-10-15T19:34:00+00:00",
+          "semantic_score": 0.6027072668075562,
+          "asset_id": 28
+        },
+        {
+          "image_id": "I031",
+          "filename": "object_study_09.png",
+          "timestamp": "2026-10-16T19:34:00+00:00",
+          "semantic_score": 0.5987817049026489,
+          "asset_id": 29
+        },
+        {
+          "image_id": "I032",
+          "filename": "object_study_10.png",
+          "timestamp": "2026-10-17T19:34:00+00:00",
+          "semantic_score": 0.5980167388916016,
+          "asset_id": 30
+        },
+        {
+          "image_id": "I027",
+          "filename": "object_study_05.png",
+          "timestamp": "2026-10-26T18:34:00+00:00",
+          "semantic_score": 0.5945120453834534,
+          "asset_id": 25
+        },
+        {
+          "image_id": "I028",
+          "filename": "object_study_06.png",
+          "timestamp": "2026-10-27T18:34:00+00:00",
+          "semantic_score": 0.5862298011779785,
+          "asset_id": 26
+        },
+        {
+          "image_id": "I029",
+          "filename": "object_study_07.png",
+          "timestamp": "2026-10-14T19:34:00+00:00",
+          "semantic_score": 0.584437370300293,
+          "asset_id": 27
+        },
+        {
+          "image_id": "I026",
+          "filename": "object_study_04.png",
+          "timestamp": "2026-10-25T18:34:00+00:00",
+          "semantic_score": 0.5598145723342896,
+          "asset_id": 24
+        },
+        {
+          "image_id": "I023",
+          "filename": "object_study_01.png",
+          "timestamp": "2026-10-22T18:34:00+00:00",
+          "semantic_score": 0.5591074228286743,
+          "asset_id": 21
+        },
+        {
+          "image_id": "I002",
+          "filename": "document_01.png",
+          "timestamp": "2026-10-14T18:34:00+00:00",
+          "semantic_score": 0.5578727722167969,
+          "asset_id": 1
+        },
+        {
+          "image_id": "I008",
+          "filename": "document_07.png",
+          "timestamp": "2026-10-20T18:34:00+00:00",
+          "semantic_score": 0.5578727722167969,
+          "asset_id": 7
+        }
+      ]
+    },
+    {
+      "query_id": "Q10",
+      "query_text": "Find the MongoDB duplicate-key error terminal.",
+      "query_embedding_norm": 1.0,
+      "query_embedding_sha256": "36424755d414338c09c5440b4ccd815f265f7d8cfc6a18c0c8e130504f170422",
+      "embedding_latency_s": 0.035794166004052386,
+      "corpus_count": 62,
+      "top20": [
+        {
+          "image_id": "I056",
+          "filename": "terminal_database_02.png",
+          "timestamp": "2026-10-22T15:34:00+00:00",
+          "semantic_score": 0.7989730834960938,
+          "asset_id": 54
+        },
+        {
+          "image_id": "I055",
+          "filename": "terminal_database_01.png",
+          "timestamp": "2026-10-17T15:34:00+00:00",
+          "semantic_score": 0.798768937587738,
+          "asset_id": 53
+        },
+        {
+          "image_id": "I060",
+          "filename": "terminal_module_02.png",
+          "timestamp": "2026-10-21T15:34:00+00:00",
+          "semantic_score": 0.6311919093132019,
+          "asset_id": 58
+        },
+        {
+          "image_id": "I059",
+          "filename": "terminal_module_01.png",
+          "timestamp": "2026-10-16T15:34:00+00:00",
+          "semantic_score": 0.628183901309967,
+          "asset_id": 57
+        },
+        {
+          "image_id": "I058",
+          "filename": "terminal_eresolve_02.png",
+          "timestamp": "2026-10-20T15:34:00+00:00",
+          "semantic_score": 0.6128466725349426,
+          "asset_id": 56
+        },
+        {
+          "image_id": "I057",
+          "filename": "terminal_eresolve_01.png",
+          "timestamp": "2026-10-15T15:34:00+00:00",
+          "semantic_score": 0.609249472618103,
+          "asset_id": 55
+        },
+        {
+          "image_id": "I053",
+          "filename": "terminal_cuda_01.png",
+          "timestamp": "2026-10-14T15:34:00+00:00",
+          "semantic_score": 0.6014853715896606,
+          "asset_id": 51
+        },
+        {
+          "image_id": "I054",
+          "filename": "terminal_cuda_02.png",
+          "timestamp": "2026-10-19T15:34:00+00:00",
+          "semantic_score": 0.599953293800354,
+          "asset_id": 52
+        },
+        {
+          "image_id": "I027",
+          "filename": "object_study_05.png",
+          "timestamp": "2026-10-26T18:34:00+00:00",
+          "semantic_score": 0.5951106548309326,
+          "asset_id": 25
+        },
+        {
+          "image_id": "I007",
+          "filename": "document_06.png",
+          "timestamp": "2026-10-19T18:34:00+00:00",
+          "semantic_score": 0.5948705673217773,
+          "asset_id": 6
+        },
+        {
+          "image_id": "I015",
+          "filename": "lecture_erd_01.png",
+          "timestamp": "2026-10-25T15:34:00+00:00",
+          "semantic_score": 0.5891122817993164,
+          "asset_id": 13
+        },
+        {
+          "image_id": "I016",
+          "filename": "lecture_erd_02.png",
+          "timestamp": "2026-10-17T16:34:00+00:00",
+          "semantic_score": 0.5875594615936279,
+          "asset_id": 14
+        },
+        {
+          "image_id": "I019",
+          "filename": "lecture_normalization_01.png",
+          "timestamp": "2026-10-24T15:34:00+00:00",
+          "semantic_score": 0.5869268774986267,
+          "asset_id": 17
+        },
+        {
+          "image_id": "I029",
+          "filename": "object_study_07.png",
+          "timestamp": "2026-10-14T19:34:00+00:00",
+          "semantic_score": 0.5865551233291626,
+          "asset_id": 27
+        },
+        {
+          "image_id": "I020",
+          "filename": "lecture_normalization_02.png",
+          "timestamp": "2026-10-16T16:34:00+00:00",
+          "semantic_score": 0.5846776366233826,
+          "asset_id": 18
+        },
+        {
+          "image_id": "I028",
+          "filename": "object_study_06.png",
+          "timestamp": "2026-10-27T18:34:00+00:00",
+          "semantic_score": 0.5803769826889038,
+          "asset_id": 26
+        },
+        {
+          "image_id": "I030",
+          "filename": "object_study_08.png",
+          "timestamp": "2026-10-15T19:34:00+00:00",
+          "semantic_score": 0.5787792801856995,
+          "asset_id": 28
+        },
+        {
+          "image_id": "I062",
+          "filename": "terminal_success_02.png",
+          "timestamp": "2026-10-23T15:34:00+00:00",
+          "semantic_score": 0.5767093896865845,
+          "asset_id": 60
+        },
+        {
+          "image_id": "I018",
+          "filename": "lecture_joins_02.png",
+          "timestamp": "2026-10-18T16:34:00+00:00",
+          "semantic_score": 0.5753858685493469,
+          "asset_id": 16
+        },
+        {
+          "image_id": "I061",
+          "filename": "terminal_success_01.png",
+          "timestamp": "2026-10-18T15:34:00+00:00",
+          "semantic_score": 0.574590265750885,
+          "asset_id": 59
+        }
+      ]
+    },
+    {
+      "query_id": "Q11",
+      "query_text": "Find npm's ERESOLVE dependency-resolution error screenshot.",
+      "query_embedding_norm": 1.0,
+      "query_embedding_sha256": "088512399532841973e4a233d2fe109defdb452af6deb6fe39935d32f6996685",
+      "embedding_latency_s": 0.04044145800435217,
+      "corpus_count": 62,
+      "top20": [
+        {
+          "image_id": "I058",
+          "filename": "terminal_eresolve_02.png",
+          "timestamp": "2026-10-20T15:34:00+00:00",
+          "semantic_score": 0.777702808380127,
+          "asset_id": 56
+        },
+        {
+          "image_id": "I057",
+          "filename": "terminal_eresolve_01.png",
+          "timestamp": "2026-10-15T15:34:00+00:00",
+          "semantic_score": 0.7768920660018921,
+          "asset_id": 55
+        },
+        {
+          "image_id": "I055",
+          "filename": "terminal_database_01.png",
+          "timestamp": "2026-10-17T15:34:00+00:00",
+          "semantic_score": 0.6563474535942078,
+          "asset_id": 53
+        },
+        {
+          "image_id": "I056",
+          "filename": "terminal_database_02.png",
+          "timestamp": "2026-10-22T15:34:00+00:00",
+          "semantic_score": 0.655278742313385,
+          "asset_id": 54
+        },
+        {
+          "image_id": "I060",
+          "filename": "terminal_module_02.png",
+          "timestamp": "2026-10-21T15:34:00+00:00",
+          "semantic_score": 0.6406288146972656,
+          "asset_id": 58
+        },
+        {
+          "image_id": "I059",
+          "filename": "terminal_module_01.png",
+          "timestamp": "2026-10-16T15:34:00+00:00",
+          "semantic_score": 0.6404523849487305,
+          "asset_id": 57
+        },
+        {
+          "image_id": "I030",
+          "filename": "object_study_08.png",
+          "timestamp": "2026-10-15T19:34:00+00:00",
+          "semantic_score": 0.6016865968704224,
+          "asset_id": 28
+        },
+        {
+          "image_id": "I032",
+          "filename": "object_study_10.png",
+          "timestamp": "2026-10-17T19:34:00+00:00",
+          "semantic_score": 0.598698616027832,
+          "asset_id": 30
+        },
+        {
+          "image_id": "I031",
+          "filename": "object_study_09.png",
+          "timestamp": "2026-10-16T19:34:00+00:00",
+          "semantic_score": 0.5950539112091064,
+          "asset_id": 29
+        },
+        {
+          "image_id": "I027",
+          "filename": "object_study_05.png",
+          "timestamp": "2026-10-26T18:34:00+00:00",
+          "semantic_score": 0.5806800127029419,
+          "asset_id": 25
+        },
+        {
+          "image_id": "I053",
+          "filename": "terminal_cuda_01.png",
+          "timestamp": "2026-10-14T15:34:00+00:00",
+          "semantic_score": 0.5745768547058105,
+          "asset_id": 51
+        },
+        {
+          "image_id": "I033",
+          "filename": "project_board_01.png",
+          "timestamp": "2026-10-20T17:34:00+00:00",
+          "semantic_score": 0.5743960738182068,
+          "asset_id": 31
+        },
+        {
+          "image_id": "I054",
+          "filename": "terminal_cuda_02.png",
+          "timestamp": "2026-10-19T15:34:00+00:00",
+          "semantic_score": 0.5742074251174927,
+          "asset_id": 52
+        },
+        {
+          "image_id": "I028",
+          "filename": "object_study_06.png",
+          "timestamp": "2026-10-27T18:34:00+00:00",
+          "semantic_score": 0.5727847814559937,
+          "asset_id": 26
+        },
+        {
+          "image_id": "I034",
+          "filename": "project_board_02.png",
+          "timestamp": "2026-10-21T17:34:00+00:00",
+          "semantic_score": 0.5727745294570923,
+          "asset_id": 32
+        },
+        {
+          "image_id": "I038",
+          "filename": "project_board_06.png",
+          "timestamp": "2026-10-25T17:34:00+00:00",
+          "semantic_score": 0.5712404251098633,
+          "asset_id": 36
+        },
+        {
+          "image_id": "I029",
+          "filename": "object_study_07.png",
+          "timestamp": "2026-10-14T19:34:00+00:00",
+          "semantic_score": 0.5711894035339355,
+          "asset_id": 27
+        },
+        {
+          "image_id": "I037",
+          "filename": "project_board_05.png",
+          "timestamp": "2026-10-24T17:34:00+00:00",
+          "semantic_score": 0.5700746774673462,
+          "asset_id": 35
+        },
+        {
+          "image_id": "I036",
+          "filename": "project_board_04.png",
+          "timestamp": "2026-10-23T17:34:00+00:00",
+          "semantic_score": 0.5698713660240173,
+          "asset_id": 34
+        },
+        {
+          "image_id": "I035",
+          "filename": "project_board_03.png",
+          "timestamp": "2026-10-22T17:34:00+00:00",
+          "semantic_score": 0.5692100524902344,
+          "asset_id": 33
+        }
+      ]
+    },
+    {
+      "query_id": "Q12",
+      "query_text": "Find the Python import error that says pandas is missing.",
+      "query_embedding_norm": 1.0,
+      "query_embedding_sha256": "4155e47e15022e88daa5e58c3674b355bafd8ed3a84f99e6eeda1345a0abbaf4",
+      "embedding_latency_s": 0.1718819169982453,
+      "corpus_count": 62,
+      "top20": [
+        {
+          "image_id": "I059",
+          "filename": "terminal_module_01.png",
+          "timestamp": "2026-10-16T15:34:00+00:00",
+          "semantic_score": 0.7541631460189819,
+          "asset_id": 57
+        },
+        {
+          "image_id": "I060",
+          "filename": "terminal_module_02.png",
+          "timestamp": "2026-10-21T15:34:00+00:00",
+          "semantic_score": 0.7528131008148193,
+          "asset_id": 58
+        },
+        {
+          "image_id": "I057",
+          "filename": "terminal_eresolve_01.png",
+          "timestamp": "2026-10-15T15:34:00+00:00",
+          "semantic_score": 0.6263311505317688,
+          "asset_id": 55
+        },
+        {
+          "image_id": "I058",
+          "filename": "terminal_eresolve_02.png",
+          "timestamp": "2026-10-20T15:34:00+00:00",
+          "semantic_score": 0.623079240322113,
+          "asset_id": 56
+        },
+        {
+          "image_id": "I053",
+          "filename": "terminal_cuda_01.png",
+          "timestamp": "2026-10-14T15:34:00+00:00",
+          "semantic_score": 0.6215066909790039,
+          "asset_id": 51
+        },
+        {
+          "image_id": "I054",
+          "filename": "terminal_cuda_02.png",
+          "timestamp": "2026-10-19T15:34:00+00:00",
+          "semantic_score": 0.6196683049201965,
+          "asset_id": 52
+        },
+        {
+          "image_id": "I055",
+          "filename": "terminal_database_01.png",
+          "timestamp": "2026-10-17T15:34:00+00:00",
+          "semantic_score": 0.6173906326293945,
+          "asset_id": 53
+        },
+        {
+          "image_id": "I056",
+          "filename": "terminal_database_02.png",
+          "timestamp": "2026-10-22T15:34:00+00:00",
+          "semantic_score": 0.6155156493186951,
+          "asset_id": 54
+        },
+        {
+          "image_id": "I061",
+          "filename": "terminal_success_01.png",
+          "timestamp": "2026-10-18T15:34:00+00:00",
+          "semantic_score": 0.5902200937271118,
+          "asset_id": 59
+        },
+        {
+          "image_id": "I062",
+          "filename": "terminal_success_02.png",
+          "timestamp": "2026-10-23T15:34:00+00:00",
+          "semantic_score": 0.5873332023620605,
+          "asset_id": 60
+        },
+        {
+          "image_id": "I030",
+          "filename": "object_study_08.png",
+          "timestamp": "2026-10-15T19:34:00+00:00",
+          "semantic_score": 0.5621897578239441,
+          "asset_id": 28
+        },
+        {
+          "image_id": "I032",
+          "filename": "object_study_10.png",
+          "timestamp": "2026-10-17T19:34:00+00:00",
+          "semantic_score": 0.5599366426467896,
+          "asset_id": 30
+        },
+        {
+          "image_id": "I027",
+          "filename": "object_study_05.png",
+          "timestamp": "2026-10-26T18:34:00+00:00",
+          "semantic_score": 0.5591633319854736,
+          "asset_id": 25
+        },
+        {
+          "image_id": "I031",
+          "filename": "object_study_09.png",
+          "timestamp": "2026-10-16T19:34:00+00:00",
+          "semantic_score": 0.5590978860855103,
+          "asset_id": 29
+        },
+        {
+          "image_id": "I026",
+          "filename": "object_study_04.png",
+          "timestamp": "2026-10-25T18:34:00+00:00",
+          "semantic_score": 0.5550668239593506,
+          "asset_id": 24
+        },
+        {
+          "image_id": "I029",
+          "filename": "object_study_07.png",
+          "timestamp": "2026-10-14T19:34:00+00:00",
+          "semantic_score": 0.5549222230911255,
+          "asset_id": 27
+        },
+        {
+          "image_id": "I028",
+          "filename": "object_study_06.png",
+          "timestamp": "2026-10-27T18:34:00+00:00",
+          "semantic_score": 0.553917407989502,
+          "asset_id": 26
+        },
+        {
+          "image_id": "I001",
+          "filename": "bridge_photo.png",
+          "timestamp": "2026-10-29T18:04:23+00:00",
+          "semantic_score": 0.553580105304718,
+          "asset_id": 61
+        },
+        {
+          "image_id": "I024",
+          "filename": "object_study_02.png",
+          "timestamp": "2026-10-23T18:34:00+00:00",
+          "semantic_score": 0.5521689653396606,
+          "asset_id": 22
+        },
+        {
+          "image_id": "I025",
+          "filename": "object_study_03.png",
+          "timestamp": "2026-10-24T18:34:00+00:00",
+          "semantic_score": 0.5515885353088379,
+          "asset_id": 23
+        }
+      ]
+    },
+    {
+      "query_id": "Q13",
+      "query_text": "Find the lecture slide about database normalization.",
+      "query_embedding_norm": 1.0,
+      "query_embedding_sha256": "0ae929cd192e1d491280fd4b3e15c2226225da0eb88d1fac6f55f06a68ecc408",
+      "embedding_latency_s": 0.04933008299849462,
+      "corpus_count": 62,
+      "top20": [
+        {
+          "image_id": "I019",
+          "filename": "lecture_normalization_01.png",
+          "timestamp": "2026-10-24T15:34:00+00:00",
+          "semantic_score": 0.7750782370567322,
+          "asset_id": 17
+        },
+        {
+          "image_id": "I020",
+          "filename": "lecture_normalization_02.png",
+          "timestamp": "2026-10-16T16:34:00+00:00",
+          "semantic_score": 0.7685894966125488,
+          "asset_id": 18
+        },
+        {
+          "image_id": "I015",
+          "filename": "lecture_erd_01.png",
+          "timestamp": "2026-10-25T15:34:00+00:00",
+          "semantic_score": 0.6643598675727844,
+          "asset_id": 13
+        },
+        {
+          "image_id": "I016",
+          "filename": "lecture_erd_02.png",
+          "timestamp": "2026-10-17T16:34:00+00:00",
+          "semantic_score": 0.6598727703094482,
+          "asset_id": 14
+        },
+        {
+          "image_id": "I017",
+          "filename": "lecture_joins_01.png",
+          "timestamp": "2026-10-26T15:34:00+00:00",
+          "semantic_score": 0.6542033553123474,
+          "asset_id": 15
+        },
+        {
+          "image_id": "I018",
+          "filename": "lecture_joins_02.png",
+          "timestamp": "2026-10-18T16:34:00+00:00",
+          "semantic_score": 0.6523342132568359,
+          "asset_id": 16
+        },
+        {
+          "image_id": "I013",
+          "filename": "lecture_economics_01.png",
+          "timestamp": "2026-10-15T16:34:00+00:00",
+          "semantic_score": 0.6287533044815063,
+          "asset_id": 11
+        },
+        {
+          "image_id": "I014",
+          "filename": "lecture_economics_02.png",
+          "timestamp": "2026-10-21T16:34:00+00:00",
+          "semantic_score": 0.6272940635681152,
+          "asset_id": 12
+        },
+        {
+          "image_id": "I007",
+          "filename": "document_06.png",
+          "timestamp": "2026-10-19T18:34:00+00:00",
+          "semantic_score": 0.6032558679580688,
+          "asset_id": 6
+        },
+        {
+          "image_id": "I021",
+          "filename": "lecture_physics_01.png",
+          "timestamp": "2026-10-27T15:34:00+00:00",
+          "semantic_score": 0.597918689250946,
+          "asset_id": 19
+        },
+        {
+          "image_id": "I022",
+          "filename": "lecture_physics_02.png",
+          "timestamp": "2026-10-19T16:34:00+00:00",
+          "semantic_score": 0.5944815874099731,
+          "asset_id": 20
+        },
+        {
+          "image_id": "I055",
+          "filename": "terminal_database_01.png",
+          "timestamp": "2026-10-17T15:34:00+00:00",
+          "semantic_score": 0.5922538042068481,
+          "asset_id": 53
+        },
+        {
+          "image_id": "I056",
+          "filename": "terminal_database_02.png",
+          "timestamp": "2026-10-22T15:34:00+00:00",
+          "semantic_score": 0.5910419821739197,
+          "asset_id": 54
+        },
+        {
+          "image_id": "I002",
+          "filename": "document_01.png",
+          "timestamp": "2026-10-14T18:34:00+00:00",
+          "semantic_score": 0.5820907354354858,
+          "asset_id": 1
+        },
+        {
+          "image_id": "I008",
+          "filename": "document_07.png",
+          "timestamp": "2026-10-20T18:34:00+00:00",
+          "semantic_score": 0.5820907354354858,
+          "asset_id": 7
+        },
+        {
+          "image_id": "I011",
+          "filename": "lecture_biology_01.png",
+          "timestamp": "2026-10-14T16:34:00+00:00",
+          "semantic_score": 0.57850182056427,
+          "asset_id": 9
+        },
+        {
+          "image_id": "I012",
+          "filename": "lecture_biology_02.png",
+          "timestamp": "2026-10-20T16:34:00+00:00",
+          "semantic_score": 0.5756332874298096,
+          "asset_id": 10
+        },
+        {
+          "image_id": "I030",
+          "filename": "object_study_08.png",
+          "timestamp": "2026-10-15T19:34:00+00:00",
+          "semantic_score": 0.5724202394485474,
+          "asset_id": 28
+        },
+        {
+          "image_id": "I032",
+          "filename": "object_study_10.png",
+          "timestamp": "2026-10-17T19:34:00+00:00",
+          "semantic_score": 0.5714888572692871,
+          "asset_id": 30
+        },
+        {
+          "image_id": "I031",
+          "filename": "object_study_09.png",
+          "timestamp": "2026-10-16T19:34:00+00:00",
+          "semantic_score": 0.5713914632797241,
+          "asset_id": 29
+        }
+      ]
+    },
+    {
+      "query_id": "Q14",
+      "query_text": "Find the relational algebra and joins slide that defines INNER JOIN.",
+      "query_embedding_norm": 1.0,
+      "query_embedding_sha256": "f172cb94dfce555bfe0f53739f43952185797db21ae03ee28d2d69a65be40bb6",
+      "embedding_latency_s": 0.03978416699828813,
+      "corpus_count": 62,
+      "top20": [
+        {
+          "image_id": "I017",
+          "filename": "lecture_joins_01.png",
+          "timestamp": "2026-10-26T15:34:00+00:00",
+          "semantic_score": 0.8012005090713501,
+          "asset_id": 15
+        },
+        {
+          "image_id": "I018",
+          "filename": "lecture_joins_02.png",
+          "timestamp": "2026-10-18T16:34:00+00:00",
+          "semantic_score": 0.7990910410881042,
+          "asset_id": 16
+        },
+        {
+          "image_id": "I015",
+          "filename": "lecture_erd_01.png",
+          "timestamp": "2026-10-25T15:34:00+00:00",
+          "semantic_score": 0.6556954979896545,
+          "asset_id": 13
+        },
+        {
+          "image_id": "I016",
+          "filename": "lecture_erd_02.png",
+          "timestamp": "2026-10-17T16:34:00+00:00",
+          "semantic_score": 0.6550651788711548,
+          "asset_id": 14
+        },
+        {
+          "image_id": "I007",
+          "filename": "document_06.png",
+          "timestamp": "2026-10-19T18:34:00+00:00",
+          "semantic_score": 0.6483591794967651,
+          "asset_id": 6
+        },
+        {
+          "image_id": "I019",
+          "filename": "lecture_normalization_01.png",
+          "timestamp": "2026-10-24T15:34:00+00:00",
+          "semantic_score": 0.6313453316688538,
+          "asset_id": 17
+        },
+        {
+          "image_id": "I020",
+          "filename": "lecture_normalization_02.png",
+          "timestamp": "2026-10-16T16:34:00+00:00",
+          "semantic_score": 0.6291646957397461,
+          "asset_id": 18
+        },
+        {
+          "image_id": "I004",
+          "filename": "document_03.png",
+          "timestamp": "2026-10-16T18:34:00+00:00",
+          "semantic_score": 0.6046888828277588,
+          "asset_id": 3
+        },
+        {
+          "image_id": "I032",
+          "filename": "object_study_10.png",
+          "timestamp": "2026-10-17T19:34:00+00:00",
+          "semantic_score": 0.6004574298858643,
+          "asset_id": 30
+        },
+        {
+          "image_id": "I002",
+          "filename": "document_01.png",
+          "timestamp": "2026-10-14T18:34:00+00:00",
+          "semantic_score": 0.600216269493103,
+          "asset_id": 1
+        },
+        {
+          "image_id": "I008",
+          "filename": "document_07.png",
+          "timestamp": "2026-10-20T18:34:00+00:00",
+          "semantic_score": 0.600216269493103,
+          "asset_id": 7
+        },
+        {
+          "image_id": "I030",
+          "filename": "object_study_08.png",
+          "timestamp": "2026-10-15T19:34:00+00:00",
+          "semantic_score": 0.5991001129150391,
+          "asset_id": 28
+        },
+        {
+          "image_id": "I031",
+          "filename": "object_study_09.png",
+          "timestamp": "2026-10-16T19:34:00+00:00",
+          "semantic_score": 0.594429612159729,
+          "asset_id": 29
+        },
+        {
+          "image_id": "I055",
+          "filename": "terminal_database_01.png",
+          "timestamp": "2026-10-17T15:34:00+00:00",
+          "semantic_score": 0.5907332897186279,
+          "asset_id": 53
+        },
+        {
+          "image_id": "I021",
+          "filename": "lecture_physics_01.png",
+          "timestamp": "2026-10-27T15:34:00+00:00",
+          "semantic_score": 0.5898683667182922,
+          "asset_id": 19
+        },
+        {
+          "image_id": "I022",
+          "filename": "lecture_physics_02.png",
+          "timestamp": "2026-10-19T16:34:00+00:00",
+          "semantic_score": 0.5897163152694702,
+          "asset_id": 20
+        },
+        {
+          "image_id": "I056",
+          "filename": "terminal_database_02.png",
+          "timestamp": "2026-10-22T15:34:00+00:00",
+          "semantic_score": 0.5890032649040222,
+          "asset_id": 54
+        },
+        {
+          "image_id": "I003",
+          "filename": "document_02.png",
+          "timestamp": "2026-10-15T18:34:00+00:00",
+          "semantic_score": 0.5871676206588745,
+          "asset_id": 2
+        },
+        {
+          "image_id": "I009",
+          "filename": "document_08.png",
+          "timestamp": "2026-10-21T18:34:00+00:00",
+          "semantic_score": 0.5871676206588745,
+          "asset_id": 8
+        },
+        {
+          "image_id": "I014",
+          "filename": "lecture_economics_02.png",
+          "timestamp": "2026-10-21T16:34:00+00:00",
+          "semantic_score": 0.5807314515113831,
+          "asset_id": 12
+        }
+      ]
+    },
+    {
+      "query_id": "Q15",
+      "query_text": "Find the sprint-planning board with To do, In progress, and Completed columns.",
+      "query_embedding_norm": 1.0,
+      "query_embedding_sha256": "976641347b6106d3b84e7a53ae9f633a0ffce1e960ba05e85f32f30532feacbd",
+      "embedding_latency_s": 0.13335525000002235,
+      "corpus_count": 62,
+      "top20": [
+        {
+          "image_id": "I034",
+          "filename": "project_board_02.png",
+          "timestamp": "2026-10-21T17:34:00+00:00",
+          "semantic_score": 0.8001407384872437,
+          "asset_id": 32
+        },
+        {
+          "image_id": "I033",
+          "filename": "project_board_01.png",
+          "timestamp": "2026-10-20T17:34:00+00:00",
+          "semantic_score": 0.7982718348503113,
+          "asset_id": 31
+        },
+        {
+          "image_id": "I035",
+          "filename": "project_board_03.png",
+          "timestamp": "2026-10-22T17:34:00+00:00",
+          "semantic_score": 0.7954362630844116,
+          "asset_id": 33
+        },
+        {
+          "image_id": "I036",
+          "filename": "project_board_04.png",
+          "timestamp": "2026-10-23T17:34:00+00:00",
+          "semantic_score": 0.7923464775085449,
+          "asset_id": 34
+        },
+        {
+          "image_id": "I037",
+          "filename": "project_board_05.png",
+          "timestamp": "2026-10-24T17:34:00+00:00",
+          "semantic_score": 0.789812445640564,
+          "asset_id": 35
+        },
+        {
+          "image_id": "I040",
+          "filename": "project_board_08.png",
+          "timestamp": "2026-10-27T17:34:00+00:00",
+          "semantic_score": 0.7887954711914062,
+          "asset_id": 38
+        },
+        {
+          "image_id": "I039",
+          "filename": "project_board_07.png",
+          "timestamp": "2026-10-26T17:34:00+00:00",
+          "semantic_score": 0.7877588868141174,
+          "asset_id": 37
+        },
+        {
+          "image_id": "I038",
+          "filename": "project_board_06.png",
+          "timestamp": "2026-10-25T17:34:00+00:00",
+          "semantic_score": 0.7868803143501282,
+          "asset_id": 36
+        },
+        {
+          "image_id": "I007",
+          "filename": "document_06.png",
+          "timestamp": "2026-10-19T18:34:00+00:00",
+          "semantic_score": 0.6395363807678223,
+          "asset_id": 6
+        },
+        {
+          "image_id": "I002",
+          "filename": "document_01.png",
+          "timestamp": "2026-10-14T18:34:00+00:00",
+          "semantic_score": 0.6303117275238037,
+          "asset_id": 1
+        },
+        {
+          "image_id": "I008",
+          "filename": "document_07.png",
+          "timestamp": "2026-10-20T18:34:00+00:00",
+          "semantic_score": 0.6303117275238037,
+          "asset_id": 7
+        },
+        {
+          "image_id": "I003",
+          "filename": "document_02.png",
+          "timestamp": "2026-10-15T18:34:00+00:00",
+          "semantic_score": 0.626568615436554,
+          "asset_id": 2
+        },
+        {
+          "image_id": "I009",
+          "filename": "document_08.png",
+          "timestamp": "2026-10-21T18:34:00+00:00",
+          "semantic_score": 0.626568615436554,
+          "asset_id": 8
+        },
+        {
+          "image_id": "I005",
+          "filename": "document_04.png",
+          "timestamp": "2026-10-17T18:34:00+00:00",
+          "semantic_score": 0.5906493663787842,
+          "asset_id": 4
+        },
+        {
+          "image_id": "I004",
+          "filename": "document_03.png",
+          "timestamp": "2026-10-16T18:34:00+00:00",
+          "semantic_score": 0.5817521214485168,
+          "asset_id": 3
+        },
+        {
+          "image_id": "I032",
+          "filename": "object_study_10.png",
+          "timestamp": "2026-10-17T19:34:00+00:00",
+          "semantic_score": 0.5786827206611633,
+          "asset_id": 30
+        },
+        {
+          "image_id": "I030",
+          "filename": "object_study_08.png",
+          "timestamp": "2026-10-15T19:34:00+00:00",
+          "semantic_score": 0.5771849155426025,
+          "asset_id": 28
+        },
+        {
+          "image_id": "I006",
+          "filename": "document_05.png",
+          "timestamp": "2026-10-18T18:34:00+00:00",
+          "semantic_score": 0.5766755938529968,
+          "asset_id": 5
+        },
+        {
+          "image_id": "I031",
+          "filename": "object_study_09.png",
+          "timestamp": "2026-10-16T19:34:00+00:00",
+          "semantic_score": 0.5730515718460083,
+          "asset_id": 29
+        },
+        {
+          "image_id": "I010",
+          "filename": "kitchen_photo.jpg",
+          "timestamp": "2026-10-29T18:04:23+00:00",
+          "semantic_score": 0.5707175135612488,
+          "asset_id": 62
+        }
+      ]
+    },
+    {
+      "query_id": "Q16",
+      "query_text": "Find the project meeting notes about keeping inference on the local machine.",
+      "query_embedding_norm": 0.9999999403953552,
+      "query_embedding_sha256": "609201651f690ce2c6abc41a82fc3395b729019e6285042f0fbabd88ccc2d686",
+      "embedding_latency_s": 0.03301166699384339,
+      "corpus_count": 62,
+      "top20": [
+        {
+          "image_id": "I002",
+          "filename": "document_01.png",
+          "timestamp": "2026-10-14T18:34:00+00:00",
+          "semantic_score": 0.7972137928009033,
+          "asset_id": 1
+        },
+        {
+          "image_id": "I008",
+          "filename": "document_07.png",
+          "timestamp": "2026-10-20T18:34:00+00:00",
+          "semantic_score": 0.7972137928009033,
+          "asset_id": 7
+        },
+        {
+          "image_id": "I039",
+          "filename": "project_board_07.png",
+          "timestamp": "2026-10-26T17:34:00+00:00",
+          "semantic_score": 0.6527107954025269,
+          "asset_id": 37
+        },
+        {
+          "image_id": "I040",
+          "filename": "project_board_08.png",
+          "timestamp": "2026-10-27T17:34:00+00:00",
+          "semantic_score": 0.6505298614501953,
+          "asset_id": 38
+        },
+        {
+          "image_id": "I035",
+          "filename": "project_board_03.png",
+          "timestamp": "2026-10-22T17:34:00+00:00",
+          "semantic_score": 0.6502120494842529,
+          "asset_id": 33
+        },
+        {
+          "image_id": "I034",
+          "filename": "project_board_02.png",
+          "timestamp": "2026-10-21T17:34:00+00:00",
+          "semantic_score": 0.6502060890197754,
+          "asset_id": 32
+        },
+        {
+          "image_id": "I036",
+          "filename": "project_board_04.png",
+          "timestamp": "2026-10-23T17:34:00+00:00",
+          "semantic_score": 0.6469738483428955,
+          "asset_id": 34
+        },
+        {
+          "image_id": "I038",
+          "filename": "project_board_06.png",
+          "timestamp": "2026-10-25T17:34:00+00:00",
+          "semantic_score": 0.645222544670105,
+          "asset_id": 36
+        },
+        {
+          "image_id": "I037",
+          "filename": "project_board_05.png",
+          "timestamp": "2026-10-24T17:34:00+00:00",
+          "semantic_score": 0.6440516710281372,
+          "asset_id": 35
+        },
+        {
+          "image_id": "I033",
+          "filename": "project_board_01.png",
+          "timestamp": "2026-10-20T17:34:00+00:00",
+          "semantic_score": 0.6436553001403809,
+          "asset_id": 31
+        },
+        {
+          "image_id": "I018",
+          "filename": "lecture_joins_02.png",
+          "timestamp": "2026-10-18T16:34:00+00:00",
+          "semantic_score": 0.6417900919914246,
+          "asset_id": 16
+        },
+        {
+          "image_id": "I017",
+          "filename": "lecture_joins_01.png",
+          "timestamp": "2026-10-26T15:34:00+00:00",
+          "semantic_score": 0.6415197849273682,
+          "asset_id": 15
+        },
+        {
+          "image_id": "I021",
+          "filename": "lecture_physics_01.png",
+          "timestamp": "2026-10-27T15:34:00+00:00",
+          "semantic_score": 0.6380096077919006,
+          "asset_id": 19
+        },
+        {
+          "image_id": "I022",
+          "filename": "lecture_physics_02.png",
+          "timestamp": "2026-10-19T16:34:00+00:00",
+          "semantic_score": 0.6369511485099792,
+          "asset_id": 20
+        },
+        {
+          "image_id": "I007",
+          "filename": "document_06.png",
+          "timestamp": "2026-10-19T18:34:00+00:00",
+          "semantic_score": 0.632889449596405,
+          "asset_id": 6
+        },
+        {
+          "image_id": "I019",
+          "filename": "lecture_normalization_01.png",
+          "timestamp": "2026-10-24T15:34:00+00:00",
+          "semantic_score": 0.6318504214286804,
+          "asset_id": 17
+        },
+        {
+          "image_id": "I020",
+          "filename": "lecture_normalization_02.png",
+          "timestamp": "2026-10-16T16:34:00+00:00",
+          "semantic_score": 0.630418062210083,
+          "asset_id": 18
+        },
+        {
+          "image_id": "I006",
+          "filename": "document_05.png",
+          "timestamp": "2026-10-18T18:34:00+00:00",
+          "semantic_score": 0.6303874254226685,
+          "asset_id": 5
+        },
+        {
+          "image_id": "I062",
+          "filename": "terminal_success_02.png",
+          "timestamp": "2026-10-23T15:34:00+00:00",
+          "semantic_score": 0.6253174543380737,
+          "asset_id": 60
+        },
+        {
+          "image_id": "I061",
+          "filename": "terminal_success_01.png",
+          "timestamp": "2026-10-18T15:34:00+00:00",
+          "semantic_score": 0.6231807470321655,
+          "asset_id": 59
+        }
+      ]
+    }
+  ]
+}

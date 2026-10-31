@@ -1,0 +1,977 @@
+{
+  "method": "Post-hoc sort-key equivalence check over saved top-20 candidates and exact duplicate image vectors from the experiment-owned database snapshot. No model inference rerun.",
+  "old_sort_order": "semantic_score descending, timestamp ascending, experiment image ID numeric ascending",
+  "app_sort_order": "semantic_score descending, timestamp ascending, actual SQLite assets.id ascending",
+  "query_count": 16,
+  "all_saved_top20_orders_unchanged": true,
+  "queries": [
+    {
+      "query_id": "Q01",
+      "order_unchanged": true,
+      "old_image_id_order": [
+        "I001",
+        "I002",
+        "I008",
+        "I032",
+        "I027",
+        "I035",
+        "I028",
+        "I030",
+        "I004",
+        "I055",
+        "I031",
+        "I056",
+        "I034",
+        "I005",
+        "I033",
+        "I036",
+        "I039",
+        "I037",
+        "I040",
+        "I029"
+      ],
+      "app_asset_id_order": [
+        "I001",
+        "I002",
+        "I008",
+        "I032",
+        "I027",
+        "I035",
+        "I028",
+        "I030",
+        "I004",
+        "I055",
+        "I031",
+        "I056",
+        "I034",
+        "I005",
+        "I033",
+        "I036",
+        "I039",
+        "I037",
+        "I040",
+        "I029"
+      ],
+      "visible_score_ties": [
+        {
+          "score": 0.5732507705688477,
+          "image_ids": [
+            "I002",
+            "I008"
+          ]
+        }
+      ],
+      "top20_boundary_score": 0.5339916944503784,
+      "boundary_tie_image_ids": [
+        "I029"
+      ]
+    },
+    {
+      "query_id": "Q02",
+      "order_unchanged": true,
+      "old_image_id_order": [
+        "I010",
+        "I027",
+        "I029",
+        "I004",
+        "I028",
+        "I032",
+        "I030",
+        "I031",
+        "I055",
+        "I056",
+        "I026",
+        "I024",
+        "I023",
+        "I025",
+        "I053",
+        "I054",
+        "I006",
+        "I001",
+        "I018",
+        "I035"
+      ],
+      "app_asset_id_order": [
+        "I010",
+        "I027",
+        "I029",
+        "I004",
+        "I028",
+        "I032",
+        "I030",
+        "I031",
+        "I055",
+        "I056",
+        "I026",
+        "I024",
+        "I023",
+        "I025",
+        "I053",
+        "I054",
+        "I006",
+        "I001",
+        "I018",
+        "I035"
+      ],
+      "visible_score_ties": [],
+      "top20_boundary_score": 0.515745997428894,
+      "boundary_tie_image_ids": [
+        "I035"
+      ]
+    },
+    {
+      "query_id": "Q03",
+      "order_unchanged": true,
+      "old_image_id_order": [
+        "I023",
+        "I024",
+        "I025",
+        "I026",
+        "I027",
+        "I030",
+        "I031",
+        "I029",
+        "I028",
+        "I032",
+        "I001",
+        "I005",
+        "I010",
+        "I004",
+        "I003",
+        "I009",
+        "I006",
+        "I060",
+        "I059",
+        "I035"
+      ],
+      "app_asset_id_order": [
+        "I023",
+        "I024",
+        "I025",
+        "I026",
+        "I027",
+        "I030",
+        "I031",
+        "I029",
+        "I028",
+        "I032",
+        "I001",
+        "I005",
+        "I010",
+        "I004",
+        "I003",
+        "I009",
+        "I006",
+        "I060",
+        "I059",
+        "I035"
+      ],
+      "visible_score_ties": [
+        {
+          "score": 0.5575050115585327,
+          "image_ids": [
+            "I003",
+            "I009"
+          ]
+        }
+      ],
+      "top20_boundary_score": 0.5450922250747681,
+      "boundary_tie_image_ids": [
+        "I035"
+      ]
+    },
+    {
+      "query_id": "Q04",
+      "order_unchanged": true,
+      "old_image_id_order": [
+        "I024",
+        "I026",
+        "I025",
+        "I023",
+        "I028",
+        "I031",
+        "I032",
+        "I030",
+        "I029",
+        "I027",
+        "I010",
+        "I005",
+        "I053",
+        "I054",
+        "I001",
+        "I011",
+        "I060",
+        "I059",
+        "I012",
+        "I003"
+      ],
+      "app_asset_id_order": [
+        "I024",
+        "I026",
+        "I025",
+        "I023",
+        "I028",
+        "I031",
+        "I032",
+        "I030",
+        "I029",
+        "I027",
+        "I010",
+        "I005",
+        "I053",
+        "I054",
+        "I001",
+        "I011",
+        "I060",
+        "I059",
+        "I012",
+        "I003"
+      ],
+      "visible_score_ties": [],
+      "top20_boundary_score": 0.545768141746521,
+      "boundary_tie_image_ids": [
+        "I003"
+      ]
+    },
+    {
+      "query_id": "Q05",
+      "order_unchanged": true,
+      "old_image_id_order": [
+        "I029",
+        "I027",
+        "I028",
+        "I010",
+        "I025",
+        "I032",
+        "I030",
+        "I031",
+        "I026",
+        "I024",
+        "I023",
+        "I056",
+        "I055",
+        "I035",
+        "I039",
+        "I037",
+        "I036",
+        "I038",
+        "I034",
+        "I033"
+      ],
+      "app_asset_id_order": [
+        "I029",
+        "I027",
+        "I028",
+        "I010",
+        "I025",
+        "I032",
+        "I030",
+        "I031",
+        "I026",
+        "I024",
+        "I023",
+        "I056",
+        "I055",
+        "I035",
+        "I039",
+        "I037",
+        "I036",
+        "I038",
+        "I034",
+        "I033"
+      ],
+      "visible_score_ties": [],
+      "top20_boundary_score": 0.5504941940307617,
+      "boundary_tie_image_ids": [
+        "I033"
+      ]
+    },
+    {
+      "query_id": "Q06",
+      "order_unchanged": true,
+      "old_image_id_order": [
+        "I031",
+        "I030",
+        "I032",
+        "I026",
+        "I024",
+        "I023",
+        "I025",
+        "I027",
+        "I028",
+        "I029",
+        "I010",
+        "I002",
+        "I008",
+        "I005",
+        "I035",
+        "I038",
+        "I039",
+        "I034",
+        "I040",
+        "I036"
+      ],
+      "app_asset_id_order": [
+        "I031",
+        "I030",
+        "I032",
+        "I026",
+        "I024",
+        "I023",
+        "I025",
+        "I027",
+        "I028",
+        "I029",
+        "I010",
+        "I002",
+        "I008",
+        "I005",
+        "I035",
+        "I038",
+        "I039",
+        "I034",
+        "I040",
+        "I036"
+      ],
+      "visible_score_ties": [
+        {
+          "score": 0.6055541634559631,
+          "image_ids": [
+            "I002",
+            "I008"
+          ]
+        }
+      ],
+      "top20_boundary_score": 0.5855492353439331,
+      "boundary_tie_image_ids": [
+        "I036"
+      ]
+    },
+    {
+      "query_id": "Q07",
+      "order_unchanged": true,
+      "old_image_id_order": [
+        "I047",
+        "I041",
+        "I048",
+        "I042",
+        "I052",
+        "I046",
+        "I050",
+        "I051",
+        "I044",
+        "I049",
+        "I045",
+        "I043",
+        "I017",
+        "I056",
+        "I055",
+        "I018",
+        "I004",
+        "I061",
+        "I062",
+        "I015"
+      ],
+      "app_asset_id_order": [
+        "I047",
+        "I041",
+        "I048",
+        "I042",
+        "I052",
+        "I046",
+        "I050",
+        "I051",
+        "I044",
+        "I049",
+        "I045",
+        "I043",
+        "I017",
+        "I056",
+        "I055",
+        "I018",
+        "I004",
+        "I061",
+        "I062",
+        "I015"
+      ],
+      "visible_score_ties": [],
+      "top20_boundary_score": 0.5648884773254395,
+      "boundary_tie_image_ids": [
+        "I015"
+      ]
+    },
+    {
+      "query_id": "Q08",
+      "order_unchanged": true,
+      "old_image_id_order": [
+        "I048",
+        "I042",
+        "I052",
+        "I046",
+        "I051",
+        "I045",
+        "I050",
+        "I044",
+        "I049",
+        "I043",
+        "I047",
+        "I041",
+        "I028",
+        "I027",
+        "I029",
+        "I056",
+        "I055",
+        "I002",
+        "I008",
+        "I032"
+      ],
+      "app_asset_id_order": [
+        "I048",
+        "I042",
+        "I052",
+        "I046",
+        "I051",
+        "I045",
+        "I050",
+        "I044",
+        "I049",
+        "I043",
+        "I047",
+        "I041",
+        "I028",
+        "I027",
+        "I029",
+        "I056",
+        "I055",
+        "I002",
+        "I008",
+        "I032"
+      ],
+      "visible_score_ties": [
+        {
+          "score": 0.5703327059745789,
+          "image_ids": [
+            "I002",
+            "I008"
+          ]
+        }
+      ],
+      "top20_boundary_score": 0.5692120790481567,
+      "boundary_tie_image_ids": [
+        "I032"
+      ]
+    },
+    {
+      "query_id": "Q09",
+      "order_unchanged": true,
+      "old_image_id_order": [
+        "I053",
+        "I054",
+        "I060",
+        "I062",
+        "I061",
+        "I059",
+        "I056",
+        "I055",
+        "I057",
+        "I058",
+        "I030",
+        "I031",
+        "I032",
+        "I027",
+        "I028",
+        "I029",
+        "I026",
+        "I023",
+        "I002",
+        "I008"
+      ],
+      "app_asset_id_order": [
+        "I053",
+        "I054",
+        "I060",
+        "I062",
+        "I061",
+        "I059",
+        "I056",
+        "I055",
+        "I057",
+        "I058",
+        "I030",
+        "I031",
+        "I032",
+        "I027",
+        "I028",
+        "I029",
+        "I026",
+        "I023",
+        "I002",
+        "I008"
+      ],
+      "visible_score_ties": [
+        {
+          "score": 0.5578727722167969,
+          "image_ids": [
+            "I002",
+            "I008"
+          ]
+        }
+      ],
+      "top20_boundary_score": 0.5578727722167969,
+      "boundary_tie_image_ids": [
+        "I002",
+        "I008"
+      ]
+    },
+    {
+      "query_id": "Q10",
+      "order_unchanged": true,
+      "old_image_id_order": [
+        "I056",
+        "I055",
+        "I060",
+        "I059",
+        "I058",
+        "I057",
+        "I053",
+        "I054",
+        "I027",
+        "I007",
+        "I015",
+        "I016",
+        "I019",
+        "I029",
+        "I020",
+        "I028",
+        "I030",
+        "I062",
+        "I018",
+        "I061"
+      ],
+      "app_asset_id_order": [
+        "I056",
+        "I055",
+        "I060",
+        "I059",
+        "I058",
+        "I057",
+        "I053",
+        "I054",
+        "I027",
+        "I007",
+        "I015",
+        "I016",
+        "I019",
+        "I029",
+        "I020",
+        "I028",
+        "I030",
+        "I062",
+        "I018",
+        "I061"
+      ],
+      "visible_score_ties": [],
+      "top20_boundary_score": 0.574590265750885,
+      "boundary_tie_image_ids": [
+        "I061"
+      ]
+    },
+    {
+      "query_id": "Q11",
+      "order_unchanged": true,
+      "old_image_id_order": [
+        "I058",
+        "I057",
+        "I055",
+        "I056",
+        "I060",
+        "I059",
+        "I030",
+        "I032",
+        "I031",
+        "I027",
+        "I053",
+        "I033",
+        "I054",
+        "I028",
+        "I034",
+        "I038",
+        "I029",
+        "I037",
+        "I036",
+        "I035"
+      ],
+      "app_asset_id_order": [
+        "I058",
+        "I057",
+        "I055",
+        "I056",
+        "I060",
+        "I059",
+        "I030",
+        "I032",
+        "I031",
+        "I027",
+        "I053",
+        "I033",
+        "I054",
+        "I028",
+        "I034",
+        "I038",
+        "I029",
+        "I037",
+        "I036",
+        "I035"
+      ],
+      "visible_score_ties": [],
+      "top20_boundary_score": 0.5692100524902344,
+      "boundary_tie_image_ids": [
+        "I035"
+      ]
+    },
+    {
+      "query_id": "Q12",
+      "order_unchanged": true,
+      "old_image_id_order": [
+        "I059",
+        "I060",
+        "I057",
+        "I058",
+        "I053",
+        "I054",
+        "I055",
+        "I056",
+        "I061",
+        "I062",
+        "I030",
+        "I032",
+        "I027",
+        "I031",
+        "I026",
+        "I029",
+        "I028",
+        "I001",
+        "I024",
+        "I025"
+      ],
+      "app_asset_id_order": [
+        "I059",
+        "I060",
+        "I057",
+        "I058",
+        "I053",
+        "I054",
+        "I055",
+        "I056",
+        "I061",
+        "I062",
+        "I030",
+        "I032",
+        "I027",
+        "I031",
+        "I026",
+        "I029",
+        "I028",
+        "I001",
+        "I024",
+        "I025"
+      ],
+      "visible_score_ties": [],
+      "top20_boundary_score": 0.5515885353088379,
+      "boundary_tie_image_ids": [
+        "I025"
+      ]
+    },
+    {
+      "query_id": "Q13",
+      "order_unchanged": true,
+      "old_image_id_order": [
+        "I019",
+        "I020",
+        "I015",
+        "I016",
+        "I017",
+        "I018",
+        "I013",
+        "I014",
+        "I007",
+        "I021",
+        "I022",
+        "I055",
+        "I056",
+        "I002",
+        "I008",
+        "I011",
+        "I012",
+        "I030",
+        "I032",
+        "I031"
+      ],
+      "app_asset_id_order": [
+        "I019",
+        "I020",
+        "I015",
+        "I016",
+        "I017",
+        "I018",
+        "I013",
+        "I014",
+        "I007",
+        "I021",
+        "I022",
+        "I055",
+        "I056",
+        "I002",
+        "I008",
+        "I011",
+        "I012",
+        "I030",
+        "I032",
+        "I031"
+      ],
+      "visible_score_ties": [
+        {
+          "score": 0.5820907354354858,
+          "image_ids": [
+            "I002",
+            "I008"
+          ]
+        }
+      ],
+      "top20_boundary_score": 0.5713914632797241,
+      "boundary_tie_image_ids": [
+        "I031"
+      ]
+    },
+    {
+      "query_id": "Q14",
+      "order_unchanged": true,
+      "old_image_id_order": [
+        "I017",
+        "I018",
+        "I015",
+        "I016",
+        "I007",
+        "I019",
+        "I020",
+        "I004",
+        "I032",
+        "I002",
+        "I008",
+        "I030",
+        "I031",
+        "I055",
+        "I021",
+        "I022",
+        "I056",
+        "I003",
+        "I009",
+        "I014"
+      ],
+      "app_asset_id_order": [
+        "I017",
+        "I018",
+        "I015",
+        "I016",
+        "I007",
+        "I019",
+        "I020",
+        "I004",
+        "I032",
+        "I002",
+        "I008",
+        "I030",
+        "I031",
+        "I055",
+        "I021",
+        "I022",
+        "I056",
+        "I003",
+        "I009",
+        "I014"
+      ],
+      "visible_score_ties": [
+        {
+          "score": 0.600216269493103,
+          "image_ids": [
+            "I002",
+            "I008"
+          ]
+        },
+        {
+          "score": 0.5871676206588745,
+          "image_ids": [
+            "I003",
+            "I009"
+          ]
+        }
+      ],
+      "top20_boundary_score": 0.5807314515113831,
+      "boundary_tie_image_ids": [
+        "I014"
+      ]
+    },
+    {
+      "query_id": "Q15",
+      "order_unchanged": true,
+      "old_image_id_order": [
+        "I034",
+        "I033",
+        "I035",
+        "I036",
+        "I037",
+        "I040",
+        "I039",
+        "I038",
+        "I007",
+        "I002",
+        "I008",
+        "I003",
+        "I009",
+        "I005",
+        "I004",
+        "I032",
+        "I030",
+        "I006",
+        "I031",
+        "I010"
+      ],
+      "app_asset_id_order": [
+        "I034",
+        "I033",
+        "I035",
+        "I036",
+        "I037",
+        "I040",
+        "I039",
+        "I038",
+        "I007",
+        "I002",
+        "I008",
+        "I003",
+        "I009",
+        "I005",
+        "I004",
+        "I032",
+        "I030",
+        "I006",
+        "I031",
+        "I010"
+      ],
+      "visible_score_ties": [
+        {
+          "score": 0.6303117275238037,
+          "image_ids": [
+            "I002",
+            "I008"
+          ]
+        },
+        {
+          "score": 0.626568615436554,
+          "image_ids": [
+            "I003",
+            "I009"
+          ]
+        }
+      ],
+      "top20_boundary_score": 0.5707175135612488,
+      "boundary_tie_image_ids": [
+        "I010"
+      ]
+    },
+    {
+      "query_id": "Q16",
+      "order_unchanged": true,
+      "old_image_id_order": [
+        "I002",
+        "I008",
+        "I039",
+        "I040",
+        "I035",
+        "I034",
+        "I036",
+        "I038",
+        "I037",
+        "I033",
+        "I018",
+        "I017",
+        "I021",
+        "I022",
+        "I007",
+        "I019",
+        "I020",
+        "I006",
+        "I062",
+        "I061"
+      ],
+      "app_asset_id_order": [
+        "I002",
+        "I008",
+        "I039",
+        "I040",
+        "I035",
+        "I034",
+        "I036",
+        "I038",
+        "I037",
+        "I033",
+        "I018",
+        "I017",
+        "I021",
+        "I022",
+        "I007",
+        "I019",
+        "I020",
+        "I006",
+        "I062",
+        "I061"
+      ],
+      "visible_score_ties": [
+        {
+          "score": 0.7972137928009033,
+          "image_ids": [
+            "I002",
+            "I008"
+          ]
+        }
+      ],
+      "top20_boundary_score": 0.6231807470321655,
+      "boundary_tie_image_ids": [
+        "I061"
+      ]
+    }
+  ],
+  "exact_duplicate_image_vector_groups": [
+    {
+      "vector_sha256": "f30fce51c7632ae4599a3a89f4bc5dd2d0cff2e22687662617d705a06baac0dd",
+      "filenames": [
+        "document_01.png",
+        "document_07.png"
+      ],
+      "image_ids": [
+        "I002",
+        "I008"
+      ],
+      "asset_ids": [
+        1,
+        7
+      ]
+    },
+    {
+      "vector_sha256": "4ba86da2f2f28a0436b1ce3bc3c01da62686451c325443bcf0ee3bb08e9172a1",
+      "filenames": [
+        "document_02.png",
+        "document_08.png"
+      ],
+      "image_ids": [
+        "I003",
+        "I009"
+      ],
+      "asset_ids": [
+        2,
+        8
+      ]
+    }
+  ],
+  "scope_note": "The check establishes that the corrected app asset-ID tie-break does not change any saved top-20 ordering. The initial raw score output stored top-20 rather than all 62 scores; no claim is made about unobserved non-top-20 ties."
+}

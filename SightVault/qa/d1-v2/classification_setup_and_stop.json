@@ -1,0 +1,128 @@
+{
+  "classification_runner_sha256": "a00a373e34591731704d66b5b6cf8592f7310f9d4cbc176157c432f73fbbd58c",
+  "attempts": [
+    {
+      "stage": "preflight attempt 1",
+      "result": "setup failure before model load",
+      "error": "The runner resolved the app root one directory too high and looked for repo-root samples/bridge_photo.png; actual fixture is SightVault/samples/bridge_photo.png.",
+      "model_load_started": false,
+      "inference_started": false
+    },
+    {
+      "stage": "corrected preflight",
+      "result": "passed",
+      "baseline_inputs_sha256_verified": 62,
+      "supplement_inputs_sha256_verified": 6,
+      "combined_unique_pixel_contents": 66
+    },
+    {
+      "stage": "bounded classification/routing inference segment",
+      "result": "stopped by parent before pressure became OOM",
+      "completed_requests": 50,
+      "expected_requests": 68,
+      "completed_baseline_predictions": 50,
+      "completed_supplement_predictions": 0,
+      "model_errors": 0,
+      "ooms": 0,
+      "termination": "SIGINT at request 51 while forward was active; checkpoint retains 50 completed rows.",
+      "memory_pressure_observations_free_percent": [
+        82,
+        51,
+        27,
+        19,
+        15,
+        14,
+        74
+      ],
+      "post_exit_d1_process_remaining": false,
+      "mps_counters_written": false,
+      "ps_rss_exact_bytes_written": false,
+      "memory_pressure_free_percent_agent_observations": {
+        "before_model_load": 82,
+        "during_active_run": [
+          51,
+          27,
+          19,
+          15,
+          14
+        ],
+        "immediate_after_exit": 74
+      },
+      "memory_pressure_free_percent_parent_observation_after_exit": 79,
+      "mps_counter_limitation": "The partial checkpoint did not persist current_allocated_memory or driver_allocated_memory. No exact MPS counter is available for this segment; three-image smoke counters are a separate run."
+    }
+  ],
+  "preserved_partial_artifact": "classification_routing_results.stopped_50.json",
+  "preservation_note": "The original SIGINT checkpoint is renamed so future runner outputs cannot overwrite or delete this 50-request segment.",
+  "memory_policy_probe_after_f44": {
+    "artifact": "classification_memory_policy_probe_f44_bookkeeping_failure.json",
+    "baseline_commit": "766027c79d4c6f17ba7b88b1df3bc079dfbbd141",
+    "experiment_commit": "f44c919fd1c034c5f7f3b6bebe9513601825ebfe",
+    "runner_script_sha256": "5ea7b4f6702e66733c3d4750142574a541f12fbea1ffce3257e6d076a6179af4",
+    "run_started_at_utc": "2026-10-30T14:47:07+00:00",
+    "command_arguments": [
+      "SightVault/qa/d1-v2/run_d1_classification_routing.py",
+      "--model-path",
+      "/Users/ddddd-433/.codex/worktrees/phase2-d1/d1-models/d1-2B",
+      "--max-requests",
+      "15",
+      "--empty-cache-every",
+      "5",
+      "--output",
+      "SightVault/qa/d1-v2/classification_memory_policy_probe.json"
+    ],
+    "requested_calls": 15,
+    "forward_passes": 15,
+    "predictions_retained": 15,
+    "mps_cache_policy_every_successful_calls": 5,
+    "model_inference_errors": 0,
+    "ooms": 0,
+    "post_inference_bookkeeping_errors": [
+      {
+        "request_index": 5,
+        "image_id": "I005",
+        "elapsed_s": 3.9958764590046485,
+        "error": "NameError: name 'cache_release_s' is not defined"
+      },
+      {
+        "request_index": 10,
+        "image_id": "I010",
+        "elapsed_s": 5.82602400000178,
+        "error": "NameError: name 'cache_release_s' is not defined"
+      },
+      {
+        "request_index": 15,
+        "image_id": "I015",
+        "elapsed_s": 3.927741416999197,
+        "error": "NameError: name 'cache_release_s' is not defined"
+      }
+    ],
+    "completion_status": "all 15 model calls returned; output marked incomplete because cache bookkeeping referenced an undefined variable at requests 5, 10, and 15",
+    "memory_pressure_free_percent": {
+      "before_model_load": 78,
+      "after_5_requests": 26,
+      "after_10_requests": 27,
+      "after_15_requests": 36,
+      "after_process_exit": 78
+    },
+    "max_sampled_process_rss_bytes": 744013824,
+    "max_sampled_mps_current_allocated_bytes_after_request": 4050070272,
+    "max_sampled_mps_driver_allocated_bytes_after_request": 9977036800,
+    "max_sampled_mps_current_allocated_bytes_after_every5_cache_clear": 4050070272,
+    "max_sampled_mps_driver_allocated_bytes_after_every5_cache_clear": 8894906368,
+    "network_attempts": [],
+    "postcleanup_mps_and_python_object_weakrefs_captured": false,
+    "post_run_interpretation": "Current MPS allocation samples were essentially flat while driver allocation samples were higher and variable. The status/error is a harness bookkeeping failure after an actual cache clear, not a model inference failure. Per-request post-cache rows were not saved; report maxima only. In-process free-memory readings are whole-machine gauges; the after-process-exit gauge recovered to 78%.",
+    "execution_command": "/usr/bin/sandbox-exec -p '(version 1)(allow default)(deny network-outbound)(allow network-outbound (remote ip \"localhost:*\"))' /Users/ddddd-433/.codex/worktrees/phase2-d1/d1-reference-env/bin/python SightVault/qa/d1-v2/run_d1_classification_routing.py --model-path /Users/ddddd-433/.codex/worktrees/phase2-d1/d1-models/d1-2B --max-requests 15 --empty-cache-every 5 --output SightVault/qa/d1-v2/classification_memory_policy_probe.json",
+    "network_isolation": "macOS sandbox-exec outbound-deny profile allowing localhost:* plus in-process DNS/socket guard",
+    "post_d1_exit_environment_snapshot": {
+      "captured_at_utc": "2026-10-30T14:54:24Z",
+      "d1_runner_process_present": false,
+      "other_agent_or_app_activity_may_be_included": true,
+      "memory_pressure_free_percent": 83,
+      "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     4122.\nPages active:                                 418048.\nPages inactive:                               417561.\nPages speculative:                              2604.\nPages throttled:                                   0.\nPages wired down:                             123794.\nPages purgeable:                                3271.\n\"Translation faults\":                      419677570.\nPages copy-on-write:                        12064558.\nPages zero filled:                         297629178.\nPages reactivated:                          44943400.\nPages purged:                                9611653.\nFile-backed pages:                            445038.\nAnonymous pages:                              393175.\nPages stored in compressor:                  1490553.\nPages occupied by compressor:                  42883.\nDecompressions:                             49979190.\nCompressions:                               66222542.\nPageins:                                    48474830.\nPageouts:                                     215660.\nSwapins:                                     1609179.\nSwapouts:                                    3246066.",
+      "swap_usage": "vm.swapusage: total = 17408.00M  used = 15926.62M  free = 1481.38M (encrypted)",
+      "interpretation": "This is a later whole-machine snapshot, possibly including other app/agent activity. It is not a d1-only measurement and is not used to explain the 15-call trend."
+    }
+  }
+}

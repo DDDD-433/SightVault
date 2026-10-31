@@ -1,5 +1,7 @@
 # Copy this prompt into the Mac orchestrator
 
+> Historical task prompt from the original migration snapshot at baseline `766027c`. It is retained as context and is not the active task instruction. Its model, setup and QA status may be stale. Use `docs/PORTABLE_SETUP.md` and the release-selected QA reports for current guidance.
+
 You are taking over SightVault after a Windows-to-Mac transfer. Work in the extracted project folder. Act as the primary orchestrator using **6.1 Sol at medium/high reasoning**, as available in this environment. Use **luna-max-standard** for delegated subagents when that exact selector is available. Also use the installed **AGY CLI**, **Cursor agent CLI**, and **free models in OpenCode CLI** for bounded parallel work when useful. Inspect actual executable help and model listings before invoking them; model names and flags are not assumed. If a requested selector/tool is unavailable, report it and continue useful local work without silently substituting a paid model. You are authorized to delegate and to implement/test the migration.
 
 Goal: leave this actual Mac with a working local SightVault app, a reliable Mac launcher and reproducible setup, verified real model inference, truthful CPU/MPS status, and a complete demo. Carry the goal through implementation and QA; do not stop at a plan or compatibility advice.

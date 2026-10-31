@@ -1,0 +1,164 @@
+{
+  "dataset": "SightVault d1 diagnostic supplement; separate from the 62-image baseline and retrieval candidate pool",
+  "labels": {
+    "chart": "A standalone plotted data visualization with axes and bars or a connected line.",
+    "table": "A standalone data table with visible row/column cell borders and headers.",
+    "person_crop": "A crop from the existing bridge photograph that visibly contains pedestrians; both crops share one source image."
+  },
+  "images": [
+    {
+      "id": "D01",
+      "file": "chart-bars.png",
+      "sha256": "f2c40139ff5f93cc846a7bff0972beb42c6701ba85775363981c6418a911c5d9",
+      "width": 1000,
+      "height": 700,
+      "content_type": "chart",
+      "labels": {
+        "contains_error": false,
+        "contains_terminal": false,
+        "contains_code": false,
+        "contains_receipt": false,
+        "contains_document": false,
+        "contains_chart": true,
+        "contains_table": false,
+        "contains_ui": false,
+        "contains_person": false
+      },
+      "source": {
+        "kind": "deterministic synthetic Pillow fixture",
+        "generator": "make_diagnostic_supplement.py"
+      }
+    },
+    {
+      "id": "D02",
+      "file": "chart-line.png",
+      "sha256": "49cd849eb95da7a0b94df7def0ed417ea4fa58d3afde9b0ae1660244351547cb",
+      "width": 1000,
+      "height": 700,
+      "content_type": "chart",
+      "labels": {
+        "contains_error": false,
+        "contains_terminal": false,
+        "contains_code": false,
+        "contains_receipt": false,
+        "contains_document": false,
+        "contains_chart": true,
+        "contains_table": false,
+        "contains_ui": false,
+        "contains_person": false
+      },
+      "source": {
+        "kind": "deterministic synthetic Pillow fixture",
+        "generator": "make_diagnostic_supplement.py"
+      }
+    },
+    {
+      "id": "D03",
+      "file": "table-inventory.png",
+      "sha256": "c31f543e867a91c8040fdce11136fd326cf53db6b9283cac2fbd9d07366c3a89",
+      "width": 1000,
+      "height": 700,
+      "content_type": "table",
+      "labels": {
+        "contains_error": false,
+        "contains_terminal": false,
+        "contains_code": false,
+        "contains_receipt": false,
+        "contains_document": false,
+        "contains_chart": false,
+        "contains_table": true,
+        "contains_ui": false,
+        "contains_person": false
+      },
+      "source": {
+        "kind": "deterministic synthetic Pillow fixture",
+        "generator": "make_diagnostic_supplement.py"
+      }
+    },
+    {
+      "id": "D04",
+      "file": "table-monthly.png",
+      "sha256": "23a285151d6c972097afa4cc56a91efb94baef13050393d032627a02dcd74e60",
+      "width": 1000,
+      "height": 700,
+      "content_type": "table",
+      "labels": {
+        "contains_error": false,
+        "contains_terminal": false,
+        "contains_code": false,
+        "contains_receipt": false,
+        "contains_document": false,
+        "contains_chart": false,
+        "contains_table": true,
+        "contains_ui": false,
+        "contains_person": false
+      },
+      "source": {
+        "kind": "deterministic synthetic Pillow fixture",
+        "generator": "make_diagnostic_supplement.py"
+      }
+    },
+    {
+      "id": "D05",
+      "file": "person-crop-left-group.png",
+      "sha256": "dd05896578153d6a60aa00d5e92629dcf29bbd0212ae4670bae23eccc569b31b",
+      "width": 300,
+      "height": 420,
+      "content_type": "photo",
+      "labels": {
+        "contains_error": false,
+        "contains_terminal": false,
+        "contains_code": false,
+        "contains_receipt": false,
+        "contains_document": false,
+        "contains_chart": false,
+        "contains_table": false,
+        "contains_ui": false,
+        "contains_person": true
+      },
+      "source": {
+        "kind": "crop from baseline I001",
+        "url": "https://raw.githubusercontent.com/google-gemma/cookbook/refs/heads/main/apps/sample-data/GoldenGate.png",
+        "crop_box_xyxy": [
+          0,
+          465,
+          50,
+          535
+        ],
+        "pixels_upscaled_by": 6,
+        "independence_note": "Both person crops come from the same original photo and are correlated diagnostics, not independent source images."
+      }
+    },
+    {
+      "id": "D06",
+      "file": "person-crop-center-group.png",
+      "sha256": "c5d6ff8b11d3ffd30111b3bfc59b0f6148f59ab3ff6b1f69a2b458e3f96baf82",
+      "width": 270,
+      "height": 420,
+      "content_type": "photo",
+      "labels": {
+        "contains_error": false,
+        "contains_terminal": false,
+        "contains_code": false,
+        "contains_receipt": false,
+        "contains_document": false,
+        "contains_chart": false,
+        "contains_table": false,
+        "contains_ui": false,
+        "contains_person": true
+      },
+      "source": {
+        "kind": "crop from baseline I001",
+        "url": "https://raw.githubusercontent.com/google-gemma/cookbook/refs/heads/main/apps/sample-data/GoldenGate.png",
+        "crop_box_xyxy": [
+          35,
+          465,
+          80,
+          535
+        ],
+        "pixels_upscaled_by": 6,
+        "independence_note": "Both person crops come from the same original photo and are correlated diagnostics, not independent source images."
+      }
+    }
+  ]
+}

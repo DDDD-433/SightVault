@@ -1,0 +1,5 @@
+{
+  "format_version": 1,
+  "files": [],
+  "note": "Add only individually reviewed, public QA artifacts. Raw agent logs and private run outputs are excluded by default."
+}

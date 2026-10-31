@@ -1,0 +1,11 @@
+# Isolated experimental reference runtime only; never install into SightVault's stable or LFM3 environment.
+accelerate==1.15.0
+huggingface-hub==2.4.0
+numpy==2.5.4
+pillow==13.0.0
+psutil==7.2.2
+safetensors==0.8.0
+tokenizers==0.23.3
+torch==2.11.0
+torchvision==0.26.0
+transformers==5.22.0

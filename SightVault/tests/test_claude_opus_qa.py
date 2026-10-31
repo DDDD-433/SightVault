@@ -1,6 +1,5 @@
 """Opus review regressions. Baseline failures are documented in OPUS_REPORT.md;
 resolved cases now assert correct behavior without expected-failure markers."""
-import ast
 import json
 import os
 import re
@@ -17,6 +16,7 @@ from sightvault.metadata import image_metadata
 from sightvault.models import Models, ModelUnavailable
 from sightvault.search import Search
 from sightvault.server import create_app
+from scripts.build_portable_package import collect_source_files
 from test_core import env, record
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -153,21 +153,30 @@ def test_negative_oversized_ids_are_not_server_errors(env, path):
 
 # --- Packaging safety ------------------------------------------------------------------------------
 
-def _package_qa_selection():
-    """Evaluate only package.py's QA-evidence selection expression; never runs the packager."""
-    tree = ast.parse((ROOT / 'scripts' / 'package.py').read_text())
-    for node in tree.body:
-        if isinstance(node, ast.Expr) and "'qa'" in ast.unparse(node):
-            files = []
-            eval(compile(ast.Expression(node.value), 'package.py', 'eval'), {'root': ROOT, 'files': files, 'Path': Path})
-            return files
-    raise AssertionError('QA selection not found in package.py')
+def test_package_excludes_agent_transcripts_and_account_metadata(tmp_path):
+    source_root = tmp_path / 'source'
+    (source_root / 'scripts').mkdir(parents=True)
+    (source_root / 'qa').mkdir()
+    (source_root / 'scripts' / 'public.py').write_text('pass\n')
+    fixtures = {
+        'qa/claude-stream.raw': 'agent transcript content',
+        'qa/CLAUDE_RUN_2026-10-30.json': '{"transcript":"private"}',
+        'qa/account.json': '{"account_email":"tester@example.com"}',
+    }
+    for relative, content in fixtures.items():
+        (source_root / relative).write_text(content)
 
-def test_package_excludes_agent_transcripts_and_account_metadata():
-    selected = {str(p.relative_to(ROOT)) for p in _package_qa_selection()}
-    leaked = {p for p in selected if re.search(r'claude-stream|CLAUDE_RUN', p)}
-    leaked |= {p for p in selected if '@gmail.com' in (ROOT / p).read_text(errors='ignore')}
-    assert not leaked, sorted(leaked)
+    source_allowlist = tmp_path / 'source-allowlist.json'
+    source_allowlist.write_text(json.dumps({
+        'format_version': 1,
+        'root_files': [],
+        'trees': [{'path': 'scripts', 'extensions': ['.py']}],
+    }))
+    empty_qa_allowlist = ROOT / 'packaging' / 'EMPTY_QA_ALLOWLIST.json'
+    selected = collect_source_files(source_root, source_allowlist, empty_qa_allowlist)
+
+    assert set(selected) == {'scripts/public.py'}
+    assert not ({relative for relative in fixtures} & set(selected))
 
 # --- UI date boundaries (node runs the exact helper from app.js) -----------------------------------
 

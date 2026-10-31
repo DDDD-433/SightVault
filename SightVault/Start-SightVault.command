@@ -12,4 +12,6 @@ fi
 # Auto selects validated MPS embedding and local MLX generative adapters on Apple Silicon.
 export SIGHTVAULT_DEVICE="${SIGHTVAULT_DEVICE:-auto}"
 export SIGHTVAULT_PORT="${SIGHTVAULT_PORT:-7861}"
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
 exec .venv/bin/python scripts/launch.py

@@ -1,0 +1,189 @@
+{
+  "routing_policy": {
+    "fast_ocr": "A local OCR path for literal transcription or lookup of ordinary screenshot/page text.",
+    "document_specialist": "A local document/layout path for structured fields in an itemized receipt.",
+    "vision_language_model": "A local VLM path for scene, object, color, or appearance questions that require visual grounding."
+  },
+  "cases": [
+    {
+      "id": "R01",
+      "image_id": "I002",
+      "task": "What owner and target time are written in the meeting notes?"
+    },
+    {
+      "id": "R02",
+      "image_id": "I003",
+      "task": "What project materials does the application checklist say to collect?"
+    },
+    {
+      "id": "R03",
+      "image_id": "I006",
+      "task": "Transcribe the two endpoint methods and paths shown in the API notes."
+    },
+    {
+      "id": "R04",
+      "image_id": "I007",
+      "task": "Which topic is listed for Tuesday in the study plan?"
+    },
+    {
+      "id": "R05",
+      "image_id": "I011",
+      "task": "Read the two inputs to photosynthesis shown on the slide."
+    },
+    {
+      "id": "R06",
+      "image_id": "I017",
+      "task": "Transcribe the SQL example shown on the joins slide."
+    },
+    {
+      "id": "R07",
+      "image_id": "I019",
+      "task": "What does the slide say about the second normal form?"
+    },
+    {
+      "id": "R08",
+      "image_id": "I053",
+      "task": "What memory allocation size is shown in the failure output?"
+    },
+    {
+      "id": "R09",
+      "image_id": "I055",
+      "task": "What duplicate key value appears in the database error?"
+    },
+    {
+      "id": "R10",
+      "image_id": "I057",
+      "task": "Which peer dependency versions are shown in the npm error?"
+    },
+    {
+      "id": "R11",
+      "image_id": "I059",
+      "task": "What Python module is reported missing?"
+    },
+    {
+      "id": "R12",
+      "image_id": "I033",
+      "task": "Transcribe the title of the board and its three column headers."
+    },
+    {
+      "id": "R13",
+      "image_id": "I041",
+      "task": "Extract the merchant, purchased item, subtotal, tax, and total from this receipt."
+    },
+    {
+      "id": "R14",
+      "image_id": "I042",
+      "task": "Extract the merchant, purchased item, subtotal, tax, and total from this receipt."
+    },
+    {
+      "id": "R15",
+      "image_id": "I043",
+      "task": "Extract the merchant, purchased item, subtotal, tax, and total from this receipt."
+    },
+    {
+      "id": "R16",
+      "image_id": "I044",
+      "task": "Extract the merchant, purchased item, subtotal, tax, and total from this receipt."
+    },
+    {
+      "id": "R17",
+      "image_id": "I045",
+      "task": "Extract the merchant, purchased item, subtotal, tax, and total from this receipt."
+    },
+    {
+      "id": "R18",
+      "image_id": "I046",
+      "task": "Extract the merchant, purchased item, subtotal, tax, and total from this receipt."
+    },
+    {
+      "id": "R19",
+      "image_id": "I047",
+      "task": "Extract the merchant, purchased item, subtotal, tax, and total from this receipt."
+    },
+    {
+      "id": "R20",
+      "image_id": "I048",
+      "task": "Extract the merchant, purchased item, subtotal, tax, and total from this receipt."
+    },
+    {
+      "id": "R21",
+      "image_id": "I049",
+      "task": "Extract the merchant, purchased item, subtotal, tax, and total from this receipt."
+    },
+    {
+      "id": "R22",
+      "image_id": "I050",
+      "task": "Extract the merchant, purchased item, subtotal, tax, and total from this receipt."
+    },
+    {
+      "id": "R23",
+      "image_id": "I051",
+      "task": "Extract the merchant, purchased item, subtotal, tax, and total from this receipt."
+    },
+    {
+      "id": "R24",
+      "image_id": "I052",
+      "task": "Extract the merchant, purchased item, subtotal, tax, and total from this receipt."
+    },
+    {
+      "id": "R25",
+      "image_id": "I001",
+      "task": "What bridge is shown, and are any people visible near it?"
+    },
+    {
+      "id": "R26",
+      "image_id": "I010",
+      "task": "What cookware and utensils can be seen in this kitchen?"
+    },
+    {
+      "id": "R27",
+      "image_id": "I023",
+      "task": "What color is the illustrated backpack?"
+    },
+    {
+      "id": "R28",
+      "image_id": "I024",
+      "task": "What color is the illustrated backpack?"
+    },
+    {
+      "id": "R29",
+      "image_id": "I025",
+      "task": "What color is the illustrated backpack?"
+    },
+    {
+      "id": "R30",
+      "image_id": "I026",
+      "task": "What color is the illustrated backpack?"
+    },
+    {
+      "id": "R31",
+      "image_id": "I027",
+      "task": "What color is the illustrated mug?"
+    },
+    {
+      "id": "R32",
+      "image_id": "I028",
+      "task": "What color is the illustrated mug?"
+    },
+    {
+      "id": "R33",
+      "image_id": "I029",
+      "task": "What color is the illustrated mug?"
+    },
+    {
+      "id": "R34",
+      "image_id": "I030",
+      "task": "What object is pictured, and what color is its display?"
+    },
+    {
+      "id": "R35",
+      "image_id": "I031",
+      "task": "What object is pictured, and what color is its display?"
+    },
+    {
+      "id": "R36",
+      "image_id": "I032",
+      "task": "What object is pictured, and what color is its display?"
+    }
+  ]
+}
