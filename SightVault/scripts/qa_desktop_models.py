@@ -582,6 +582,7 @@ class FrozenDesktopModelQA:
             'threshold': 0.99,
             'fresh_asset_id': fresh['id'],
             'fresh_path': fresh['filepath'],
+            'embedding_error': fresh.get('embedding_error'),
         }
         self._check('asset_count_63', self._sqlite_asset_count() == 63,
                     'Expected the imported 62 assets plus exactly one owned fixture row')
@@ -602,12 +603,15 @@ class FrozenDesktopModelQA:
         text = row.get('ocr_text') or ''
         has_cuda = 'cuda' in text.lower()
         record = {'backend': row.get('ocr_backend'), 'error': row.get('ocr_error'),
+                  'embedding_error': row.get('embedding_error'),
                   'text_characters': len(text), 'text_sha256': hashlib.sha256(text.encode('utf-8')).hexdigest(),
                   'text_contains_cuda': has_cuda, 'asset_id': row.get('id')}
         self.report['model_runs'][label]['ocr_result'] = record
         good = row.get('ocr_backend') == expected_backend and row.get('ocr_error') is None and has_cuda
         self._check(label + '_actual_backend_and_text', good,
                     f'Expected {expected_backend} to return CUDA text without an OCR error or fallback')
+        self._check(label + '_embedding_error_none', row.get('embedding_error') is None,
+                    'Forced indexing recorded an embedding error or reused a cached vector')
         return row
 
     def _search_cuda_fixture(self):
@@ -663,10 +667,15 @@ class FrozenDesktopModelQA:
         status = self._request_json('/api/status')
         diagnostics = self._request_json('/desktop/api/diagnostics', desktop=True)
         models = status.get('models') or {}
+        embedding = models.get('embedding') or {}
         self._record_runtime('after-rapid-ocr', models)
         self._sample_rss('after-rapid-ocr')
         self._check('final_asset_count_63', status.get('total') == 63 and status.get('with_embeddings') == 63,
                     'Final app status did not show 63 assets with embeddings')
+        self._check('final_embedding_loaded_without_error', embedding.get('loaded') is True
+                    and bool(embedding.get('device')) and bool(embedding.get('precision'))
+                    and embedding.get('error') is None,
+                    'Final forced index did not leave EmbeddingGemma loaded on a reported device without errors')
         self._check('final_offline_guard', diagnostics.get('offline', {}).get('socket_guard', {}).get('installed') is True
                     and diagnostics.get('offline', {}).get('socket_guard', {}).get('probe_denied') is True,
                     'Final diagnostics no longer reported the offline socket-guard self-test')
