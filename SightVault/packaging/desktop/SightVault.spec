@@ -5,7 +5,8 @@ Driven by build_macos.sh / build_windows.ps1, which set:
   SIGHTVAULT_STAGE   staging folder written by stage_resources.py
   SIGHTVAULT_TARGET  macos-arm64 | windows-x64
   SIGHTVAULT_CODESIGN_IDENTITY  optional macOS Developer ID identity (unset: ad-hoc signature)
-No model weights, virtual environments or user data are collected.
+External HF checkpoints and user data are excluded. The embedded Python runtime,
+native libraries and RapidOCR's small ONNX assets are included.
 """
 import os
 from pathlib import Path

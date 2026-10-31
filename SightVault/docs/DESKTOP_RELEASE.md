@@ -73,7 +73,7 @@ The same executable supports QA without a window:
 
 ```text
 SightVault --smoke --report qa.json  start, wait for /api/status, stop; save QA JSON
-SightVault --serve [--port N]      run the loopback server until Ctrl-C or SIGTERM
+SightVault --serve [--port N] [--stop-file <profile/qa.stop>]  run the loopback server; marker allows graceful CI shutdown on Windows
 SightVault --print-paths           print the per-user folders as JSON
 ```
 
@@ -94,7 +94,7 @@ Desktop builds use a separate environment (`.venv-desktop`), so the runtime `.ve
 
   The Windows lock uses `--python-platform x86_64-pc-windows-msvc` with `requirements-windows.lock.txt` and `-o packaging/desktop/requirements-desktop-windows.lock.txt`. Do not loosen existing runtime pins.
 - `packaging/desktop/stage_resources.py` — stages the manifest-verified samples (with recorded dates), the optional demo, and `build-info.json` (source revision, lock hashes, interpreter, build host).
-- `packaging/desktop/SightVault.spec` — PyInstaller spec; collects the UI, the setup page, the model/sample/evidence manifests, the pinned downloader, verifier and MLX converter, and the packages that load code by name at runtime (transformers model modules, sentence-transformers, RapidOCR data, pywebview, MLX/MLX-VLM on macOS). It never collects `.models`, environments or `data/`.
+- `packaging/desktop/SightVault.spec` — PyInstaller spec; collects the UI, the setup page, the model/sample/evidence manifests, the pinned downloader, verifier and MLX converter, and the packages that load code by name at runtime (transformers model modules, sentence-transformers, RapidOCR data, pywebview, MLX/MLX-VLM on macOS). It excludes external `.models` checkpoints and user libraries. The native app includes Python, runtime libraries and RapidOCR's small ONNX model assets; it is not a source-only archive.
 
 Builds are not bit-for-bit reproducible (PyInstaller and native libraries embed build paths and timestamps); the locks, `build-info.json`, `build-environment.txt` and the artifact `.sha256` record exactly what went in.
 

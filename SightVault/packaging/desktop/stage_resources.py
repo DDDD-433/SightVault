@@ -27,6 +27,7 @@ from scripts.build_portable_package import (  # noqa: E402  (reuse the reviewed 
     checked_demo_evidence, confined_file, demo_rows, load_demo_evidence_manifest,
     public_image_manifest_entries, relative_path, source_revision, sqlite_backup,
 )
+from sightvault.desktop import APP_VERSION
 
 LOCK_FILES = ('requirements-mac.lock.txt', 'requirements-windows.lock.txt',
               'packaging/desktop/requirements-desktop-macos.lock.txt',
@@ -107,6 +108,7 @@ def main(argv=None):
         parser.error('Staging folder cannot contain the source tree')
     stage.mkdir(parents=True, exist_ok=True)
     report = {'artifact_type': 'SightVault desktop build inputs', 'platform': args.platform,
+              'app_version': APP_VERSION,
               'created_utc': datetime.now(timezone.utc).isoformat(timespec='seconds'),
               'source_revision': source_revision(ROOT), 'python': sys.version.split()[0],
               'build_host': {'system': platform.system(), 'machine': platform.machine(), 'release': platform.release()},

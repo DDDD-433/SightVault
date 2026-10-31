@@ -27,20 +27,32 @@ jobs:
         with:
           python-version: 3.12.9
           architecture: x64
+          cache: pip
+          cache-dependency-path: |
+            SightVault/requirements-windows.lock.txt
+            SightVault/packaging/desktop/requirements-desktop-windows.lock.txt
       - name: Locate the installer compiler
         run: |
           $Compiler = Join-Path ${env:ProgramFiles(x86)} 'Inno Setup 6'
           if (-not (Test-Path "$Compiler\ISCC.exe")) { throw 'Inno Setup 6 is required for this installer job.' }
           $Compiler | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      - name: Install pinned runtime and build dependencies
+        run: |
+          python -m venv .venv-desktop
+          if ($LASTEXITCODE -ne 0) { throw 'Creating build environment failed.' }
+          & ./.venv-desktop/Scripts/python.exe -m pip install --require-hashes -r requirements-windows.lock.txt
+          if ($LASTEXITCODE -ne 0) { throw 'Runtime installation failed.' }
+          & ./.venv-desktop/Scripts/python.exe -m pip install --require-hashes -r packaging/desktop/requirements-desktop-windows.lock.txt
+          if ($LASTEXITCODE -ne 0) { throw 'Desktop dependency installation failed.' }
+      - name: Run source regressions on native Windows
+        run: |
+          & ./.venv-desktop/Scripts/python.exe -m pytest -q --junitxml=build/desktop/windows-unit-tests.xml
+          if ($LASTEXITCODE -ne 0) { throw 'Windows regressions failed.' }
       - name: Build installer and smoke-test the frozen app
         env:
           SIGHTVAULT_DEMO_DB: packaging/desktop/public-demo/sightvault.sqlite3
           SIGHTVAULT_DEMO_DATA_ROOT: packaging/desktop/public-demo
         run: ./packaging/desktop/build_windows.ps1
-      - name: Run source regressions on native Windows
-        run: |
-          & ./.venv-desktop/Scripts/python.exe -m pytest -q --junitxml=build/desktop/windows/unit-tests.xml
-          if ($LASTEXITCODE -ne 0) { throw 'Windows regressions failed.' }
       - name: Upload unsigned development installer and evidence
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
@@ -52,4 +64,15 @@ jobs:
             SightVault/build/desktop/windows/*.sha256
             SightVault/build/desktop/windows/smoke.json
             SightVault/build/desktop/windows/build-environment.txt
-            SightVault/build/desktop/windows/unit-tests.xml
+            SightVault/build/desktop/windows-unit-tests.xml
+      - name: Upload failure evidence
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: SightVault-Windows-failure-evidence
+          retention-days: 1
+          if-no-files-found: ignore
+          path: |
+            SightVault/build/desktop/windows-unit-tests.xml
+            SightVault/build/desktop/windows/smoke.json
+            SightVault/build/desktop/windows/smoke.err.txt

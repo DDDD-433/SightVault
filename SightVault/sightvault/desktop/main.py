@@ -58,6 +58,7 @@ def parse_args(argv):
     mode.add_argument('--print-paths', action='store_true', help='Print the per-user data/model/log folders')
     parser.add_argument('--port', type=int, default=0, help='Loopback port for --serve or --smoke (default: any free port)')
     parser.add_argument('--report', type=Path, help='Write QA JSON here even in a windowed executable')
+    parser.add_argument('--stop-file', type=Path, help='With --serve, stop gracefully when this owned profile marker is created')
     # macOS Finder may pass a -psn_ process serial number argument on older systems.
     args, unknown = parser.parse_known_args(argv)
     unexpected = [item for item in unknown if not item.startswith('-psn_')]
@@ -65,6 +66,8 @@ def parse_args(argv):
         parser.error('Unknown arguments: ' + ' '.join(unexpected))
     if not 0 <= args.port < 65536:
         parser.error('--port must be between 0 and 65535')
+    if args.stop_file is not None and not args.serve:
+        parser.error('--stop-file is only supported with --serve')
     return args
 
 
@@ -83,8 +86,16 @@ def main(argv=None):
         return run(argv[1:])
     args = parse_args(argv)
     from .paths import UnsafePathError, prepare, resolve_paths
+    stop_file = None
     try:
         paths = prepare(resolve_paths())
+        if args.stop_file is not None:
+            marker = args.stop_file.expanduser()
+            if not marker.is_absolute() or not marker.resolve().is_relative_to(paths.base.resolve()):
+                raise UnsafePathError('--stop-file must be an absolute path inside this profile.')
+            if marker.exists() or marker.is_symlink():
+                raise UnsafePathError('--stop-file already exists; use a fresh owned marker.')
+            stop_file = marker.resolve()
     except (UnsafePathError, OSError) as exc:
         _ensure_stdio()
         print(f'SightVault cannot use its storage folder: {exc}', file=sys.stderr)
@@ -149,7 +160,8 @@ def main(argv=None):
             signal.signal(signal.SIGTERM, lambda *_: stop.set())
             try:
                 while server.running and not stop.wait(0.5):
-                    pass
+                    if stop_file is not None and stop_file.exists():
+                        break
             except KeyboardInterrupt:
                 pass
             return 0

@@ -1,3 +1,4 @@
+from contextlib import closing
 import hashlib
 import json
 import os
@@ -47,7 +48,7 @@ def _make_public_demo_fixture(source_root, data_root, db_path, *, symlink_images
 
     sample_records = []
     evidence_by_sha = {}
-    with sqlite3.connect(db_path) as db:
+    with closing(sqlite3.connect(db_path)) as db, db:
         db.execute('CREATE TABLE assets (id INTEGER PRIMARY KEY, filename TEXT, filepath TEXT, sha256 TEXT, image_path TEXT, thumbnail_path TEXT, embedding BLOB, embedding_model TEXT)')
         for index in range(62):
             filename = f'demo-{index:02d}.png'
@@ -348,7 +349,7 @@ class PortablePackagingTests(unittest.TestCase):
             samples = []
             records = []
             db_path = root / 'data' / 'sightvault.sqlite3'
-            with sqlite3.connect(db_path) as db:
+            with closing(sqlite3.connect(db_path)) as db, db:
                 db.execute('CREATE TABLE assets (id INTEGER PRIMARY KEY, filename TEXT, filepath TEXT, sha256 TEXT, image_path TEXT, thumbnail_path TEXT, embedding BLOB, embedding_model TEXT)')
                 for index in range(62):
                     filename = f'demo-{index:02d}.png'
@@ -374,7 +375,7 @@ class PortablePackagingTests(unittest.TestCase):
                     records.append({'path': relative, 'size': len(payload), 'sha256': hashlib.sha256(payload).hexdigest()})
             (root / 'handoff' / 'SAMPLE_MANIFEST.json').write_text(json.dumps(samples))
             (root / 'handoff' / 'PORTABLE_PACKAGE_MANIFEST.json').write_text(json.dumps({'demo': {'asset_count': 62}, 'files': records}))
-            with sqlite3.connect(db_path) as db:
+            with closing(sqlite3.connect(db_path)) as db, db:
                 db.execute("UPDATE assets SET filepath = 'C:/extracted/SightVault/samples/' || filename")
 
             output = Path(temporary) / 'disposable-data'
@@ -388,7 +389,7 @@ class PortablePackagingTests(unittest.TestCase):
             self.assertFalse(report['source_path_rebased'])
             self.assertEqual(len(list((output / 'images').iterdir())), 62)
             self.assertEqual(len(list((output / 'thumbs').iterdir())), 62)
-            with sqlite3.connect(output / 'sightvault.sqlite3') as db:
+            with closing(sqlite3.connect(output / 'sightvault.sqlite3')) as db, db:
                 self.assertEqual(db.execute('PRAGMA integrity_check').fetchone()[0], 'ok')
                 self.assertEqual(db.execute('SELECT count(*) FROM assets').fetchone()[0], 62)
                 self.assertTrue(db.execute('SELECT filepath FROM assets LIMIT 1').fetchone()[0].startswith('C:/extracted/'))

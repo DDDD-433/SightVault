@@ -1,5 +1,6 @@
 """Validate and copy only the packaged public demo into an isolated benchmark root."""
 from __future__ import annotations
+from contextlib import closing
 
 import argparse
 import hashlib
@@ -126,12 +127,12 @@ def prepare_disposable_demo(source_root: Path, output_data: Path) -> dict:
     if any(output_data.iterdir()):
         raise ValueError(f'Disposable benchmark data directory is not empty: {output_data}')
     output_db = output_data / 'sightvault.sqlite3'
-    with sqlite3.connect(uri, uri=True) as source_db:
-        with sqlite3.connect(output_db) as backup_db:
+    with closing(sqlite3.connect(uri, uri=True)) as source_db, source_db:
+        with closing(sqlite3.connect(output_db)) as backup_db, backup_db:
             source_db.backup(backup_db)
             if backup_db.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
                 raise ValueError('SQLite backup for the disposable demo failed integrity_check')
-    with sqlite3.connect(output_db) as demo_db:
+    with closing(sqlite3.connect(output_db)) as demo_db, demo_db:
         demo_db.row_factory = sqlite3.Row
         if demo_db.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
             raise ValueError('Packaged public demo database failed SQLite integrity_check')

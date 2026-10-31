@@ -19,7 +19,7 @@ def safe_path(base, relative):
     relative = Path(relative)
     path = (base / relative).resolve()
     if not path.is_relative_to(base):
-        raise ValueError('Manifest path escapes its root: ' + str(relative))
+        raise ValueError('Manifest path escapes its root: ' + relative.as_posix())
     return path
 
 def required_models(manifest, only=None, with_models=None):

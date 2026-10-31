@@ -169,8 +169,8 @@ def test_lfm3_requires_apple_silicon_and_mlx_device(tmp_path, monkeypatch):
 
 def test_mlx_failure_releases_model_slot_and_traceback_references(tmp_path, monkeypatch):
     import weakref
-    import mlx.core as mx
-    import mlx_vlm
+    mx = pytest.importorskip('mlx.core', reason='MLX backend is Apple Silicon only')
+    mlx_vlm = pytest.importorskip('mlx_vlm', reason='MLX backend is Apple Silicon only')
     import mlx_vlm.prompt_utils
 
     models = Models(Config(root=tmp_path, data=tmp_path/'data', models=tmp_path/'models'))

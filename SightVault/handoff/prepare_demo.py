@@ -1,4 +1,5 @@
 """Validate and relocate only this packaged demo snapshot; default is a dry run."""
+from contextlib import closing
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -59,7 +60,7 @@ def main():
     if not path.is_file():
         raise ValueError('Packaged demo database is missing')
     # Dry run uses a read-only database connection; no file timestamps are changed.
-    with sqlite3.connect(path.as_uri() + '?mode=ro', uri=True) as db:
+    with closing(sqlite3.connect(path.as_uri() + '?mode=ro', uri=True)) as db, db:
         manifest, rows, updates = plan(ROOT, db)
     changed = sum(r['filepath'] != u[0] or r['folder'] != u[1] for r, u in zip(rows, updates))
     report = {'dry_run': not args.apply, 'assets': len(rows), 'paths_to_rebase': changed,
@@ -67,9 +68,9 @@ def main():
     if args.apply:
         stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
         backup = path.with_name(f'sightvault.before-mac-{stamp}-{uuid.uuid4().hex[:8]}.sqlite3')
-        with sqlite3.connect(path) as db:
+        with closing(sqlite3.connect(path)) as db, db:
             # Backup before transaction; stop the app before running this operation.
-            with sqlite3.connect(backup) as target:
+            with closing(sqlite3.connect(backup)) as target, target:
                 db.backup(target)
             db.execute('BEGIN IMMEDIATE')
             # Revalidate after acquiring the write lock before changing any records.

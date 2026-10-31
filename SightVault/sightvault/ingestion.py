@@ -11,6 +11,7 @@ from .metadata import image_metadata
 from .models import EMBEDDING_ID, ModelInitializationError
 
 EXTENSIONS = {'.png','.jpg','.jpeg','.webp','.bmp','.tif','.tiff'}
+_WINDOWS = os.name == 'nt'
 
 def scan_folder(folder, limit=2000, warnings=None):
     try:
@@ -53,11 +54,22 @@ def scan_folder(folder, limit=2000, warnings=None):
 
 def _atomic_save(image, target, **kwargs):
     fd, name = tempfile.mkstemp(prefix=target.name + '.', suffix='.partial', dir=target.parent)
-    os.close(fd)
     temporary = Path(name)
     try:
-        image.save(temporary, **kwargs)
-        os.replace(temporary, target)
+        # Keep ownership of the mkstemp handle while encoding. Closing and reopening
+        # it leaves a Windows sharing-lock race with concurrent writers/scanners.
+        with os.fdopen(fd, 'wb') as stream:
+            image.save(stream, **kwargs)
+        for attempt in range(8):
+            try:
+                os.replace(temporary, target)
+                break
+            except PermissionError:
+                if not _WINDOWS or attempt == 7:
+                    raise
+                # Windows can briefly deny replacement of a just-written target.
+                # Retry only this platform's sharing/permission failure, bounded to 1 s.
+                time.sleep(min(.025 * 2 ** attempt, .2))
     finally:
         temporary.unlink(missing_ok=True)
 

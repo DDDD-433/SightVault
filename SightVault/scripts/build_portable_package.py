@@ -1,5 +1,6 @@
 """Build a deterministic source-and-setup ZIP from reviewed inputs only."""
 from __future__ import annotations
+from contextlib import closing
 
 import argparse
 import hashlib
@@ -331,7 +332,7 @@ def demo_rows(source_root: Path, demo_db: Path, demo_data_root: Path,
             raise ValueError(f'Missing or changed public demo image: {rel.as_posix()}')
 
     uri = demo_db.resolve().as_uri() + '?mode=ro'
-    with sqlite3.connect(uri, uri=True) as db:
+    with closing(sqlite3.connect(uri, uri=True)) as db, db:
         db.row_factory = sqlite3.Row
         if db.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
             raise ValueError('Demo database failed SQLite integrity_check')
@@ -365,8 +366,8 @@ def demo_rows(source_root: Path, demo_db: Path, demo_data_root: Path,
 
 
 def sqlite_backup(source: Path, target: Path) -> None:
-    with sqlite3.connect(source.resolve().as_uri() + '?mode=ro', uri=True) as db:
-        with sqlite3.connect(target) as backup:
+    with closing(sqlite3.connect(source.resolve().as_uri() + '?mode=ro', uri=True)) as db, db:
+        with closing(sqlite3.connect(target)) as backup, backup:
             db.backup(backup)
             if backup.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
                 raise ValueError('SQLite backup failed integrity_check')

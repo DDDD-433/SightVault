@@ -1,8 +1,10 @@
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from PIL import ExifTags
 
 def iso_timestamp(seconds):
-    return datetime.fromtimestamp(seconds, timezone.utc).isoformat(timespec='seconds')
+    # Windows' C runtime rejects negative POSIX timestamps. UTC arithmetic keeps
+    # genuine pre-1970 file dates portable without clamping or inventing a date.
+    return (datetime(1970, 1, 1, tzinfo=timezone.utc) + timedelta(seconds=seconds)).isoformat(timespec='seconds')
 
 def image_metadata(path, image):
     stat = path.stat()
