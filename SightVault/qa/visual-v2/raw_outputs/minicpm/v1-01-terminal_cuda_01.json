@@ -1,0 +1,33 @@
+{
+  "candidate": "minicpm",
+  "case_id": "v1-01-terminal_cuda_01",
+  "category": "terminal",
+  "source_group": "preserved-v1",
+  "image_path": "samples/terminal_cuda_01.png",
+  "image_sha256": "e111e96e05c86eae8728d6e2970788576653482405065ceb215b4b540a946c2f",
+  "question": "What error is displayed, and what does the visible text suggest about the failure?",
+  "ocr_context_sha256": "cf165309f229c9ffeb18677d493f74586f5e1148af010ce6667dabde52522024",
+  "prompt_sha256": "749119fef8cf8f0b5b6c5187e4f2f393480a366cba7a667efd0016a438fe7225",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 49286,
+  "answer": "The visible text displays: `torch.OutofMemoryError: CUDA out of memory`. The visible text suggests the failure is due to insufficient CUDA memory, as the error indicates CUDA out of memory. The visible text implies the system is trying to allocate memory but is insufficient, likely causing the error.",
+  "answer_chars": 301,
+  "request_latency_s": 1.754,
+  "prompt_tokens": 584,
+  "output_tokens": 60,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 109.227,
+  "error": null,
+  "final_answer_tokens": 59,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The visible text displays: `torch.OutofMemoryError: CUDA out of memory`. The visible text suggests the failure is due to insufficient CUDA memory, as the error indicates CUDA out of memory. The visible text implies the system is trying to allocate memory but is insufficient, likely causing the error.",
+  "mlx_peak_memory_bytes_after_request": 3498908302,
+  "mlx_active_memory_bytes_after_request": 2668284290,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

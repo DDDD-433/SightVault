@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The operation that failed was a **RuntimeError: MPS backend out of memory**.\n\nThe visible memory figures are:\n- **MPS allocated:** 7.45 GiB\n- **other allocations:** 2.82 GiB\n- **max allowed:** 10.24 GiB\n- **request:** 1.10 GiB\n\nThis indicates the process exceeded its memory limit (request 1.10 GiB vs. max allowed 10.24 GiB), causing the out-of-memory error."
+      }
+    }
+  ],
+  "created": 1793392691,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 108,
+    "prompt_tokens": 1517,
+    "total_tokens": 1625,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-DKkSuNt5U0XQmtCQ1tZmNq8gwiAdGfy0",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1517,
+    "prompt_ms": 2724.343,
+    "prompt_per_token_ms": 1.7958754119973632,
+    "prompt_per_second": 556.831500291997,
+    "predicted_n": 108,
+    "predicted_ms": 1153.993,
+    "predicted_per_token_ms": 10.784981308411215,
+    "predicted_per_second": 92.72153297290366
+  }
+}

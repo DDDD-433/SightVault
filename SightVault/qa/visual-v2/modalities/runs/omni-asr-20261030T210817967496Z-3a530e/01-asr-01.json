@@ -1,0 +1,61 @@
+{
+  "task_id": "asr-01",
+  "kind": "asr",
+  "started_at_utc": "2026-10-30T21:08:19.628246+00:00",
+  "http_status": 200,
+  "latency_s": 0.44,
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 9,
+    "prompt_tokens": 46,
+    "total_tokens": 55,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 46,
+    "prompt_ms": 327.505,
+    "prompt_per_token_ms": 7.119673913043478,
+    "prompt_per_second": 140.45587090273432,
+    "predicted_n": 9,
+    "predicted_ms": 86.088,
+    "predicted_per_token_ms": 10.761,
+    "predicted_per_second": 92.92816652727443
+  },
+  "answer": "The green stat is light as steady.",
+  "input_audio_path": "qa/visual-v2/modality-fixtures/asr-01.wav",
+  "input_audio_sha256": "a548b25464f5f34a7f9b003a554375fa28af0c777a46ae5daa2cb267ff7df131",
+  "input_video_path": null,
+  "input_video_sha256": null,
+  "image_path": null,
+  "image_sha256": null,
+  "question": null,
+  "reference_transcript": "The green status light is steady.",
+  "reference_facts": null,
+  "spoken_phrase": null,
+  "paired_spoken_task_id": null,
+  "system_prompt": "Perform ASR in English.",
+  "request_endpoint": "/v1/chat/completions",
+  "speaker_reference_path": null,
+  "speaker_reference_sha256": null,
+  "text": null,
+  "rss_tree_before_bytes": 1716928512,
+  "error": null,
+  "content_type": "application/json; charset=utf-8",
+  "rss_tree_peak_bytes": 1728348160,
+  "raw_response_file": "01-asr-01-response.bin",
+  "raw_response_sha256": "84ed26e053065061c95e9dff5c5d0ef68cdac2bab869a903f03d91cfa6931fe4",
+  "answer_sha256": "3b0ffdfe543502304e82bd0061253e1da7e5b1a9463a7fe4ab81991860909763",
+  "asr_word_error_rate": {
+    "reference_words": 6,
+    "hypothesis_words": 7,
+    "word_errors": 3,
+    "wer": 0.5,
+    "normalization": "lowercase alphanumeric word tokens; no number or name normalization"
+  },
+  "rss_tree_after_bytes": 1728348160,
+  "rss_peak_increase_during_call_bytes": 11419648,
+  "finished_at_utc": "2026-10-30T21:08:20.071860+00:00"
+}

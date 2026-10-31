@@ -1,0 +1,192 @@
+{
+  "experiment": "visual-v2-first-pixel-smoke",
+  "baseline_commit": "766027c79d4c6f17ba7b88b1df3bc079dfbbd141",
+  "image_path": "samples/terminal_eresolve_01.png",
+  "image_sha256": "dde7d4e3d8ed3bd7bdb671ecf7da43950e5289c9a7725e8a5df3006553f7a77b",
+  "question": "Which package versions appear to conflict, and what is the immediate install error?",
+  "prompt_sha256": "73838f77c0e216e4c9b45967a16de923461de78e3a5fa3340ac20781f784ca8d",
+  "ocr_context_sha256": "d58cecac1343125dc72ea6c863e9d8a62d77ba8fe22060cc8b050bd30869ee5d",
+  "max_tokens": 96,
+  "reasoning": "off (llama-server flag and chat_template_kwargs)",
+  "started_at_utc": "2026-10-30T07:26:34.898925+00:00",
+  "runtime_commit": "e0f142d5ddc1461ce721644d92af33db23545105",
+  "candidates": [
+    {
+      "candidate": "bonsai2-4b-q2_0",
+      "model": {
+        "repo": "prism-ml/Ternary-Bonsai-2-4B-gguf",
+        "revision": "8d6557168168f91ea6697a4a49ed2ef622b53adb",
+        "license": "Apache-2.0",
+        "runtime": "upstream llama.cpp",
+        "runtime_commit": "e0f142d5ddc1461ce721644d92af33db23545105",
+        "files": {
+          "Ternary-Bonsai-2-4B-Q2_0.gguf": {
+            "bytes": 1212103520,
+            "sha256": "64a5183b44921bdb5ac4a6f5f92007821d6ebe5c66997d3c147fd214ab9433d4"
+          },
+          "Ternary-Bonsai-2-4B-mmproj-Q8_0.gguf": {
+            "bytes": 366894624,
+            "sha256": "db939d5f9b7014137810205e91d05e5f54afd72b0b3af9d33bd7d82f7906a55d"
+          }
+        }
+      },
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1)(allow default)(deny network-outbound)(allow network-outbound (remote ip \"localhost:*\"))",
+        ".runtime/visual-v2/build/bin/llama-server",
+        "-m",
+        ".models/visual-v2/bonsai2-4b-q2_0/Ternary-Bonsai-2-4B-Q2_0.gguf",
+        "--mmproj",
+        ".models/visual-v2/bonsai2-4b-q2_0/Ternary-Bonsai-2-4B-mmproj-Q8_0.gguf",
+        "--alias",
+        "sightvault-visual-v2-smoke",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "18765",
+        "--no-webui",
+        "--ctx-size",
+        "4096",
+        "--predict",
+        "96",
+        "--threads",
+        "6",
+        "--gpu-layers",
+        "99",
+        "--temp",
+        "0",
+        "--seed",
+        "1",
+        "--no-warmup",
+        "--reasoning",
+        "off"
+      ],
+      "server_ready_s": 7.262,
+      "request_latency_s": 6.386,
+      "http_status": 200,
+      "answer": "The screenshot shows an `npm install` command failing with an `ERESOLVE` error. The immediate issue is a dependency conflict between `react@19.0.0` (found in `dashboard@1.0.0`) and `legacy-widget@2.3.1`, which requires `react@\"^18.0.0\"`.\n\n**Facts:**\n- `npm ERR! code ERESOLVE`\n- `Found: react",
+      "response_raw_path": "bonsai2-4b-q2_0-response.json",
+      "server_log_path": "local-only server log; excluded from tracked evidence",
+      "peak_process_rss_bytes": 2322694144,
+      "sockets_before_request": [
+        {
+          "status": "LISTEN",
+          "local": "127.0.0.1:18765",
+          "remote": null
+        }
+      ],
+      "sockets_after_request": [
+        {
+          "status": "LISTEN",
+          "local": "127.0.0.1:18765",
+          "remote": null
+        }
+      ],
+      "sandbox_profile": "(version 1)(allow default)(deny network-outbound)(allow network-outbound (remote ip \"localhost:*\"))",
+      "offline_evidence": "macOS sandbox denies network-outbound and allows localhost; local model/projector/image paths only; no -hf shortcut",
+      "finish_reason": "length",
+      "prompt_tokens": 970,
+      "output_tokens": 96,
+      "total_tokens": 1066,
+      "tokens_per_second": 42.05800906239416,
+      "truncated_at_token_limit": true,
+      "server_process_terminated_before_slot_release": true,
+      "server_exit_code": null,
+      "server_exit_code_note": "not captured by the original smoke wrapper",
+      "image_grounding_claim": "not established; this smoke included stored OCR context",
+      "runtime_binary_sha256": "2d973f9be4949e8df3f66ac3a45808ef01e5d8325c5f236a6151cd7924302a13"
+    },
+    {
+      "candidate": "lfm3-omni-2b-q4_k_m",
+      "model": {
+        "repo": "LiquidAI/LFM3-Omni-2B-GGUF",
+        "revision": "3d29af2ad166f8299c2d820937e47dc0add20ffc",
+        "license": "LFM Open License v1.0",
+        "runtime": "upstream llama.cpp",
+        "runtime_commit": "e0f142d5ddc1461ce721644d92af33db23545105",
+        "files": {
+          "LFM3-Omni-2B-Q4_K_M.gguf": {
+            "bytes": 1099630080,
+            "sha256": "9f8d30e9d4fd7a9349d586e077988229b3ca0a0e4ad730897563d1eccc9893e2"
+          },
+          "mmproj-LFM3-Omni-2B-Q4_K_M.gguf": {
+            "bytes": 291586720,
+            "sha256": "0a746c0794782a16d4456b230c2a0b5888a2d94a6677211edbed7d7a4177a39a"
+          }
+        }
+      },
+      "command": [
+        "/usr/bin/sandbox-exec",
+        "-p",
+        "(version 1)(allow default)(deny network-outbound)(allow network-outbound (remote ip \"localhost:*\"))",
+        ".runtime/visual-v2/build/bin/llama-server",
+        "-m",
+        ".models/visual-v2/lfm3-omni-2b-q4_k_m/LFM3-Omni-2B-Q4_K_M.gguf",
+        "--mmproj",
+        ".models/visual-v2/lfm3-omni-2b-q4_k_m/mmproj-LFM3-Omni-2B-Q4_K_M.gguf",
+        "--alias",
+        "sightvault-visual-v2-smoke",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "18766",
+        "--no-webui",
+        "--ctx-size",
+        "4096",
+        "--predict",
+        "96",
+        "--threads",
+        "6",
+        "--gpu-layers",
+        "99",
+        "--temp",
+        "0",
+        "--seed",
+        "1",
+        "--no-warmup",
+        "--reasoning",
+        "off"
+      ],
+      "server_ready_s": 1.279,
+      "request_latency_s": 3.235,
+      "http_status": 200,
+      "answer": "The screenshot shows a `npm install` command failing with the error **\"ERESOLVE unable to resolve dependency tree.\"** The specific conflict is that `dashboard@1.0.0` could not resolve the dependency **\"peer react@^18.0.0\" from legacy-widget@2.3.1.\"**\n\n**Immediate install error:** The package `dashboard@1.0.0` could not resolve the dependency tree, specifically failing to",
+      "response_raw_path": "lfm3-omni-2b-q4_k_m-response.json",
+      "server_log_path": "local-only server log; excluded from tracked evidence",
+      "peak_process_rss_bytes": 1813331968,
+      "sockets_before_request": [
+        {
+          "status": "LISTEN",
+          "local": "127.0.0.1:18766",
+          "remote": null
+        }
+      ],
+      "sockets_after_request": [
+        {
+          "status": "LISTEN",
+          "local": "127.0.0.1:18766",
+          "remote": null
+        }
+      ],
+      "sandbox_profile": "(version 1)(allow default)(deny network-outbound)(allow network-outbound (remote ip \"localhost:*\"))",
+      "offline_evidence": "macOS sandbox denies network-outbound and allows localhost; local model/projector/image paths only; no -hf shortcut",
+      "finish_reason": "length",
+      "prompt_tokens": 978,
+      "output_tokens": 96,
+      "total_tokens": 1074,
+      "tokens_per_second": 90.39887791203334,
+      "truncated_at_token_limit": true,
+      "server_process_terminated_before_slot_release": true,
+      "server_exit_code": null,
+      "server_exit_code_note": "not captured by the original smoke wrapper",
+      "image_grounding_claim": "not established; this smoke included stored OCR context",
+      "runtime_binary_sha256": "2d973f9be4949e8df3f66ac3a45808ef01e5d8325c5f236a6151cd7924302a13"
+    }
+  ],
+  "updated_at_utc": "2026-10-30T07:26:53.178445+00:00",
+  "finished_at_utc": "2026-10-30T07:26:53.178880+00:00",
+  "experiment_commit_at_smoke": "766027c79d4c6f17ba7b88b1df3bc079dfbbd141",
+  "interpretation": "Both candidates accepted a local image and loaded the requested projector. The stored OCR was also in the prompt; both outputs hit the 96-token smoke cap. This is transport/runtime evidence only, not a visual quality or pixels-only result.",
+  "network_attempts": "Native outbound attempts were not instrumented; macOS sandbox denied network-outbound and allowed localhost."
+}

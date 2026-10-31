@@ -1,6 +1,6 @@
 """Verify actual model inference with outbound socket connections blocked."""
 from pathlib import Path
-import argparse,hashlib,sys,socket,time,json
+import argparse,hashlib,sys,socket,time,json,atexit
 sys.path.insert(0,str(Path(__file__).resolve().parent.parent))
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--output',type=Path,default=Path(__file__).resolve().parent.parent/'qa'/'offline-real-model.json')
@@ -18,7 +18,7 @@ from sightvault.config import Config
 from sightvault.models import Models
 from sightvault.database import Database
 from sightvault.search import Search
-config=Config();models=Models(config);search=Search(Database(config.db_path),models)
+config=Config();models=Models(config);atexit.register(models.close);search=Search(Database(config.db_path),models)
 import torch,psutil
 torch.cuda.reset_peak_memory_stats() if torch.cuda.is_available() else None
 report={'outbound_network_connections_blocked':True,'loopback_allowed_for_local_runtime':True,

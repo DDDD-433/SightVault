@@ -1,0 +1,33 @@
+{
+  "candidate": "minicpm",
+  "case_id": "v1-15-object_study_01",
+  "category": "visual_object",
+  "source_group": "preserved-v1",
+  "image_path": "samples/object_study_01.png",
+  "image_sha256": "32a5b97d35e7853853572739885ed61c7a6912955d7133b5df8f7f515e9fe704",
+  "question": "Describe the main visible subject, its colors, and the setting.",
+  "ocr_context_sha256": "62c0346f01131d66a7c0bdaab1205412123d13b520199f07a8d3a53c9600cf3c",
+  "prompt_sha256": "aa43158cd8b9bf767e760f3b799f605225d77eafbac6d846e4118dc774cf1408",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 15317,
+  "answer": "Main subject: A red bag with a dark handle. Colors: Red, dark blue, beige. Setting: Light background. Visible text: \"Object study/illustrated demo,\" \"ILLUSTRATION/visualretrieval test,\" \"SYNTHETIC DEMO / no personal information.\"",
+  "answer_chars": 229,
+  "request_latency_s": 1.677,
+  "prompt_tokens": 451,
+  "output_tokens": 62,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 109.311,
+  "error": null,
+  "final_answer_tokens": 61,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "Main subject: A red bag with a dark handle. Colors: Red, dark blue, beige. Setting: Light background. Visible text: \"Object study/illustrated demo,\" \"ILLUSTRATION/visualretrieval test,\" \"SYNTHETIC DEMO / no personal information.\"",
+  "mlx_peak_memory_bytes_after_request": 3503053454,
+  "mlx_active_memory_bytes_after_request": 2668284290,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "candidate": "minicpm",
+  "case_id": "v1-16-object_study_02",
+  "category": "visual_object",
+  "source_group": "preserved-v1",
+  "image_path": "samples/object_study_02.png",
+  "image_sha256": "8a759f3bd7c69b847c31b6fbc0f61118fce1541323938d124efa906d83727156",
+  "question": "Describe the main visible subject, its colors, and the setting.",
+  "ocr_context_sha256": "d9423312a55ff39e28ccb954c3316b6ee8ca4cd53ed4527d05c1e641bb9a421c",
+  "prompt_sha256": "32f7d5f9ded79e75dd66b496b03c6f060498c725f7c8928434c8a2b409bff01d",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 15323,
+  "answer": "Main subject: blue backpack with a beige rectangle and white lines. Setting: light background. Colors: blue, beige, white. No additional details visible.",
+  "answer_chars": 153,
+  "request_latency_s": 1.404,
+  "prompt_tokens": 451,
+  "output_tokens": 32,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 107.785,
+  "error": null,
+  "final_answer_tokens": 31,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "Main subject: blue backpack with a beige rectangle and white lines. Setting: light background. Colors: blue, beige, white. No additional details visible.",
+  "mlx_peak_memory_bytes_after_request": 3503053454,
+  "mlx_active_memory_bytes_after_request": 2668284290,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

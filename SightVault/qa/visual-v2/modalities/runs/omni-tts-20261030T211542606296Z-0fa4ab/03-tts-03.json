@@ -1,0 +1,54 @@
+{
+  "task_id": "tts-03",
+  "kind": "tts",
+  "started_at_utc": "2026-10-30T21:15:46.230257+00:00",
+  "http_status": 200,
+  "latency_s": 1.072,
+  "finish_reason": null,
+  "usage": null,
+  "server_timings": null,
+  "answer": null,
+  "input_audio_path": null,
+  "input_audio_sha256": null,
+  "input_video_path": null,
+  "input_video_sha256": null,
+  "image_path": null,
+  "image_sha256": null,
+  "question": null,
+  "reference_transcript": null,
+  "reference_facts": null,
+  "spoken_phrase": null,
+  "paired_spoken_task_id": null,
+  "system_prompt": null,
+  "request_endpoint": "/tts",
+  "speaker_reference_path": "qa/visual-v2/modality-fixtures/asr-01.wav",
+  "speaker_reference_sha256": "a548b25464f5f34a7f9b003a554375fa28af0c777a46ae5daa2cb267ff7df131",
+  "text": "A red circle moves left while a blue square stays still.",
+  "rss_tree_before_bytes": 1752514560,
+  "error": null,
+  "content_type": "audio/wav",
+  "rss_tree_peak_bytes": 1752825856,
+  "raw_response_file": "03-tts-03-response.bin",
+  "raw_response_sha256": "81a61778768df229dd4ef9c60e61e307d0a32a15de300dbbeffad4b524417716",
+  "audio_output_file": "03-tts-03.wav",
+  "audio_output_sha256": "81a61778768df229dd4ef9c60e61e307d0a32a15de300dbbeffad4b524417716",
+  "audio_probe_exit_code": 0,
+  "audio_probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16
+      }
+    ],
+    "format": {
+      "duration": "3.840000"
+    }
+  },
+  "rss_tree_after_bytes": 1752334336,
+  "rss_peak_increase_during_call_bytes": 311296,
+  "finished_at_utc": "2026-10-30T21:15:47.305623+00:00"
+}

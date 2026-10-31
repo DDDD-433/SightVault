@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The main visible subject is a stylized illustration of a red backpack (or small suitcase) with dark navy/black trim, a top handle, a horizontal cream stripe near the top, a cream rectangular label, and a larger lower pocket with a cream zipper line and a small tab. The background is a plain light gray/off-white, with a soft gray shadow beneath the object. The setting is a minimalist web interface (a browser-style page) featuring a top navigation bar with red, yellow, and green dots and the text \"Object study / illustrated demo,\" a label \"ILLUSTRATION / visual retrieval test,\" and a footer reading \"SYNTHETIC DEMO / no personal information.\" The colors are limited to red, dark navy/black, cream/off-white, and light gray."
+      }
+    }
+  ],
+  "created": 1793392658,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 166,
+    "prompt_tokens": 1215,
+    "total_tokens": 1381,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-rqQlgEspJMM6pBKPVTzl6I9fci8wZyX6",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1215,
+    "prompt_ms": 2086.804,
+    "prompt_per_token_ms": 1.7175341563786009,
+    "prompt_per_second": 582.2300513129168,
+    "predicted_n": 166,
+    "predicted_ms": 1749.215,
+    "predicted_per_token_ms": 10.60130303030303,
+    "predicted_per_second": 94.32802714360442
+  }
+}

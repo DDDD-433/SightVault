@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Based on the visible evidence, a **mechanical keyboard** was purchased. The receipt shows a quantity of 1 with a subtotal of $79.99, tax of $4.80, and a final **total of $84.79**.\n\nIt is important to distinguish this from the OCR text, which also lists these figures but includes the disclaimer \"PAID - DEMO DATA.\" This indicates the document is a synthetic example rather than a real transaction. Therefore, while the numbers are clearly visible, the actual cause of the purchase or its authenticity cannot be confirmed."
+      }
+    }
+  ],
+  "created": 1793393128,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 121,
+    "prompt_tokens": 1258,
+    "total_tokens": 1379,
+    "prompt_tokens_details": {
+      "cached_tokens": 1254
+    }
+  },
+  "id": "chatcmpl-Um1eHvdsjdrtWDd0AwFBv5QA2AksXVpa",
+  "timings": {
+    "cache_n": 1254,
+    "prompt_n": 4,
+    "prompt_ms": 66.528,
+    "prompt_per_token_ms": 16.632,
+    "prompt_per_second": 60.125060125060116,
+    "predicted_n": 121,
+    "predicted_ms": 2878.834,
+    "predicted_per_token_ms": 23.99028333333333,
+    "predicted_per_second": 41.68354271208413
+  }
+}

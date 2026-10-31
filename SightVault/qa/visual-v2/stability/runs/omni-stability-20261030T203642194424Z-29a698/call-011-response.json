@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The item purchased was a **Mechanical keyboard** (Qty: 1). The total shown on the receipt is **$84.79** (Subtotal $79.99 + Tax $4.80)."
+      }
+    }
+  ],
+  "created": 1793392638,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 44,
+    "prompt_tokens": 1257,
+    "total_tokens": 1301,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-ArBF7dOV0Zo7JAVfv2XUKjC2F0Wzr9lc",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1257,
+    "prompt_ms": 2116.151,
+    "prompt_per_token_ms": 1.6834932378679395,
+    "prompt_per_second": 594.0029799385771,
+    "predicted_n": 44,
+    "predicted_ms": 459.219,
+    "predicted_per_token_ms": 10.679511627906976,
+    "predicted_per_second": 93.63724061939946
+  }
+}

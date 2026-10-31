@@ -1,0 +1,61 @@
+{
+  "task_id": "asr-02",
+  "kind": "asr",
+  "started_at_utc": "2026-10-30T21:08:20.072463+00:00",
+  "http_status": 200,
+  "latency_s": 0.407,
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 16,
+    "prompt_tokens": 80,
+    "total_tokens": 96,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 80,
+    "prompt_ms": 226.577,
+    "prompt_per_token_ms": 2.8322125,
+    "prompt_per_second": 353.0808511013916,
+    "predicted_n": 16,
+    "predicted_ms": 157.344,
+    "predicted_per_token_ms": 10.4896,
+    "predicted_per_second": 95.33251982916413
+  },
+  "answer": "Merichen reviewed ticket 2048 and assigned it to Q731.",
+  "input_audio_path": "qa/visual-v2/modality-fixtures/asr-02.wav",
+  "input_audio_sha256": "9c397ac473433162249ac25b126095fbed1060e73709d890c2664f559ed8d982",
+  "input_video_path": null,
+  "input_video_sha256": null,
+  "image_path": null,
+  "image_sha256": null,
+  "question": null,
+  "reference_transcript": "Mira Chen reviewed ticket two zero four eight and assigned it to queue seven three one.",
+  "reference_facts": null,
+  "spoken_phrase": null,
+  "paired_spoken_task_id": null,
+  "system_prompt": "Perform ASR in English.",
+  "request_endpoint": "/v1/chat/completions",
+  "speaker_reference_path": null,
+  "speaker_reference_sha256": null,
+  "text": null,
+  "rss_tree_before_bytes": 1728348160,
+  "error": null,
+  "content_type": "application/json; charset=utf-8",
+  "rss_tree_peak_bytes": 1738211328,
+  "raw_response_file": "02-asr-02-response.bin",
+  "raw_response_sha256": "f5baceeb21c4cad50395b4b68cd11becb37a9f322df912afdcb3b86dba436e08",
+  "answer_sha256": "4607bbfa675156c2851c271bdccdaf19786c7e7663ff767f3dc0529b2c848a97",
+  "asr_word_error_rate": {
+    "reference_words": 16,
+    "hypothesis_words": 9,
+    "word_errors": 10,
+    "wer": 0.625,
+    "normalization": "lowercase alphanumeric word tokens; no number or name normalization"
+  },
+  "rss_tree_after_bytes": 1738211328,
+  "rss_peak_increase_during_call_bytes": 9863168,
+  "finished_at_utc": "2026-10-30T21:08:20.482563+00:00"
+}

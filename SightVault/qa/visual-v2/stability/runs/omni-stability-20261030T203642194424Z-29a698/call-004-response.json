@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The screenshot shows a `npm install` command that fails with the error **\"ERESOLVE unable to resolve dependency tree.\"** The specific conflict is between **dashboard@1.0.0** (the package being installed) and **react@19.0.0** (the found dependency).\n\n**Likely explanation:** The `react` package version found (19.0.0) is incompatible with the `dashboard` package version (1.0.0), causing the dependency tree to resolve failure.\n\n**Immediate install error:** `npm ERR! code ERESOLVE unable to resolve dependency tree`"
+      }
+    }
+  ],
+  "created": 1793392616,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 129,
+    "prompt_tokens": 1296,
+    "total_tokens": 1425,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-0lEnLNNaT9H6iH8GwSGO8clQcTbOkEea",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1296,
+    "prompt_ms": 2151.943,
+    "prompt_per_token_ms": 1.6604498456790124,
+    "prompt_per_second": 602.2464349659818,
+    "predicted_n": 129,
+    "predicted_ms": 1358.055,
+    "predicted_per_token_ms": 10.6098046875,
+    "predicted_per_second": 94.25244191141006
+  }
+}

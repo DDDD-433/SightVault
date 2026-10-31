@@ -1,0 +1,33 @@
+{
+  "candidate": "minicpm",
+  "case_id": "v1-05-terminal_success_01",
+  "category": "terminal",
+  "source_group": "preserved-v1",
+  "image_path": "samples/terminal_success_01.png",
+  "image_sha256": "c939eaf696b0d956e782c134eeed3885e537b3a2d3c1580f2441f36847668e25",
+  "question": "What completed task and visible validation result are shown? Use only visible evidence.",
+  "ocr_context_sha256": "c7fec4fe024888f4124425c0e1f1dde28c0f55ade4bd99088c29e699e4ac9403",
+  "prompt_sha256": "6fe55fc82371dc25d6cb5ccd6c9851a5198d76203aa82195bd1459f5797cbd46",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 41073,
+  "answer": "The task is \"training.py—completed.\" The visible validation result is \"Validation accuracy: 94.2%.\" These are the only visible elements. Keep it short.",
+  "answer_chars": 151,
+  "request_latency_s": 1.514,
+  "prompt_tokens": 530,
+  "output_tokens": 37,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 110.194,
+  "error": null,
+  "final_answer_tokens": 36,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The task is \"training.py—completed.\" The visible validation result is \"Validation accuracy: 94.2%.\" These are the only visible elements. Keep it short.",
+  "mlx_peak_memory_bytes_after_request": 3503053454,
+  "mlx_active_memory_bytes_after_request": 2668284290,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

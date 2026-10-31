@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The screenshot shows an `npm install` command failing with an `ERESOLVE` error.\n\n**Visible Facts:**\n- `react@19.0.0` was found.\n- `legacy-widget@2.3.1` requires `react@\"^18.0.0\"`.\n- The versions are incompatible.\n\n**Likely Explanations:**\n- The `dashboard` package depends on `legacy-widget`.\n- `legacy-widget` needs React 18 or higher, but the resolved version is React 19.\n- This is a peer dependency conflict between `dashboard` and `legacy-widget`.\n\n**Immediate Install Error:**\n`npm ERR! ERESOLVE unable to resolve dependency tree` due to the peer dependency mismatch."
+      }
+    }
+  ],
+  "created": 1793393099,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 161,
+    "prompt_tokens": 1288,
+    "total_tokens": 1449,
+    "prompt_tokens_details": {
+      "cached_tokens": 1284
+    }
+  },
+  "id": "chatcmpl-zrsaDLW5fADd0GnyFEXhPUla1TTDlKrI",
+  "timings": {
+    "cache_n": 1284,
+    "prompt_n": 4,
+    "prompt_ms": 64.456,
+    "prompt_per_token_ms": 16.114,
+    "prompt_per_second": 62.05783790492739,
+    "predicted_n": 161,
+    "predicted_ms": 3934.997,
+    "predicted_per_token_ms": 24.593731249999998,
+    "predicted_per_second": 40.66076797517254
+  }
+}

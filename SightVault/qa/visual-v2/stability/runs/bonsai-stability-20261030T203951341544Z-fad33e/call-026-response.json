@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Visible: The image shows the Golden Gate Bridge spanning a body of water with a rocky shoreline and distant hills. A small bird sits on a rock in the foreground.\n\nPeople: Several people are visible along the road near the bridge's base on the left side. They appear as small, indistinct figures due to distance and resolution. No facial features or clothing details are discernible.\n\nExplanation: The crowd is likely visitors or workers associated with the bridge or nearby infrastructure. Their presence is inferred from the activity along the road, but specific identities or actions cannot be confirmed.\n\nConclusion: People are present but too distant for detailed observation."
+      }
+    }
+  ],
+  "created": 1793393020,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 130,
+    "prompt_tokens": 1143,
+    "total_tokens": 1273,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-o1LvlrozWHyWzaDBKTnX6nwdbZLIRH7W",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1143,
+    "prompt_ms": 4566.739,
+    "prompt_per_token_ms": 3.995397200349956,
+    "prompt_per_second": 250.28800638705215,
+    "predicted_n": 130,
+    "predicted_ms": 3055.705,
+    "predicted_per_token_ms": 23.68763565891473,
+    "predicted_per_second": 42.21611706627439
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "candidate": "minicpm",
+  "case_id": "v1-14-document_05",
+  "category": "document",
+  "source_group": "preserved-v1",
+  "image_path": "samples/document_05.png",
+  "image_sha256": "8b0c7d7a0e6dc012f7309538e7b47ac545cd144d6f2d1d4488e5bc9e6b7e1e26",
+  "question": "What behavior does the design note specify for GET /items and POST /items?",
+  "ocr_context_sha256": "89c590ac4bdbfe5b530d7276f15a2f4a46a5e8effbb5bde08c931e62f0100980",
+  "prompt_sha256": "838f05a00e7d9ff653c9b746bec43231c356fe34d0cd4f7b80d915319328478b",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 33049,
+  "answer": "Visible: API design notes.  \nGET /items: returns a list of stored records.  \nPOST /items: creates a validated new record.  \nExplanation: These are listed behaviors. Fact: Working draft is fictional.  \nWord count: 158.",
+  "answer_chars": 217,
+  "request_latency_s": 1.66,
+  "prompt_tokens": 484,
+  "output_tokens": 54,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 109.179,
+  "error": null,
+  "final_answer_tokens": 53,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "Visible: API design notes.  \nGET /items: returns a list of stored records.  \nPOST /items: creates a validated new record.  \nExplanation: These are listed behaviors. Fact: Working draft is fictional.  \nWord count: 158.",
+  "mlx_peak_memory_bytes_after_request": 3503053454,
+  "mlx_active_memory_bytes_after_request": 2668284290,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

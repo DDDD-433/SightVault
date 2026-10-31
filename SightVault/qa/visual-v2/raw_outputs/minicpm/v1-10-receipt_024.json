@@ -1,0 +1,33 @@
+{
+  "candidate": "minicpm",
+  "case_id": "v1-10-receipt_024",
+  "category": "receipt",
+  "source_group": "preserved-v1",
+  "image_path": "samples/receipt_024.png",
+  "image_sha256": "5581c00d20ba66c1d04bc83f73971d687c2ccf1ca2da2b0b01fc8a2ec4e37e92",
+  "question": "What item was purchased and what total is shown? Use only visible evidence.",
+  "ocr_context_sha256": "16b1c514aba7403040b03d243eee87ac9fc5d78850d57696b31a93551427585b",
+  "prompt_sha256": "db1863503c3c1019f14989947e79378956614b9ec43c4e6781fc6d6907285594",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 31126,
+  "answer": "Visible text: \"USB-C charger\" is the item; \"Subtotal: $24.95\" and \"TOTAL: $26.45\" are totals.\n\nItem: USB-C charger. Total shown: $26.45.",
+  "answer_chars": 136,
+  "request_latency_s": 1.658,
+  "prompt_tokens": 505,
+  "output_tokens": 55,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 108.493,
+  "error": null,
+  "final_answer_tokens": 54,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "Visible text: \"USB-C charger\" is the item; \"Subtotal: $24.95\" and \"TOTAL: $26.45\" are totals.\n\nItem: USB-C charger. Total shown: $26.45.",
+  "mlx_peak_memory_bytes_after_request": 3503053454,
+  "mlx_active_memory_bytes_after_request": 2668284290,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

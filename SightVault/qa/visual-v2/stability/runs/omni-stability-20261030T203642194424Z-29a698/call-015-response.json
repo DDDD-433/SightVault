@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The visible status columns are **To do**, **In progress**, and **Completed**. One task shown in progress is **\"Build image index\" (Task #102)**."
+      }
+    }
+  ],
+  "created": 1793392651,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 35,
+    "prompt_tokens": 1274,
+    "total_tokens": 1309,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-0tLkWQl7jQBSURlUxVjDGbMiywCaMIPu",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1274,
+    "prompt_ms": 2122.191,
+    "prompt_per_token_ms": 1.665770015698587,
+    "prompt_per_second": 600.3229681023056,
+    "predicted_n": 35,
+    "predicted_ms": 382.723,
+    "predicted_per_token_ms": 11.256558823529412,
+    "predicted_per_second": 88.83709628112237
+  }
+}

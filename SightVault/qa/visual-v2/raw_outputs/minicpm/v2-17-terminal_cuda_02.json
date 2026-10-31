@@ -1,0 +1,33 @@
+{
+  "candidate": "minicpm",
+  "case_id": "v2-17-terminal_cuda_02",
+  "category": "terminal",
+  "source_group": "authored-v2",
+  "image_path": "samples/terminal_cuda_02.png",
+  "image_sha256": "c5a108492c880841cabdd534b54e68282c9fc18bb88e9ccc6f3853caacd5a87d",
+  "question": "What GPU error is reported, and what memory figures explain the failure?",
+  "ocr_context_sha256": "8460548472768f32eb169af26d5f61f092684afe83cf70cb05b879f663d755e9",
+  "prompt_sha256": "fa6cd4a8265b938bcd9d6e685e09fc5453b929f76027c51526851ce952695e7a",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 49760,
+  "answer": "The visible error is \"OutofMemoryError: CUDA out of memory.\" Memory figures: GPU total 12.00 GiB, 96.00 MiB free, process holds 11.62 GiB. Explanation: Likely insufficient GPU memory causing CUDA out-of-memory during training.",
+  "answer_chars": 226,
+  "request_latency_s": 1.807,
+  "prompt_tokens": 581,
+  "output_tokens": 65,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 108.353,
+  "error": null,
+  "final_answer_tokens": 64,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The visible error is \"OutofMemoryError: CUDA out of memory.\" Memory figures: GPU total 12.00 GiB, 96.00 MiB free, process holds 11.62 GiB. Explanation: Likely insufficient GPU memory causing CUDA out-of-memory during training.",
+  "mlx_peak_memory_bytes_after_request": 3503053454,
+  "mlx_active_memory_bytes_after_request": 2668284290,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

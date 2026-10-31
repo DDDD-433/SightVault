@@ -1,0 +1,49 @@
+{
+  "python": "3.12.9",
+  "architecture": "arm64",
+  "packages": {
+    "torch": "2.11.0",
+    "torchvision": "0.26.0",
+    "transformers": "5.22.0",
+    "sentence-transformers": "6.2.0",
+    "mlx": "0.32.4",
+    "mlx-vlm": "0.7.11",
+    "onnxruntime": "1.31.1",
+    "rapidocr-onnxruntime": "1.4.4",
+    "fastapi": "0.162.0",
+    "uvicorn": "0.54.0"
+  },
+  "mlx_vlm_source": {
+    "url": "https://github.com/Blaizzy/mlx-vlm.git",
+    "vcs_info": {
+      "vcs": "git",
+      "commit_id": "918763c6875c80e82f9f48344dfad4763346fea8",
+      "requested_revision": "918763c6875c80e82f9f48344dfad4763346fea8"
+    }
+  },
+  "requirements_mac_sha256": "1630d1461812f7610b15c5c370e45ab38606702f3910ef9abce46f9a1c898ede",
+  "setup_mac_completed": true,
+  "setup_log_retained_locally": ".runtime/unified-qa/setup-mac.log",
+  "llama_binary": {
+    "binary": ".runtime/llama.cpp/build/bin/llama-server",
+    "manifest": ".runtime/llama.cpp/build/bin/sightvault-llama-runtime.json",
+    "repo": "ggml-org/llama.cpp",
+    "commit": "e0f142d5ddc1461ce721644d92af33db23545105",
+    "source_origin": "https://github.com/ggml-org/llama.cpp.git",
+    "version": "version: 0.8.0-dev (build 12005, commit e0f142d5d)\nbuilt with AppleClang 21.0.0.21000101 for Darwin arm64",
+    "binary_sha256": "b4a4fb14b92e4277115ab66eb67a85a9bfeb927d07e6e3df7c4de2237eaa9ed0"
+  },
+  "llama_native_execution_device": "unverified: actual loaded runtime emitted no GPU offload line; no CPU/GPU assertion",
+  "llama_build_options": {
+    "CMAKE_BUILD_TYPE": "Release",
+    "GGML_METAL": true,
+    "LLAMA_USE_PREBUILT_UI": false,
+    "LLAMA_OPENSSL": false,
+    "LLAMA_BUILD_TESTS": false,
+    "LLAMA_BUILD_EXAMPLES": false
+  },
+  "build_tools": {
+    "cmake": "4.4.4",
+    "ninja": "1.13.2"
+  }
+}

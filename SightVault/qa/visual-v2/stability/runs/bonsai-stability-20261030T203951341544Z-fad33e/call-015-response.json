@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The visible status columns are **To do**, **In progress**, and **Completed**.\n\nOne task shown in progress is **Build image index** (Task #102).\n\nThe screenshot displays a Kanban-style board with tasks organized by their current status. The \"In progress\" column clearly lists this task alongside its ID. All other information aligns with the visual evidence provided."
+      }
+    }
+  ],
+  "created": 1793392924,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 79,
+    "prompt_tokens": 1272,
+    "total_tokens": 1351,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-IaZu8zu1tdvmjcWOdlSnFUIfeSa2NMRc",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1272,
+    "prompt_ms": 5151.69,
+    "prompt_per_token_ms": 4.050070754716981,
+    "prompt_per_second": 246.90926666783133,
+    "predicted_n": 79,
+    "predicted_ms": 1845.25,
+    "predicted_per_token_ms": 23.65705128205128,
+    "predicted_per_second": 42.27069502777401
+  }
+}

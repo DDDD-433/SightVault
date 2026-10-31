@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v1-07-lecture_joins_01",
+  "category": "slide",
+  "source_group": "preserved-v1",
+  "image_path": "samples/lecture_joins_01.png",
+  "image_sha256": "c425f0dc5cdf48888518e30804149c68a9d91acb8aff85be7506360f8babc1f1",
+  "question": "Compare what the slide says INNER JOIN and LEFT JOIN return.",
+  "ocr_context_sha256": "1b8a7a9ff97d9a3e60d75e5e6df66a9932ac25ed5a63b34ac5706c5b88db17b8",
+  "prompt_sha256": "1a60d04ece30feb235e24557b6f258e0636e34fe0106a0c76a92822a5e442bb5",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 45031,
+  "answer": "The slide states that INNER JOIN returns only matching rows. It states that LEFT JOIN keeps every row on the left. Therefore, INNER JOIN returns rows where the condition is met in both tables, while LEFT JOIN returns all rows from the left table, including those that do not have matching rows in the right table.",
+  "answer_chars": 313,
+  "request_latency_s": 2.348,
+  "prompt_tokens": 938,
+  "output_tokens": 67,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 98.937,
+  "error": null,
+  "final_answer_tokens": 66,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The slide states that INNER JOIN returns only matching rows. It states that LEFT JOIN keeps every row on the left. Therefore, INNER JOIN returns rows where the condition is met in both tables, while LEFT JOIN returns all rows from the left table, including those that do not have matching rows in the right table.",
+  "mlx_peak_memory_bytes_after_request": 2645537252,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

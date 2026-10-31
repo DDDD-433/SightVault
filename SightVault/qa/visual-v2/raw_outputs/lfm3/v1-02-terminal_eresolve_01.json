@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v1-02-terminal_eresolve_01",
+  "category": "terminal",
+  "source_group": "preserved-v1",
+  "image_path": "samples/terminal_eresolve_01.png",
+  "image_sha256": "dde7d4e3d8ed3bd7bdb671ecf7da43950e5289c9a7725e8a5df3006553f7a77b",
+  "question": "Which package versions appear to conflict, and what is the immediate install error?",
+  "ocr_context_sha256": "d58cecac1343125dc72ea6c863e9d8a62d77ba8fe22060cc8b050bd30869ee5d",
+  "prompt_sha256": "73838f77c0e216e4c9b45967a16de923461de78e3a5fa3340ac20781f784ca8d",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 48407,
+  "answer": "The screenshot shows an npm install command failing with \"npm ERR! code ERESOLVE\" and \"npm ERR! ERESOLVE unable to resolve dependency tree.\" The conflict involves react@19.0.0 being found, but a dependency \"peer react@^18.0.0\" from legacy-widget@2.3.1 could not be resolved. The immediate error is an unresolved dependency tree, likely due to version incompatibility between react@19.0.0 and the peer dependency. The evidence indicates a dependency resolution issue, but the exact cause is not specified.",
+  "answer_chars": 504,
+  "request_latency_s": 2.934,
+  "prompt_tokens": 969,
+  "output_tokens": 123,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 101.147,
+  "error": null,
+  "final_answer_tokens": 121,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The screenshot shows an npm install command failing with \"npm ERR! code ERESOLVE\" and \"npm ERR! ERESOLVE unable to resolve dependency tree.\" The conflict involves react@19.0.0 being found, but a dependency \"peer react@^18.0.0\" from legacy-widget@2.3.1 could not be resolved. The immediate error is an unresolved dependency tree, likely due to version incompatibility between react@19.0.0 and the peer dependency. The evidence indicates a dependency resolution issue, but the exact cause is not specified.",
+  "mlx_peak_memory_bytes_after_request": 2645537252,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

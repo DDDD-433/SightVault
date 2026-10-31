@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v1-01-terminal_cuda_01",
+  "category": "terminal",
+  "source_group": "preserved-v1",
+  "image_path": "samples/terminal_cuda_01.png",
+  "image_sha256": "e111e96e05c86eae8728d6e2970788576653482405065ceb215b4b540a946c2f",
+  "question": "What error is displayed, and what does the visible text suggest about the failure?",
+  "ocr_context_sha256": "cf165309f229c9ffeb18677d493f74586f5e1148af010ce6667dabde52522024",
+  "prompt_sha256": "749119fef8cf8f0b5b6c5187e4f2f393480a366cba7a667efd0016a438fe7225",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 49286,
+  "answer": "The visible text displays a Python training session that resulted in a \"torch.OutOfMemoryError: CUDA out of memory.\" The failure occurs during the backward pass in the loss module, as indicated by the traceback pointing to line 87 of train.py. The error suggests that the model is attempting to allocate 512.00 MiB but GPU 0 only has 12.00 GiB total memory, with 96.00 MiB free and 11.62 GiB held by the process. This indicates a memory allocation issue where the model parameters or gradients exceed the available GPU memory. The session is labeled \"SYNTHETIC DEMO / no personal information,\" implying this is a simulated environment.",
+  "answer_chars": 635,
+  "request_latency_s": 3.211,
+  "prompt_tokens": 1004,
+  "output_tokens": 147,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 99.898,
+  "error": null,
+  "final_answer_tokens": 145,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The visible text displays a Python training session that resulted in a \"torch.OutOfMemoryError: CUDA out of memory.\" The failure occurs during the backward pass in the loss module, as indicated by the traceback pointing to line 87 of train.py. The error suggests that the model is attempting to allocate 512.00 MiB but GPU 0 only has 12.00 GiB total memory, with 96.00 MiB free and 11.62 GiB held by the process. This indicates a memory allocation issue where the model parameters or gradients exceed the available GPU memory. The session is labeled \"SYNTHETIC DEMO / no personal information,\" implying this is a simulated environment.",
+  "mlx_peak_memory_bytes_after_request": 2645537252,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

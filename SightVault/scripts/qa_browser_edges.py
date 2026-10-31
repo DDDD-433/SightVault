@@ -6,7 +6,7 @@ from playwright.async_api import async_playwright,expect
 ROOT=Path(__file__).resolve().parent.parent
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('base_url',nargs='?',default='http://127.0.0.1:7861')
-parser.add_argument('--expect-backend',choices=('minicpm','lfm3'))
+parser.add_argument('--expect-backend',choices=('minicpm','lfm3','omni'))
 parser.add_argument('--expect-model')
 parser.add_argument('--expect-root')
 parser.add_argument('--output',type=Path,default=ROOT/'qa'/'normal-csp-experimental.json')

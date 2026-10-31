@@ -1,0 +1,33 @@
+{
+  "candidate": "minicpm",
+  "case_id": "v2-29-ambiguous_laptop_01",
+  "category": "ambiguous_object",
+  "source_group": "authored-v2",
+  "image_path": "qa/visual-v2/fixtures/ambiguous_laptop_01.png",
+  "image_sha256": "4e8049fdd61c8e94a90cdb2086b9ed36bef70b71e469e2828b5004639c252b9a",
+  "question": "What company made this laptop, and what exact visual evidence identifies its brand?",
+  "ocr_context_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "prompt_sha256": "3d5d8efc5114df156b353eb3a92cdccf8650669a94a700df772dc289381651c3",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 19438,
+  "answer": "Visible: A laptop with a screen and base. No brand logo or text.\n\nExplanation: No company name or visual indicator (e.g., logo, text) is present. The image lacks any identifying brand details.",
+  "answer_chars": 192,
+  "request_latency_s": 2.026,
+  "prompt_tokens": 571,
+  "output_tokens": 45,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 109.627,
+  "error": null,
+  "final_answer_tokens": 44,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "Visible: A laptop with a screen and base. No brand logo or text.\n\nExplanation: No company name or visual indicator (e.g., logo, text) is present. The image lacks any identifying brand details.",
+  "mlx_peak_memory_bytes_after_request": 3608555128,
+  "mlx_active_memory_bytes_after_request": 2668284290,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1400,
+    900
+  ]
+}

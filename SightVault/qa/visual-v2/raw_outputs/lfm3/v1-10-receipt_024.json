@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v1-10-receipt_024",
+  "category": "receipt",
+  "source_group": "preserved-v1",
+  "image_path": "samples/receipt_024.png",
+  "image_sha256": "5581c00d20ba66c1d04bc83f73971d687c2ccf1ca2da2b0b01fc8a2ec4e37e92",
+  "question": "What item was purchased and what total is shown? Use only visible evidence.",
+  "ocr_context_sha256": "16b1c514aba7403040b03d243eee87ac9fc5d78850d57696b31a93551427585b",
+  "prompt_sha256": "db1863503c3c1019f14989947e79378956614b9ec43c4e6781fc6d6907285594",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 31126,
+  "answer": "The receipt shows a USB-C charger was purchased with a quantity of 1. The visible item is \"USB-C charger\" and the total amount displayed is $26.45. This total includes a subtotal of $24.95 and tax of $1.50. The receipt is from \"CAMPUS CORNER\" located at \"123 Example Lane\" and is labeled as a \"SYNTHETIC DEMO RECEIPT\" with transaction number #4200. The footer indicates \"PAID - DEMO DATA\" and thanks the customer for shopping locally.",
+  "answer_chars": 434,
+  "request_latency_s": 2.87,
+  "prompt_tokens": 931,
+  "output_tokens": 118,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 99.225,
+  "error": null,
+  "final_answer_tokens": 117,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The receipt shows a USB-C charger was purchased with a quantity of 1. The visible item is \"USB-C charger\" and the total amount displayed is $26.45. This total includes a subtotal of $24.95 and tax of $1.50. The receipt is from \"CAMPUS CORNER\" located at \"123 Example Lane\" and is labeled as a \"SYNTHETIC DEMO RECEIPT\" with transaction number #4200. The footer indicates \"PAID - DEMO DATA\" and thanks the customer for shopping locally.",
+  "mlx_peak_memory_bytes_after_request": 2645537252,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

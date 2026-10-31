@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v2-28-document_dense_01",
+  "category": "dense_document",
+  "source_group": "authored-v2",
+  "image_path": "qa/visual-v2/fixtures/document_dense_01.png",
+  "image_sha256": "0b429873c142748af09cc509e062e5813b91c0136baacaf157b363a0e8494bf0",
+  "question": "After restarting archive-worker, what checks must pass before release, and what triggers rollback?",
+  "ocr_context_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "prompt_sha256": "98d267477ea12a865243a526ba5da43b660a468c0c6f3ca488d28b2132245734",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 67348,
+  "answer": "The image shows a release migration runbook for the Archive API, change index rebuild revision 7. After restarting archive-worker (step 3 Verify), checks must pass: sampled IDs match and query p95 is below 180 ms (step 4 Release). The rollback condition triggers if any sampled ID differs or query p95 is at least 180 ms. These are factual steps from the document; no cause or unseen history is inferred. The runbook outlines a four-step process: Preflight, Apply, Verify, Release, with rollback defined by the specified conditions.",
+  "answer_chars": 532,
+  "request_latency_s": 4.192,
+  "prompt_tokens": 1572,
+  "output_tokens": 118,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 99.62,
+  "error": null,
+  "final_answer_tokens": 117,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The image shows a release migration runbook for the Archive API, change index rebuild revision 7. After restarting archive-worker (step 3 Verify), checks must pass: sampled IDs match and query p95 is below 180 ms (step 4 Release). The rollback condition triggers if any sampled ID differs or query p95 is at least 180 ms. These are factual steps from the document; no cause or unseen history is inferred. The runbook outlines a four-step process: Preflight, Apply, Verify, Release, with rollback defined by the specified conditions.",
+  "mlx_peak_memory_bytes_after_request": 2683492920,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1500,
+    1000
+  ]
+}

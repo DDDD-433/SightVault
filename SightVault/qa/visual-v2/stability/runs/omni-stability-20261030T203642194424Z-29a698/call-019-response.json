@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The screenshot reports a **CUDA OutOfMemoryError** (\"torch.OutOfMemoryError: CUDA out of memory\").\n\nThe failure is explained by memory figures: the code tried to allocate **640.00 MiB**, but **GPU 0 has 12.00 GiB total, of which 96.00 MiB is free**, while the **process holds 11.62 GiB**. With only 96 MiB free against a 640 MiB allocation, the GPU ran out of memory, causing the OutOfMemoryError."
+      }
+    }
+  ],
+  "created": 1793392665,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 116,
+    "prompt_tokens": 1328,
+    "total_tokens": 1444,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-Y1QR9ZhGGuGiVsp3IXnuOgakypQT026Z",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1328,
+    "prompt_ms": 2183.324,
+    "prompt_per_token_ms": 1.6440692771084338,
+    "prompt_per_second": 608.2468749484731,
+    "predicted_n": 116,
+    "predicted_ms": 1223.612,
+    "predicted_per_token_ms": 10.640104347826087,
+    "predicted_per_second": 93.98404069263786
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "format_version": 1,
+  "runtime_commit": "918763c6875c80e82f9f48344dfad4763346fea8",
+  "note": "Generated locally from required pinned MiniCPM originals; not downloadable snapshot groups. Verify after explicit conversion.",
+  "files": [
+    {
+      "path": ".models/minicpm-ocr-mlx-4bit/README.md",
+      "size": 84,
+      "sha256": "9a272b5949a803ab6eadf0703706dab183229952e2b374501d1069d0f6d16557"
+    },
+    {
+      "path": ".models/minicpm-ocr-mlx-4bit/chat_template.jinja",
+      "size": 7344,
+      "sha256": "c6a5f1387c6baa0befecc39e36f293e44baba865a9c7809ac93fae1604b2c210"
+    },
+    {
+      "path": ".models/minicpm-ocr-mlx-4bit/config.json",
+      "size": 3112,
+      "sha256": "0370eab180e329bae95415f2475a459acc257569044953b8c4a8afb9f08b1e25"
+    },
+    {
+      "path": ".models/minicpm-ocr-mlx-4bit/generation_config.json",
+      "size": 133,
+      "sha256": "7cecf81e246f8db6bcc4c14f22313dd7decf2d6a70dd1b45c4d237a2e6927405"
+    },
+    {
+      "path": ".models/minicpm-ocr-mlx-4bit/model.safetensors",
+      "size": 2157942509,
+      "sha256": "d87f333cfca410bb378ab449aaf45eb96dd7c32c10297745963938619455a055"
+    },
+    {
+      "path": ".models/minicpm-ocr-mlx-4bit/model.safetensors.index.json",
+      "size": 81404,
+      "sha256": "5aca9c74a4aa53589eecc9d255876184c912035ad8f616af6eaef4e76b0a76a1"
+    },
+    {
+      "path": ".models/minicpm-ocr-mlx-4bit/preprocessor_config.json",
+      "size": 340,
+      "sha256": "7b46cf09f350fa1cd3bfd4d20fe8b8532e76dcc5d892a0052660f803c8ad532b"
+    },
+    {
+      "path": ".models/minicpm-ocr-mlx-4bit/processor_config.json",
+      "size": 1049,
+      "sha256": "6ba5c8a09416302f846f7b5d4c5535c4344a02ef5c016b499703284a27373e22"
+    },
+    {
+      "path": ".models/minicpm-ocr-mlx-4bit/source.json",
+      "size": 535,
+      "sha256": "7b2edce8a5d781f60c25d7a7730ea8bfb97d1115faca8f745ec088a7b5f570ef"
+    },
+    {
+      "path": ".models/minicpm-ocr-mlx-4bit/tokenizer.json",
+      "size": 19993565,
+      "sha256": "6269eb38f25c20c0f2ba676577f2e5603f79eab3be573dfdaa727ca6eeb5522d"
+    },
+    {
+      "path": ".models/minicpm-ocr-mlx-4bit/tokenizer_config.json",
+      "size": 1201,
+      "sha256": "7f534ec298b3213a633776ad7f3375a949598ca204dc4938bf52267eedfba6b8"
+    },
+    {
+      "path": ".models/minicpm-v-mlx-4bit/README.md",
+      "size": 84,
+      "sha256": "9a272b5949a803ab6eadf0703706dab183229952e2b374501d1069d0f6d16557"
+    },
+    {
+      "path": ".models/minicpm-v-mlx-4bit/chat_template.jinja",
+      "size": 7249,
+      "sha256": "49c37bcc86c7f7f20ed2ebf79e9f872be41ba2b5f9d0d51e6712cc038ef51d6c"
+    },
+    {
+      "path": ".models/minicpm-v-mlx-4bit/config.json",
+      "size": 3469,
+      "sha256": "4a362462c2baba3a08eb547f9378203e25f08f291167181f1b89eb7df401ab41"
+    },
+    {
+      "path": ".models/minicpm-v-mlx-4bit/generation_config.json",
+      "size": 132,
+      "sha256": "4dc190baaab3bc4bccb796ee73deb2c3dd776cd4feae3587b29bc22083e03415"
+    },
+    {
+      "path": ".models/minicpm-v-mlx-4bit/model.safetensors",
+      "size": 2665920710,
+      "sha256": "fa64003068c92b9d3aec27ff4459b244cba7255e9becedf86cc8d848d7a8f028"
+    },
+    {
+      "path": ".models/minicpm-v-mlx-4bit/model.safetensors.index.json",
+      "size": 81466,
+      "sha256": "457821a74980b50a1f6a534adf15384c352264d1a7f4ecc0d7adb07eea648872"
+    },
+    {
+      "path": ".models/minicpm-v-mlx-4bit/preprocessor_config.json",
+      "size": 148,
+      "sha256": "c64289d04f36e48d9d059e3a0069f54062b2ef6044a807adb448b98449cb54de"
+    },
+    {
+      "path": ".models/minicpm-v-mlx-4bit/processor_config.json",
+      "size": 764,
+      "sha256": "8540e97ca17871b46aca8639b05f26db4eb4ac39d271b705c9cdbc3e32abbe07"
+    },
+    {
+      "path": ".models/minicpm-v-mlx-4bit/source.json",
+      "size": 536,
+      "sha256": "6bf6105f493a376d59d7f345fadd11418b0b84743a784c1b92f8587acc68ef5a"
+    },
+    {
+      "path": ".models/minicpm-v-mlx-4bit/tokenizer.json",
+      "size": 19992463,
+      "sha256": "83fd10d1ff5d0bf7bd4e0dea788bcee2e9f56a29cb341f9b0ec352e5d8e1ece3"
+    },
+    {
+      "path": ".models/minicpm-v-mlx-4bit/tokenizer_config.json",
+      "size": 1157,
+      "sha256": "be74f538ac586f2daac1ede56d421e915d196fba24171bc8fcd05256e42108bc"
+    }
+  ],
+  "sources": {
+    "minicpm-ocr-mlx-4bit": {
+      "repo": "openbmb/MiniCPM-OCR-1.0",
+      "revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+      "runtime": "mlx-vlm",
+      "runtime_version": "0.7.11",
+      "mlx_version": "0.32.4",
+      "quantization": {
+        "bits": 4,
+        "group_size": 64,
+        "mode": "affine"
+      },
+      "precision_note": "Mixed precision; runtime model predicate preserves vision, mergers and sensitive layers.",
+      "files": {
+        "model.safetensors": {
+          "bytes": 2157942509,
+          "sha256": "d87f333cfca410bb378ab449aaf45eb96dd7c32c10297745963938619455a055"
+        }
+      }
+    },
+    "minicpm-v-mlx-4bit": {
+      "repo": "openbmb/MiniCPM-V-4.7-1B",
+      "revision": "bb99eab4113676f30830ffa73bac1f0b2a5f1dea",
+      "runtime": "mlx-vlm",
+      "runtime_version": "0.7.11",
+      "mlx_version": "0.32.4",
+      "quantization": {
+        "bits": 4,
+        "group_size": 64,
+        "mode": "affine"
+      },
+      "precision_note": "Mixed precision; runtime model predicate preserves vision, mergers and sensitive layers.",
+      "files": {
+        "model.safetensors": {
+          "bytes": 2665920710,
+          "sha256": "fa64003068c92b9d3aec27ff4459b244cba7255e9becedf86cc8d848d7a8f028"
+        }
+      }
+    }
+  }
+}

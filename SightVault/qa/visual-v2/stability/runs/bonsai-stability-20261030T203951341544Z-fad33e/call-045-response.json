@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Visible structure: A massive red suspension bridge spans a body of water, with a large brick fortification on the left shore and a rocky outcrop in the foreground. The sky is clear blue.\n\nLikely explanations: The bridge is the Golden Gate Bridge. The brick structure is likely the Fort Mason or Battery Spencer. The rock in the water may be a natural formation or a small pier.\n\nFacts: The bridge features red steel cables and towers. Several cars are parked along the shore. A white bird sits on the rock. The water is calm and blue-green.\n\nInsufficient evidence: I cannot confirm the exact location or date. The OCR text \"VNNN ANN\" appears to be noise or unrelated."
+      }
+    }
+  ],
+  "created": 1793393135,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 147,
+    "prompt_tokens": 1131,
+    "total_tokens": 1278,
+    "prompt_tokens_details": {
+      "cached_tokens": 1127
+    }
+  },
+  "id": "chatcmpl-Ms0AWBnNfZLlQpAZ7Tc5Ymz22eHi7jKf",
+  "timings": {
+    "cache_n": 1127,
+    "prompt_n": 4,
+    "prompt_ms": 61.484,
+    "prompt_per_token_ms": 15.371,
+    "prompt_per_second": 65.05757595471992,
+    "predicted_n": 147,
+    "predicted_ms": 3492.693,
+    "predicted_per_token_ms": 23.92255479452055,
+    "predicted_per_second": 41.801555418698406
+  }
+}

@@ -15,3 +15,7 @@ exports/
 qa/screenshots/lfm3-experiment-*/
 
 qa/independent-review/CLAUDE_RUN.json
+
+# Generated browser/audit captures are curated into qa/unified before committing.
+output/playwright/
+output/design-audit/

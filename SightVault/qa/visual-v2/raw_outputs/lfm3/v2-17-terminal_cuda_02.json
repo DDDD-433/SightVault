@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v2-17-terminal_cuda_02",
+  "category": "terminal",
+  "source_group": "authored-v2",
+  "image_path": "samples/terminal_cuda_02.png",
+  "image_sha256": "c5a108492c880841cabdd534b54e68282c9fc18bb88e9ccc6f3853caacd5a87d",
+  "question": "What GPU error is reported, and what memory figures explain the failure?",
+  "ocr_context_sha256": "8460548472768f32eb169af26d5f61f092684afe83cf70cb05b879f663d755e9",
+  "prompt_sha256": "fa6cd4a8265b938bcd9d6e685e09fc5453b929f76027c51526851ce952695e7a",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 49760,
+  "answer": "The reported GPU error is torch.OutOfMemoryError: CUDA out of memory. Memory figures indicate an attempt to allocate 640.00 MiB on GPU 0, which has 12.00 GiB total, with 96.00 MiB free and 11.62 GiB held by the process. This suggests insufficient available memory for the allocated batch size and sequence length.",
+  "answer_chars": 313,
+  "request_latency_s": 2.564,
+  "prompt_tokens": 1001,
+  "output_tokens": 81,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 100.576,
+  "error": null,
+  "final_answer_tokens": 79,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The reported GPU error is torch.OutOfMemoryError: CUDA out of memory. Memory figures indicate an attempt to allocate 640.00 MiB on GPU 0, which has 12.00 GiB total, with 96.00 MiB free and 11.62 GiB held by the process. This suggests insufficient available memory for the allocated batch size and sequence length.",
+  "mlx_peak_memory_bytes_after_request": 2645537252,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

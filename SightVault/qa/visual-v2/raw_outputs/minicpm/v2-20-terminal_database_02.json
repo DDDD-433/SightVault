@@ -1,0 +1,33 @@
+{
+  "candidate": "minicpm",
+  "case_id": "v2-20-terminal_database_02",
+  "category": "terminal",
+  "source_group": "authored-v2",
+  "image_path": "samples/terminal_database_02.png",
+  "image_sha256": "b5791944e18b0b0529c5d4a373e2c8614fc9b9727fdd7173899fa9dc25ad8782",
+  "question": "What database write error is shown, and which duplicate identifier is named?",
+  "ocr_context_sha256": "0d5bfcaa90b081dd8de8482894401e11278dbd8f8ffa48470e467d9ecea16872",
+  "prompt_sha256": "60f26985832243578e9fdb4782ee96ce7ef1dd4b61263b2552a879c0fd57eba9",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 36635,
+  "answer": "The visible error is a write failure: MongoDB—write failed. The duplicate identifier is \"sku: KB-104\". This is explicitly stated in the OCR. No inference needed; evidence is direct.",
+  "answer_chars": 181,
+  "request_latency_s": 1.515,
+  "prompt_tokens": 507,
+  "output_tokens": 43,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 110.643,
+  "error": null,
+  "final_answer_tokens": 42,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The visible error is a write failure: MongoDB—write failed. The duplicate identifier is \"sku: KB-104\". This is explicitly stated in the OCR. No inference needed; evidence is direct.",
+  "mlx_peak_memory_bytes_after_request": 3503053454,
+  "mlx_active_memory_bytes_after_request": 2668284290,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

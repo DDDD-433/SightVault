@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The cup's body is blue. This is evident from the solid blue fill covering the conical body of the mug in the image."
+      }
+    }
+  ],
+  "created": 1793392717,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 29,
+    "prompt_tokens": 1164,
+    "total_tokens": 1193,
+    "prompt_tokens_details": {
+      "cached_tokens": 10
+    }
+  },
+  "id": "chatcmpl-lbHXwLVCHR5AENyTh7RBt1Y8JRRbpHkQ",
+  "timings": {
+    "cache_n": 10,
+    "prompt_n": 1154,
+    "prompt_ms": 1994.567,
+    "prompt_per_token_ms": 1.728394280762565,
+    "prompt_per_second": 578.5716899958738,
+    "predicted_n": 29,
+    "predicted_ms": 303.245,
+    "predicted_per_token_ms": 10.830178571428572,
+    "predicted_per_second": 92.33458094939735
+  }
+}

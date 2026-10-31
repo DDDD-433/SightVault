@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The main visible subject is a stylized red backpack with a dark handle, a small rectangular patch, and a front pocket with a zipper pull. It sits on a light gray surface with a subtle shadow beneath it.\n\nThe colors are primarily red for the backpack, dark gray for the handle and outline, white for the zipper pull, and off-white for the background.\n\nThis appears to be a synthetic interface element, likely from a computer science or educational software demo. The text labels (\"Object study,\" \"Illustration,\" \"Synthetic Demo\") suggest it is a placeholder or test image rather than a real-world photograph. There is no actual setting beyond the flat, neutral background typical of digital interfaces."
+      }
+    }
+  ],
+  "created": 1793393150,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 142,
+    "prompt_tokens": 1204,
+    "total_tokens": 1346,
+    "prompt_tokens_details": {
+      "cached_tokens": 1200
+    }
+  },
+  "id": "chatcmpl-wGfd2yl0iNKxFmXWyKC5jzK1qTTmD931",
+  "timings": {
+    "cache_n": 1200,
+    "prompt_n": 4,
+    "prompt_ms": 60.651,
+    "prompt_per_token_ms": 15.16275,
+    "prompt_per_second": 65.95109726138068,
+    "predicted_n": 142,
+    "predicted_ms": 3460.537,
+    "predicted_per_token_ms": 24.54281560283688,
+    "predicted_per_second": 40.745121349663364
+  }
+}

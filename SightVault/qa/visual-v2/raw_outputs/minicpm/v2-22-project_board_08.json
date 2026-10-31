@@ -1,0 +1,33 @@
+{
+  "candidate": "minicpm",
+  "case_id": "v2-22-project_board_08",
+  "category": "ui",
+  "source_group": "authored-v2",
+  "image_path": "samples/project_board_08.png",
+  "image_sha256": "9eb745209c69a70137aaca22a5d7aebd1331494e351ead08e7fa5625cd8f9ffd",
+  "question": "Which task is in progress, and what task numbers are visible in that column?",
+  "ocr_context_sha256": "29f47f85437f9a6e2f45a5de729af1d7a5e4a3436e82aee78905ca0367105ffc",
+  "prompt_sha256": "fc34fc94c6b6b6346664f889c7f53a2d2afb4f648630511d8ed970e2f91232f7",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 34521,
+  "answer": "Visible: \"In progress\" column. Visible task numbers: #144, #146, #145. Likely explanation: These are task IDs under in-progress tasks. Fact: No other task numbers are visible in the \"In progress\" column.",
+  "answer_chars": 203,
+  "request_latency_s": 1.669,
+  "prompt_tokens": 521,
+  "output_tokens": 56,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 109.652,
+  "error": null,
+  "final_answer_tokens": 55,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "Visible: \"In progress\" column. Visible task numbers: #144, #146, #145. Likely explanation: These are task IDs under in-progress tasks. Fact: No other task numbers are visible in the \"In progress\" column.",
+  "mlx_peak_memory_bytes_after_request": 3503053454,
+  "mlx_active_memory_bytes_after_request": 2668284290,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

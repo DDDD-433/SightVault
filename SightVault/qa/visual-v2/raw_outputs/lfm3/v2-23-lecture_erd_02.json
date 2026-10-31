@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v2-23-lecture_erd_02",
+  "category": "diagram",
+  "source_group": "authored-v2",
+  "image_path": "samples/lecture_erd_02.png",
+  "image_sha256": "286a8b781dc3c6540b4d4ff68c071dfd0f4c8422d5efa142fb3f1fef15a03a19",
+  "question": "What relationships and cardinality does the slide explicitly state?",
+  "ocr_context_sha256": "2aba7ce4dd18eaa2612a1d8d75324ea3b787f7cdb05fe9e4ecf6f67f3026967b",
+  "prompt_sha256": "2859bc83c9fda09988f5e207f374895f062124e16d49319aebee9928d20ab971",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 41197,
+  "answer": "The slide lists four relationships: a customer places an order, an order contains a product, one customer may place many orders, and primary keys identify each record. It states that one customer may be linked to multiple orders, indicating a many-to-many relationship between customers and orders. The primary key concept identifies individual records within these relationships. The discussion prompt asks for a concrete example to explain the idea.",
+  "answer_chars": 451,
+  "request_latency_s": 2.447,
+  "prompt_tokens": 922,
+  "output_tokens": 81,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 101.281,
+  "error": null,
+  "final_answer_tokens": 80,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The slide lists four relationships: a customer places an order, an order contains a product, one customer may place many orders, and primary keys identify each record. It states that one customer may be linked to multiple orders, indicating a many-to-many relationship between customers and orders. The primary key concept identifies individual records within these relationships. The discussion prompt asks for a concrete example to explain the idea.",
+  "mlx_peak_memory_bytes_after_request": 2645537252,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

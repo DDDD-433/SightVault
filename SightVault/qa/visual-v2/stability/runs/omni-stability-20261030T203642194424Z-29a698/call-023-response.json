@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The screenshot shows that **training completed successfully**. The visible validation result is **Validation accuracy: 94.2%**."
+      }
+    }
+  ],
+  "created": 1793392678,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 26,
+    "prompt_tokens": 1286,
+    "total_tokens": 1312,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-fBmC1S3DhuWSL69kOhGEJzceTaBkrDXY",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1286,
+    "prompt_ms": 2151.824,
+    "prompt_per_token_ms": 1.6732690513219286,
+    "prompt_per_second": 597.632520131758,
+    "predicted_n": 26,
+    "predicted_ms": 268.866,
+    "predicted_per_token_ms": 10.75464,
+    "predicted_per_second": 92.98312170374834
+  }
+}

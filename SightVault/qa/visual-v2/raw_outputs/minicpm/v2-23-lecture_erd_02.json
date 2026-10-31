@@ -1,0 +1,33 @@
+{
+  "candidate": "minicpm",
+  "case_id": "v2-23-lecture_erd_02",
+  "category": "diagram",
+  "source_group": "authored-v2",
+  "image_path": "samples/lecture_erd_02.png",
+  "image_sha256": "286a8b781dc3c6540b4d4ff68c071dfd0f4c8422d5efa142fb3f1fef15a03a19",
+  "question": "What relationships and cardinality does the slide explicitly state?",
+  "ocr_context_sha256": "2aba7ce4dd18eaa2612a1d8d75324ea3b787f7cdb05fe9e4ecf6f67f3026967b",
+  "prompt_sha256": "2859bc83c9fda09988f5e207f374895f062124e16d49319aebee9928d20ab971",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 41197,
+  "answer": "Visible: Title \"Entity relationships,\" bullet points on relationships and cardinality.\n\nExplained: Relationships listed are \"Customer places Order,\" \"Order contains Product,\" and \"One customer may place many orders.\" Cardinality is implied: \"One customer may place many orders.\" Facts: Primary keys identify records. Explanation: Bullet points show relationships; cardinality inferred from \"many.\"",
+  "answer_chars": 397,
+  "request_latency_s": 1.84,
+  "prompt_tokens": 481,
+  "output_tokens": 76,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 107.164,
+  "error": null,
+  "final_answer_tokens": 75,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "Visible: Title \"Entity relationships,\" bullet points on relationships and cardinality.\n\nExplained: Relationships listed are \"Customer places Order,\" \"Order contains Product,\" and \"One customer may place many orders.\" Cardinality is implied: \"One customer may place many orders.\" Facts: Primary keys identify records. Explanation: Bullet points show relationships; cardinality inferred from \"many.\"",
+  "mlx_peak_memory_bytes_after_request": 3503053454,
+  "mlx_active_memory_bytes_after_request": 2668284290,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "backend": "omni",
+  "reasoning_mode": "off",
+  "checks": {
+    "semantic_before": true,
+    "ocr_before": true,
+    "analysis_first": true,
+    "analysis_reuse": true,
+    "semantic_during_loaded_provider": true,
+    "missing_optional_runtime_fails": true,
+    "semantic_after_optional_failure": true,
+    "analysis_recovered": true,
+    "ocr_after": true,
+    "single_generator_slot": true,
+    "semantic_after_switch": true,
+    "owned_runtime_stopped": true
+  },
+  "calls": [
+    {
+      "kind": "ocr_before",
+      "seconds": 7.651010624998889,
+      "result": {
+        "text": "training.py \u2014 Python\n$ python train.py --batch-size 64\nEpoch 1/10 | training on cuda:0\nTraceback (most recent call last):\n  File \"train.py\", line 87, in train\n  lossbackward()\n  torch.OutOfMemoryError: CUDA out of memory.\n  Tried to allocate 512.00 MiB. GPU 0 has 12.00 GiB total.\n  Of which 96.00 MiB is free. Process holds 11.62 GiB.\n  Batch size: 64. Sequence length: 4096.\nSession 01 \u00b7 developer workstation\nSYNTHETIC DEMO / no personal information",
+        "backend": "MiniCPM-OCR 1.0",
+        "error": null
+      },
+      "status": {
+        "available": true,
+        "loaded": true,
+        "device": "mlx (Metal GPU)",
+        "error": null,
+        "runtime": "MLX",
+        "precision": "mixed affine 4-bit / BF16"
+      }
+    },
+    {
+      "kind": "analysis_first",
+      "seconds": 11.871820708001906,
+      "answer": "**Visible error (evidence):** The traceback line explicitly reads `torch.OutOfMemoryError: CUDA out of memory.` This is the error message displayed in the terminal output.\n\n**Likely causes (inference):** The error is caused by the CUDA memory allocation failing. The traceback explains the root cause: the program tried to allocate 512.00 MiB of memory, but GPU 0 only has 12.00 GiB total (96.00 MiB free, 11.62 GiB held by the process). Since the requested 512.00 MiB exceeds the available 96.00 MiB, CUDA ran out of memory, producing the OutOfMemoryError.\n\n(Note: The screenshot does not show the actual runtime error or the full stack trace beyond the single line above; the memory limit calculation is an inference from the numbers in the traceback, not a visible fact.)",
+      "status": {
+        "available": true,
+        "loaded": true,
+        "name": "LFM3-Omni 2B",
+        "model_id": "LiquidAI/LFM3-Omni-2B-GGUF",
+        "model_revision": "3d29af2ad166f8299c2d820937e47dc0add20ffc",
+        "model_quantization": "Q4_K_M",
+        "projector_id": "mmproj-LFM3-Omni-2B-Q4_K_M.gguf",
+        "projector_quantization": "Q4_K_M",
+        "runtime": "upstream llama.cpp",
+        "runtime_commit": "e0f142d5ddc1461ce721644d92af33db23545105",
+        "runtime_version": "version: 0.8.0-dev (build 12005, commit e0f142d5d)\nbuilt with AppleClang 21.0.0.21000101 for Darwin arm64",
+        "precision": "GGUF Q4_K_M with matching Q4_K_M vision projector",
+        "backend": "omni",
+        "availability_reason": null,
+        "device": "CPU (GPU offload not verified)",
+        "device_evidence": "no GPU offload evidence; conservatively reported as CPU",
+        "reasoning_mode": "off",
+        "thinking_token_budget": 0,
+        "error": null,
+        "model_path": "/Users/ddddd-433/.codex/worktrees/phase2-unified/vibathon-mac/SightVault/.models/lfm3-omni-2b-gguf/LFM3-Omni-2B-Q4_K_M.gguf",
+        "projector_path": "/Users/ddddd-433/.codex/worktrees/phase2-unified/vibathon-mac/SightVault/.models/lfm3-omni-2b-gguf/mmproj-LFM3-Omni-2B-Q4_K_M.gguf"
+      },
+      "generation": {
+        "reasoning_mode": "off",
+        "thinking_token_budget": 0,
+        "final_answer_token_cap": 384
+      }
+    },
+    {
+      "kind": "analysis_reuse",
+      "seconds": 4.237206833000528,
+      "answer": "**Visible error (evidence):** The traceback line explicitly reads `torch.OutOfMemoryError: CUDA out of memory.` This is the error message displayed in the terminal output.\n\n**Likely causes (inference):** The error is caused by the CUDA memory allocation failing. The traceback explains the root cause: the program tried to allocate 512.00 MiB of memory, but GPU 0 only has 12.00 GiB total (96.00 MiB free, 11.62 GiB held by the process). Since the requested 512.00 MiB exceeds the available 96.00 MiB, CUDA ran out of memory, producing the OutOfMemoryError.\n\n(Note: The screenshot does not show the actual runtime error or the full stack trace beyond the single line above; the memory limit calculation is an inference from the numbers in the traceback, not a visible fact.)",
+      "status": {
+        "available": true,
+        "loaded": true,
+        "name": "LFM3-Omni 2B",
+        "model_id": "LiquidAI/LFM3-Omni-2B-GGUF",
+        "model_revision": "3d29af2ad166f8299c2d820937e47dc0add20ffc",
+        "model_quantization": "Q4_K_M",
+        "projector_id": "mmproj-LFM3-Omni-2B-Q4_K_M.gguf",
+        "projector_quantization": "Q4_K_M",
+        "runtime": "upstream llama.cpp",
+        "runtime_commit": "e0f142d5ddc1461ce721644d92af33db23545105",
+        "runtime_version": "version: 0.8.0-dev (build 12005, commit e0f142d5d)\nbuilt with AppleClang 21.0.0.21000101 for Darwin arm64",
+        "precision": "GGUF Q4_K_M with matching Q4_K_M vision projector",
+        "backend": "omni",
+        "availability_reason": null,
+        "device": "CPU (GPU offload not verified)",
+        "device_evidence": "no GPU offload evidence; conservatively reported as CPU",
+        "reasoning_mode": "off",
+        "thinking_token_budget": 0,
+        "error": null,
+        "model_path": "/Users/ddddd-433/.codex/worktrees/phase2-unified/vibathon-mac/SightVault/.models/lfm3-omni-2b-gguf/LFM3-Omni-2B-Q4_K_M.gguf",
+        "projector_path": "/Users/ddddd-433/.codex/worktrees/phase2-unified/vibathon-mac/SightVault/.models/lfm3-omni-2b-gguf/mmproj-LFM3-Omni-2B-Q4_K_M.gguf"
+      },
+      "generation": {
+        "reasoning_mode": "off",
+        "thinking_token_budget": 0,
+        "final_answer_token_cap": 384
+      }
+    },
+    {
+      "kind": "analysis_recovered",
+      "seconds": 5.416573833004804,
+      "answer": "**Visible error (evidence):** The traceback line explicitly reads `torch.OutOfMemoryError: CUDA out of memory.` This is the error message displayed in the terminal output.\n\n**Likely causes (inference):** The error is caused by the CUDA memory allocation failing. The traceback explains the root cause: the program tried to allocate 512.00 MiB of memory, but GPU 0 only has 12.00 GiB total (96.00 MiB free, 11.62 GiB held by the process). Since the requested 512.00 MiB exceeds the available 96.00 MiB, CUDA ran out of memory, producing the OutOfMemoryError.\n\n(Note: The screenshot does not show the actual runtime error or the full stack trace beyond the single line above; the memory limit calculation is an inference from the numbers in the traceback, not a visible fact.)",
+      "status": {
+        "available": true,
+        "loaded": true,
+        "name": "LFM3-Omni 2B",
+        "model_id": "LiquidAI/LFM3-Omni-2B-GGUF",
+        "model_revision": "3d29af2ad166f8299c2d820937e47dc0add20ffc",
+        "model_quantization": "Q4_K_M",
+        "projector_id": "mmproj-LFM3-Omni-2B-Q4_K_M.gguf",
+        "projector_quantization": "Q4_K_M",
+        "runtime": "upstream llama.cpp",
+        "runtime_commit": "e0f142d5ddc1461ce721644d92af33db23545105",
+        "runtime_version": "version: 0.8.0-dev (build 12005, commit e0f142d5d)\nbuilt with AppleClang 21.0.0.21000101 for Darwin arm64",
+        "precision": "GGUF Q4_K_M with matching Q4_K_M vision projector",
+        "backend": "omni",
+        "availability_reason": null,
+        "device": "CPU (GPU offload not verified)",
+        "device_evidence": "no GPU offload evidence; conservatively reported as CPU",
+        "reasoning_mode": "off",
+        "thinking_token_budget": 0,
+        "error": null,
+        "model_path": "/Users/ddddd-433/.codex/worktrees/phase2-unified/vibathon-mac/SightVault/.models/lfm3-omni-2b-gguf/LFM3-Omni-2B-Q4_K_M.gguf",
+        "projector_path": "/Users/ddddd-433/.codex/worktrees/phase2-unified/vibathon-mac/SightVault/.models/lfm3-omni-2b-gguf/mmproj-LFM3-Omni-2B-Q4_K_M.gguf"
+      },
+      "generation": {
+        "reasoning_mode": "off",
+        "thinking_token_budget": 0,
+        "final_answer_token_cap": 384
+      }
+    },
+    {
+      "kind": "ocr_after",
+      "seconds": 6.8287592500055325,
+      "result": {
+        "text": "training.py \u2014 Python\n$ python train.py --batch-size 64\nEpoch 1/10 | training on cuda:0\nTraceback (most recent call last):\n  File \"train.py\", line 87, in train\n  lossbackward()\n  torch.OutOfMemoryError: CUDA out of memory.\n  Tried to allocate 512.00 MiB. GPU 0 has 12.00 GiB total.\n  Of which 96.00 MiB is free. Process holds 11.62 GiB.\n  Batch size: 64. Sequence length: 4096.\nSession 01 \u00b7 developer workstation\nSYNTHETIC DEMO / no personal information",
+        "backend": "MiniCPM-OCR 1.0",
+        "error": null
+      },
+      "status": {
+        "available": true,
+        "loaded": true,
+        "device": "mlx (Metal GPU)",
+        "error": null,
+        "runtime": "MLX",
+        "precision": "mixed affine 4-bit / BF16"
+      }
+    }
+  ],
+  "isolation": "macOS-sandbox-exec-outbound-deny-loopback-allowed",
+  "injected_error": "LFM3-Omni 2B could not analyze this image: Pinned llama-server binary is missing at /Users/ddddd-433/.codex/worktrees/phase2-unified/vibathon-mac/SightVault/.runtime/llama.cpp/build/bin/intentionally-missing-QA-binary. Build upstream llama.cpp at e0f142d5ddc1461ce721644d92af33db23545105 and run scripts/prepare_omni_runtime.py.",
+  "models": {
+    "embedding": {
+      "available": true,
+      "loaded": true,
+      "device": "mps:0",
+      "error": null,
+      "runtime": "PyTorch",
+      "precision": "float32"
+    },
+    "ocr": {
+      "available": true,
+      "loaded": true,
+      "device": "mlx (Metal GPU)",
+      "error": null,
+      "runtime": "MLX",
+      "precision": "mixed affine 4-bit / BF16"
+    },
+    "vision": {
+      "available": true,
+      "loaded": false,
+      "name": "LFM3-Omni 2B",
+      "model_id": "LiquidAI/LFM3-Omni-2B-GGUF",
+      "model_revision": "3d29af2ad166f8299c2d820937e47dc0add20ffc",
+      "model_quantization": "Q4_K_M",
+      "projector_id": "mmproj-LFM3-Omni-2B-Q4_K_M.gguf",
+      "projector_quantization": "Q4_K_M",
+      "runtime": "upstream llama.cpp",
+      "runtime_commit": "e0f142d5ddc1461ce721644d92af33db23545105",
+      "runtime_version": "version: 0.8.0-dev (build 12005, commit e0f142d5d)\nbuilt with AppleClang 21.0.0.21000101 for Darwin arm64",
+      "precision": "GGUF Q4_K_M with matching Q4_K_M vision projector",
+      "backend": "omni",
+      "availability_reason": null,
+      "device": null,
+      "device_evidence": "no GPU offload evidence; conservatively reported as CPU",
+      "reasoning_mode": "off",
+      "thinking_token_budget": 0,
+      "error": null,
+      "model_path": "/Users/ddddd-433/.codex/worktrees/phase2-unified/vibathon-mac/SightVault/.models/lfm3-omni-2b-gguf/LFM3-Omni-2B-Q4_K_M.gguf",
+      "projector_path": "/Users/ddddd-433/.codex/worktrees/phase2-unified/vibathon-mac/SightVault/.models/lfm3-omni-2b-gguf/mmproj-LFM3-Omni-2B-Q4_K_M.gguf"
+    }
+  },
+  "passed": true
+}

@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The slide defines two join types: INNER JOIN returns only matching rows, while LEFT JOIN keeps every row from the left table.\n\n**Facts:**\n- **INNER JOIN:** Returns only matching rows.\n- **LEFT JOIN:** Keeps every row on the left.\n\n**Likely Explanations:**\n- The slide uses a concrete example (`SELECT customers.name, orders.total`) to illustrate the concept.\n- A foreign key connects related tables, enabling joins.\n\n**Insufficient Evidence:**\n- The slide does not provide specific data or timestamps to verify actual behavior.\n- It lacks a concrete example of rows being filtered or retained.\n\n**Conclusion:**\nThe slide states the definitions clearly but does not demonstrate the actual output of these joins."
+      }
+    }
+  ],
+  "created": 1793393122,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 154,
+    "prompt_tokens": 1248,
+    "total_tokens": 1402,
+    "prompt_tokens_details": {
+      "cached_tokens": 1244
+    }
+  },
+  "id": "chatcmpl-HSDpE2jezOHaqOgGz8ibdexEngvLxtZ1",
+  "timings": {
+    "cache_n": 1244,
+    "prompt_n": 4,
+    "prompt_ms": 63.018,
+    "prompt_per_token_ms": 15.7545,
+    "prompt_per_second": 63.47392808403948,
+    "predicted_n": 154,
+    "predicted_ms": 3707.114,
+    "predicted_per_token_ms": 24.229503267973858,
+    "predicted_per_second": 41.271997570077424
+  }
+}

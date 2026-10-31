@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The screenshot shows a Python terminal attempting to run a benchmark script using the MPS (Metal Performance Shaders) backend. The operation that failed is the execution of `analyze_batch.py`, which resulted in a `RuntimeError: MPS backend out of memory`.\n\nVisible memory figures indicate that the MPS backend allocated 7.45 GiB, with other allocations totaling 2.82 GiB. The system allowed up to 10.24 GiB but only requested 1.10 GiB.\n\nThe error suggests the available GPU memory was insufficient for the batch size of 32. The system advised reducing the batch size or closing other applications. The final status was aborted, and no upload was attempted."
+      }
+    }
+  ],
+  "created": 1793393030,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 148,
+    "prompt_tokens": 1507,
+    "total_tokens": 1655,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-aKjOZx6LHfmmu4k3679oDprlqhJf3JBN",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1507,
+    "prompt_ms": 6658.278,
+    "prompt_per_token_ms": 4.4182335766423355,
+    "prompt_per_second": 226.33479707515968,
+    "predicted_n": 148,
+    "predicted_ms": 3515.317,
+    "predicted_per_token_ms": 23.913721088435373,
+    "predicted_per_second": 41.816996873966126
+  }
+}

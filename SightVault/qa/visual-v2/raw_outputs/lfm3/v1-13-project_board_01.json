@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v1-13-project_board_01",
+  "category": "ui",
+  "source_group": "preserved-v1",
+  "image_path": "samples/project_board_01.png",
+  "image_sha256": "95baa84d1fc525624c1f61dfd06f3a398dcd59ca69c26b9e5ce8c062ff4c0994",
+  "question": "What status columns are visible, and name one task shown in progress?",
+  "ocr_context_sha256": "c8c3831fa5878bde5a6f88227dfef4ac098d5ca950db02ed46aa9e86f0cd1340",
+  "prompt_sha256": "ba9f2f0d76d077e9ebee3caf72c1309568408c4e696e67086a38dd3cae66d2b8",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 34443,
+  "answer": "The screenshot shows a project board with three status columns: \"To do,\" \"In progress,\" and \"Completed.\" Under \"In progress,\" one task is \"Build image index\" (Task #102). Other visible tasks include \"Design search view\" (To do), \"Set up environment\" (Completed), \"Write README\" (To do), \"Add OCR extraction\" (In progress), and \"Create demo files\" (Completed). The header reads \"Sprint planning\" for \"Local team workspace · example project.\"",
+  "answer_chars": 440,
+  "request_latency_s": 2.789,
+  "prompt_tokens": 947,
+  "output_tokens": 110,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 100.332,
+  "error": null,
+  "final_answer_tokens": 109,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The screenshot shows a project board with three status columns: \"To do,\" \"In progress,\" and \"Completed.\" Under \"In progress,\" one task is \"Build image index\" (Task #102). Other visible tasks include \"Design search view\" (To do), \"Set up environment\" (Completed), \"Write README\" (To do), \"Add OCR extraction\" (In progress), and \"Create demo files\" (Completed). The header reads \"Sprint planning\" for \"Local team workspace · example project.\"",
+  "mlx_peak_memory_bytes_after_request": 2645537252,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

@@ -23,7 +23,7 @@ def test_vision_config_accepts_supported_backends(monkeypatch, backend):
 
 
 def test_vision_config_rejects_unknown_backend():
-    with pytest.raises(ValueError, match="SIGHTVAULT_VISION must be 'minicpm' or 'lfm3'"):
+    with pytest.raises(ValueError, match="SIGHTVAULT_VISION must be 'minicpm', 'lfm3' or 'omni'"):
         Config(vision='unknown')
 
 
@@ -93,6 +93,47 @@ def test_lfm3_routes_to_local_mlx_and_never_minicpm_fallback(tmp_path, monkeypat
     assert models._generate('vision', object(), 'prompt', 96) == 'LFM3 output'
     assert called == [('vision', 'prompt', 96)]
     assert models.status()['vision']['available'] is True
+
+
+def test_lfm3_thinking_flag_does_not_change_minicpm_generation(tmp_path, monkeypatch):
+    import sys
+    import types
+
+    models = Models(Config(root=tmp_path, data=tmp_path/'data', models=tmp_path/'models',
+                           vision='minicpm', lfm3_thinking_tokens=128))
+    fake_mlx = types.ModuleType('mlx')
+    fake_mlx.__path__ = []
+    fake_mx = types.ModuleType('mlx.core')
+    fake_mx.clear_cache = lambda: None
+    fake_mlx.core = fake_mx
+    fake_vlm = types.ModuleType('mlx_vlm')
+    fake_prompt_utils = types.ModuleType('mlx_vlm.prompt_utils')
+    calls = []
+
+    class Model:
+        config = object()
+    class Processor:
+        pass
+
+    fake_vlm.load = lambda *args, **kwargs: (Model(), Processor())
+    def apply_template(processor, config, prompt, **kwargs):
+        calls.append(('template', kwargs))
+        return 'formatted'
+    def generate(model, processor, formatted, **kwargs):
+        calls.append(('generate', kwargs))
+        return types.SimpleNamespace(text='MiniCPM output')
+    fake_vlm.generate = generate
+    fake_prompt_utils.apply_chat_template = apply_template
+    monkeypatch.setitem(sys.modules, 'mlx', fake_mlx)
+    monkeypatch.setitem(sys.modules, 'mlx.core', fake_mx)
+    monkeypatch.setitem(sys.modules, 'mlx_vlm', fake_vlm)
+    monkeypatch.setitem(sys.modules, 'mlx_vlm.prompt_utils', fake_prompt_utils)
+    monkeypatch.setattr(models, '_mlx_path', lambda _kind: tmp_path)
+
+    assert models._generate('vision', object(), 'prompt', 384) == 'MiniCPM output'
+    assert calls[0] == ('template', {'num_images': 1, 'enable_thinking': False})
+    assert calls[1][0] == 'generate'
+    assert models.reasoning_mode == 'off'
 
 
 def test_lfm3_missing_model_has_actionable_error_without_fallback(tmp_path, monkeypatch):

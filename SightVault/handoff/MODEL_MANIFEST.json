@@ -1,5 +1,5 @@
 {
-  "total_bytes": 7275820860,
+  "total_bytes": 10276157678,
   "sources": {
     "embeddinggemma-2": {
       "repo": "google/embeddinggemma-2",
@@ -12,6 +12,31 @@
     "minicpm-v": {
       "repo": "openbmb/MiniCPM-V-4.7-1B",
       "revision": "bb99eab4113676f30830ffa73bac1f0b2a5f1dea"
+    },
+    "lfm3-vl-2b-mlx-4bit": {
+      "repo": "LiquidAI/LFM3-VL-2B-MLX-4bit",
+      "revision": "4146d7fa689833cfa7a06c474e748350b458f41e",
+      "optional": true,
+      "platforms": [
+        "macos-arm64"
+      ],
+      "runtime_commit": "918763c6875c80e82f9f48344dfad4763346fea8",
+      "quantization": {
+        "method": "Quantization-Aware Distillation (QAD)",
+        "bits": 4,
+        "group_size": 32,
+        "mode": "affine",
+        "token_embeddings_bits": 8,
+        "precision_note": "BF16 tensors are retained per the vendor checkpoint; this is a mixed-precision model."
+      }
+    },
+    "lfm3-omni-2b-gguf": {
+      "repo": "LiquidAI/LFM3-Omni-2B-GGUF",
+      "revision": "3d29af2ad166f8299c2d820937e47dc0add20ffc",
+      "optional": true,
+      "runtime": "upstream llama.cpp",
+      "runtime_commit": "e0f142d5ddc1461ce721644d92af33db23545105",
+      "quantization": "Q4_K_M; matching Q4_K_M multimodal projector"
     }
   },
   "files": [
@@ -174,11 +199,129 @@
       "path": ".models/minicpm-v/tokenizer_config.json",
       "size": 1436,
       "sha256": "900ecc6ba690a07270dc23935d17bbb7d2ed69a073a90a9cf731e5313e86ebba"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/.gitattributes",
+      "size": 1570,
+      "sha256": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/LICENSE",
+      "size": 10574,
+      "sha256": "30adf9d6478191fb87f2424f63ba0728598335aaf99cd2848ef17e8e545fe94b"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/README.md",
+      "size": 3173,
+      "sha256": "d7e7db3811edba06043771afaf769b4549eaaad4a5fa98599ff994fa6d9ef958"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/chat_template.jinja",
+      "size": 12129,
+      "sha256": "f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/config.json",
+      "size": 4419,
+      "sha256": "0efb7708e0771e3e104ac628954cdc71070dd436e0b7974615bd1b9eb836f9d9"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/configuration_lfm3.py",
+      "size": 6105,
+      "sha256": "dd2f4b18eed69f3a303dbf438a5ecd20d6375abad8d1aa62699b3d5294e6a71a"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/configuration_lfm3_vl.py",
+      "size": 9138,
+      "sha256": "ddd68fa327d634db8bbaade1080264dc1206be613db6fbc3521998251a00e2a5"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/generation_config.json",
+      "size": 355,
+      "sha256": "08622a2580962f8ca4b15acaf85c9ddf6a3d8de1be132e5572f40c433b53dbf9"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/image_processing_lfm3_vl.py",
+      "size": 12036,
+      "sha256": "57db0cfa668bf89a6ff898874e1321e78c257d200f25c98e0ea52b30b8740088"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/lfm3_conv.py",
+      "size": 8532,
+      "sha256": "80d4a985382a22774212759248a6b4c737bfbf9c2a47b3dd7f797dda748e4bb4"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/model.safetensors",
+      "size": 1590959088,
+      "sha256": "58268dfdf441ae4020d2a52fc97a814645e8a9624946e2d490403d4dcd71a255"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/model.safetensors.index.json",
+      "size": 61256,
+      "sha256": "38b756dbde167ab7c60756af7d5652414c31afdf4e77700b8d3c99395515d639"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/modeling_lfm3.py",
+      "size": 42343,
+      "sha256": "4a676bee2cf184d51a9dacbb9d7c4abae85515a042a920f8e2578b22bba3d6e8"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/modeling_lfm3_vl.py",
+      "size": 44999,
+      "sha256": "a41cbe7242f379808bcc005207ee0d7b1709528966c1e4da46baa7c41827ac79"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/processing_lfm3_vl.py",
+      "size": 12152,
+      "sha256": "d770011e71c8b8e94ea9436d4f6768b42db60c5db70145d47f326f5d76f633f6"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/processor_config.json",
+      "size": 1254,
+      "sha256": "f183f5a5e5b3a32e666fce05033e6cb7ca496d26e709a2cee611a13eb7d6b610"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/tokenizer.json",
+      "size": 17908258,
+      "sha256": "a39eed58008cbcbc09e5b629b81338a654269c64cd13348aaa6090f4db75c7e7"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/tokenizer_config.json",
+      "size": 1759,
+      "sha256": "d63d1ce2f332047e398764b4170352b96629a5194643105bfd6d70c90b750396"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/video_processing_lfm3_vl.py",
+      "size": 17161,
+      "sha256": "9a6b7804c520b59ae6a20bff4814196c187ef5b3ed8c93cbd7d0a9a66c413478"
+    },
+    {
+      "path": ".models/lfm3-vl-2b-mlx-4bit/source.json",
+      "size": 3154,
+      "sha256": "c4cc80d2bd1a22ad27950cdf640da53f382a354e377bd5b85a40730b1e0b6af3"
+    },
+    {
+      "path": ".models/lfm3-omni-2b-gguf/LFM3-Omni-2B-Q4_K_M.gguf",
+      "size": 1099630080,
+      "sha256": "9f8d30e9d4fd7a9349d586e077988229b3ca0a0e4ad730897563d1eccc9893e2"
+    },
+    {
+      "path": ".models/lfm3-omni-2b-gguf/mmproj-LFM3-Omni-2B-Q4_K_M.gguf",
+      "size": 291586720,
+      "sha256": "0a746c0794782a16d4456b230c2a0b5888a2d94a6677211edbed7d7a4177a39a"
+    },
+    {
+      "path": ".models/lfm3-omni-2b-gguf/source.json",
+      "size": 563,
+      "sha256": "c2bd6e8841dbf994afb16d16d9a216055d6b2c2d8b4c6a60353fcd4d401dac9e"
     }
   ],
   "source_json_bytes": {
     "embeddinggemma-2": "{\n  \"repo\": \"google/embeddinggemma-2\",\n  \"revision\": \"f9972ac22e696a105c482202646979e33e4b5a1e\"\n}",
     "minicpm-ocr": "{\"repo\":\"openbmb/MiniCPM-OCR-1.0\",\"revision\":\"c5833cddb363aa62f1cb60ddde48c832e8f1a92c\"}",
-    "minicpm-v": "{\n  \"repo\": \"openbmb/MiniCPM-V-4.7-1B\",\n  \"revision\": \"bb99eab4113676f30830ffa73bac1f0b2a5f1dea\"\n}"
-  }
+    "minicpm-v": "{\n  \"repo\": \"openbmb/MiniCPM-V-4.7-1B\",\n  \"revision\": \"bb99eab4113676f30830ffa73bac1f0b2a5f1dea\"\n}",
+    "lfm3-vl-2b-mlx-4bit": "{\n  \"repo\": \"LiquidAI/LFM3-VL-2B-MLX-4bit\",\n  \"revision\": \"4146d7fa689833cfa7a06c474e748350b458f41e\",\n  \"runtime\": \"mlx-vlm\",\n  \"runtime_commit\": \"918763c6875c80e82f9f48344dfad4763346fea8\",\n  \"quantization\": {\n    \"method\": \"Quantization-Aware Distillation (QAD)\",\n    \"bits\": 4,\n    \"group_size\": 32,\n    \"mode\": \"affine\",\n    \"token_embeddings_bits\": 8,\n    \"precision_note\": \"BF16 tensors are retained per the vendor checkpoint; this is a mixed-precision model.\"\n  },\n  \"files\": {\n    \".gitattributes\": {\n      \"bytes\": 1570,\n      \"sha256\": \"34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930\"\n    },\n    \"LICENSE\": {\n      \"bytes\": 10574,\n      \"sha256\": \"30adf9d6478191fb87f2424f63ba0728598335aaf99cd2848ef17e8e545fe94b\"\n    },\n    \"README.md\": {\n      \"bytes\": 3173,\n      \"sha256\": \"d7e7db3811edba06043771afaf769b4549eaaad4a5fa98599ff994fa6d9ef958\"\n    },\n    \"chat_template.jinja\": {\n      \"bytes\": 12129,\n      \"sha256\": \"f45005c50cd2a97329722bf3a2dee9f16c04cdf825a589b280fb7e99e6827818\"\n    },\n    \"config.json\": {\n      \"bytes\": 4419,\n      \"sha256\": \"0efb7708e0771e3e104ac628954cdc71070dd436e0b7974615bd1b9eb836f9d9\"\n    },\n    \"configuration_lfm3.py\": {\n      \"bytes\": 6105,\n      \"sha256\": \"dd2f4b18eed69f3a303dbf438a5ecd20d6375abad8d1aa62699b3d5294e6a71a\"\n    },\n    \"configuration_lfm3_vl.py\": {\n      \"bytes\": 9138,\n      \"sha256\": \"ddd68fa327d634db8bbaade1080264dc1206be613db6fbc3521998251a00e2a5\"\n    },\n    \"generation_config.json\": {\n      \"bytes\": 355,\n      \"sha256\": \"08622a2580962f8ca4b15acaf85c9ddf6a3d8de1be132e5572f40c433b53dbf9\"\n    },\n    \"image_processing_lfm3_vl.py\": {\n      \"bytes\": 12036,\n      \"sha256\": \"57db0cfa668bf89a6ff898874e1321e78c257d200f25c98e0ea52b30b8740088\"\n    },\n    \"lfm3_conv.py\": {\n      \"bytes\": 8532,\n      \"sha256\": \"80d4a985382a22774212759248a6b4c737bfbf9c2a47b3dd7f797dda748e4bb4\"\n    },\n    \"model.safetensors\": {\n      \"bytes\": 1590959088,\n      \"sha256\": \"58268dfdf441ae4020d2a52fc97a814645e8a9624946e2d490403d4dcd71a255\"\n    },\n    \"model.safetensors.index.json\": {\n      \"bytes\": 61256,\n      \"sha256\": \"38b756dbde167ab7c60756af7d5652414c31afdf4e77700b8d3c99395515d639\"\n    },\n    \"modeling_lfm3.py\": {\n      \"bytes\": 42343,\n      \"sha256\": \"4a676bee2cf184d51a9dacbb9d7c4abae85515a042a920f8e2578b22bba3d6e8\"\n    },\n    \"modeling_lfm3_vl.py\": {\n      \"bytes\": 44999,\n      \"sha256\": \"a41cbe7242f379808bcc005207ee0d7b1709528966c1e4da46baa7c41827ac79\"\n    },\n    \"processing_lfm3_vl.py\": {\n      \"bytes\": 12152,\n      \"sha256\": \"d770011e71c8b8e94ea9436d4f6768b42db60c5db70145d47f326f5d76f633f6\"\n    },\n    \"processor_config.json\": {\n      \"bytes\": 1254,\n      \"sha256\": \"f183f5a5e5b3a32e666fce05033e6cb7ca496d26e709a2cee611a13eb7d6b610\"\n    },\n    \"tokenizer.json\": {\n      \"bytes\": 17908258,\n      \"sha256\": \"a39eed58008cbcbc09e5b629b81338a654269c64cd13348aaa6090f4db75c7e7\"\n    },\n    \"tokenizer_config.json\": {\n      \"bytes\": 1759,\n      \"sha256\": \"d63d1ce2f332047e398764b4170352b96629a5194643105bfd6d70c90b750396\"\n    },\n    \"video_processing_lfm3_vl.py\": {\n      \"bytes\": 17161,\n      \"sha256\": \"9a6b7804c520b59ae6a20bff4814196c187ef5b3ed8c93cbd7d0a9a66c413478\"\n    }\n  }\n}",
+    "lfm3-omni-2b-gguf": "{\n  \"repo\": \"LiquidAI/LFM3-Omni-2B-GGUF\",\n  \"revision\": \"3d29af2ad166f8299c2d820937e47dc0add20ffc\",\n  \"license\": \"LFM Open License v1.0\",\n  \"runtime\": \"upstream llama.cpp\",\n  \"runtime_commit\": \"e0f142d5ddc1461ce721644d92af33db23545105\",\n  \"files\": {\n    \"LFM3-Omni-2B-Q4_K_M.gguf\": {\n      \"bytes\": 1099630080,\n      \"sha256\": \"9f8d30e9d4fd7a9349d586e077988229b3ca0a0e4ad730897563d1eccc9893e2\"\n    },\n    \"mmproj-LFM3-Omni-2B-Q4_K_M.gguf\": {\n      \"bytes\": 291586720,\n      \"sha256\": \"0a746c0794782a16d4456b230c2a0b5888a2d94a6677211edbed7d7a4177a39a\"\n    }\n  }\n}\n"
+  },
+  "required_bytes": 7275820860
 }

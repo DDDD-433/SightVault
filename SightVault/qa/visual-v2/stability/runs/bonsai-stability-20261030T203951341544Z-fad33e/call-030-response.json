@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Based on the provided runbook, here are the requirements for releasing after restarting the archive-worker:\n\n**Pre-release Checks:**\n*   **Matched IDs:** The sampled IDs must match the baseline.\n*   **Performance:** Query p95 latency must be below 180 ms.\n\n**Rollback Triggers:**\nThe process triggers a rollback if **either** of the following conditions is met:\n*   Any sampled ID differs from the baseline.\n*   Query p95 latency is at least 180 ms.\n\n**Likely Explanation:**\nThe runbook explicitly states that you must proceed *only* when these conditions are met. If they are not met, the system is designed to rollback. The OCR text confirms these specific thresholds and logic."
+      }
+    }
+  ],
+  "created": 1793393062,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 162,
+    "prompt_tokens": 1570,
+    "total_tokens": 1732,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-DGyMKM12MWB0050t1sHNMNG3xDcWzKXT",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1570,
+    "prompt_ms": 7031.78,
+    "prompt_per_token_ms": 4.47884076433121,
+    "prompt_per_second": 223.27205913723125,
+    "predicted_n": 162,
+    "predicted_ms": 3820.005,
+    "predicted_per_token_ms": 23.726739130434783,
+    "predicted_per_second": 42.14654169300825
+  }
+}

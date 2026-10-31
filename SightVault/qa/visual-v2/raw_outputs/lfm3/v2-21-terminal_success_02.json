@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v2-21-terminal_success_02",
+  "category": "terminal",
+  "source_group": "authored-v2",
+  "image_path": "samples/terminal_success_02.png",
+  "image_sha256": "e1297eef59665959ac543515729e573c80ba4148030ef6c6cde7e3bf434d6be7",
+  "question": "What completed successfully, and what validation result is visible?",
+  "ocr_context_sha256": "d6ee6d1790d06584b7975d13845972ce728791c35a9b97ee2deb0595f0f9ecfa",
+  "prompt_sha256": "aa760c466ca0fea89cd95f603e8d0650790029f65a42d35e1d339ebd625323cb",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 41182,
+  "answer": "The image shows a terminal output from a completed training run. The text \"Training completed successfully.\" indicates the training process finished without errors. The validation result displayed is \"Validation accuracy: 94.2%\". Other visible details include command execution of `python train.py --batch-size 4`, epoch progress (10/10), and system resources like GPU device and memory usage. The session is labeled \"Session 02 · developer workstation\" on a \"SYNTHETIC DEMO / no personal information\" environment. No further context is provided beyond these visible elements.",
+  "answer_chars": 576,
+  "request_latency_s": 2.839,
+  "prompt_tokens": 959,
+  "output_tokens": 117,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 98.407,
+  "error": null,
+  "final_answer_tokens": 116,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The image shows a terminal output from a completed training run. The text \"Training completed successfully.\" indicates the training process finished without errors. The validation result displayed is \"Validation accuracy: 94.2%\". Other visible details include command execution of `python train.py --batch-size 4`, epoch progress (10/10), and system resources like GPU device and memory usage. The session is labeled \"Session 02 · developer workstation\" on a \"SYNTHETIC DEMO / no personal information\" environment. No further context is provided beyond these visible elements.",
+  "mlx_peak_memory_bytes_after_request": 2645537252,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

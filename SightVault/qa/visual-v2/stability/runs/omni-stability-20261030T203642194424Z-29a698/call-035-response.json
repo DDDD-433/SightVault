@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The error displayed is **`torch.OutOfMemoryError: CUDA out of memory.`**\n\nThe visible text in the traceback explains the failure: *\"Tried to allocate 512.00 MiB. GPU 0 has 12.00 GiB total. Of which 96.00 MiB is free. Process holds 11.62 GiB.\"*\n\nThis suggests the error occurred because the training process attempted to allocate 512 MiB of memory, but only 96 MiB was actually free on GPU 0 (out of a total of 12 GiB), leaving the process holding 11.62 GiB. The failure is a memory allocation error caused by insufficient free memory on the GPU."
+      }
+    }
+  ],
+  "created": 1793392721,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 147,
+    "prompt_tokens": 1331,
+    "total_tokens": 1478,
+    "prompt_tokens_details": {
+      "cached_tokens": 10
+    }
+  },
+  "id": "chatcmpl-D504jjMQw9kXqu6SzMor7bwA0zWVBHpZ",
+  "timings": {
+    "cache_n": 10,
+    "prompt_n": 1321,
+    "prompt_ms": 2158.394,
+    "prompt_per_token_ms": 1.633909159727479,
+    "prompt_per_second": 612.029129065407,
+    "predicted_n": 147,
+    "predicted_ms": 1562.367,
+    "predicted_per_token_ms": 10.701143835616438,
+    "predicted_per_second": 93.44795428986916
+  }
+}

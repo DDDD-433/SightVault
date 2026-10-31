@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v1-14-document_05",
+  "category": "document",
+  "source_group": "preserved-v1",
+  "image_path": "samples/document_05.png",
+  "image_sha256": "8b0c7d7a0e6dc012f7309538e7b47ac545cd144d6f2d1d4488e5bc9e6b7e1e26",
+  "question": "What behavior does the design note specify for GET /items and POST /items?",
+  "ocr_context_sha256": "89c590ac4bdbfe5b530d7276f15a2f4a46a5e8effbb5bde08c931e62f0100980",
+  "prompt_sha256": "838f05a00e7d9ff653c9b746bec43231c356fe34d0cd4f7b80d915319328478b",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 33049,
+  "answer": "The design note specifies that GET /items returns a list of stored records and POST /items creates a validated new record. Additionally, it states that the design should return clear errors and preserve request IDs. These points outline the expected behaviors for the specified API endpoints.",
+  "answer_chars": 292,
+  "request_latency_s": 2.181,
+  "prompt_tokens": 918,
+  "output_tokens": 53,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 98.449,
+  "error": null,
+  "final_answer_tokens": 52,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The design note specifies that GET /items returns a list of stored records and POST /items creates a validated new record. Additionally, it states that the design should return clear errors and preserve request IDs. These points outline the expected behaviors for the specified API endpoints.",
+  "mlx_peak_memory_bytes_after_request": 2645537252,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "console_errors": [],
+  "failed_requests": [],
+  "http_errors": [],
+  "checks": {
+    "api_vision_identity_consistent": {
+      "ok": true,
+      "detail": {
+        "status_backend": "omni",
+        "model_backend": "omni",
+        "status_model": "LFM3-Omni 2B",
+        "model_name": "LFM3-Omni 2B"
+      }
+    },
+    "expected_backend": {
+      "ok": true,
+      "detail": "omni"
+    },
+    "expected_model_id": {
+      "ok": true,
+      "detail": "LiquidAI/LFM3-Omni-2B-GGUF"
+    },
+    "expected_instance_root": {
+      "ok": true,
+      "detail": "experimental worktree root matched"
+    },
+    "ui_selected_model_label": {
+      "ok": true,
+      "detail": "LFM3-Omni 2B analyzes this image locally when you ask. Answers stay attached to their source."
+    },
+    "xss_card_escaped": {
+      "ok": true,
+      "detail": "ZX-4471 <b>not markup</b> <img src=x onerror=\"window.__xss=1\"> & untrusted OCR"
+    },
+    "xss_dialog_escaped": {
+      "ok": true,
+      "detail": null
+    }
+  },
+  "passed": true,
+  "isolation": "CSP bypassed in this escaping stress harness; separate normal-CSP checks also passed"
+}

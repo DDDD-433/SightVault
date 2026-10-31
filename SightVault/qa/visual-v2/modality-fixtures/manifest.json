@@ -1,0 +1,316 @@
+{
+  "experiment": "SightVault visual-v2 local synthetic Omni modalities",
+  "authored_independently_of_model_outputs": true,
+  "privacy": "No microphone, private recordings, downloaded clips, or remote media.",
+  "synthesis": {
+    "tool": "/usr/bin/say",
+    "voice": "Alex",
+    "rate": 180,
+    "conversion": "ffmpeg -ac 1 -ar 16000 -c:a pcm_s16le",
+    "macos": "macOS-26.5.1-arm64-arm-64bit",
+    "ffmpeg": "ffmpeg version 9.0.2 Copyright (c) 2000-2026 the FFmpeg developers",
+    "ffprobe": "ffprobe version 9.0.2 Copyright (c) 2007-2026 the FFmpeg developers"
+  },
+  "asr_cases": [
+    {
+      "fixture_id": "asr-01",
+      "path": "qa/visual-v2/modality-fixtures/asr-01.wav",
+      "sha256": "a548b25464f5f34a7f9b003a554375fa28af0c777a46ae5daa2cb267ff7df131",
+      "bytes": 54706,
+      "reference_transcript": "The green status light is steady.",
+      "format": "WAV PCM s16le mono 16 kHz",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "16000",
+            "channels": 1,
+            "bits_per_sample": 16
+          }
+        ],
+        "format": {
+          "duration": "1.707125"
+        }
+      }
+    },
+    {
+      "fixture_id": "asr-02",
+      "path": "qa/visual-v2/modality-fixtures/asr-02.wav",
+      "sha256": "9c397ac473433162249ac25b126095fbed1060e73709d890c2664f559ed8d982",
+      "bytes": 142136,
+      "reference_transcript": "Mira Chen reviewed ticket two zero four eight and assigned it to queue seven three one.",
+      "format": "WAV PCM s16le mono 16 kHz",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "16000",
+            "channels": 1,
+            "bits_per_sample": 16
+          }
+        ],
+        "format": {
+          "duration": "4.439313"
+        }
+      }
+    },
+    {
+      "fixture_id": "asr-03",
+      "path": "qa/visual-v2/modality-fixtures/asr-03.wav",
+      "sha256": "4cb90f4c1df68543d0655280b8922acf6a6a2dc4f103bd1492d666ddc2a2d6d8",
+      "bytes": 156444,
+      "reference_transcript": "The invoice total is forty two dollars. The backup starts at six fifteen tomorrow.",
+      "format": "WAV PCM s16le mono 16 kHz",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "16000",
+            "channels": 1,
+            "bits_per_sample": 16
+          }
+        ],
+        "format": {
+          "duration": "4.886438"
+        }
+      }
+    }
+  ],
+  "spoken_image_cases": [
+    {
+      "case_id": "v2-31-cup_red_01",
+      "image_path": "qa/visual-v2/fixtures/cup_red_01.png",
+      "image_sha256": "7cdaad4f4ceab5eb892d84105bcc8d20af9da76d2507c9686ce63723a0fa7d53",
+      "question": "What color is the cup?",
+      "audio_fixture": "spoken-cup-question.wav",
+      "audio_path": "qa/visual-v2/modality-fixtures/spoken-cup-question.wav",
+      "audio_sha256": "d465dfab0ab27984e70642e718b2e46cdd3e8ca1c489049dace1ba10ca95d571",
+      "text_control_uses_identical_question": true
+    },
+    {
+      "case_id": "v2-32-cup_blue_01",
+      "image_path": "qa/visual-v2/fixtures/cup_blue_01.png",
+      "image_sha256": "c6fcf3fae96f5d6b45c923fac85385c0c040894e0e0f27fef29337262d5c8882",
+      "question": "What color is the cup?",
+      "audio_fixture": "spoken-cup-question.wav",
+      "audio_path": "qa/visual-v2/modality-fixtures/spoken-cup-question.wav",
+      "audio_sha256": "d465dfab0ab27984e70642e718b2e46cdd3e8ca1c489049dace1ba10ca95d571",
+      "text_control_uses_identical_question": true
+    },
+    {
+      "case_id": "v2-24-bridge_photo",
+      "image_path": "samples/bridge_photo.png",
+      "image_sha256": "ff6b23c20b29e03631d5b27590abb7fd89f2998f08227aee21d58a491346b85b",
+      "question": "Are any people visible in the scene, and where are they?",
+      "audio_fixture": "spoken-people-question.wav",
+      "audio_path": "qa/visual-v2/modality-fixtures/spoken-people-question.wav",
+      "audio_sha256": "88be0569cce4fc753c76ea9834bb53f111a0dee3c7647c899e2cd8c02450d314",
+      "text_control_uses_identical_question": true
+    }
+  ],
+  "video_cases": [
+    {
+      "fixture_id": "moving-shape-video",
+      "path": "qa/visual-v2/modality-fixtures/moving-shape-video.mp4",
+      "sha256": "a06c720a08eeeb8afccc7814e19d84df4b02808c67a4f41997366881d51bb856",
+      "bytes": 26130,
+      "reference_facts": "A red circle moves from left to right while a blue square remains still. The soundtrack says this is a short synthetic benchmark clip.",
+      "spoken_phrase": "This is a short synthetic benchmark clip.",
+      "question": "Which shape moves, and in which direction?",
+      "format": "MP4 H.264 video + AAC audio",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 512,
+            "height": 320,
+            "avg_frame_rate": "4/1"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "16000",
+            "channels": 1,
+            "avg_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "6.000000"
+        }
+      }
+    }
+  ],
+  "tts_cases": [
+    {
+      "case_id": "tts-01",
+      "text": "This is a local synthetic speech test.",
+      "reference_audio_path": "qa/visual-v2/modality-fixtures/asr-01.wav",
+      "reference_audio_sha256": "a548b25464f5f34a7f9b003a554375fa28af0c777a46ae5daa2cb267ff7df131"
+    },
+    {
+      "case_id": "tts-02",
+      "text": "SightVault can inspect a screenshot and describe what is visible.",
+      "reference_audio_path": "qa/visual-v2/modality-fixtures/asr-01.wav",
+      "reference_audio_sha256": "a548b25464f5f34a7f9b003a554375fa28af0c777a46ae5daa2cb267ff7df131"
+    },
+    {
+      "case_id": "tts-03",
+      "text": "A red circle moves left while a blue square stays still.",
+      "reference_audio_path": "qa/visual-v2/modality-fixtures/asr-01.wav",
+      "reference_audio_sha256": "a548b25464f5f34a7f9b003a554375fa28af0c777a46ae5daa2cb267ff7df131"
+    }
+  ],
+  "assets": {
+    "asr-01": {
+      "path": "qa/visual-v2/modality-fixtures/asr-01.wav",
+      "sha256": "a548b25464f5f34a7f9b003a554375fa28af0c777a46ae5daa2cb267ff7df131",
+      "bytes": 54706,
+      "reference_transcript": "The green status light is steady.",
+      "format": "WAV PCM s16le mono 16 kHz",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "16000",
+            "channels": 1,
+            "bits_per_sample": 16
+          }
+        ],
+        "format": {
+          "duration": "1.707125"
+        }
+      }
+    },
+    "asr-02": {
+      "path": "qa/visual-v2/modality-fixtures/asr-02.wav",
+      "sha256": "9c397ac473433162249ac25b126095fbed1060e73709d890c2664f559ed8d982",
+      "bytes": 142136,
+      "reference_transcript": "Mira Chen reviewed ticket two zero four eight and assigned it to queue seven three one.",
+      "format": "WAV PCM s16le mono 16 kHz",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "16000",
+            "channels": 1,
+            "bits_per_sample": 16
+          }
+        ],
+        "format": {
+          "duration": "4.439313"
+        }
+      }
+    },
+    "asr-03": {
+      "path": "qa/visual-v2/modality-fixtures/asr-03.wav",
+      "sha256": "4cb90f4c1df68543d0655280b8922acf6a6a2dc4f103bd1492d666ddc2a2d6d8",
+      "bytes": 156444,
+      "reference_transcript": "The invoice total is forty two dollars. The backup starts at six fifteen tomorrow.",
+      "format": "WAV PCM s16le mono 16 kHz",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "16000",
+            "channels": 1,
+            "bits_per_sample": 16
+          }
+        ],
+        "format": {
+          "duration": "4.886438"
+        }
+      }
+    },
+    "spoken-cup-question": {
+      "path": "qa/visual-v2/modality-fixtures/spoken-cup-question.wav",
+      "sha256": "d465dfab0ab27984e70642e718b2e46cdd3e8ca1c489049dace1ba10ca95d571",
+      "bytes": 41024,
+      "spoken_question": "What color is the cup?",
+      "format": "WAV PCM s16le mono 16 kHz",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "16000",
+            "channels": 1,
+            "bits_per_sample": 16
+          }
+        ],
+        "format": {
+          "duration": "1.279563"
+        }
+      }
+    },
+    "spoken-people-question": {
+      "path": "qa/visual-v2/modality-fixtures/spoken-people-question.wav",
+      "sha256": "88be0569cce4fc753c76ea9834bb53f111a0dee3c7647c899e2cd8c02450d314",
+      "bytes": 91358,
+      "spoken_question": "Are any people visible in the scene, and where are they?",
+      "format": "WAV PCM s16le mono 16 kHz",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "sample_rate": "16000",
+            "channels": 1,
+            "bits_per_sample": 16
+          }
+        ],
+        "format": {
+          "duration": "2.852500"
+        }
+      }
+    },
+    "moving-shape-video": {
+      "path": "qa/visual-v2/modality-fixtures/moving-shape-video.mp4",
+      "sha256": "a06c720a08eeeb8afccc7814e19d84df4b02808c67a4f41997366881d51bb856",
+      "bytes": 26130,
+      "reference_facts": "A red circle moves from left to right while a blue square remains still. The soundtrack says this is a short synthetic benchmark clip.",
+      "spoken_phrase": "This is a short synthetic benchmark clip.",
+      "question": "Which shape moves, and in which direction?",
+      "format": "MP4 H.264 video + AAC audio",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 512,
+            "height": 320,
+            "avg_frame_rate": "4/1"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "16000",
+            "channels": 1,
+            "avg_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "6.000000"
+        }
+      }
+    }
+  }
+}

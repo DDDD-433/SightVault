@@ -1,0 +1,33 @@
+{
+  "candidate": "minicpm",
+  "case_id": "v2-31-cup_red_01",
+  "category": "controlled_color_pair",
+  "source_group": "authored-v2",
+  "image_path": "qa/visual-v2/fixtures/cup_red_01.png",
+  "image_sha256": "7cdaad4f4ceab5eb892d84105bcc8d20af9da76d2507c9686ce63723a0fa7d53",
+  "question": "What color is the cup? Use the cup body itself as evidence.",
+  "ocr_context_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "prompt_sha256": "d544bf8fd89a3437a0b421d63e590aa229005df02cb0f8e7314690e5d7259225",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 6650,
+  "answer": "The cup body is red. That’s the visible evidence. No other colors are described for the body. Answer: Red.",
+  "answer_chars": 106,
+  "request_latency_s": 6.073,
+  "prompt_tokens": 437,
+  "output_tokens": 26,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 109.289,
+  "error": null,
+  "final_answer_tokens": 25,
+  "model_load_s_for_request": 2.101,
+  "generation_raw_text": "The cup body is red. That’s the visible evidence. No other colors are described for the body. Answer: Red.",
+  "mlx_peak_memory_bytes_after_request": 3381452542,
+  "mlx_active_memory_bytes_after_request": 2668282366,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1000,
+    800
+  ]
+}

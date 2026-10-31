@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The cup's body is **red**. This is evident from the solid red fill of the conical cup body, which is the main body itself (as opposed to the gray handle and the light gray saucer beneath it)."
+      }
+    }
+  ],
+  "created": 1793392606,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 46,
+    "prompt_tokens": 1164,
+    "total_tokens": 1210,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-HXFl1AcjNfcynVxEvxz3J0UcSByLWb7a",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1164,
+    "prompt_ms": 2023.368,
+    "prompt_per_token_ms": 1.7382886597938143,
+    "prompt_per_second": 575.27844662958,
+    "predicted_n": 46,
+    "predicted_ms": 502.482,
+    "predicted_per_token_ms": 11.166266666666667,
+    "predicted_per_second": 89.55544676227208
+  }
+}

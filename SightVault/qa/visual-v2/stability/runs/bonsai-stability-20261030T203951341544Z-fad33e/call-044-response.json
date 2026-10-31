@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Based on the visible evidence, the receipt shows a purchase of a **USB-C charger** with a quantity of 1. The calculated totals are **$24.95** for the subtotal and **$1.50** for tax, resulting in a grand total of **$26.45**.\n\nIt is important to note that the document explicitly states it is a **\"SYNTHETIC DEMO RECEIPT\"** and includes the footer **\"PAID - DEMO DATA.\"** Therefore, while the math is correct, the transaction itself is not a real purchase but rather a generated example."
+      }
+    }
+  ],
+  "created": 1793393131,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 126,
+    "prompt_tokens": 1258,
+    "total_tokens": 1384,
+    "prompt_tokens_details": {
+      "cached_tokens": 1254
+    }
+  },
+  "id": "chatcmpl-ThmYR7cLkRSaWwYfBaptFpGkyJr2nw52",
+  "timings": {
+    "cache_n": 1254,
+    "prompt_n": 4,
+    "prompt_ms": 67.752,
+    "prompt_per_token_ms": 16.938,
+    "prompt_per_second": 59.0388475616956,
+    "predicted_n": 126,
+    "predicted_ms": 2998.389,
+    "predicted_per_token_ms": 23.987112,
+    "predicted_per_second": 41.68905368849739
+  }
+}

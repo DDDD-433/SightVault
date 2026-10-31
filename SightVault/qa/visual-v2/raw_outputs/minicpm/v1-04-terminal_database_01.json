@@ -1,0 +1,33 @@
+{
+  "candidate": "minicpm",
+  "case_id": "v1-04-terminal_database_01",
+  "category": "terminal",
+  "source_group": "preserved-v1",
+  "image_path": "samples/terminal_database_01.png",
+  "image_sha256": "f3d5be9b4211bef77c3a63194e7c68a166fe9424d6cc34e8525ff01ea5e2212e",
+  "question": "Which database error is visible, and what condition does it indicate?",
+  "ocr_context_sha256": "7bcfa11a4276fd214ac60defdf34efc329e35735df4159bd653d4583a9fa4479",
+  "prompt_sha256": "a179063c9bbdac4e64817654c889b6099bec63415728a0f86c4b7238b5c1a94d",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 36523,
+  "answer": "The visible error is MongoDB ServerError E11000 duplicate key. It indicates a duplicate key exists: \"sku: KB-104\" in inventory.products index. This means a document with that identifier is already present.",
+  "answer_chars": 205,
+  "request_latency_s": 1.584,
+  "prompt_tokens": 506,
+  "output_tokens": 49,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 107.138,
+  "error": null,
+  "final_answer_tokens": 48,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The visible error is MongoDB ServerError E11000 duplicate key. It indicates a duplicate key exists: \"sku: KB-104\" in inventory.products index. This means a document with that identifier is already present.",
+  "mlx_peak_memory_bytes_after_request": 3503053454,
+  "mlx_active_memory_bytes_after_request": 2668284290,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

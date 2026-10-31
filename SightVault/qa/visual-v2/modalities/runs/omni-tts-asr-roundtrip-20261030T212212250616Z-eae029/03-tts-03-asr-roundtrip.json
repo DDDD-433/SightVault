@@ -1,0 +1,77 @@
+{
+  "task_id": "tts-03-asr-roundtrip",
+  "kind": "asr",
+  "started_at_utc": "2026-10-30T21:22:14.406787+00:00",
+  "http_status": 200,
+  "latency_s": 0.329,
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 13,
+    "prompt_tokens": 72,
+    "total_tokens": 85,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 72,
+    "prompt_ms": 178.738,
+    "prompt_per_token_ms": 2.4824722222222224,
+    "prompt_per_second": 402.8242455437568,
+    "predicted_n": 13,
+    "predicted_ms": 128.686,
+    "predicted_per_token_ms": 10.723833333333333,
+    "predicted_per_second": 93.25023701101907
+  },
+  "answer": "A red circle moves left while a blue square stays still.",
+  "input_audio_path": "qa/visual-v2/modalities/runs/omni-tts-asr-roundtrip-20261030T212212250616Z-eae029/input-03-tts-03-16k.wav",
+  "input_audio_sha256": "89077dd2b7e43eda77261589790cb86cb0f957d81071b04968f3c988c344f0d6",
+  "source_tts_run_id": "omni-tts-20261030T211542606296Z-0fa4ab",
+  "source_tts_task_id": "tts-03",
+  "source_tts_audio_sha256": "81a61778768df229dd4ef9c60e61e307d0a32a15de300dbbeffad4b524417716",
+  "audio_conversion": {
+    "from_sample_rate_hz": 24000,
+    "to_sample_rate_hz": 16000,
+    "channels": 1,
+    "codec": "pcm_s16le",
+    "probe": {
+      "codec_name": "pcm_s16le",
+      "sample_rate": "16000",
+      "channels": 1,
+      "bits_per_sample": 16
+    }
+  },
+  "reference_transcript_scope": "metadata only; omitted from ASR messages",
+  "input_video_path": null,
+  "input_video_sha256": null,
+  "image_path": null,
+  "image_sha256": null,
+  "question": null,
+  "reference_transcript": "A red circle moves left while a blue square stays still.",
+  "reference_facts": null,
+  "spoken_phrase": null,
+  "paired_spoken_task_id": null,
+  "system_prompt": "Perform ASR in English.",
+  "request_endpoint": "/v1/chat/completions",
+  "speaker_reference_path": null,
+  "speaker_reference_sha256": null,
+  "text": null,
+  "rss_tree_before_bytes": 1742192640,
+  "error": null,
+  "content_type": "application/json; charset=utf-8",
+  "rss_tree_peak_bytes": 1746026496,
+  "raw_response_file": "03-tts-03-asr-roundtrip-response.bin",
+  "raw_response_sha256": "2a9fb8a0c6319c2bdaa7d359da35cc60ca843ca827279ab41a0593db7cb557c9",
+  "answer_sha256": "6b24088d69dd2fbd8fbe0b3105cc6ba91794bcd7d184e6571415002cbd20b82f",
+  "asr_word_error_rate": {
+    "reference_words": 11,
+    "hypothesis_words": 11,
+    "word_errors": 0,
+    "wer": 0.0,
+    "normalization": "lowercase alphanumeric word tokens; no number or name normalization"
+  },
+  "rss_tree_after_bytes": 1746026496,
+  "rss_peak_increase_during_call_bytes": 3833856,
+  "finished_at_utc": "2026-10-30T21:22:14.738811+00:00"
+}

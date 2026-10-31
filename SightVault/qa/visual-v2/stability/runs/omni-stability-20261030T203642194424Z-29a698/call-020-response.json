@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The screenshot shows a `npm install` command that fails with the error **\"ERESOLVE unable to resolve dependency tree.\"** The specific conflict is:\n\n- **Package versions in conflict:** `dashboard@1.0.0` (the package being installed) and `react@19.0.0` (the found package).\n- **Upstream dependency conflict:** `peer react@^18.0.0` from `legacy-widget@2.3.1` could not be resolved.\n\n**Immediate install failure shown:** The `npm install` command exits with the error **\"ERESOLVE unable to resolve dependency tree,\"** indicating that the dependency tree cannot be resolved due to the version conflict between `dashboard@1.0.0` and `react@19.0.0` (and the upstream `peer react@^18.0.0` from `legacy-widget@2.3.1`).\n\nIn short, the conflict is between `dashboard@1.0.0` and `react@19.0.0`, and the immediate failure is the npm error \"ERESOLVE unable to resolve dependency tree.\""
+      }
+    }
+  ],
+  "created": 1793392670,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 245,
+    "prompt_tokens": 1294,
+    "total_tokens": 1539,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-6Bb1jslF9H7NqqpgpSvDlBuLql27u8Q7",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1294,
+    "prompt_ms": 2151.789,
+    "prompt_per_token_ms": 1.6628972179289028,
+    "prompt_per_second": 601.3600775912507,
+    "predicted_n": 245,
+    "predicted_ms": 2607.331,
+    "predicted_per_token_ms": 10.685782786885246,
+    "predicted_per_second": 93.5822877877799
+  }
+}

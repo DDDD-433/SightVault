@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Based on the visual evidence, the task currently in progress is **\"Build image index\"**.\n\nThe column header clearly reads **\"In progress\"**. Below this header, the task description is visible, and the associated task number is listed as **Task #144**.\n\nOther columns show different statuses:\n*   **\"To do\"** contains tasks #142 and #143.\n*   **\"Completed\"** contains tasks #146 and #147.\n\nThe screenshot is a synthetic demo with no personal information."
+      }
+    }
+  ],
+  "created": 1793393003,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 111,
+    "prompt_tokens": 1274,
+    "total_tokens": 1385,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-KO1iFhQgHQH8z7lJjGddJGTLTuk9ReN5",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1274,
+    "prompt_ms": 5157.044,
+    "prompt_per_token_ms": 4.047915227629513,
+    "prompt_per_second": 247.04074659824505,
+    "predicted_n": 111,
+    "predicted_ms": 2611.566,
+    "predicted_per_token_ms": 23.74150909090909,
+    "predicted_per_second": 42.120321676725766
+  }
+}

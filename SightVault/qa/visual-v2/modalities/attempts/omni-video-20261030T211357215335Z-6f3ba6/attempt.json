@@ -1,0 +1,15 @@
+{
+  "attempt_id": "omni-video-20261030T211357215335Z-6f3ba6",
+  "stage": "video",
+  "started_at_utc": "2026-10-30T21:13:57.215335Z",
+  "experiment_commit": "137caad85bb6ff38d2f47183ad62676a0d08d839",
+  "command": ".venv-visual-v2/bin/python scripts/run_omni_modalities_v2.py --stage video",
+  "exit_code": 1,
+  "error": "NameError: name 'ctx_size' is not defined",
+  "failure_location": "Harness run metadata settings lookup before llama-server startup",
+  "requests_started": 0,
+  "model_server_started": false,
+  "model_inference_started": false,
+  "fixtures_or_prompts_changed": false,
+  "disposition": "Preserved prelaunch harness failure. A shared server_context_size(stage) helper now supplies both runtime command and run metadata; no video input was sent."
+}

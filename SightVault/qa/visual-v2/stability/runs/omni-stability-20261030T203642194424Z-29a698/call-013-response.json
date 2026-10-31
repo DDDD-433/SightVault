@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The image shows the Golden Gate Bridge, a large red-orange suspension bridge spanning a wide body of water under a clear blue sky. The bridge's main towers, with their distinctive X-shaped cross-bracing, rise from concrete foundations in the water, with cables stretching between them. On the left, a brick building (the Presidio) sits along a rocky shoreline where a row of parked cars is visible, with an American flag on a pole nearby. In the foreground, a small rock in the water holds a bird. In the background, brown hills rise behind the bridge. The structure is clearly a major suspension bridge connecting two landmasses across a bay."
+      }
+    }
+  ],
+  "created": 1793392644,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 134,
+    "prompt_tokens": 1141,
+    "total_tokens": 1275,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-yNsMWJdtAQi4Nk1qKVZQN8NrI1xnvLIc",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1141,
+    "prompt_ms": 1920.622,
+    "prompt_per_token_ms": 1.6832795793163893,
+    "prompt_per_second": 594.0783766925506,
+    "predicted_n": 134,
+    "predicted_ms": 1407.757,
+    "predicted_per_token_ms": 10.584639097744361,
+    "predicted_per_second": 94.47653252656531
+  }
+}

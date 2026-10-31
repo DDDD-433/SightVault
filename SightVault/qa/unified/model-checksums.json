@@ -1,0 +1,13 @@
+{
+  "scope": "models",
+  "checked": 55,
+  "selected_models": [
+    "embeddinggemma-2",
+    "lfm3-omni-2b-gguf",
+    "lfm3-vl-2b-mlx-4bit",
+    "minicpm-ocr",
+    "minicpm-v"
+  ],
+  "failures": [],
+  "passed": true
+}

@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The cup is a solid, medium blue color. Its body is filled with this uniform blue hue, while the rim and handle are outlined in dark gray. The handle is a darker shade of gray, distinct from the cup's body.\n\nIt is likely that the blue represents a standard color for a plastic or paper cup, such as a disposable coffee cup. The flat, graphic style suggests a digital illustration rather than a photograph.\n\nThe evidence is sufficient to identify the visible color as blue. No other colors are present on the cup itself."
+      }
+    }
+  ],
+  "created": 1793393090,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 110,
+    "prompt_tokens": 1154,
+    "total_tokens": 1264,
+    "prompt_tokens_details": {
+      "cached_tokens": 1150
+    }
+  },
+  "id": "chatcmpl-U55VhnVL2NFntX1Lw5Hcf1IhQC9xoujY",
+  "timings": {
+    "cache_n": 1150,
+    "prompt_n": 4,
+    "prompt_ms": 65.29,
+    "prompt_per_token_ms": 16.3225,
+    "prompt_per_second": 61.26512482769183,
+    "predicted_n": 110,
+    "predicted_ms": 2573.836,
+    "predicted_per_token_ms": 23.613174311926603,
+    "predicted_per_second": 42.349240588755464
+  }
+}

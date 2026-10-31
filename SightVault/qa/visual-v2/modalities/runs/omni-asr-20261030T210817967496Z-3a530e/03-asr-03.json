@@ -1,0 +1,61 @@
+{
+  "task_id": "asr-03",
+  "kind": "asr",
+  "started_at_utc": "2026-10-30T21:08:20.483211+00:00",
+  "http_status": 200,
+  "latency_s": 0.39,
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 18,
+    "prompt_tokens": 85,
+    "total_tokens": 103,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 85,
+    "prompt_ms": 187.383,
+    "prompt_per_token_ms": 2.204505882352941,
+    "prompt_per_second": 453.61638996066876,
+    "predicted_n": 18,
+    "predicted_ms": 178.429,
+    "predicted_per_token_ms": 10.495823529411766,
+    "predicted_per_second": 95.27599213132393
+  },
+  "answer": "The invoice total is $42. The backup starts at 6.15 tomorrow.",
+  "input_audio_path": "qa/visual-v2/modality-fixtures/asr-03.wav",
+  "input_audio_sha256": "4cb90f4c1df68543d0655280b8922acf6a6a2dc4f103bd1492d666ddc2a2d6d8",
+  "input_video_path": null,
+  "input_video_sha256": null,
+  "image_path": null,
+  "image_sha256": null,
+  "question": null,
+  "reference_transcript": "The invoice total is forty two dollars. The backup starts at six fifteen tomorrow.",
+  "reference_facts": null,
+  "spoken_phrase": null,
+  "paired_spoken_task_id": null,
+  "system_prompt": "Perform ASR in English.",
+  "request_endpoint": "/v1/chat/completions",
+  "speaker_reference_path": null,
+  "speaker_reference_sha256": null,
+  "text": null,
+  "rss_tree_before_bytes": 1738211328,
+  "error": null,
+  "content_type": "application/json; charset=utf-8",
+  "rss_tree_peak_bytes": 1747353600,
+  "raw_response_file": "03-asr-03-response.bin",
+  "raw_response_sha256": "37ef35f471a1660d0575409f431d27acdc01328fb1a200d1a802947be57c006a",
+  "answer_sha256": "84485a25c1b549eb2fed42ffaca95da2abbc1876b5eb226c9d191a6f5389c7b3",
+  "asr_word_error_rate": {
+    "reference_words": 14,
+    "hypothesis_words": 12,
+    "word_errors": 5,
+    "wer": 0.3571,
+    "normalization": "lowercase alphanumeric word tokens; no number or name normalization"
+  },
+  "rss_tree_after_bytes": 1747353600,
+  "rss_peak_increase_during_call_bytes": 9142272,
+  "finished_at_utc": "2026-10-30T21:08:20.876100+00:00"
+}

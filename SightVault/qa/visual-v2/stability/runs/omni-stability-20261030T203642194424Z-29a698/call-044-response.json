@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The item purchased was a **USB-C charger** (Qty: 1). The total shown on the receipt is **$26.45** (Subtotal $24.95 + Tax $1.50)."
+      }
+    }
+  ],
+  "created": 1793392750,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 45,
+    "prompt_tokens": 1258,
+    "total_tokens": 1303,
+    "prompt_tokens_details": {
+      "cached_tokens": 10
+    }
+  },
+  "id": "chatcmpl-hyMAD7QcnmNXG2m3k904YgRw4kqxjMRM",
+  "timings": {
+    "cache_n": 10,
+    "prompt_n": 1248,
+    "prompt_ms": 2091.581,
+    "prompt_per_token_ms": 1.6759463141025641,
+    "prompt_per_second": 596.6778240957439,
+    "predicted_n": 45,
+    "predicted_ms": 471.143,
+    "predicted_per_token_ms": 10.707795454545455,
+    "predicted_per_second": 93.38990497577169
+  }
+}

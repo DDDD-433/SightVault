@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v2-18-terminal_eresolve_02",
+  "category": "terminal",
+  "source_group": "authored-v2",
+  "image_path": "samples/terminal_eresolve_02.png",
+  "image_sha256": "5917e966a933bdef2fedee9f333d8d6ced059f82c7b997501913f866b11ebb74",
+  "question": "Which package versions conflict, and what immediate install failure is shown?",
+  "ocr_context_sha256": "164a3b01f235c8c120431a56f71d72daecb9363e250f18fd0b793e83ea3ebcbe",
+  "prompt_sha256": "dc12ba13dcd831dccd785c1315e2e6e0445dee8ed8b435864879bfa0fa356ea4",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 48512,
+  "answer": "The screenshot shows an npm install failure. The immediate failure is \"npm ERR! code ERESOLVE\" and \"npm ERR! ERESOLVE unable to resolve dependency tree.\" The conflict involves react@19.0.0 being found, but a dependency \"peer react@^18.0.0\" from legacy-widget@2.3.1 could not be resolved. The text suggests fixing the upstream dependency conflict or choosing compatible package versions. The evidence does not provide the actual cause of the conflict or unseen history.",
+  "answer_chars": 468,
+  "request_latency_s": 2.828,
+  "prompt_tokens": 967,
+  "output_tokens": 111,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 98.386,
+  "error": null,
+  "final_answer_tokens": 109,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The screenshot shows an npm install failure. The immediate failure is \"npm ERR! code ERESOLVE\" and \"npm ERR! ERESOLVE unable to resolve dependency tree.\" The conflict involves react@19.0.0 being found, but a dependency \"peer react@^18.0.0\" from legacy-widget@2.3.1 could not be resolved. The text suggests fixing the upstream dependency conflict or choosing compatible package versions. The evidence does not provide the actual cause of the conflict or unseen history.",
+  "mlx_peak_memory_bytes_after_request": 2645537252,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

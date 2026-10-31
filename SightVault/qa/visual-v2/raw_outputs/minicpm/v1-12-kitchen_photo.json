@@ -1,0 +1,33 @@
+{
+  "candidate": "minicpm",
+  "case_id": "v1-12-kitchen_photo",
+  "category": "public_photo",
+  "source_group": "preserved-v1",
+  "image_path": "@owned-demo/images/fe4499f5da92938ab3dd7fd1eb6c8ac24df650c317982f6affa8778702b3aeed.png",
+  "image_sha256": "f73248d8fcf9a9922b7a2a8dc6b8d6c72d11c1aa28883e2e0b2bc92c659111a5",
+  "question": "Describe the visible objects and room setting.",
+  "ocr_context_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "prompt_sha256": "4b464db1ac2798c17f7f1d5ca94e3da0c82957162382366fff86d78193140271",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 1848571,
+  "answer": "Visible objects: kitchen island with utensils, pots, bowls, a cutting board, a stove, cabinets, a pendant light, a window with plants.\n\nLikely explanation: Utensils in containers. Fact: Utensils are present in blue, yellow, and gray containers.\nExplanation: The room has a cozy, organized kitchen.",
+  "answer_chars": 297,
+  "request_latency_s": 2.217,
+  "prompt_tokens": 544,
+  "output_tokens": 71,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 108.934,
+  "error": null,
+  "final_answer_tokens": 70,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "Visible objects: kitchen island with utensils, pots, bowls, a cutting board, a stove, cabinets, a pendant light, a window with plants.\n\nLikely explanation: Utensils in containers. Fact: Utensils are present in blue, yellow, and gray containers.\nExplanation: The room has a cozy, organized kitchen.",
+  "mlx_peak_memory_bytes_after_request": 3503053454,
+  "mlx_active_memory_bytes_after_request": 2668284290,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1024,
+    1024
+  ]
+}

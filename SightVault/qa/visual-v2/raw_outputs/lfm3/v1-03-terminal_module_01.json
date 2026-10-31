@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v1-03-terminal_module_01",
+  "category": "terminal",
+  "source_group": "preserved-v1",
+  "image_path": "samples/terminal_module_01.png",
+  "image_sha256": "bf8489c712daa8444d16a4657cf95f0fd1127ed44528761043b88463cac4f85d",
+  "question": "What missing dependency is reported, and what command led to it?",
+  "ocr_context_sha256": "ef6c02a667acb0bdca52bef02bccc7cbfe77e02c767a2b8c3cb7ecb59a642d85",
+  "prompt_sha256": "f7232b0bf42221e3a349819118d969d335533d7a73ce3f34808ad7b4800ef0a5",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 34697,
+  "answer": "The screenshot shows a Python error: \"ModuleNotFoundError: No module named 'pandas'\". The command that led to this is \"python app.py\". The traceback indicates the error occurred in the file \"app.py\", line 2, when attempting to import pandas. The environment is Python 3.12 with a virtual environment named \".venv\". The likely explanation is that the pandas module is not installed in the current virtual environment. The evidence is sufficient to identify the missing dependency and the command that triggered the error.",
+  "answer_chars": 520,
+  "request_latency_s": 2.754,
+  "prompt_tokens": 941,
+  "output_tokens": 108,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 100.416,
+  "error": null,
+  "final_answer_tokens": 107,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The screenshot shows a Python error: \"ModuleNotFoundError: No module named 'pandas'\". The command that led to this is \"python app.py\". The traceback indicates the error occurred in the file \"app.py\", line 2, when attempting to import pandas. The environment is Python 3.12 with a virtual environment named \".venv\". The likely explanation is that the pandas module is not installed in the current virtual environment. The evidence is sufficient to identify the missing dependency and the command that triggered the error.",
+  "mlx_peak_memory_bytes_after_request": 2645537252,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

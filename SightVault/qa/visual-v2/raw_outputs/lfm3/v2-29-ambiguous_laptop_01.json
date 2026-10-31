@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v2-29-ambiguous_laptop_01",
+  "category": "ambiguous_object",
+  "source_group": "authored-v2",
+  "image_path": "qa/visual-v2/fixtures/ambiguous_laptop_01.png",
+  "image_sha256": "4e8049fdd61c8e94a90cdb2086b9ed36bef70b71e469e2828b5004639c252b9a",
+  "question": "What company made this laptop, and what exact visual evidence identifies its brand?",
+  "ocr_context_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "prompt_sha256": "3d5d8efc5114df156b353eb3a92cdccf8650669a94a700df772dc289381651c3",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 19438,
+  "answer": "The image shows a stylized illustration of a laptop, not a photograph, with the title \"Object photo crop\" and the caption \"Synthetic image example.\" The OCR text includes \"Workspace / asset 05\" and \"Object photo crop,\" but none of these indicate a company or brand. The visual elements are generic: a dark screen frame, light screen, and a gray base. There is no logo, text, or branding visible on the laptop or elsewhere in the image. Therefore, no company can be identified from the evidence. The image is described as a synthetic example, so it does not represent a real product or brand. The question cannot be answered with the provided evidence.",
+  "answer_chars": 651,
+  "request_latency_s": 3.926,
+  "prompt_tokens": 1344,
+  "output_tokens": 142,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 99.477,
+  "error": null,
+  "final_answer_tokens": 141,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The image shows a stylized illustration of a laptop, not a photograph, with the title \"Object photo crop\" and the caption \"Synthetic image example.\" The OCR text includes \"Workspace / asset 05\" and \"Object photo crop,\" but none of these indicate a company or brand. The visual elements are generic: a dark screen frame, light screen, and a gray base. There is no logo, text, or branding visible on the laptop or elsewhere in the image. Therefore, no company can be identified from the evidence. The image is described as a synthetic example, so it does not represent a real product or brand. The question cannot be answered with the provided evidence.",
+  "mlx_peak_memory_bytes_after_request": 2683492920,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1400,
+    900
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v2-31-cup_red_01",
+  "category": "controlled_color_pair",
+  "source_group": "authored-v2",
+  "image_path": "qa/visual-v2/fixtures/cup_red_01.png",
+  "image_sha256": "7cdaad4f4ceab5eb892d84105bcc8d20af9da76d2507c9686ce63723a0fa7d53",
+  "question": "What color is the cup? Use the cup body itself as evidence.",
+  "ocr_context_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "prompt_sha256": "d544bf8fd89a3437a0b421d63e590aa229005df02cb0f8e7314690e5d7259225",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 6650,
+  "answer": "The cup is red. This is evident from the OCR transcription, which indicates the color as \"red.\" Additionally, the visual inspection of the image confirms that the body of the cup is filled with a red hue. The handle and rim of the cup are dark, and the interior appears white, but the primary color of the cup's body is clearly red. There are no conflicting details in the image or OCR that suggest a different color for the cup's body. Therefore, based on both the visual evidence and the OCR transcription, the cup is red.",
+  "answer_chars": 524,
+  "request_latency_s": 3.935,
+  "prompt_tokens": 886,
+  "output_tokens": 115,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 100.38,
+  "error": null,
+  "final_answer_tokens": 114,
+  "model_load_s_for_request": 0.758,
+  "generation_raw_text": "The cup is red. This is evident from the OCR transcription, which indicates the color as \"red.\" Additionally, the visual inspection of the image confirms that the body of the cup is filled with a red hue. The handle and rim of the cup are dark, and the interior appears white, but the primary color of the cup's body is clearly red. There are no conflicting details in the image or OCR that suggest a different color for the cup's body. Therefore, based on both the visual evidence and the OCR transcription, the cup is red.",
+  "mlx_peak_memory_bytes_after_request": 2644220368,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1000,
+    800
+  ]
+}

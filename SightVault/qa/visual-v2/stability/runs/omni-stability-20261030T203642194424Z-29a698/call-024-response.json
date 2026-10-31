@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The \"In progress\" column shows the task **Build image index** (Task #144).\n\nThis is a factual reading from the screenshot: the header \"In progress\" aligns with the card labeled \"Build image index\" and \"Task #144.\" The other columns (\"To do\" and \"Completed\") contain different tasks, but only the \"In progress\" column lists a task number."
+      }
+    }
+  ],
+  "created": 1793392681,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 81,
+    "prompt_tokens": 1276,
+    "total_tokens": 1357,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-rki16Dd0Rao2l3nS8aI3f3gT7dOUw2FQ",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1276,
+    "prompt_ms": 2121.503,
+    "prompt_per_token_ms": 1.6626199059561129,
+    "prompt_per_second": 601.4603797402124,
+    "predicted_n": 81,
+    "predicted_ms": 853.797,
+    "predicted_per_token_ms": 10.6724625,
+    "predicted_per_second": 93.69908772225716
+  }
+}

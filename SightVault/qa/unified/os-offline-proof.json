@@ -1,0 +1,9 @@
+{
+  "method": "macOS sandbox-exec outbound-deny with localhost exception",
+  "loopback_url": "http://127.0.0.1:7867/api/status",
+  "loopback_status": 200,
+  "external_denied": true,
+  "external_errno": 1,
+  "external_error": "[Errno 1] Operation not permitted",
+  "passed": true
+}

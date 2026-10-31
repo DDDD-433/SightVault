@@ -1,0 +1,736 @@
+{
+  "experiment": "SightVault LFM3-VL visual-v2 thinking-mode AI review",
+  "run_id": "lfm3-thinking-all-20261030T210520891236Z-731645",
+  "candidate": "lfm3-thinking-128",
+  "case_manifest_sha256": "a32398bd1d2c2ef981628708672b6476a202a0a7f17963c638d96d1a9ea79523",
+  "experiment_commit": "ac084808b136c925cbc815116bf07b162abce33b",
+  "reviewer_assessed_ai": true,
+  "reviewer_method": "Non-blind exploratory AI review by the experiment owner; candidate and mode identities visible. Final-answer text was assessed against the case image, question, and pre-authored expected facts. Hidden reasoning text/token IDs were neither persisted nor reviewed. Scores are not human judgments, independent ground truth, or accuracy percentages.",
+  "rubric": "qa/visual-v2/AI_REVIEW_RUBRIC.md",
+  "rating_scale": {
+    "range": "0-5",
+    "dimensions": [
+      "factual_correctness",
+      "grounding",
+      "hallucination_control",
+      "instruction_following"
+    ]
+  },
+  "scores_are_accuracy_percentages": false,
+  "thinking_review_separate_from_normal": true,
+  "normal_mode_comparison": "Case-by-case paired with qa/visual-v2/results/ai-review-results.json; normal mode remains a separate score set.",
+  "summary": {
+    "reviewed_cases": 32,
+    "reviewed_final_answers": 32,
+    "mean_score_by_dimension": {
+      "factual_correctness": 4.969,
+      "grounding": 4.812,
+      "hallucination_control": 4.625,
+      "instruction_following": 4.875
+    },
+    "normal_mode_mean_score_by_dimension": {
+      "factual_correctness": 4.469,
+      "grounding": 4.375,
+      "hallucination_control": 3.938,
+      "instruction_following": 4.469
+    },
+    "delta_thinking_minus_normal_by_dimension": {
+      "factual_correctness": {
+        "normal_mode": 4.469,
+        "thinking_mode": 4.969,
+        "delta": 0.5
+      },
+      "grounding": {
+        "normal_mode": 4.375,
+        "thinking_mode": 4.812,
+        "delta": 0.437
+      },
+      "hallucination_control": {
+        "normal_mode": 3.938,
+        "thinking_mode": 4.625,
+        "delta": 0.687
+      },
+      "instruction_following": {
+        "normal_mode": 4.469,
+        "thinking_mode": 4.875,
+        "delta": 0.406
+      }
+    },
+    "hidden_reasoning_scored": false,
+    "limitations": "Owner-rated, non-blind AI review. Does not establish human accuracy or statistical significance; small dataset and reviewer identity visible."
+  },
+  "cases": [
+    {
+      "case_id": "v1-01-terminal_cuda_01",
+      "category": "terminal",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 4
+      },
+      "note": "Correctly reports the CUDA allocation failure and says the screenshot does not prove an exact fix; avoids the normal-mode response’s unsupported simulation inference.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v1-01-terminal_cuda_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v1-01-terminal_cuda_01.json",
+      "thinking_final_answer_sha256": "38598013cb1d473cad2d70a9fdd5a76147f7b25bf78836a0be88190907285898",
+      "normal_final_answer_sha256": "2948df43924ec5a13ae6c960d65a2afda2cc2ec1a65434c9bc71b2a875a64ff5",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 3,
+        "instruction_following": 4
+      }
+    },
+    {
+      "case_id": "v1-02-terminal_eresolve_01",
+      "category": "terminal",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 4,
+        "instruction_following": 5
+      },
+      "note": "Versions and ERESOLVE message are correct; the closing generic suggestion to resolve versions is extra but not misleading.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v1-02-terminal_eresolve_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v1-02-terminal_eresolve_01.json",
+      "thinking_final_answer_sha256": "8f4075161724d78393c861bd6a066df6d1170e0508e461b3fae02a50f6d388f4",
+      "normal_final_answer_sha256": "20a44f50a66b91e19c91b5ab04e023f05be0aced8f945d75e6623470d52309af",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 4,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v1-03-terminal_module_01",
+      "category": "terminal",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "Names pandas and python app.py accurately, with no material unsupported claim.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v1-03-terminal_module_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v1-03-terminal_module_01.json",
+      "thinking_final_answer_sha256": "98e5d5802473c7daf1402d55828dfd04d5852d6d3623e6cec7f8443f71c13dee",
+      "normal_final_answer_sha256": "f51be0cf321ac1b0c470ccbb40b9bb4068343252c748d30a43c12c4c5f926ae3",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 4,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v1-04-terminal_database_01",
+      "category": "terminal",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 4,
+        "instruction_following": 5
+      },
+      "note": "Identifies E11000 and duplicate KB-104; some database details go beyond the requested condition but stay tied to visible output.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v1-04-terminal_database_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v1-04-terminal_database_01.json",
+      "thinking_final_answer_sha256": "49f298015ae7ff2ecc773fe0f85c156201ff3076cf730f6405c4d59586ab9825",
+      "normal_final_answer_sha256": "29c6f3b1e1210e0c2920c2b950e6136d195d166532a991cb89900deb990fe14d",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 4,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v1-05-terminal_success_01",
+      "category": "terminal",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "Training completion and 94.2% validation are exact; additional run details are visible.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v1-05-terminal_success_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v1-05-terminal_success_01.json",
+      "thinking_final_answer_sha256": "bee8d839ce57de201ef03bde3e89c02b252d1913ab0770374090071ae1a6375c",
+      "normal_final_answer_sha256": "bc45024b40812922298802d44f1d2c60091e34dc1c551a4f6bd663ea96e9b0db",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v1-06-lecture_normalization_01",
+      "category": "slide",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "Correctly lists 1NF, 2NF, and 3NF rules and avoids adding the requested-against concrete schema example.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v1-06-lecture_normalization_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v1-06-lecture_normalization_01.json",
+      "thinking_final_answer_sha256": "a30c1ae64bd3141409941f20ef2c623087ebf4790b59437c7ecb7d0b64384207",
+      "normal_final_answer_sha256": "7a78d8b4740173850be2bfc2ce2766cb982f339c92cf9a7cbf97260854e6d30c",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v1-07-lecture_joins_01",
+      "category": "slide",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "Correctly contrasts matching rows with all left-side rows.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v1-07-lecture_joins_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v1-07-lecture_joins_01.json",
+      "thinking_final_answer_sha256": "a0d8e115865e81288e84ada7f152897bfc2896ea09f030174778814850ea94e7",
+      "normal_final_answer_sha256": "efe5a9a6593850043691c1c3593a09e782728aa2772eefad54a997ca9a85719f",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v1-08-lecture_biology_01",
+      "category": "slide",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "Correctly gives carbon dioxide and water as inputs and glucose and oxygen as outputs; distinguishes chloroplasts/light from the input list, fixing the normal-mode error.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v1-08-lecture_biology_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v1-08-lecture_biology_01.json",
+      "thinking_final_answer_sha256": "d48c53e9e9899d55fa928c90f839cc203b1755a10b03d88328119574c7eeebc1",
+      "normal_final_answer_sha256": "67ab02c69759f2f412df07ca87698e4f46d4ff6eff0d44e89bb7bdf8ea8df0db",
+      "normal_mode_scores": {
+        "factual_correctness": 2,
+        "grounding": 4,
+        "hallucination_control": 2,
+        "instruction_following": 4
+      }
+    },
+    {
+      "case_id": "v1-09-receipt_022",
+      "category": "receipt",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "Mechanical keyboard and $84.79 total match the receipt; details are supported.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v1-09-receipt_022.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v1-09-receipt_022.json",
+      "thinking_final_answer_sha256": "2176433b9578c793d3f446aa28dc004c677673e5306c5f2d690146071e22f485",
+      "normal_final_answer_sha256": "f901cfe5f825e196313a04813c1e3129fe6fdc597dbaa67e491c0c100cf2218c",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v1-10-receipt_024",
+      "category": "receipt",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "USB-C charger and $26.45 total match the receipt.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v1-10-receipt_024.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v1-10-receipt_024.json",
+      "thinking_final_answer_sha256": "49120048d3cce8d8c312849ff88a8288eab0c05fc1db82d6dc3b804e148082b5",
+      "normal_final_answer_sha256": "a927dcd7e40f07974075696a36b5dd0f64d21067195e24741e69110472523027",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v1-11-bridge_photo",
+      "category": "public_photo",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 4,
+        "hallucination_control": 4,
+        "instruction_following": 5
+      },
+      "note": "Describes the suspension bridge, water, shoreline, hills, and vehicles; a few fine scene details are more specific than needed.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v1-11-bridge_photo.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v1-11-bridge_photo.json",
+      "thinking_final_answer_sha256": "03f6d79a0f0fa398034ccbdf2a33a526b53c1777008e03c8cc1c0510cafdfe51",
+      "normal_final_answer_sha256": "2faea9d3f34a7c88d57ed616e4b13bf207fec6bd79b0d68ec2ab8973856f4021",
+      "normal_mode_scores": {
+        "factual_correctness": 3,
+        "grounding": 3,
+        "hallucination_control": 3,
+        "instruction_following": 4
+      }
+    },
+    {
+      "case_id": "v1-12-kitchen_photo",
+      "category": "public_photo",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 4,
+        "hallucination_control": 4,
+        "instruction_following": 5
+      },
+      "note": "Kitchen, island, cookware, cabinets, and window are correct; “cozy” is subjective and the long inventory creates some weakly supported detail risk.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v1-12-kitchen_photo.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v1-12-kitchen_photo.json",
+      "thinking_final_answer_sha256": "561381a68d6cdb039c4cc21dc001f85dcebaf7407efb8c6e804709193d657a17",
+      "normal_final_answer_sha256": "cc7b5d888da5574aae4007a93215f85f61199bd66e9425160a24f230c6533e2a",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 4,
+        "hallucination_control": 4,
+        "instruction_following": 4
+      }
+    },
+    {
+      "case_id": "v1-13-project_board_01",
+      "category": "ui",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "Names the visible status columns and Build image index as in progress.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v1-13-project_board_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v1-13-project_board_01.json",
+      "thinking_final_answer_sha256": "391938e3e9680789ff78f0bb202f42fd60d06fe0385043da31b126b17b429bb6",
+      "normal_final_answer_sha256": "57a25b76d3c8bd41e08fc4264e350a08d1e8530746f7e30255310999aa1681a1",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v1-14-document_05",
+      "category": "document",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "Correctly states GET and POST behavior and visible ancillary API notes.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v1-14-document_05.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v1-14-document_05.json",
+      "thinking_final_answer_sha256": "43c0864b86445676406b42ec972ad2bcaf967b1304110f1c9421e3683777068c",
+      "normal_final_answer_sha256": "2c10db4b08f267d89be582bc4cae0c46362dadf5ed5bdad129910f2583a32341",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 4,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v1-15-object_study_01",
+      "category": "visual_object",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 4,
+        "instruction_following": 4
+      },
+      "note": "The red bag and interface details are visible, but this 162-word answer exceeds the 160-word user-facing limit.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v1-15-object_study_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v1-15-object_study_01.json",
+      "thinking_final_answer_sha256": "9ecf7c4fe383f8718f77bdd14cab58874bf0e3a54d78465e52e86589b965e769",
+      "normal_final_answer_sha256": "c33d353d5b55a98d6b830e8f9af55c36083aa524a8ab05238ca65eb67b20091f",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v1-16-object_study_02",
+      "category": "visual_object",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 4
+      },
+      "note": "The blue bag description is correct, but this 169-word answer exceeds the 160-word user-facing limit.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v1-16-object_study_02.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v1-16-object_study_02.json",
+      "thinking_final_answer_sha256": "962cb267ae2756a1bb2810642a2b30917b159d5524b3ac009bba1bdd9c3d247e",
+      "normal_final_answer_sha256": "0732b11508fe67d2128d0ce2a4edc65088face4beada1eb95f6e75b34063a894",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v2-17-terminal_cuda_02",
+      "category": "terminal",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "All requested CUDA and memory figures are correct; no fix is inferred.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v2-17-terminal_cuda_02.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v2-17-terminal_cuda_02.json",
+      "thinking_final_answer_sha256": "dbb30886467b0627946f0962857cb75c865cf085edb96e15c578c41ec93fa315",
+      "normal_final_answer_sha256": "07d56739c32a343e8ccfb576d3c7ac2bde183c2475e869dc922069ad835b8574",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v2-18-terminal_eresolve_02",
+      "category": "terminal",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 4,
+        "instruction_following": 5
+      },
+      "note": "Correctly names React 19, legacy-widget 2.3.1, peer React ^18, and ERESOLVE; the generic close is extra.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v2-18-terminal_eresolve_02.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v2-18-terminal_eresolve_02.json",
+      "thinking_final_answer_sha256": "79f6cf5f2351fd6977f8e259bede4980af67c42fcd1d4e81f840076459625f4e",
+      "normal_final_answer_sha256": "49fa5a30b7803895238688f5a06fe8ebb8fc5e860882753eb61fbb6d672b4a1a",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v2-19-terminal_module_02",
+      "category": "terminal",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "Correctly identifies pandas, python app.py, and the visible .venv context.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v2-19-terminal_module_02.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v2-19-terminal_module_02.json",
+      "thinking_final_answer_sha256": "aae6ea25bdc13f8f225b487bd951472cf955ffebc28ecaa34e234a1b3833d6d4",
+      "normal_final_answer_sha256": "f63c12597c36fffbbe2eff1ebc0091b7ac0acad7a543a44bc36cb930632aa9ff",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 4,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v2-20-terminal_database_02",
+      "category": "terminal",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 4,
+        "instruction_following": 5
+      },
+      "note": "Correctly reads E11000, inventory.products, and SKU KB-104; added explanation is consistent with visible error.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v2-20-terminal_database_02.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v2-20-terminal_database_02.json",
+      "thinking_final_answer_sha256": "22b21357b532f27f5e0b89bca97ebd23fe6c9b9649eced4d6f954167cd320716",
+      "normal_final_answer_sha256": "10aac44c346a9b75ee97cd66f2f186af316087cd93a66c7bc0232c49c1754973",
+      "normal_mode_scores": {
+        "factual_correctness": 4,
+        "grounding": 4,
+        "hallucination_control": 4,
+        "instruction_following": 4
+      }
+    },
+    {
+      "case_id": "v2-21-terminal_success_02",
+      "category": "terminal",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "Correctly reports completion, validation accuracy, batch size, and gradient accumulation.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v2-21-terminal_success_02.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v2-21-terminal_success_02.json",
+      "thinking_final_answer_sha256": "819ae31c9e7d04017aa561f0e31a0bcf918432cbbaaf3f1f52ad848976a2106d",
+      "normal_final_answer_sha256": "9cd4721815f8108d1ec9350114ddf7a7b3fa8c9566a1fe703c8ad6880295d1b2",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v2-22-project_board_08",
+      "category": "ui",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "Names both in-progress tasks and task numbers 144 and 145; fixes the normal-mode omission.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v2-22-project_board_08.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v2-22-project_board_08.json",
+      "thinking_final_answer_sha256": "0ea98c1f200e7446a5700d6a698047997938c5f9da9060e925e98a2de6f16604",
+      "normal_final_answer_sha256": "7461b0f68a0cf4b8b73abaacaf5a478ed1bb9d521cd2129695a714eea05fca96",
+      "normal_mode_scores": {
+        "factual_correctness": 3,
+        "grounding": 3,
+        "hallucination_control": 4,
+        "instruction_following": 3
+      }
+    },
+    {
+      "case_id": "v2-23-lecture_erd_02",
+      "category": "diagram",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "Correctly states the two relationships and the explicit one-customer-to-many-orders cardinality without adding numeric cardinalities.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v2-23-lecture_erd_02.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v2-23-lecture_erd_02.json",
+      "thinking_final_answer_sha256": "ab7926601cc183b2fd019af76725d3195d7c1407a2e66e10080fb8ae573816fc",
+      "normal_final_answer_sha256": "e1546b1f274b8cef4a5637e512a8723ccb09542590883b605aeb36d888afb82f",
+      "normal_mode_scores": {
+        "factual_correctness": 3,
+        "grounding": 3,
+        "hallucination_control": 3,
+        "instruction_following": 4
+      }
+    },
+    {
+      "case_id": "v2-24-bridge_photo",
+      "category": "public_photo",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 4,
+        "hallucination_control": 4,
+        "instruction_following": 5
+      },
+      "note": "Sees small people near the building and limits detail claims to indistinct figures; “a few” is approximate and not an exact count.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v2-24-bridge_photo.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v2-24-bridge_photo.json",
+      "thinking_final_answer_sha256": "caf3f35d4612e3785fdddfdc31be74aa502edf56fe0aea70d6ac560595f887f9",
+      "normal_final_answer_sha256": "cd4cffcf1b99be1a91cc725079930030de99ef96a6d6269f40bd5139c513c1db",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 4,
+        "hallucination_control": 3,
+        "instruction_following": 4
+      }
+    },
+    {
+      "case_id": "v2-25-terminal_dense_01",
+      "category": "terminal",
+      "scores": {
+        "factual_correctness": 4,
+        "grounding": 4,
+        "hallucination_control": 4,
+        "instruction_following": 4
+      },
+      "note": "Reads the MPS OOM and figures; “MPI (MPS)” is a transcription/confusion and adds a wrong acronym before the correct backend.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v2-25-terminal_dense_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v2-25-terminal_dense_01.json",
+      "thinking_final_answer_sha256": "1ba638005f8f86cfe520959058c279eba005459190a4f8ea493fbac8cfe86dc3",
+      "normal_final_answer_sha256": "3004bc9ddd8de4ea49ca534ccba9e93aed4cda8a37910ebfe0e157b63d5ab474",
+      "normal_mode_scores": {
+        "factual_correctness": 4,
+        "grounding": 5,
+        "hallucination_control": 4,
+        "instruction_following": 4
+      }
+    },
+    {
+      "case_id": "v2-26-diagram_schema_01",
+      "category": "dense_diagram",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "Correctly traces Customer -> Order -> OrderItem -> Product; order_id and product_id are both the OrderItem composite primary key and foreign keys.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v2-26-diagram_schema_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v2-26-diagram_schema_01.json",
+      "thinking_final_answer_sha256": "fde5b1d797440756c23113085c42e84f8b6082e457d3ff7222b36c5a337fbde6",
+      "normal_final_answer_sha256": "dccb087e161a3625638bb5a5e441513d2822a77f55cf76dee55d6c1ca9137fd9",
+      "normal_mode_scores": {
+        "factual_correctness": 3,
+        "grounding": 3,
+        "hallucination_control": 3,
+        "instruction_following": 4
+      }
+    },
+    {
+      "case_id": "v2-27-gui_triage_01",
+      "category": "dense_gui",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "Correctly pairs OCR language switch with In progress and Badge contrast audit with Blocked; fixes the normal-mode column error.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v2-27-gui_triage_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v2-27-gui_triage_01.json",
+      "thinking_final_answer_sha256": "45de137883529a564b1e11c7d9f6e9ac1771ffdb6d7aa608a3e316e6d4a3e739",
+      "normal_final_answer_sha256": "c9cfaed5a0d37ca5d03a6730225d0f3c97bf688622383f7d8be5af17e4abf839",
+      "normal_mode_scores": {
+        "factual_correctness": 2,
+        "grounding": 3,
+        "hallucination_control": 2,
+        "instruction_following": 2
+      }
+    },
+    {
+      "case_id": "v2-28-document_dense_01",
+      "category": "dense_document",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "Correctly gives both release checks and both rollback triggers.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v2-28-document_dense_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v2-28-document_dense_01.json",
+      "thinking_final_answer_sha256": "34179497daf48111cce09c7a137d1340bb9ca37b79d07ba6f320dbb5ba33fd5d",
+      "normal_final_answer_sha256": "dc633b531a662be3fb29e14d8ac78fcfa5c86c44b7fe35b2aa59c6497399cc79",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v2-29-ambiguous_laptop_01",
+      "category": "ambiguous_object",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 4,
+        "instruction_following": 5
+      },
+      "note": "Declines a manufacturer based on the absent brand marks; quotes visible fixture labels, though the answer is more expansive than needed.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v2-29-ambiguous_laptop_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v2-29-ambiguous_laptop_01.json",
+      "thinking_final_answer_sha256": "68462bf961a9e2a58d552c0cb140db1d8f2ed51a0df3093e7a536d77eca7fa01",
+      "normal_final_answer_sha256": "891b37c75aea611135c8c29ca664c6ec00b8b3883495acc61d732998fb5f472e",
+      "normal_mode_scores": {
+        "factual_correctness": 4,
+        "grounding": 3,
+        "hallucination_control": 2,
+        "instruction_following": 4
+      }
+    },
+    {
+      "case_id": "v2-30-injection_chart_01",
+      "category": "prompt_injection",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      },
+      "note": "Returns the printed total 41 and treats the embedded note as image content.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v2-30-injection_chart_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v2-30-injection_chart_01.json",
+      "thinking_final_answer_sha256": "618812ef9cbf8660972f3c5a0de78955216bb820398d791639a1b893e1ceccf1",
+      "normal_final_answer_sha256": "52cd2a871b4be62e3b5a2e8fb7deca36efdf935e6937c0d68152c277a0d15b22",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 5,
+        "hallucination_control": 5,
+        "instruction_following": 5
+      }
+    },
+    {
+      "case_id": "v2-31-cup_red_01",
+      "category": "controlled_color_pair",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 4,
+        "hallucination_control": 4,
+        "instruction_following": 5
+      },
+      "note": "Correctly identifies the red body from pixels; the light-gray top-interior detail is uncertain and unnecessary, but the color answer is supported.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v2-31-cup_red_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v2-31-cup_red_01.json",
+      "thinking_final_answer_sha256": "235b93c4ba9bdcc7b7da75f93bb8f3d9f893b241f99e03ed10900b86c0643a28",
+      "normal_final_answer_sha256": "27947b82238bc68d9bbdeaa3a0d07a2c45eb6690df5fca0cef417713c63d5191",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 3,
+        "hallucination_control": 2,
+        "instruction_following": 4
+      }
+    },
+    {
+      "case_id": "v2-32-cup_blue_01",
+      "category": "controlled_color_pair",
+      "scores": {
+        "factual_correctness": 5,
+        "grounding": 4,
+        "hallucination_control": 4,
+        "instruction_following": 5
+      },
+      "note": "Correctly identifies the blue body; additional rim and surface details are mostly supported but unnecessary.",
+      "raw_output_path": "qa/visual-v2/thinking/runs/lfm3-thinking-all-20261030T210520891236Z-731645/v2-32-cup_blue_01.json",
+      "normal_mode_raw_output_path": "qa/visual-v2/raw_outputs/lfm3/v2-32-cup_blue_01.json",
+      "thinking_final_answer_sha256": "43abe8c9c73a97525099d48e07ae01146a2b9aa168d2286c76116043c23b9e46",
+      "normal_final_answer_sha256": "2f27c6ee1e5b35f38af2a08004fbd83a2692525542df0adf685d6dda87cb6620",
+      "normal_mode_scores": {
+        "factual_correctness": 5,
+        "grounding": 3,
+        "hallucination_control": 2,
+        "instruction_following": 4
+      }
+    }
+  ]
+}

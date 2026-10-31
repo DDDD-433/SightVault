@@ -1,0 +1,33 @@
+{
+  "candidate": "minicpm",
+  "case_id": "v1-13-project_board_01",
+  "category": "ui",
+  "source_group": "preserved-v1",
+  "image_path": "samples/project_board_01.png",
+  "image_sha256": "95baa84d1fc525624c1f61dfd06f3a398dcd59ca69c26b9e5ce8c062ff4c0994",
+  "question": "What status columns are visible, and name one task shown in progress?",
+  "ocr_context_sha256": "c8c3831fa5878bde5a6f88227dfef4ac098d5ca950db02ed46aa9e86f0cd1340",
+  "prompt_sha256": "ba9f2f0d76d077e9ebee3caf72c1309568408c4e696e67086a38dd3cae66d2b8",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 34443,
+  "answer": "Visible status columns: To do, In progress, Completed. One task in progress is \"Build image index\" (Task #102).",
+  "answer_chars": 111,
+  "request_latency_s": 1.413,
+  "prompt_tokens": 519,
+  "output_tokens": 30,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 112.606,
+  "error": null,
+  "final_answer_tokens": 29,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "Visible status columns: To do, In progress, Completed. One task in progress is \"Build image index\" (Task #102).",
+  "mlx_peak_memory_bytes_after_request": 3503053454,
+  "mlx_active_memory_bytes_after_request": 2668284290,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

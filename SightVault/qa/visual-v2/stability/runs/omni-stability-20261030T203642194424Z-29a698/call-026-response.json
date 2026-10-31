@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "No people are discernible in the scene. The image shows the Golden Gate Bridge, a large red suspension bridge spanning water, with a brick building (Fort Point) on the left, a small rock with a bird on it in the foreground, parked cars along the shoreline, and hills in the background. The only human-related detail is a few tiny, indistinct figures near the parked cars at the left edge, but they are too small and blurry to identify as people."
+      }
+    }
+  ],
+  "created": 1793392687,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 98,
+    "prompt_tokens": 1153,
+    "total_tokens": 1251,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-qovgOuGh9wji5aLhXsOxuHEHzWGTrCkl",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1153,
+    "prompt_ms": 1921.694,
+    "prompt_per_token_ms": 1.666690372940156,
+    "prompt_per_second": 599.9914658629314,
+    "predicted_n": 98,
+    "predicted_ms": 1032.448,
+    "predicted_per_token_ms": 10.64379381443299,
+    "predicted_per_second": 93.95146293082072
+  }
+}

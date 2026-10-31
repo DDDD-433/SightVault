@@ -4,7 +4,7 @@ Find the screenshot you remember, even when you don't remember its filename.
 
 SightVault indexes a folder of screenshots, slides, receipts or photos. Search by meaning or exact text, open the matching image, inspect its date and OCR, and ask a local vision model about the evidence.
 
-![SightVault finding a GPU error screenshot](SightVault/output/playwright/claude-final/01_hybrid_gpu.png)
+![SightVault finding a GPU error screenshot](SightVault/qa/unified/ui/09-desktop.png)
 
 ## What you can do
 
@@ -42,13 +42,13 @@ For the **prepared 62-image demo**, download `SightVault_Source_Demo.zip` from t
 | MiniCPM-V 4.7 1B | On-demand image analysis | MLX Metal, mixed 4-bit/BF16 |
 | RapidOCR | Bulk OCR and labeled fallback | Local ONNX Runtime |
 
-MiniCPM conversion preserves higher precision for vision and sensitive layers. The 4-bit label applies to selected layers. Model revisions, checksums, precision choices and memory measurements are recorded in the [Mac QA report](SightVault/MAC_QA_REPORT.md).
+MiniCPM conversion preserves higher precision for vision and sensitive layers. The 4-bit label applies to selected layers. Model revisions, checksums, precision choices and memory measurements are recorded in [Phase 2 model selection](SightVault/qa/FINAL_MODEL_SELECTION.md). MiniCPM remains the default; optional LFM3-VL and Omni use the same application/index. Their setup and limits are in the [application README](SightVault/README.md#optional-vision-backends).
 
 ## Verification
 
-The latest local QA run passed **123 tests**, **17 retrieval cases**, **30 browser checks**, **5 normal-CSP edge checks** and **40 concurrent API requests**. One expected test failure tracks retained copies of older edited files; automatic cleanup is not implemented.
+The Phase 2 integration passed **184 tests**, **17 retrieval cases**, **37 browser checks for each of MiniCPM and Omni**, **10 normal-CSP checks**, **29 UI hardening checks**, and real offline model/concurrency/recovery runs. One expected failure still tracks retained copies of older edited files. Claude Code's Opus 5.5 high and one Sonnet 5.5 xhigh reviewer contributed the scoped interface polish; Codex ran the real verification.
 
-See the [full QA report](SightVault/qa/independent-review/FINAL_QA_REPORT.md) for reproductions, fixes, real-model checks and remaining limitations. These are recorded local results, not a hosted CI status.
+See the [unified QA report](SightVault/qa/FINAL_UNIFIED_QA.md), [model selection and memory matrix](SightVault/qa/FINAL_MODEL_SELECTION.md), and [UI before/after review](SightVault/qa/UI_UX_REVIEW.md). These are measured local results, not a hosted CI status. Portable Mac/Windows **source-and-setup bundles** exclude weights/environments. Windows native execution remains unvalidated; its validation harness and exact instructions are included.
 
 ## Work on the project
 

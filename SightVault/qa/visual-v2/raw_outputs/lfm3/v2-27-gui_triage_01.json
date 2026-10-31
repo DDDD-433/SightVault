@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v2-27-gui_triage_01",
+  "category": "dense_gui",
+  "source_group": "authored-v2",
+  "image_path": "qa/visual-v2/fixtures/gui_triage_01.png",
+  "image_sha256": "b15a04e55824cee9bc13803af4bed4cc2467f135d1be659ce51942a0201b5bbc",
+  "question": "Which two cards have the URGENT tag, and which status columns contain them?",
+  "ocr_context_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "prompt_sha256": "c64f41b4b5729eca816478549370e43ad765290ba91a0561d313f2d731ff6631",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 70675,
+  "answer": "Based on the visible evidence, the two cards with the URGENT tag are \"OCR language switch\" (ISSUE #244) and \"Badge contrast audit\" (ISSUE #247). Both cards appear under the \"In progress\" column header, which lists three items. The URGENT tags are shown as orange labels on these specific cards. No other cards display the URGENT tag. The status column for these cards is not explicitly labeled as \"Urgent,\" but they are grouped under the \"In progress\" category. Therefore, the two cards with the URGENT tag are located in the \"In progress\" column.",
+  "answer_chars": 547,
+  "request_latency_s": 4.74,
+  "prompt_tokens": 1778,
+  "output_tokens": 132,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 98.248,
+  "error": null,
+  "final_answer_tokens": 131,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "Based on the visible evidence, the two cards with the URGENT tag are \"OCR language switch\" (ISSUE #244) and \"Badge contrast audit\" (ISSUE #247). Both cards appear under the \"In progress\" column header, which lists three items. The URGENT tags are shown as orange labels on these specific cards. No other cards display the URGENT tag. The status column for these cards is not explicitly labeled as \"Urgent,\" but they are grouped under the \"In progress\" category. Therefore, the two cards with the URGENT tag are located in the \"In progress\" column.",
+  "mlx_peak_memory_bytes_after_request": 2683492920,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1680,
+    1030
+  ]
+}

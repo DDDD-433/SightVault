@@ -1,0 +1,54 @@
+{
+  "task_id": "tts-01",
+  "kind": "tts",
+  "started_at_utc": "2026-10-30T21:15:43.914367+00:00",
+  "http_status": 200,
+  "latency_s": 1.163,
+  "finish_reason": null,
+  "usage": null,
+  "server_timings": null,
+  "answer": null,
+  "input_audio_path": null,
+  "input_audio_sha256": null,
+  "input_video_path": null,
+  "input_video_sha256": null,
+  "image_path": null,
+  "image_sha256": null,
+  "question": null,
+  "reference_transcript": null,
+  "reference_facts": null,
+  "spoken_phrase": null,
+  "paired_spoken_task_id": null,
+  "system_prompt": null,
+  "request_endpoint": "/tts",
+  "speaker_reference_path": "qa/visual-v2/modality-fixtures/asr-01.wav",
+  "speaker_reference_sha256": "a548b25464f5f34a7f9b003a554375fa28af0c777a46ae5daa2cb267ff7df131",
+  "text": "This is a local synthetic speech test.",
+  "rss_tree_before_bytes": 1721958400,
+  "error": null,
+  "content_type": "audio/wav",
+  "rss_tree_peak_bytes": 1748189184,
+  "raw_response_file": "01-tts-01-response.bin",
+  "raw_response_sha256": "17b808144d948e1b6f2367e762c9c70214fe184c464d4cbbb277c5fa6a2f979b",
+  "audio_output_file": "01-tts-01.wav",
+  "audio_output_sha256": "17b808144d948e1b6f2367e762c9c70214fe184c464d4cbbb277c5fa6a2f979b",
+  "audio_probe_exit_code": 0,
+  "audio_probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "24000",
+        "channels": 1,
+        "bits_per_sample": 16
+      }
+    ],
+    "format": {
+      "duration": "2.960000"
+    }
+  },
+  "rss_tree_after_bytes": 1748189184,
+  "rss_peak_increase_during_call_bytes": 26230784,
+  "finished_at_utc": "2026-10-30T21:15:45.080696+00:00"
+}

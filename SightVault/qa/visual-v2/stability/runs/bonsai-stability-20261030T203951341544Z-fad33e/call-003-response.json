@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The visible text displays a Python terminal error during training. The specific error is `torch.OutOfMemoryError: CUDA out of memory.` This occurs when the code attempts to allocate 512 MiB of GPU memory but fails.\n\nThe visible text suggests the failure is due to insufficient GPU resources. The system reports that GPU 0 has 12.00 GiB total, but only 96.00 MiB is currently free. The training process is holding 11.62 GiB, leaving very little room for the new batch data.\n\nIt is likely that the batch size or sequence length is too large for the available hardware, or the model weights are consuming too much memory. Reducing these parameters or increasing available GPU memory would likely resolve the issue."
+      }
+    }
+  ],
+  "created": 1793392818,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 162,
+    "prompt_tokens": 1337,
+    "total_tokens": 1499,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-drSg651VUyT9Ar3kGmHETljG1dqVhEyO",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1337,
+    "prompt_ms": 5301.856,
+    "prompt_per_token_ms": 3.9654869109947644,
+    "prompt_per_second": 252.17584181841227,
+    "predicted_n": 162,
+    "predicted_ms": 3809.543,
+    "predicted_per_token_ms": 23.661757763975157,
+    "predicted_per_second": 42.26228710372871
+  }
+}

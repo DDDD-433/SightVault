@@ -18,29 +18,74 @@
     "requirements.txt"
   ],
   "trees": [
-    {"path": "docs", "extensions": [".md"]},
-    {"path": "handoff", "files": [
-      "AGENT_TASKS.md",
-      "DEMO_EVIDENCE_MANIFEST.json",
-      "MAC_MIGRATION.md",
-      "MAC_CONVERTED_MODEL_MANIFEST.json",
-      "MODEL_MANIFEST.json",
-      "ORCHESTRATOR_PROMPT.md",
-      "PROJECT_STATE.md",
-      "SAMPLE_MANIFEST.json",
-      "download_pinned_models.py",
-      "history/SightVault_Changes.md",
-      "prepare_demo.py",
-      "verify_transfer.py"
-    ]},
-    {"path": "packaging", "extensions": [".json"]},
-    {"path": "samples", "extensions": [".png", ".jpg", ".jpeg", ".webp", ".bmp", ".tif", ".tiff"], "reviewed_manifest": "handoff/SAMPLE_MANIFEST.json", "files": [
-      "manifest.json",
-      "photo_sources.json"
-    ]},
-    {"path": "scripts", "extensions": [".py"]},
-    {"path": "sightvault", "extensions": [".py", ".html", ".css", ".js"]},
-    {"path": "tests", "extensions": [".py"]}
+    {
+      "path": "docs",
+      "extensions": [
+        ".md"
+      ]
+    },
+    {
+      "path": "handoff",
+      "files": [
+        "AGENT_TASKS.md",
+        "DEMO_EVIDENCE_MANIFEST.json",
+        "MAC_MIGRATION.md",
+        "MAC_CONVERTED_MODEL_MANIFEST.json",
+        "MODEL_MANIFEST.json",
+        "ORCHESTRATOR_PROMPT.md",
+        "PROJECT_STATE.md",
+        "SAMPLE_MANIFEST.json",
+        "download_pinned_models.py",
+        "history/SightVault_Changes.md",
+        "prepare_demo.py",
+        "verify_transfer.py"
+      ]
+    },
+    {
+      "path": "packaging",
+      "extensions": [
+        ".json"
+      ]
+    },
+    {
+      "path": "samples",
+      "extensions": [
+        ".png",
+        ".jpg",
+        ".jpeg",
+        ".webp",
+        ".bmp",
+        ".tif",
+        ".tiff"
+      ],
+      "reviewed_manifest": "handoff/SAMPLE_MANIFEST.json",
+      "files": [
+        "manifest.json",
+        "photo_sources.json"
+      ]
+    },
+    {
+      "path": "scripts",
+      "extensions": [
+        ".py"
+      ]
+    },
+    {
+      "path": "sightvault",
+      "extensions": [
+        ".py",
+        ".html",
+        ".css",
+        ".js",
+        ".svg"
+      ]
+    },
+    {
+      "path": "tests",
+      "extensions": [
+        ".py"
+      ]
+    }
   ],
   "excluded": [
     ".git",

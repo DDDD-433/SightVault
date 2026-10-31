@@ -1,0 +1,77 @@
+{
+  "task_id": "tts-01-asr-roundtrip",
+  "kind": "asr",
+  "started_at_utc": "2026-10-30T21:22:13.753792+00:00",
+  "http_status": 200,
+  "latency_s": 0.297,
+  "finish_reason": "stop",
+  "usage": {
+    "completion_tokens": 9,
+    "prompt_tokens": 61,
+    "total_tokens": 70,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "server_timings": {
+    "cache_n": 0,
+    "prompt_n": 61,
+    "prompt_ms": 187.164,
+    "prompt_per_token_ms": 3.068262295081967,
+    "prompt_per_second": 325.9173772734073,
+    "predicted_n": 9,
+    "predicted_ms": 87.113,
+    "predicted_per_token_ms": 10.889125,
+    "predicted_per_second": 91.83474337928897
+  },
+  "answer": "This is a local synthetic speech test.",
+  "input_audio_path": "qa/visual-v2/modalities/runs/omni-tts-asr-roundtrip-20261030T212212250616Z-eae029/input-01-tts-01-16k.wav",
+  "input_audio_sha256": "25a19646a9d63f711f69ad3e7e29b5c385215ed0a43c1d67c3c7692e7e405837",
+  "source_tts_run_id": "omni-tts-20261030T211542606296Z-0fa4ab",
+  "source_tts_task_id": "tts-01",
+  "source_tts_audio_sha256": "17b808144d948e1b6f2367e762c9c70214fe184c464d4cbbb277c5fa6a2f979b",
+  "audio_conversion": {
+    "from_sample_rate_hz": 24000,
+    "to_sample_rate_hz": 16000,
+    "channels": 1,
+    "codec": "pcm_s16le",
+    "probe": {
+      "codec_name": "pcm_s16le",
+      "sample_rate": "16000",
+      "channels": 1,
+      "bits_per_sample": 16
+    }
+  },
+  "reference_transcript_scope": "metadata only; omitted from ASR messages",
+  "input_video_path": null,
+  "input_video_sha256": null,
+  "image_path": null,
+  "image_sha256": null,
+  "question": null,
+  "reference_transcript": "This is a local synthetic speech test.",
+  "reference_facts": null,
+  "spoken_phrase": null,
+  "paired_spoken_task_id": null,
+  "system_prompt": "Perform ASR in English.",
+  "request_endpoint": "/v1/chat/completions",
+  "speaker_reference_path": null,
+  "speaker_reference_sha256": null,
+  "text": null,
+  "rss_tree_before_bytes": 1721909248,
+  "error": null,
+  "content_type": "application/json; charset=utf-8",
+  "rss_tree_peak_bytes": 1735458816,
+  "raw_response_file": "01-tts-01-asr-roundtrip-response.bin",
+  "raw_response_sha256": "b92cb6b954f4ea9f354a15e12c5c2496fa3f3d34b544b1a3a5663ed9ebe39290",
+  "answer_sha256": "cf893eba65f4d0f8004d269266522774502099f93173cba3fefb2ee93e6d0795",
+  "asr_word_error_rate": {
+    "reference_words": 7,
+    "hypothesis_words": 7,
+    "word_errors": 0,
+    "wer": 0.0,
+    "normalization": "lowercase alphanumeric word tokens; no number or name normalization"
+  },
+  "rss_tree_after_bytes": 1735458816,
+  "rss_peak_increase_during_call_bytes": 13549568,
+  "finished_at_utc": "2026-10-30T21:22:14.053793+00:00"
+}

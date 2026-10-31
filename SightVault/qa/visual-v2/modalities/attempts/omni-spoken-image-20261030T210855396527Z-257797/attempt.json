@@ -1,0 +1,13 @@
+{
+  "attempt_id": "omni-spoken-image-20261030T210855396527Z-257797",
+  "stage": "spoken-image",
+  "started_at_utc": "2026-10-30T21:08:55.396527Z",
+  "command": ".venv-visual-v2/bin/python scripts/run_omni_modalities_v2.py --stage spoken-image",
+  "exit_code": 1,
+  "error": "KeyError: 'spoken-image'",
+  "failure_location": "Harness run metadata settings lookup before llama-server startup",
+  "requests_started": 0,
+  "model_server_started": false,
+  "fixtures_or_prompts_changed": false,
+  "disposition": "Preserved prelaunch harness failure. Settings mapping key will be aligned with the existing CLI stage name before retry."
+}

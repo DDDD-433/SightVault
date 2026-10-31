@@ -1,0 +1,166 @@
+{
+  "backend": "lfm3",
+  "reasoning_mode": "bounded-thinking",
+  "checks": {
+    "semantic_before": true,
+    "ocr_before": true,
+    "analysis_first": true,
+    "analysis_reuse": true,
+    "semantic_during_loaded_provider": true,
+    "bounded_thinking_metadata": true,
+    "ocr_after": true,
+    "single_generator_slot": true,
+    "semantic_after_switch": true,
+    "owned_runtime_stopped": true
+  },
+  "calls": [
+    {
+      "kind": "ocr_before",
+      "seconds": 7.532578958001977,
+      "result": {
+        "text": "training.py \u2014 Python\n$ python train.py --batch-size 64\nEpoch 1/10 | training on cuda:0\nTraceback (most recent call last):\n  File \"train.py\", line 87, in train\n  lossbackward()\n  torch.OutOfMemoryError: CUDA out of memory.\n  Tried to allocate 512.00 MiB. GPU 0 has 12.00 GiB total.\n  Of which 96.00 MiB is free. Process holds 11.62 GiB.\n  Batch size: 64. Sequence length: 4096.\nSession 01 \u00b7 developer workstation\nSYNTHETIC DEMO / no personal information",
+        "backend": "MiniCPM-OCR 1.0",
+        "error": null
+      },
+      "status": {
+        "available": true,
+        "loaded": true,
+        "device": "mlx (Metal GPU)",
+        "error": null,
+        "runtime": "MLX",
+        "precision": "mixed affine 4-bit / BF16"
+      }
+    },
+    {
+      "kind": "analysis_first",
+      "seconds": 6.640489083001739,
+      "answer": "Visible error: The terminal displays a red error line reading \"torch.OutOfMemoryError: CUDA out of memory.\" This is the only explicit error shown in the screenshot.\n\nEvidence: The line \"torch.OutOfMemoryError: CUDA out of memory.\" appears in red, following the traceback that ends with \"loss.backward()\".\n\nLikely causes (inferred, not stated): The error indicates the PyTorch model/training process attempted to allocate more memory (512.00 MiB) than the available GPU memory (GPU 0 has 12.00 GiB total, 96.00 MiB free), exceeding the CUDA memory limit. This is consistent with the \"CUDA out of memory\" message, but the screenshot does not reveal the actual root cause beyond the memory allocation vs. GPU capacity mismatch.",
+      "status": {
+        "available": true,
+        "loaded": true,
+        "device": "mlx (Metal GPU)",
+        "error": null,
+        "runtime": "MLX-VLM / MLX",
+        "precision": "QAD affine 4-bit (group 32); token embeddings 8-bit; BF16 tensors retained per checkpoint",
+        "name": "LFM3-VL-2B",
+        "model_id": "LiquidAI/LFM3-VL-2B-MLX-4bit",
+        "backend": "lfm3",
+        "availability_reason": null,
+        "reasoning_mode": "bounded-thinking",
+        "thinking_token_budget": 128,
+        "model_revision": "4146d7fa689833cfa7a06c474e748350b458f41e",
+        "model_quantization": "MLX 4-bit"
+      },
+      "generation": {
+        "reasoning_mode": "bounded-thinking",
+        "thinking_token_cap": 128,
+        "thinking_tokens_observed": 128,
+        "thinking_cap_respected": true,
+        "runtime_thinking_budget_argument": 126,
+        "runtime_budget_note": "Pinned MLX-VLM criterion forces a newline after budget overflow; argument 126 bounds content plus newline at 128 tokens.",
+        "thinking_terminator": "forced",
+        "final_answer_token_cap": 384,
+        "final_answer_tokens": 175,
+        "total_model_output_tokens_observed": 305,
+        "finish_reason": "natural_stop",
+        "runtime_finish_reason": "stop",
+        "truncated_final_answer": false,
+        "usable_final_answer": true,
+        "latency_s": 5.263,
+        "hidden_reasoning_read_or_saved": false
+      }
+    },
+    {
+      "kind": "analysis_reuse",
+      "seconds": 4.594293000001926,
+      "answer": "Visible error: The terminal displays a red error line reading \"torch.OutOfMemoryError: CUDA out of memory.\" This is the only explicit error shown in the screenshot.\n\nEvidence: The line \"torch.OutOfMemoryError: CUDA out of memory.\" appears in red, following the traceback that ends with \"loss.backward()\".\n\nLikely causes (inferred, not stated): The error indicates the PyTorch model/training process attempted to allocate more memory (512.00 MiB) than the available GPU memory (GPU 0 has 12.00 GiB total, 96.00 MiB free), exceeding the CUDA memory limit. This is consistent with the \"CUDA out of memory\" message, but the screenshot does not reveal the actual root cause beyond the memory allocation vs. GPU capacity mismatch.",
+      "status": {
+        "available": true,
+        "loaded": true,
+        "device": "mlx (Metal GPU)",
+        "error": null,
+        "runtime": "MLX-VLM / MLX",
+        "precision": "QAD affine 4-bit (group 32); token embeddings 8-bit; BF16 tensors retained per checkpoint",
+        "name": "LFM3-VL-2B",
+        "model_id": "LiquidAI/LFM3-VL-2B-MLX-4bit",
+        "backend": "lfm3",
+        "availability_reason": null,
+        "reasoning_mode": "bounded-thinking",
+        "thinking_token_budget": 128,
+        "model_revision": "4146d7fa689833cfa7a06c474e748350b458f41e",
+        "model_quantization": "MLX 4-bit"
+      },
+      "generation": {
+        "reasoning_mode": "bounded-thinking",
+        "thinking_token_cap": 128,
+        "thinking_tokens_observed": 128,
+        "thinking_cap_respected": true,
+        "runtime_thinking_budget_argument": 126,
+        "runtime_budget_note": "Pinned MLX-VLM criterion forces a newline after budget overflow; argument 126 bounds content plus newline at 128 tokens.",
+        "thinking_terminator": "forced",
+        "final_answer_token_cap": 384,
+        "final_answer_tokens": 175,
+        "total_model_output_tokens_observed": 305,
+        "finish_reason": "natural_stop",
+        "runtime_finish_reason": "stop",
+        "truncated_final_answer": false,
+        "usable_final_answer": true,
+        "latency_s": 4.593,
+        "hidden_reasoning_read_or_saved": false
+      }
+    },
+    {
+      "kind": "ocr_after",
+      "seconds": 6.888065541999822,
+      "result": {
+        "text": "training.py \u2014 Python\n$ python train.py --batch-size 64\nEpoch 1/10 | training on cuda:0\nTraceback (most recent call last):\n  File \"train.py\", line 87, in train\n  lossbackward()\n  torch.OutOfMemoryError: CUDA out of memory.\n  Tried to allocate 512.00 MiB. GPU 0 has 12.00 GiB total.\n  Of which 96.00 MiB is free. Process holds 11.62 GiB.\n  Batch size: 64. Sequence length: 4096.\nSession 01 \u00b7 developer workstation\nSYNTHETIC DEMO / no personal information",
+        "backend": "MiniCPM-OCR 1.0",
+        "error": null
+      },
+      "status": {
+        "available": true,
+        "loaded": true,
+        "device": "mlx (Metal GPU)",
+        "error": null,
+        "runtime": "MLX",
+        "precision": "mixed affine 4-bit / BF16"
+      }
+    }
+  ],
+  "isolation": "macOS-sandbox-exec-outbound-deny-loopback-allowed",
+  "models": {
+    "embedding": {
+      "available": true,
+      "loaded": true,
+      "device": "mps:0",
+      "error": null,
+      "runtime": "PyTorch",
+      "precision": "float32"
+    },
+    "ocr": {
+      "available": true,
+      "loaded": true,
+      "device": "mlx (Metal GPU)",
+      "error": null,
+      "runtime": "MLX",
+      "precision": "mixed affine 4-bit / BF16"
+    },
+    "vision": {
+      "available": true,
+      "loaded": false,
+      "device": null,
+      "error": null,
+      "runtime": "MLX-VLM / MLX",
+      "precision": "QAD affine 4-bit (group 32); token embeddings 8-bit; BF16 tensors retained per checkpoint",
+      "name": "LFM3-VL-2B",
+      "model_id": "LiquidAI/LFM3-VL-2B-MLX-4bit",
+      "backend": "lfm3",
+      "availability_reason": null,
+      "reasoning_mode": "bounded-thinking",
+      "thinking_token_budget": 128,
+      "model_revision": "4146d7fa689833cfa7a06c474e748350b458f41e",
+      "model_quantization": "MLX 4-bit"
+    }
+  },
+  "passed": true
+}

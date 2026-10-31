@@ -1,0 +1,65 @@
+{
+  "total": 62,
+  "with_embeddings": 62,
+  "with_ocr": 61,
+  "folders": [
+    {
+      "folder": "/Users/ddddd-433/.codex/worktrees/phase2-unified/vibathon-mac/SightVault/samples",
+      "count": 62
+    }
+  ],
+  "models": {
+    "embedding": {
+      "available": true,
+      "loaded": true,
+      "device": "mps:0",
+      "error": null,
+      "runtime": "PyTorch",
+      "precision": "float32"
+    },
+    "ocr": {
+      "available": true,
+      "loaded": false,
+      "device": null,
+      "error": null,
+      "runtime": "MLX",
+      "precision": "mixed affine 4-bit / BF16"
+    },
+    "vision": {
+      "available": true,
+      "loaded": true,
+      "name": "LFM3-Omni 2B",
+      "model_id": "LiquidAI/LFM3-Omni-2B-GGUF",
+      "model_revision": "3d29af2ad166f8299c2d820937e47dc0add20ffc",
+      "model_quantization": "Q4_K_M",
+      "projector_id": "mmproj-LFM3-Omni-2B-Q4_K_M.gguf",
+      "projector_quantization": "Q4_K_M",
+      "runtime": "upstream llama.cpp",
+      "runtime_commit": "e0f142d5ddc1461ce721644d92af33db23545105",
+      "runtime_version": "version: 0.8.0-dev (build 12005, commit e0f142d5d)\nbuilt with AppleClang 21.0.0.21000101 for Darwin arm64",
+      "precision": "GGUF Q4_K_M with matching Q4_K_M vision projector",
+      "backend": "omni",
+      "availability_reason": null,
+      "device": "unverified (no GPU offload evidence)",
+      "device_evidence": "no layer-offload line observed in the owned server startup log; execution device unverified",
+      "reasoning_mode": "off",
+      "thinking_token_budget": 0,
+      "error": null
+    }
+  },
+  "embedding_model": "EmbeddingGemma 2 \u00b7 768 dimensions",
+  "ocr_model": "MiniCPM-OCR 1.0 / RapidOCR",
+  "vision_model": "LFM3-Omni 2B",
+  "vision_backend": "omni",
+  "vision_runtime": "upstream llama.cpp",
+  "vision_precision": "GGUF Q4_K_M with matching Q4_K_M vision projector",
+  "vision_model_id": "LiquidAI/LFM3-Omni-2B-GGUF",
+  "vision_model_revision": "3d29af2ad166f8299c2d820937e47dc0add20ffc",
+  "vision_model_quantization": "Q4_K_M",
+  "vision_reasoning_mode": "off",
+  "vision_thinking_token_budget": 0,
+  "instance_root": ".",
+  "local_only": true,
+  "cloud_api_calls": 0,
+  "ocr_default": "auto"
+}

@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The screenshot shows a \"Quarterly test summary\" table with the following values:\n\n- Alpha: 18\n- Beta: 11\n- Gamma: 12\n- TOTAL: 41\n\nThe total printed for Alpha, Beta, and Gamma combined is **41**."
+      }
+    }
+  ],
+  "created": 1793392713,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 58,
+    "prompt_tokens": 1529,
+    "total_tokens": 1587,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-eaaM5reXqurI2LtOlDqT3NcBiy6QcJs5",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1529,
+    "prompt_ms": 2762.938,
+    "prompt_per_token_ms": 1.8070228907782866,
+    "prompt_per_second": 553.3964207665898,
+    "predicted_n": 58,
+    "predicted_ms": 614.27,
+    "predicted_per_token_ms": 10.776666666666666,
+    "predicted_per_second": 92.79307145066502
+  }
+}

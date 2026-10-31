@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "After restarting **archive-worker**, the following checks must pass before release:\n\n1. **Verify** – Restart archive-worker, then compare sampled IDs and query p95 with the baseline.\n2. **Release** – Proceed only when sampled IDs match and query p95 is below 180 ms.\n\n**Rollback trigger:** Rollback occurs if any sampled ID differs or query p95 is at least 180 ms."
+      }
+    }
+  ],
+  "created": 1793392705,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 86,
+    "prompt_tokens": 1581,
+    "total_tokens": 1667,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-kccP3D9hDutkQv22DzvGFH0BZ9L4F2Oz",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1581,
+    "prompt_ms": 2840.988,
+    "prompt_per_token_ms": 1.7969563567362428,
+    "prompt_per_second": 556.4965427520285,
+    "predicted_n": 86,
+    "predicted_ms": 907.659,
+    "predicted_per_token_ms": 10.678341176470589,
+    "predicted_per_second": 93.64750418383997
+  }
+}

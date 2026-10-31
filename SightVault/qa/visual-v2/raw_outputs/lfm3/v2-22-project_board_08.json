@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v2-22-project_board_08",
+  "category": "ui",
+  "source_group": "authored-v2",
+  "image_path": "samples/project_board_08.png",
+  "image_sha256": "9eb745209c69a70137aaca22a5d7aebd1331494e351ead08e7fa5625cd8f9ffd",
+  "question": "Which task is in progress, and what task numbers are visible in that column?",
+  "ocr_context_sha256": "29f47f85437f9a6e2f45a5de729af1d7a5e4a3436e82aee78905ca0367105ffc",
+  "prompt_sha256": "fc34fc94c6b6b6346664f889c7f53a2d2afb4f648630511d8ed970e2f91232f7",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 34521,
+  "answer": "Based on the provided screenshot, the \"In progress\" column contains the task \"Build image index.\" The task numbers visible in the \"In progress\" column are Task #144 and Task #145. The evidence shows a structured layout with tasks categorized under different columns: \"To do,\" \"In progress,\" and \"Completed.\" Each task is associated with a specific task number. The \"In progress\" column clearly lists \"Build image index\" as the only task, with Task #144 and Task #145 below it.",
+  "answer_chars": 476,
+  "request_latency_s": 2.705,
+  "prompt_tokens": 949,
+  "output_tokens": 106,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 100.72,
+  "error": null,
+  "final_answer_tokens": 105,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "Based on the provided screenshot, the \"In progress\" column contains the task \"Build image index.\" The task numbers visible in the \"In progress\" column are Task #144 and Task #145. The evidence shows a structured layout with tasks categorized under different columns: \"To do,\" \"In progress,\" and \"Completed.\" Each task is associated with a specific task number. The \"In progress\" column clearly lists \"Build image index\" as the only task, with Task #144 and Task #145 below it.",
+  "mlx_peak_memory_bytes_after_request": 2645537252,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

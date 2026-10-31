@@ -1,0 +1,167 @@
+{
+  "experiment": "SightVault LFM3-Omni ASR result review",
+  "candidate": "lfm3-omni-2b",
+  "run_id": "omni-asr-20261030T210817967496Z-3a530e",
+  "run_json_sha256": "7e3c01b802ac98bc7730ac0fd370fabc21cb674ad99c3570dc8bc967bba12c65",
+  "method": "Deterministic transcript review against locally authored references. Raw literal alphanumeric-token WER is preserved. A secondary number/time-normalized WER canonicalizes only exact number phrases in these fixtures; it does not correct proper names or ordinary word recognition.",
+  "summary": {
+    "cases": 3,
+    "raw_literal_errors": 18,
+    "raw_literal_reference_words": 36,
+    "raw_literal_micro_wer": 0.5,
+    "raw_literal_mean_case_wer": 0.494,
+    "number_normalized_errors": 6,
+    "number_normalized_reference_words": 28,
+    "number_normalized_micro_wer": 0.2143,
+    "fixture_authored_number_time_slots_correct": 4,
+    "fixture_authored_number_time_slots_total": 4,
+    "proper_name_correct": false,
+    "notes": "Clip 1 has genuine word errors. Clip 2 reads both numeric identifiers but renders Mira Chen as Merichen; the proper-name error is not normalized away. Clip 3 uses $42 for forty two dollars and 6.15 for six fifteen. This small synthetic sample is not a general ASR quality estimate."
+  },
+  "normalization_rules": {
+    "asr-01": "No numeric normalization.",
+    "asr-02": "Canonicalize “two zero four eight” and “seven three one” as 2048 and 731. Preserve Mira Chen/Merichen and queue/Q spelling differences as errors. Split Q731 into q and 731 only to expose the numeric component; q vs queue remains an error.",
+    "asr-03": "Canonicalize “forty two dollars” and $42 as the same money slot; canonicalize “six fifteen”, 6.15, or 6:15 as the same time slot."
+  },
+  "cases": [
+    {
+      "case_id": "asr-01",
+      "input_audio_path": "qa/visual-v2/modality-fixtures/asr-01.wav",
+      "input_audio_sha256": "a548b25464f5f34a7f9b003a554375fa28af0c777a46ae5daa2cb267ff7df131",
+      "reference_transcript": "The green status light is steady.",
+      "hypothesis": "The green stat is light as steady.",
+      "literal_wer": 0.5,
+      "literal_word_errors": 3,
+      "literal_reference_words": 6,
+      "number_normalized_reference_tokens": [
+        "the",
+        "green",
+        "status",
+        "light",
+        "is",
+        "steady"
+      ],
+      "number_normalized_hypothesis_tokens": [
+        "the",
+        "green",
+        "stat",
+        "is",
+        "light",
+        "as",
+        "steady"
+      ],
+      "number_normalized_wer": 0.5,
+      "number_normalized_word_errors": 3,
+      "number_normalized_reference_words": 6,
+      "number_time_slots": [],
+      "proper_name_policy": "No proper names were normalized; Mira Chen remains a literal recognition error."
+    },
+    {
+      "case_id": "asr-02",
+      "input_audio_path": "qa/visual-v2/modality-fixtures/asr-02.wav",
+      "input_audio_sha256": "9c397ac473433162249ac25b126095fbed1060e73709d890c2664f559ed8d982",
+      "reference_transcript": "Mira Chen reviewed ticket two zero four eight and assigned it to queue seven three one.",
+      "hypothesis": "Merichen reviewed ticket 2048 and assigned it to Q731.",
+      "literal_wer": 0.625,
+      "literal_word_errors": 10,
+      "literal_reference_words": 16,
+      "number_normalized_reference_tokens": [
+        "mira",
+        "chen",
+        "reviewed",
+        "ticket",
+        "2048",
+        "and",
+        "assigned",
+        "it",
+        "to",
+        "queue",
+        "731"
+      ],
+      "number_normalized_hypothesis_tokens": [
+        "merichen",
+        "reviewed",
+        "ticket",
+        "2048",
+        "and",
+        "assigned",
+        "it",
+        "to",
+        "q",
+        "731"
+      ],
+      "number_normalized_wer": 0.2727,
+      "number_normalized_word_errors": 3,
+      "number_normalized_reference_words": 11,
+      "number_time_slots": [
+        {
+          "label": "ticket id",
+          "expected": "2048",
+          "heard": "2048",
+          "correct": true
+        },
+        {
+          "label": "queue id",
+          "expected": "731",
+          "heard": "Q731",
+          "correct": true
+        }
+      ],
+      "proper_name_policy": "No proper names were normalized; Mira Chen remains a literal recognition error."
+    },
+    {
+      "case_id": "asr-03",
+      "input_audio_path": "qa/visual-v2/modality-fixtures/asr-03.wav",
+      "input_audio_sha256": "4cb90f4c1df68543d0655280b8922acf6a6a2dc4f103bd1492d666ddc2a2d6d8",
+      "reference_transcript": "The invoice total is forty two dollars. The backup starts at six fifteen tomorrow.",
+      "hypothesis": "The invoice total is $42. The backup starts at 6.15 tomorrow.",
+      "literal_wer": 0.3571,
+      "literal_word_errors": 5,
+      "literal_reference_words": 14,
+      "number_normalized_reference_tokens": [
+        "the",
+        "invoice",
+        "total",
+        "is",
+        "money42",
+        "the",
+        "backup",
+        "starts",
+        "at",
+        "time615",
+        "tomorrow"
+      ],
+      "number_normalized_hypothesis_tokens": [
+        "the",
+        "invoice",
+        "total",
+        "is",
+        "money42",
+        "the",
+        "backup",
+        "starts",
+        "at",
+        "time615",
+        "tomorrow"
+      ],
+      "number_normalized_wer": 0.0,
+      "number_normalized_word_errors": 0,
+      "number_normalized_reference_words": 11,
+      "number_time_slots": [
+        {
+          "label": "invoice amount",
+          "expected": "42 dollars",
+          "heard": "$42",
+          "correct": true
+        },
+        {
+          "label": "backup time",
+          "expected": "6:15",
+          "heard": "6.15",
+          "correct": true
+        }
+      ],
+      "proper_name_policy": "No proper names were normalized; Mira Chen remains a literal recognition error."
+    }
+  ]
+}

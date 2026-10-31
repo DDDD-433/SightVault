@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v1-15-object_study_01",
+  "category": "visual_object",
+  "source_group": "preserved-v1",
+  "image_path": "samples/object_study_01.png",
+  "image_sha256": "32a5b97d35e7853853572739885ed61c7a6912955d7133b5df8f7f515e9fe704",
+  "question": "Describe the main visible subject, its colors, and the setting.",
+  "ocr_context_sha256": "62c0346f01131d66a7c0bdaab1205412123d13b520199f07a8d3a53c9600cf3c",
+  "prompt_sha256": "aa43158cd8b9bf767e760f3b799f605225d77eafbac6d846e4118dc774cf1408",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 15317,
+  "answer": "The main visible subject is a stylized illustration of a red bag or case. It features a dark navy blue handle at the top, a rounded rectangular body in red, a horizontal white line near the top, a small beige rectangular patch in the center, and a lower pocket section outlined in dark navy blue with a white horizontal line and a small white zipper pull on the right. The bag sits on a light gray oval shadow. The setting is minimal, with a plain off-white background. Text elements include a header reading \"Object study / illustrated demo,\" a label \"ILLUSTRATION / visual retrieval test,\" and a footer stating \"SYNTHETIC DEMO / no personal information.\" The design appears flat and vector-based, typical of a UI mockup or illustration asset.",
+  "answer_chars": 744,
+  "request_latency_s": 3.174,
+  "prompt_tokens": 888,
+  "output_tokens": 159,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 99.58,
+  "error": null,
+  "final_answer_tokens": 158,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The main visible subject is a stylized illustration of a red bag or case. It features a dark navy blue handle at the top, a rounded rectangular body in red, a horizontal white line near the top, a small beige rectangular patch in the center, and a lower pocket section outlined in dark navy blue with a white horizontal line and a small white zipper pull on the right. The bag sits on a light gray oval shadow. The setting is minimal, with a plain off-white background. Text elements include a header reading \"Object study / illustrated demo,\" a label \"ILLUSTRATION / visual retrieval test,\" and a footer stating \"SYNTHETIC DEMO / no personal information.\" The design appears flat and vector-based, typical of a UI mockup or illustration asset.",
+  "mlx_peak_memory_bytes_after_request": 2645537252,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

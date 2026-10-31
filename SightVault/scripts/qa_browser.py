@@ -6,7 +6,7 @@ from playwright.sync_api import sync_playwright
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('base_url');parser.add_argument('screenshot_dir')
 parser.add_argument('--xss',action='store_true')
-parser.add_argument('--expect-backend',choices=('minicpm','lfm3'))
+parser.add_argument('--expect-backend',choices=('minicpm','lfm3','omni'))
 parser.add_argument('--expect-model')
 parser.add_argument('--expect-root')
 args=parser.parse_args();BASE=args.base_url;SHOTS=Path(args.screenshot_dir);SHOTS.mkdir(parents=True,exist_ok=True)
@@ -104,7 +104,7 @@ with sync_playwright() as p:
     pg.screenshot(path=str(SHOTS/'06_similar.png'))
     pg.locator('.card [data-open]').first.click();pg.wait_for_selector('#detail-dialog[open]');pg.keyboard.press('Escape')
     check('escape_closes_dialog',not pg.evaluate("document.getElementById('detail-dialog').open"))
-    pg.click('body');pg.keyboard.press('/');check('slash_focuses_search',pg.evaluate("document.activeElement.id")=='query')
+    pg.locator('h1').click();pg.keyboard.press('/');check('slash_focuses_search',pg.evaluate("document.activeElement.id")=='query')
     pg.keyboard.press('Tab');check('tab_reaches_search_button',pg.evaluate("document.activeElement.id")=='search-button')
     # Indexing via UI: re-index demo (all should be skipped; stays responsive).
     pg.click('#demo-button');pg.wait_for_function("document.getElementById('job-title').textContent==='Indexing complete'",timeout=300000)

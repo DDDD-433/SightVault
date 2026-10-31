@@ -1,0 +1,32 @@
+{
+  "reviewer": "ParentCodex",
+  "utc": "2026-10-30T22:11:18.849266+00:00",
+  "source_sha256": "0e6e765b9f461de55f28d12d68f789f49cea3d5c48797599374d3e84ae8bc29f",
+  "rows": 320,
+  "unique_query_image_pairs": 320,
+  "per_query_counts": {
+    "Q01": 20,
+    "Q02": 20,
+    "Q03": 20,
+    "Q04": 20,
+    "Q05": 20,
+    "Q06": 20,
+    "Q07": 20,
+    "Q08": 20,
+    "Q09": 20,
+    "Q10": 20,
+    "Q11": 20,
+    "Q12": 20,
+    "Q13": 20,
+    "Q14": 20,
+    "Q15": 20,
+    "Q16": 20
+  },
+  "recorded_failures": [],
+  "per_query_loop_wall_records": 15,
+  "q16_raw_call_seconds_sum": 47.98520395799278,
+  "missing_metadata": "Final JSON assembly hit missing sys import; Q16 loop-wall and final cleanup metadata not persisted; no inference rerun needed for320 complete scores",
+  "post_exit_memory_pressure": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 81%\n",
+  "post_exit_swapusage": "vm.swapusage: total = 16384.00M  used = 15130.50M  free = 1253.50M  (encrypted)\n",
+  "post_exit_vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   555359.\nPages active:                                 135814.\nPages inactive:                               126424.\nPages speculative:                              8470.\nPages throttled:                                   0.\nPages wired down:                             120481.\nPages purgeable:                                2639.\n\"Translation faults\":                      490353613.\nPages copy-on-write:                        14640484.\nPages zero filled:                         410658573.\nPages reactivated:                          66452098.\nPages purged:                               24499389.\nFile-backed pages:                             76888.\nAnonymous pages:                              193820.\nPages stored in compressor:                  1525335.\nPages occupied by compressor:                  62433.\nDecompressions:                             86334236.\nCompressions:                              107894226.\nPageins:                                    54654039.\nPageouts:                                     241145.\nSwapins:                                     2118562.\nSwapouts:                                    3846396.\n"
+}

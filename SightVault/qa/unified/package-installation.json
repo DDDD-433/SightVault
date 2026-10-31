@@ -1,0 +1,246 @@
+{
+  "artifact_type": "candidate portable source-and-setup package installation validation",
+  "candidate_archive": {
+    "archive_integrity": {
+      "members_checked": 265,
+      "passed": true
+    },
+    "artifact_type": "portable source-and-setup bundle",
+    "build_command": ".venv/bin/python scripts/build_portable_package.py --source-root \"$PWD\" --platform macos-arm64 --model-manifest handoff/MODEL_MANIFEST.json --qa-allowlist packaging/EMPTY_QA_ALLOWLIST.json --demo-db data/sightvault.sqlite3 --demo-data-root data --output \"$PWD/.runtime/package-candidate/SightVault-macOS-arm64.zip\"",
+    "bytes": 9866280,
+    "integrity_verify_command": ".venv/bin/python scripts/verify_package_integrity.py .runtime/package-candidate/SightVault-macOS-arm64.zip",
+    "platform_target": "macOS arm64",
+    "relative_path": ".runtime/package-candidate/SightVault-macOS-arm64.zip",
+    "sha256": "01f27f5d1a4ffd474f3007fb8d4be8e821b5bfd26d294728983d09a307d9beca",
+    "sidecar": "SightVault-macOS-arm64.zip.sha256"
+  },
+  "candidate_validation_only": true,
+  "demo_relocation": {
+    "apply": {
+      "assets": 62,
+      "backup_created": true,
+      "indexed_timestamps_preserved": true,
+      "paths_to_rebase": 62,
+      "restored_sample_mtimes": 64
+    },
+    "commands": [
+      ".venv/bin/python handoff/prepare_demo.py",
+      ".venv/bin/python handoff/prepare_demo.py --apply"
+    ],
+    "dry_run": {
+      "assets": 62,
+      "indexed_timestamps_preserved": true,
+      "paths_to_rebase": 62
+    },
+    "scope": "Only the extracted candidate data directory was changed."
+  },
+  "extracted_candidate": {
+    "path_contains_spaces": true,
+    "portable_manifest_files_checked": 265,
+    "portable_manifest_passed": true,
+    "relative_path": ".runtime/package-candidate/Extracted Candidate With Spaces Final/SightVault",
+    "setup_and_demo_changes_confined_to_extracted_copy": true,
+    "verification_command": ".venv/bin/python handoff/verify_transfer.py",
+    "verified_before_setup_or_database_edits": true
+  },
+  "final_release_archive": false,
+  "generated_at_utc": "2026-10-31T08:40:49.192341+00:00",
+  "host": {
+    "architecture": "arm64",
+    "os": "macOS 26.5.1"
+  },
+  "limitations": [
+    "This validates the candidate source-and-setup archive, not a final release archive; parent UI/report changes may change later archives.",
+    "The archive is a portable source-and-setup bundle, not a native executable.",
+    "The shared model cache supplied the already pinned weights; this run did not test model download paths.",
+    "No Windows runtime validation was performed."
+  ],
+  "mac_setup": {
+    "architecture": "arm64",
+    "command": "PYTHON_BIN=<native Python 3.12.9 base from unified .venv/pyvenv.cfg> HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 bash Setup-Mac.sh",
+    "copied_virtual_environment": false,
+    "dependency_install_network": "PyPI dependency installation was allowed; model-weight downloads were not requested.",
+    "exit_code": 0,
+    "fresh_virtual_environment_created": true,
+    "mps_availability_is_not_used_as_inference_proof": true,
+    "mps_available": true,
+    "mps_built": true,
+    "pip_check": "passed; no broken requirements found",
+    "python": "3.12.9",
+    "sqlite_fts5": "passed",
+    "venv_size": {
+      "du_apparent": {
+        "bytes": 1844331520,
+        "kib": 1801105
+      },
+      "du_disk_usage": {
+        "bytes": 1945956352,
+        "kib": 1900348
+      },
+      "logical_regular_file_bytes": 1827614780,
+      "symlinks": 3
+    },
+    "versions": {
+      "mlx": "0.32.4",
+      "mlx-vlm": "0.7.11",
+      "onnxruntime": "1.31.1",
+      "pytest": "9.2.0",
+      "rapidocr-onnxruntime": "1.4.4",
+      "sentence-transformers": "6.2.0",
+      "torch": "2.11.0",
+      "torchvision": "0.26.0",
+      "transformers": "5.22.0"
+    }
+  },
+  "model_cache": {
+    "location_description": "Existing unified checkout .models directory, supplied through SIGHTVAULT_MODELS and --model-root; not part of the candidate package.",
+    "recent_modified_file_check": "No files under the unified .models tree had modification times within the post-run 15-minute check window.",
+    "required_group_hash_verification": {
+      "files_checked": 32,
+      "groups": [
+        "embeddinggemma-2",
+        "minicpm-ocr",
+        "minicpm-v"
+      ],
+      "passed": true
+    },
+    "verification_command": ".venv/bin/python handoff/verify_transfer.py --models --model-root <unified checkout>/.models",
+    "weight_files_modified": false,
+    "weights_downloaded": false
+  },
+  "native_executable_included": false,
+  "network_and_privacy": {
+    "loopback_allowed_by_profile": true,
+    "no_firewall_claim": true,
+    "outbound_deny_sandbox_used_for_tests_and_inference": true,
+    "raw_model_answer_included_in_this_report": false,
+    "runtime_logs_and_full_reports_are_under_runtime": true
+  },
+  "offline_model_acceptance": {
+    "analysis": {
+      "backend": "minicpm",
+      "device": "mlx (Metal GPU)",
+      "model": "MiniCPM-V 4.7 1B",
+      "model_id": "openbmb/MiniCPM-V-4.7-1B",
+      "runtime": "MLX",
+      "seconds": 4.65
+    },
+    "analysis_answer_saved_only_in_runtime_artifact": true,
+    "application_network_guard": "HF offline flags plus in-process non-loopback socket.connect guard; not an OS firewall",
+    "command": "sandbox-exec <outbound-deny profile> env HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 SIGHTVAULT_DEVICE=auto SIGHTVAULT_VISION=minicpm SIGHTVAULT_DATA=<extracted>/data SIGHTVAULT_MODELS=<unified checkout>/.models .venv/bin/python scripts/verify_offline.py --output <.runtime>/offline-real-model.json",
+    "embedding": {
+      "available": true,
+      "device": "mps:0",
+      "error": null,
+      "loaded": true,
+      "precision": "float32",
+      "runtime": "PyTorch"
+    },
+    "memory_samples": {
+      "mlx_peak_allocation_gib": 3.246,
+      "mps_current_allocation_gib": 1.635,
+      "process_rss_gib": 1.47
+    },
+    "ocr": {
+      "backend": "MiniCPM-OCR 1.0",
+      "error": null,
+      "seconds": 9.24,
+      "text_characters": 452,
+      "text_sha256": "f935b25bb24d574b7cd9789f3dc9ee4a428621a0c045e14e092ba4caad57fffd"
+    },
+    "ocr_runtime_after_call": {
+      "available": true,
+      "device": null,
+      "error": null,
+      "loaded": false,
+      "precision": "mixed affine 4-bit / BF16",
+      "runtime": "MLX"
+    },
+    "os_outbound_deny_profile": "(version 1)(allow default)(deny network-outbound)(allow network-outbound (remote ip \"localhost:*\"))",
+    "output": ".runtime/package-candidate/offline-real-model.json",
+    "passed": true,
+    "semantic_search": {
+      "latency_ms": 6075.4,
+      "top_result": "terminal_cuda_02.png"
+    },
+    "stdout_log": ".runtime/package-candidate/offline-real-model.stdout.log"
+  },
+  "process_cleanup": {
+    "candidate_server_started": false,
+    "candidate_test_processes_exited": true,
+    "stable_non_candidate_app_processes_left_untouched": true
+  },
+  "retrieval_benchmark": {
+    "command": "sandbox-exec <outbound-deny profile> env HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 SIGHTVAULT_DEVICE=auto SIGHTVAULT_VISION=minicpm SIGHTVAULT_DATA=<extracted>/data SIGHTVAULT_MODELS=<unified checkout>/.models .venv/bin/python scripts/benchmark.py --offline-check --output <.runtime>/public-demo-retrieval.json",
+    "database": {
+      "source_folder": "extracted candidate samples/ (path omitted from report)",
+      "total": 62,
+      "with_embeddings": 62,
+      "with_ocr": 61
+    },
+    "first_query_latency_ms": 30346.8,
+    "fresh_image_embedding_proof": [
+      {
+        "cosine_fresh_vs_stored": 0.9999,
+        "file": "terminal_cuda_01.png"
+      },
+      {
+        "cosine_fresh_vs_stored": 1.0,
+        "file": "object_study_01.png"
+      },
+      {
+        "cosine_fresh_vs_stored": 1.0,
+        "file": "kitchen_photo.jpg"
+      }
+    ],
+    "maximum_negative_semantic_top": 0.5613,
+    "median_later_query_latency_ms": 37.8,
+    "minimum_positive_semantic_top": 0.6512,
+    "negative_query_count": 4,
+    "negatives_below_all_positives": true,
+    "output": ".runtime/package-candidate/public-demo-retrieval.json",
+    "passed": 17,
+    "stdout_log": ".runtime/package-candidate/public-demo-retrieval-stdout.log",
+    "total": 17
+  },
+  "schema_version": 1,
+  "source_provenance": {
+    "full_included_file_inventory_sha256": "1e38026787f03c6b357d59c688a5e243e60da7f79d5d46aeed82c5c7714081f8",
+    "git_revision_at_candidate_build": "f3981e98d7ec313a1a012f877ac28ff9a0c83945",
+    "included_file_count": 265,
+    "model_manifest_sha256": "e7971cf70a2926c76c782d1dc074dcc28bb4edb2d207bbef5d3615641c2dfa43",
+    "portable_package_manifest_sha256": "f6f180ede95a89fb3e32e4d7aeb0544af4bd8b135cebf479a20b0aa22fa5cb8e",
+    "source_and_setup_inventory_sha256": "b1ade09e5834c4e02145de54f9604b613f200892336833fce8783e4bfce1735d",
+    "working_tree_had_uncommitted_parent_integration_edits": true
+  },
+  "status": "passed",
+  "superseded_candidate_attempt": {
+    "archive_integrity_passed": true,
+    "archive_sha256": "051c22a01ca2a72540d7908ba5b663ec183e31d40288e990f4a430096e7f8154",
+    "extracted_verification_passed": false,
+    "failure": "The packaged handoff/verify_transfer.py expected legacy handoff/PACKAGE_MANIFEST.json, absent from portable bundles which use PORTABLE_PACKAGE_MANIFEST.json.",
+    "fix_commit": "f3981e98d7ec313a1a012f877ac28ff9a0c83945",
+    "resolution": "verify_transfer.py now verifies the portable inventory when present and keeps the legacy immutable-extraction fallback; the rebuilt candidate passed 265/265 extracted-file checks."
+  },
+  "system_memory_samples": {
+    "after_candidate_processes_exited": {
+      "free_percent": 72,
+      "swap_free_mib": 431.38,
+      "swap_used_mib": 14928.62
+    },
+    "before_offline_model_acceptance": {
+      "free_percent": 66,
+      "swap_free_mib": 1053.88,
+      "swap_used_mib": 14306.12
+    },
+    "scope_note": "Whole-machine samples include unrelated host activity and cannot be attributed only to this candidate run."
+  },
+  "unit_tests": {
+    "command": "sandbox-exec <outbound-deny profile> env HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 SIGHTVAULT_DEVICE=auto SIGHTVAULT_VISION=minicpm SIGHTVAULT_DATA=<extracted>/data SIGHTVAULT_MODELS=<unified checkout>/.models .venv/bin/python -m pytest -q tests",
+    "duration_seconds": 43.36,
+    "expected_failures": 1,
+    "log": ".runtime/package-candidate/package-unit-tests.log",
+    "passed": 178,
+    "subtests_passed": 8
+  }
+}

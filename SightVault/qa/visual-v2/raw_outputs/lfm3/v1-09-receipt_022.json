@@ -1,0 +1,33 @@
+{
+  "candidate": "lfm3",
+  "case_id": "v1-09-receipt_022",
+  "category": "receipt",
+  "source_group": "preserved-v1",
+  "image_path": "samples/receipt_022.png",
+  "image_sha256": "77638caff7f6e6fcdc3cf1c4648eaea5acfd9f2a6ff3d0925b29a65e794e6d82",
+  "question": "What item was purchased and what total is shown? Use only visible evidence.",
+  "ocr_context_sha256": "e84df52b484d9c21afdcd0910bd1765a8394e45e3fc763b4729d01b9f07bd74f",
+  "prompt_sha256": "c43d979e0ef0b631e383438fa9676cc94204130984a66c826b6439fd2750a537",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 31433,
+  "answer": "The item purchased is a Mechanical keyboard. The total shown is $84.79. These details are directly visible in the receipt under the item description and the cost breakdown section.",
+  "answer_chars": 180,
+  "request_latency_s": 2.017,
+  "prompt_tokens": 930,
+  "output_tokens": 36,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 102.494,
+  "error": null,
+  "final_answer_tokens": 35,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "The item purchased is a Mechanical keyboard. The total shown is $84.79. These details are directly visible in the receipt under the item description and the cost breakdown section.",
+  "mlx_peak_memory_bytes_after_request": 2645537252,
+  "mlx_active_memory_bytes_after_request": 1591035918,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

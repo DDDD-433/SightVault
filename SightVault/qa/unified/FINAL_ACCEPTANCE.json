@@ -1,0 +1,73 @@
+{
+  "unit_regression": {
+    "passed": 184,
+    "expected_failures": 1,
+    "expected_failure": "S-6 retained copies after editing indexed sources"
+  },
+  "retrieval": 17,
+  "browsers": {
+    "default": {
+      "passed": 37,
+      "total": 37
+    },
+    "omni": {
+      "passed": 37,
+      "total": 37
+    }
+  },
+  "runtime_model_checksums": {
+    "model-checksums": {
+      "scope": "models",
+      "checked": 55,
+      "selected_models": [
+        "embeddinggemma-2",
+        "lfm3-omni-2b-gguf",
+        "lfm3-vl-2b-mlx-4bit",
+        "minicpm-ocr",
+        "minicpm-v"
+      ],
+      "failures": [],
+      "passed": true
+    },
+    "mac-conversion-checksums": {
+      "checked": 22,
+      "failures": [],
+      "passed": true
+    }
+  },
+  "windows_native_validated": false,
+  "local_inference_only": true,
+  "ui_implementation": {
+    "main": "claude-opus-5-5",
+    "main_effort": "high",
+    "reviewer": "claude-sonnet-5-5",
+    "reviewer_effort": "xhigh",
+    "reviewer_count": 1
+  },
+  "normal-csp-polished": {
+    "passed": 10,
+    "total": 10
+  },
+  "ui-hardening": {
+    "passed": 29,
+    "total": 29
+  },
+  "source_sha256": {
+    "sightvault/models.py": "e901ebc4525041d798397eb8c91a56acfee70f1141f600f4a0a548e1af54b6ec",
+    "sightvault/server.py": "724cbcabef1cc20e354cc96cbe21343d93f9751fe2d60ee8e42fde949c1aa026",
+    "sightvault/config.py": "3719ccdff32a20a69559817591ade15ef6252854705f60a2577f9989ffc91e12",
+    "sightvault/search.py": "1d1cad2312c7730191a0c7600dead7dbfcc15fdf4e697a7b1d10740305cb54fb",
+    "sightvault/database.py": "77eb175aeb723a3b308af47086e9455b1a0fa7770f955ceb53a66763a2beae21",
+    "sightvault/llama_vision.py": "730f4d922e41885f5f86e0b4c364c470c7e0fd399b8f8aa38cf69dc7465d6610",
+    "sightvault/lfm3_thinking.py": "949065fe266d34e8e25b087e61ecfdfdd819c617d91a6bb132693e1c2de4a140",
+    "sightvault/web/app.js": "623e6025c3c31dc214b75cb8ae0cc5894a4a4acf838f0b52459acbeb6ea25951",
+    "sightvault/web/index.html": "cc571c834d7aa14681594c4ce018707ef44fbaa5be42572b0d75cec06c4f96a7",
+    "sightvault/web/style.css": "a5a0e8eda6fe0686a0c85ed56474a231472b76224298a3692d8c8c3750b5561d",
+    "requirements-mac.lock.txt": "1630d1461812f7610b15c5c370e45ab38606702f3910ef9abce46f9a1c898ede",
+    "requirements-windows.lock.txt": "98b28e9a3c83f8cdeb88607a0149bde372571026ac55ab2ead7db69f9784ca9b",
+    "scripts/launch.py": "d01ece5ea03c84c09963a146f7b0b6af94f28188acf6593565ffff15a621817d",
+    "scripts/build_portable_package.py": "5c3387b9a755de01c2d081de045283b7c2253069431c8c2d8d57addd601426bc",
+    "handoff/MODEL_MANIFEST.json": "e7971cf70a2926c76c782d1dc074dcc28bb4edb2d207bbef5d3615641c2dfa43"
+  },
+  "final_archive_integrity_and_bytes": "Recorded alongside archives in exports/RELEASE_MANIFEST.json; the ZIPs exclude exports to avoid self-referential hashes."
+}

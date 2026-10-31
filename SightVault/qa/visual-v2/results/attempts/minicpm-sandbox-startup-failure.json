@@ -1,0 +1,59 @@
+{
+  "experiment": "SightVault visual-v2 paired arena",
+  "candidate": "minicpm",
+  "scope": "all",
+  "started_at_utc": "2026-10-30T14:33:07.031522+00:00",
+  "finished_at_utc": "2026-10-30T14:33:38.845281+00:00",
+  "baseline_commit": "766027c79d4c6f17ba7b88b1df3bc079dfbbd141",
+  "experiment_commit": "2e924d0aa0b6e2a2b9bfed22bcdc2c885d24a5de",
+  "platform": {
+    "os": "macOS-26.5.1-arm64-arm-64bit",
+    "arch": "arm64",
+    "hardware": "Apple M1 Pro",
+    "ram_bytes": 17179869184
+  },
+  "model": {
+    "repo": "openbmb/MiniCPM-V-4.7-1B",
+    "revision": "bb99eab4113676f30830ffa73bac1f0b2a5f1dea",
+    "runtime": "mlx-vlm",
+    "runtime_commit": "918763c6875c80e82f9f48344dfad4763346fea8",
+    "runtime_version": "0.7.11",
+    "format": "MLX safetensors",
+    "quantization": {
+      "bits": 4,
+      "group_size": 64,
+      "mode": "affine"
+    },
+    "artifact_bytes": 2665920710,
+    "package_bytes": 2665920710,
+    "files": {
+      "model.safetensors": {
+        "bytes": 2665920710,
+        "sha256": "fa64003068c92b9d3aec27ff4459b244cba7255e9becedf86cc8d848d7a8f028"
+      }
+    },
+    "model_path": ".models/minicpm-v-mlx-4bit",
+    "runtime_binary": ".venv-visual-v2/bin/python"
+  },
+  "offline": {
+    "sandbox_profile": "(version 1)(allow default)(deny network-outbound)(allow network-outbound (remote ip \"localhost:*\"))",
+    "inference_started": false,
+    "outbound_attempts_observed": "not instrumented; OS sandbox enforces outbound deny"
+  },
+  "stability": {
+    "requests": 0,
+    "completed": 0,
+    "failures": 0,
+    "stage": "inference"
+  },
+  "quality": {
+    "status": "no model answer produced"
+  },
+  "raw_outputs_path": "qa/visual-v2/raw_outputs/minicpm/",
+  "fatal_error": "ModuleNotFoundError: No module named 'sightvault'",
+  "updated_at_utc": "2026-10-30T14:33:38.878701+00:00",
+  "attempt_class": "pre-model sandbox startup failure",
+  "worker_exit_code": 1,
+  "inference_started": false,
+  "failure_stage_detail": "Import of SightVault package failed before model construction or weight load."
+}

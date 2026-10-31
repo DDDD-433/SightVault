@@ -1,0 +1,33 @@
+{
+  "candidate": "minicpm",
+  "case_id": "v1-09-receipt_022",
+  "category": "receipt",
+  "source_group": "preserved-v1",
+  "image_path": "samples/receipt_022.png",
+  "image_sha256": "77638caff7f6e6fcdc3cf1c4648eaea5acfd9f2a6ff3d0925b29a65e794e6d82",
+  "question": "What item was purchased and what total is shown? Use only visible evidence.",
+  "ocr_context_sha256": "e84df52b484d9c21afdcd0910bd1765a8394e45e3fc763b4729d01b9f07bd74f",
+  "prompt_sha256": "c43d979e0ef0b631e383438fa9676cc94204130984a66c826b6439fd2750a537",
+  "max_new_tokens": 384,
+  "thinking_enabled": false,
+  "image_bytes": 31433,
+  "answer": "Visible text: Mechanical keyboard; subtotal $79.99; tax $4.80; total $84.79.\n\nPurchased item: Mechanical keyboard. Total shown: $84.79.",
+  "answer_chars": 135,
+  "request_latency_s": 1.59,
+  "prompt_tokens": 505,
+  "output_tokens": 48,
+  "finish_reason": "stop",
+  "truncated_at_token_limit": false,
+  "tokens_per_second": 107.487,
+  "error": null,
+  "final_answer_tokens": 47,
+  "model_load_s_for_request": 0,
+  "generation_raw_text": "Visible text: Mechanical keyboard; subtotal $79.99; tax $4.80; total $84.79.\n\nPurchased item: Mechanical keyboard. Total shown: $84.79.",
+  "mlx_peak_memory_bytes_after_request": 3503053454,
+  "mlx_active_memory_bytes_after_request": 2668284290,
+  "image_decoded_mode": "RGB",
+  "image_size_px": [
+    1100,
+    700
+  ]
+}

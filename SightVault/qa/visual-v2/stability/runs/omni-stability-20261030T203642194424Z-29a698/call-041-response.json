@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The slide lists the following definitions:\n\n- **INNER JOIN:** only matching rows\n- **LEFT JOIN:** keep every row on the left\n\nThese are stated as bullet points under the \"CONCEPTS AND WORKED EXAMPLES\" heading. The slide also includes a \"Discussion: explain the idea with a concrete example\" box and a footer note (\"SYNTHETIC DEMO / no personal information\"), but these do not describe the return values of the joins.\n\n**Fact:** Inner join returns only matching rows; left join returns every row from the left table."
+      }
+    }
+  ],
+  "created": 1793392741,
+  "model": "sightvault-visual-stability",
+  "system_fingerprint": "b12005-e0f142d5d",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 119,
+    "prompt_tokens": 1265,
+    "total_tokens": 1384,
+    "prompt_tokens_details": {
+      "cached_tokens": 10
+    }
+  },
+  "id": "chatcmpl-W8OA0b3zW9bmxys3ShSwBL4ZFHYBtIn2",
+  "timings": {
+    "cache_n": 10,
+    "prompt_n": 1255,
+    "prompt_ms": 2092.723,
+    "prompt_per_token_ms": 1.6675083665338646,
+    "prompt_per_second": 599.697140997638,
+    "predicted_n": 119,
+    "predicted_ms": 1266.83,
+    "predicted_per_token_ms": 10.735847457627118,
+    "predicted_per_second": 93.14588382024424
+  }
+}
