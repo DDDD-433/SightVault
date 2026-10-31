@@ -16,6 +16,14 @@ SightVault indexes a folder of screenshots, slides, receipts or photos. Search b
 
 Inference runs locally. The app listens on loopback and scans only the folder you select. Images are embedded directly; search does not depend on generated captions.
 
+## Desktop apps
+
+Native development builds wrap the same library in a Mac or Windows window. They
+include Python and the local runtime, keep the library outside the installation,
+and download pinned model checkpoints only through explicit setup. The Mac app
+uses WKWebView; Windows uses Edge WebView2. See the [desktop release guide](SightVault/docs/DESKTOP_RELEASE.md)
+for installation, build commands, model setup, and signing status.
+
 ## Run on a Mac
 
 Tested on an **Apple M1 Pro with 16 GB unified memory**, using native Python 3.12. Install Python 3.12 or `uv` before setup. Dependency installation and model downloads require internet; inference uses local files afterward.
@@ -46,9 +54,9 @@ MiniCPM conversion preserves higher precision for vision and sensitive layers. T
 
 ## Verification
 
-The Phase 2 integration passed **185 tests**, **17 retrieval cases**, **37 browser checks for each of MiniCPM and Omni**, **10 normal-CSP checks**, **29 UI hardening checks**, and real offline model/concurrency/recovery runs. One expected failure still tracks retained copies of older edited files. Claude Code's Opus 5.5 high and one Sonnet 5.5 xhigh reviewer contributed the scoped interface polish; Codex ran the real verification.
+The Phase 2 integration passed **185 tests**, **17 retrieval cases**, **37 browser checks for each of MiniCPM and Omni**, **10 normal-CSP checks**, **29 UI hardening checks**, and real offline model/concurrency/recovery runs. One expected failure still tracks retained copies of older edited files.
 
-See the [unified QA report](SightVault/qa/FINAL_UNIFIED_QA.md), [model selection and memory matrix](SightVault/qa/FINAL_MODEL_SELECTION.md), and [UI before/after review](SightVault/qa/UI_UX_REVIEW.md). These are measured local results, not a hosted CI status. Portable Mac/Windows **source-and-setup bundles** exclude weights/environments. Windows native execution remains unvalidated; its validation harness and exact instructions are included.
+See the [unified QA report](SightVault/qa/FINAL_UNIFIED_QA.md), [model selection and memory matrix](SightVault/qa/FINAL_MODEL_SELECTION.md), and [UI before/after review](SightVault/qa/UI_UX_REVIEW.md). These are measured local results, not a hosted CI status. Portable Mac/Windows **source-and-setup bundles** exclude weights/environments. Native desktop installer results are tracked separately in the [desktop release guide](SightVault/docs/DESKTOP_RELEASE.md).
 
 ## Work on the project
 

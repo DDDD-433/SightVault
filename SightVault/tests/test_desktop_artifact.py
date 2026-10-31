@@ -39,12 +39,18 @@ def write_build_info(path, platform, revision=REVISION, version=None):
 
 def create_symlink(link, target, *, target_is_directory=False):
     """Create a fixture symlink, skipping only when Windows denies that privilege."""
+    # Windows resolves relative symlink targets using native separators. Keep
+    # absolute targets untouched so rejection fixtures still exercise their
+    # intended path class.
+    if os.name == 'nt' and not os.path.isabs(target):
+        target = target.replace('/', os.sep)
     try:
         link.symlink_to(target, target_is_directory=target_is_directory)
     except OSError as exc:
         if os.name == 'nt' and getattr(exc, 'winerror', None) == 1314:
             raise unittest.SkipTest('Windows symlink creation requires Developer Mode or privilege')
         raise
+    return target
 
 
 def create_windows_junction(link, target):
@@ -296,12 +302,14 @@ class DesktopArtifactManifestTest(unittest.TestCase):
         (app / 'Contents' / 'Frameworks' / 'libs').mkdir(parents=True)
         (app / 'Contents' / 'Frameworks' / 'libs' / 'libcore.dylib').write_bytes(b'\xfa\xce')
         target = Path(app / 'Contents' / 'Resources')
-        create_symlink(target / 'linked-libs', '../Frameworks/libs', target_is_directory=True)
+        expected_target = create_symlink(target / 'linked-libs', '../Frameworks/libs',
+                                         target_is_directory=True)
         manifest, document = self.create_manifest(app, 'macos-arm64')
         entries = self.entries_by_path(document)
         link_entry = entries.get('Contents/Resources/linked-libs')
         self.assertIsNotNone(link_entry)
-        self.assertEqual(link_entry['target'].replace('\\', '/'), '../Frameworks/libs')
+        self.assertEqual(link_entry['target'], expected_target)
+        self.assertEqual(link_entry['target'], os.readlink(target / 'linked-libs'))
         self.assertNotIn('sha256', link_entry)
         self.assertIn('Contents/Frameworks/libs/libcore.dylib', entries)
         result = run_tool('verify', str(app), str(manifest))
@@ -314,10 +322,11 @@ class DesktopArtifactManifestTest(unittest.TestCase):
         target.mkdir(parents=True)
         (target / 'libcore.dylib').write_bytes(b'\xfa\xce')
         link = app / 'Contents' / 'Resources' / 'linked-libs'
-        create_symlink(link, r'..\Frameworks\libs', target_is_directory=True)
+        expected_target = create_symlink(link, r'..\Frameworks\libs', target_is_directory=True)
         manifest, document = self.create_manifest(app, 'macos-arm64')
         link_entry = self.entries_by_path(document)['Contents/Resources/linked-libs']
-        self.assertEqual(link_entry['target'].replace('\\', '/'), '../Frameworks/libs')
+        self.assertEqual(link_entry['target'], expected_target)
+        self.assertEqual(link_entry['target'], os.readlink(link))
         result = run_tool('verify', str(app), str(manifest))
         self.assertEqual(result.returncode, 0, result.stdout)
 
