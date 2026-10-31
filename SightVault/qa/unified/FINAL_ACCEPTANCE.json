@@ -1,6 +1,6 @@
 {
   "unit_regression": {
-    "passed": 184,
+    "passed": 185,
     "expected_failures": 1,
     "expected_failure": "S-6 retained copies after editing indexed sources"
   },
@@ -67,7 +67,9 @@
     "requirements-windows.lock.txt": "98b28e9a3c83f8cdeb88607a0149bde372571026ac55ab2ead7db69f9784ca9b",
     "scripts/launch.py": "d01ece5ea03c84c09963a146f7b0b6af94f28188acf6593565ffff15a621817d",
     "scripts/build_portable_package.py": "5c3387b9a755de01c2d081de045283b7c2253069431c8c2d8d57addd601426bc",
-    "handoff/MODEL_MANIFEST.json": "e7971cf70a2926c76c782d1dc074dcc28bb4edb2d207bbef5d3615641c2dfa43"
+    "handoff/MODEL_MANIFEST.json": "e7971cf70a2926c76c782d1dc074dcc28bb4edb2d207bbef5d3615641c2dfa43",
+    "scripts/verify_package_integrity.py": "f3bcc3499938f133574dac9073f5bcf06691a72e03623a58ced9e8777b3549f0",
+    "handoff/verify_transfer.py": "049caa8800ef9b6f7ea5dd1bbaf9966201961251895c20ea4b6677aa6c67b0ab"
   },
   "final_archive_integrity_and_bytes": "Recorded alongside archives in exports/RELEASE_MANIFEST.json; the ZIPs exclude exports to avoid self-referential hashes."
 }

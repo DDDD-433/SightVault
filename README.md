@@ -46,7 +46,7 @@ MiniCPM conversion preserves higher precision for vision and sensitive layers. T
 
 ## Verification
 
-The Phase 2 integration passed **184 tests**, **17 retrieval cases**, **37 browser checks for each of MiniCPM and Omni**, **10 normal-CSP checks**, **29 UI hardening checks**, and real offline model/concurrency/recovery runs. One expected failure still tracks retained copies of older edited files. Claude Code's Opus 5.5 high and one Sonnet 5.5 xhigh reviewer contributed the scoped interface polish; Codex ran the real verification.
+The Phase 2 integration passed **185 tests**, **17 retrieval cases**, **37 browser checks for each of MiniCPM and Omni**, **10 normal-CSP checks**, **29 UI hardening checks**, and real offline model/concurrency/recovery runs. One expected failure still tracks retained copies of older edited files. Claude Code's Opus 5.5 high and one Sonnet 5.5 xhigh reviewer contributed the scoped interface polish; Codex ran the real verification.
 
 See the [unified QA report](SightVault/qa/FINAL_UNIFIED_QA.md), [model selection and memory matrix](SightVault/qa/FINAL_MODEL_SELECTION.md), and [UI before/after review](SightVault/qa/UI_UX_REVIEW.md). These are measured local results, not a hosted CI status. Portable Mac/Windows **source-and-setup bundles** exclude weights/environments. Windows native execution remains unvalidated; its validation harness and exact instructions are included.
 
