@@ -209,6 +209,20 @@ def test_desktop_routes_require_the_launch_token(tmp_path, env, monkeypatch):
         assert response.json()['offline']['HF_HUB_OFFLINE'] == '1'
 
 
+
+def test_native_ready_acknowledgement_requires_token_and_attached_window(tmp_path, env):
+    app, controller = _controller(tmp_path, env)
+    headers = {instance.TOKEN_HEADER: TOKEN}
+    with TestClient(app) as client:
+        assert client.post('/desktop/api/window-ready').status_code == 403
+        assert client.post('/desktop/api/window-ready', headers=headers).status_code == 409
+        assert not controller.window_ready.is_set()
+        controller.window = object()
+        assert client.post('/desktop/api/window-ready', headers=headers).status_code == 200
+        assert controller.window_ready.is_set()
+    controller.window = None
+
+
 def test_desktop_routes_keep_the_cross_origin_guard_and_csp(tmp_path, env):
     app, controller = _controller(tmp_path, env)
     headers = {instance.TOKEN_HEADER: TOKEN, 'Origin': 'http://evil.example'}

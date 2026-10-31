@@ -55,6 +55,7 @@ def parse_args(argv):
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--serve', action='store_true', help='Run the loopback server without a window (QA)')
     mode.add_argument('--smoke', action='store_true', help='Start, check readiness, stop and print a JSON report')
+    mode.add_argument('--ui-smoke', action='store_true', help='Exercise the real native webview and close it after its script acknowledges startup')
     mode.add_argument('--print-paths', action='store_true', help='Print the per-user data/model/log folders')
     parser.add_argument('--port', type=int, default=0, help='Loopback port for --serve or --smoke (default: any free port)')
     parser.add_argument('--report', type=Path, help='Write QA JSON here even in a windowed executable')
@@ -84,6 +85,10 @@ def main(argv=None):
         _ensure_stdio()
         from .worker import run
         return run(argv[1:])
+    if os.environ.get('SIGHTVAULT_QA_OFFLINE_GUARD') == '1':
+        from .offline_guard import install, probe
+        install()
+        probe()
     args = parse_args(argv)
     from .paths import UnsafePathError, prepare, resolve_paths
     stop_file = None
@@ -108,7 +113,7 @@ def main(argv=None):
     from .instance import InstanceLock, new_token, notify_existing, read_record, remove_record_if_owned, write_record
     lock = InstanceLock(paths.lock_file)
     if not lock.acquire():
-        headless = args.serve or args.smoke
+        headless = args.serve or args.smoke or args.ui_smoke
         if not headless and notify_existing(read_record(paths.instance_file)):
             log.info('SightVault is already running; asked it to show its window')
             return 0
@@ -166,10 +171,17 @@ def main(argv=None):
                 pass
             return 0
         from .shell import WindowShell
-        WindowShell(controller, server).run()
+        shell = WindowShell(controller, server, ui_smoke=args.ui_smoke)
+        shell.run()
+        if args.ui_smoke:
+            emit_report(shell.smoke_result, args.report)
+            return 0 if shell.smoke_result['ready'] else 1
         return 0
-    except Exception:
+    except Exception as exc:
         log.exception('SightVault desktop failed')
+        if args.ui_smoke:
+            emit_report({'ready': False, 'error': str(exc)[:500]}, args.report)
+            return 1
         raise
     finally:
         if controller is not None:

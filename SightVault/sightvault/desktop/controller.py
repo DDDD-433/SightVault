@@ -58,6 +58,8 @@ class DesktopController:
         self.url = None
         self.window = None
         self.ready = threading.Event()
+        self.window_ready = threading.Event()
+        self.window_renderer = None
         self._browser_open = browser_open or (lambda url: webbrowser.open(url, new=2))
         self._accelerators = None
         self._accelerator_lock = threading.Lock()
@@ -131,6 +133,7 @@ class DesktopController:
             runtime_status = models.status() if models is not None else {}
         except Exception as exc:
             runtime_status = {'error': str(exc)[:300]}
+        from .offline_guard import snapshot
         inventory = model_inventory(manifest, self.paths.models)
         return {
             'app': {'name': APP_NAME, 'version': APP_VERSION, 'frozen': is_frozen(),
@@ -139,7 +142,10 @@ class DesktopController:
             'paths': {**self.paths.as_dict(), 'log_file': str(self.paths.log_file),
                       'setup_logs': str(self.paths.setup_log_dir)},
             'server': {'url': self.url, 'loopback_only': True},
-            'offline': {name: os.environ.get(name) for name in ('HF_HUB_OFFLINE', 'TRANSFORMERS_OFFLINE')},
+            'window': {'attached': self.window is not None, 'bridge_ready': self.window_ready.is_set(),
+                       'renderer': self.window_renderer},
+            'offline': {**{name: os.environ.get(name) for name in ('HF_HUB_OFFLINE', 'TRANSFORMERS_OFFLINE')},
+                        'socket_guard': snapshot()},
             'device_setting': self.config.device,
             'vision_backend': self.config.vision,
             'packages': {name: _distribution(name) for name in

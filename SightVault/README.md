@@ -12,7 +12,7 @@ See [Phase 2 selection and runtime matrix](qa/FINAL_MODEL_SELECTION.md), [unifie
 
 ## Desktop app (development preview)
 
-A native desktop wrapper (macOS Apple Silicon `.app`/`.dmg`, Windows x64 installer) is scripted in `packaging/desktop/`. It runs the same server and UI in a native window, keeps data in per-user folders and downloads models only from an explicit setup action. The Mac app has been built and exercised; Windows native validation and distribution signing remain outstanding. See [DESKTOP_RELEASE.md](docs/DESKTOP_RELEASE.md) for the architecture, build commands, signing status and pending checks. The source setup below is unchanged.
+A native desktop wrapper (macOS Apple Silicon `.app`/`.dmg`, Windows x64 installer) is scripted in `packaging/desktop/`. It runs the same server and UI in a native window, keeps data in per-user folders and downloads models only from an explicit setup action. Both targets have built and passed frozen startup checks; real-model and installer acceptance are recorded per platform. Distribution signing remains outstanding. See [DESKTOP_RELEASE.md](docs/DESKTOP_RELEASE.md) for the architecture, build commands, signing status and pending checks. The source setup below is unchanged.
 
 ## Mac setup
 

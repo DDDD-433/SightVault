@@ -34,11 +34,13 @@ def failure_page(paths, detail):
 
 
 class WindowShell:
-    def __init__(self, controller, server, startup_timeout=90.0):
+    def __init__(self, controller, server, startup_timeout=90.0, ui_smoke=False):
         self.controller = controller
         self.server = server
         self.startup_timeout = startup_timeout
         self.window = None
+        self.ui_smoke = ui_smoke
+        self.smoke_result = {'ready': False, 'error': 'Native window did not acknowledge startup.'}
         self._redirects = 0
         self._blocked = False
 
@@ -76,6 +78,7 @@ class WindowShell:
             return
         self._redirects = 0
         try:
+            self.controller.window_renderer = getattr(getattr(window, 'gui', None), 'renderer', None)
             # evaluate_js wraps its input in eval(), which violates script-src 'self'.
             # run_js executes this trusted native-injected script without that wrapper.
             window.run_js(controller.inject_script())
@@ -102,16 +105,25 @@ class WindowShell:
         if self.server.wait_ready(self.startup_timeout, probe=lambda url: probe_status(url, probe_root)):
             controller.ready.set()
             window.load_url(controller.start_url())
+            if self.ui_smoke:
+                ready = controller.window_ready.wait(self.startup_timeout)
+                self.smoke_result = {'ready': ready, 'native_bridge_ready': ready,
+                                     'renderer': controller.window_renderer, 'url': controller.url,
+                                     'error': None if ready else 'Native page script did not acknowledge startup.'}
+                window.destroy()
         else:
             detail = str(self.server.error) if self.server.error else 'The local server did not respond in time.'
             log.error('Startup failed: %s', detail)
             window.load_html(failure_page(controller.paths, detail[:500]))
+            if self.ui_smoke:
+                self.smoke_result = {'ready': False, 'error': detail[:500]}
+                window.destroy()
 
     def run(self):
         import webview
         self._settings(webview)
         self.window = webview.create_window(APP_NAME, html=STARTING, width=1280, height=840, min_size=(900, 600),
-                                            background_color='#f6f4ef', text_select=True)
+                                            background_color='#f6f4ef', text_select=True, hidden=self.ui_smoke)
         self.controller.attach_window(self.window)
         self.window.events.loaded += self.on_loaded
         self.window.events.closing += self.on_closing
@@ -125,7 +137,8 @@ class WindowShell:
             webview.start(self._after_start, **options)
         except Exception as exc:
             log.exception('The native window could not start')
-            native_alert('SightVault could not open its window',
+            if not self.ui_smoke:
+                native_alert('SightVault could not open its window',
                          'The system web view failed to start. On Windows, install or repair the Microsoft Edge '
                          f'WebView2 Runtime. Details are in {self.controller.paths.log_file}.\n\n{str(exc)[:300]}')
             raise

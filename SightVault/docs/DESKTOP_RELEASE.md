@@ -10,11 +10,11 @@ This document describes the native desktop packaging layer for macOS on Apple Si
 | Unit tests for lifecycle, storage, path safety, desktop routes, setup tasks, demo import (`tests/test_desktop.py`) | Validated on this Mac; see the desktop QA record |
 | Desktop dependency locks (`packaging/desktop/requirements-desktop-*.lock.txt`) | Hash-pinned for both targets against the existing runtime constraints |
 | macOS `.app` / `.dmg` build | Development build; ad-hoc signed, not notarized |
-| Windows onedir / installer build | Scripted, **not yet built or run on Windows** |
+| Windows onedir / installer build | Built and smoke-tested on native Windows; see the target-specific QA record |
 | Real embedding, OCR and vision inference inside a frozen build | Release validation is recorded separately in the desktop QA record |
 | Code signing / notarization | **None.** macOS builds are ad-hoc signed only; Windows builds are unsigned |
 
-These are development builds. The [validation checklist](#pending-validation) must pass on each target before a public release; native Windows execution and distribution signing remain outstanding. The existing source-based launchers (`Start-SightVault.command`, `Start-SightVault.cmd`, `scripts/launch.py`, `app.py`) and the portable source-and-setup archives are unchanged and remain the validated way to run SightVault.
+These are development builds. The [validation checklist](#pending-validation) must pass on each target before a public release; distribution signing and the target-specific acceptance gates remain required. The existing source-based launchers (`Start-SightVault.command`, `Start-SightVault.cmd`, `scripts/launch.py`, `app.py`) and the portable source-and-setup archives are unchanged remain available alongside the desktop app.
 
 ## Architecture
 
@@ -67,13 +67,14 @@ A build may bundle the reviewed 62-image public demo (`--demo-db`/`--demo-data-r
 
 *Import the demo library* re-checks every sample and evidence hash, refuses unless the library is empty, checks every destination before copying anything, never overwrites a differing file, copies the samples to `data/demo-samples` with their recorded synthetic dates restored, and inserts the rows with their original OCR, vectors and indexed timestamps in one transaction. It does not re-index. The bundled samples are also staged with their recorded dates, so *Load the demo collection* in the library indexes them with the same dates (this path runs the models).
 
-### Headless modes
+### QA modes
 
-The same executable supports QA without a window:
+The same executable supports headless QA and a native-window startup check:
 
 ```text
 SightVault --smoke --report qa.json  start, wait for /api/status, stop; save QA JSON
 SightVault --serve [--port N] [--stop-file <profile/qa.stop>]  run the loopback server; marker allows graceful CI shutdown on Windows
+SightVault --ui-smoke                 exercise the real native webview, then close
 SightVault --print-paths           print the per-user folders as JSON
 ```
 
@@ -146,7 +147,7 @@ To sign later, without storing any secret in the repository:
 
 `tests/test_desktop.py` covers: per-user locations on each platform, overrides, refusal of relative paths, the root, the home folder, files in place of folders and paths inside the app bundle (including through a symlink), unwritable folders and read-only model folders; exclusive single-instance locking, owner-only instance records, loopback-only hand-off; the loopback server starting on a free `127.0.0.1` port, answering for the right instance and stopping cleanly; token enforcement on every desktop route, the cross-origin guard and CSP on desktop pages, the external-link allow list and setup action validation; setup child processes (offline flags only off in the child, one task at a time, cancellation that leaves unrelated processes running, refusal to download into a read-only folder); model presence checks; MLX fingerprint checks; and demo import (evidence copied and verified, paths rebased, dates and indexed timestamps preserved, full-text index rebuilt, refusal for a non-empty library, no overwrite of a differing file, no partial copy on conflict, tampered samples and path traversal rejected). They use no GUI, network or model weights; they do not establish that a frozen build or a model runs.
 
-## Pending validation
+## Acceptance gates
 
 Run on each target platform with the produced artifact, using a disposable `SIGHTVAULT_HOME`, and record the results in a platform QA report:
 
@@ -163,9 +164,26 @@ Run on each target platform with the produced artifact, using a disposable `SIGH
 ## Known limitations
 
 - Recheck dynamically imported model modules, MLX adapters, metadata and TorchScript source collection whenever runtime dependencies change. A Mac pass does not establish Windows compatibility.
-- Desktop integration uses native `run_js` rather than an eval wrapper, preserving the existing CSP. The Mac WebKit window was exercised; Windows WebView2 remains a native validation gate.
+- Desktop integration uses native `run_js` rather than an eval wrapper, preserving the existing CSP. The Mac WebKit window was exercised; the `--ui-smoke` check requires a real WebView2 renderer and a same-origin script acknowledgement on Windows.
 - Quitting while an image is being embedded or transcribed waits for that image to finish.
 - A second launch during the first one's startup exits with a message instead of focusing the window.
 - macOS minimum version is set to 14.0 in the bundle; older systems are not supported by this build.
 - The Omni llama.cpp runtime is not bundled; LFM3-VL requires the pinned MLX-VLM build that the macOS lock already provides plus its optional weights.
 - Moving the app does not affect the library; stored evidence copies stay in the data folder. Demo samples are copied into the data folder, so their source links survive app updates.
+
+### Reproducible frozen-model acceptance
+
+`scripts/qa_desktop_models.py` launches the supplied frozen executable in a fresh,
+owned profile. It verifies model files, imports the public demo, forces new image
+embedding/OCR, checks a direct 768-dimensional vector against the preserved demo,
+runs RapidOCR and MiniCPM-V, and records the actual devices and precision. Pass
+`--download` only when intentionally fetching the pinned models; inference runs
+with offline flags and the optional Python socket guard. That guard is an
+in-process check, not an operating-system firewall.
+
+The Windows workflow also runs `scripts/qa_windows_desktop.ps1` on a clean,
+ephemeral runner: install into a path with spaces, import, restart, reinstall,
+and uninstall while preserving the owned library. The script refuses an existing
+installation or user profile. JSON reports and artifact inventories accompany the
+installer. [Desktop contents](DESKTOP_PACKAGING_CONTENTS.md) explains which runtime
+assets are included, including RapidOCR's three ONNX files.

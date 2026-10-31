@@ -43,6 +43,13 @@ def install_desktop_routes(app: FastAPI, controller):
     def diagnostics():
         return controller.diagnostics()
 
+    @app.post('/desktop/api/window-ready', dependencies=guarded)
+    def window_ready():
+        if controller.window is None:
+            raise HTTPException(409, 'No native window is attached.')
+        controller.window_ready.set()
+        return {'acknowledged': True}
+
     @app.post('/desktop/api/choose-folder', dependencies=guarded)
     def choose_folder():
         try:

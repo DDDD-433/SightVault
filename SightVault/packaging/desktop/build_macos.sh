@@ -64,6 +64,10 @@ if [[ -n "${SIGHTVAULT_CODESIGN_IDENTITY:-}" && -n "${SIGHTVAULT_NOTARY_PROFILE:
   xcrun stapler staple "$APP"
 fi
 
+# Inventory the final signed/stapled bundle without writing inside it.
+"$PY" scripts/verify_desktop_artifact.py create "$APP" --out "$OUT/contents-manifest.json"
+"$PY" scripts/verify_desktop_artifact.py verify "$APP" "$OUT/contents-manifest.json" --report "$OUT/contents-verification.json"
+
 DMG_ROOT="$OUT/dmg-root"
 mkdir -p "$DMG_ROOT"
 ditto "$APP" "$DMG_ROOT/SightVault.app"

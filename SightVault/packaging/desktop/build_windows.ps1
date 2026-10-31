@@ -1,8 +1,8 @@
 #Requires -Version 7.0
 <#
 Build the SightVault Windows x64 desktop app (onedir folder) and, when Inno Setup 6
-is installed, a per-user installer. Run on a native Windows x64 host; this script has
-not been validated on Windows yet.
+is installed, a per-user installer. Run on a native Windows x64 host; see the
+release QA report for actual build and inference evidence.
 
 Uses a separate build environment (.venv-desktop). Without a signing certificate the
 executable and installer are unsigned and SmartScreen will warn. Nothing here changes
@@ -52,6 +52,10 @@ function Sign-File($Path) {
   if ($LASTEXITCODE -ne 0) { throw "signtool failed for $Path" }
 }
 Sign-File $Exe
+& $Py scripts/verify_desktop_artifact.py create "$Out\dist\SightVault" --out "$Out\contents-manifest.json"
+if ($LASTEXITCODE -ne 0) { throw 'Artifact inventory failed.' }
+& $Py scripts/verify_desktop_artifact.py verify "$Out\dist\SightVault" "$Out\contents-manifest.json" --report "$Out\contents-verification.json"
+if ($LASTEXITCODE -ne 0) { throw 'Artifact contents verification failed.' }
 
 # Headless start/stop check in a disposable per-user folder. The exe is windowed, so capture stdout explicitly.
 $SmokeHome = Join-Path ([IO.Path]::GetTempPath()) ("sightvault-smoke-" + [guid]::NewGuid())

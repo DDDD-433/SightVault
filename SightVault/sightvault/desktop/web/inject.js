@@ -51,4 +51,6 @@
     settings.appendChild(link);
   }
   window.dispatchEvent(new CustomEvent('sightvault-desktop-ready'));
+  // Acknowledgement comes from the real webview after its same-origin script ran.
+  call('/desktop/api/window-ready', {method: 'POST', body: '{}'}).catch(() => {});
 })

@@ -3,7 +3,16 @@ name: Desktop installer preview
 on:
   push:
     branches: [desktop/native-packaging]
-    paths: [SightVault/**, .github/workflows/desktop.yml]
+    paths:
+      - SightVault/sightvault/**
+      - SightVault/scripts/**
+      - SightVault/tests/**
+      - SightVault/packaging/**
+      - SightVault/handoff/*MANIFEST.json
+      - SightVault/handoff/download_pinned_models.py
+      - SightVault/handoff/verify_transfer.py
+      - SightVault/requirements*.txt
+      - .github/workflows/desktop.yml
   workflow_dispatch:
 
 permissions:
@@ -16,7 +25,7 @@ concurrency:
 jobs:
   windows:
     runs-on: windows-2025
-    timeout-minutes: 45
+    timeout-minutes: 90
     defaults:
       run:
         shell: pwsh
@@ -36,6 +45,11 @@ jobs:
           $Compiler = Join-Path ${env:ProgramFiles(x86)} 'Inno Setup 6'
           if (-not (Test-Path "$Compiler\ISCC.exe")) { throw 'Inno Setup 6 is required for this installer job.' }
           $Compiler | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      - name: Parse installer QA with native PowerShell
+        run: |
+          $Tokens = $null; $ParseErrors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile((Join-Path $PWD 'scripts/qa_windows_desktop.ps1'), [ref]$Tokens, [ref]$ParseErrors) | Out-Null
+          if ($ParseErrors.Count) { $ParseErrors | Format-List; throw 'Installer QA syntax is invalid.' }
       - name: Install pinned runtime and build dependencies
         run: |
           python -m venv .venv-desktop
@@ -53,6 +67,33 @@ jobs:
           SIGHTVAULT_DEMO_DB: packaging/desktop/public-demo/sightvault.sqlite3
           SIGHTVAULT_DEMO_DATA_ROOT: packaging/desktop/public-demo
         run: ./packaging/desktop/build_windows.ps1
+      - name: Exercise the real WebView2 window and desktop script
+        run: |
+          $PreviousHome = $env:SIGHTVAULT_HOME
+          try {
+            $env:SIGHTVAULT_HOME = Join-Path $env:RUNNER_TEMP ('SightVault Native UI ' + [guid]::NewGuid())
+            $Report = Join-Path $PWD 'build/desktop/windows/ui-smoke.json'
+            $Ui = Start-Process -FilePath (Join-Path $PWD 'build/desktop/windows/dist/SightVault/SightVault.exe') -ArgumentList @('--ui-smoke', '--report', ('"{0}"' -f $Report)) -PassThru
+            if (-not $Ui.WaitForExit(240000)) { $Ui.Kill(); throw 'Owned native UI smoke process timed out.' }
+            if ($Ui.ExitCode -ne 0) { throw 'Native window failed; see ui-smoke.json.' }
+            $Result = Get-Content -Raw $Report | ConvertFrom-Json
+            if (-not $Result.ready -or -not $Result.native_bridge_ready -or $Result.renderer -ne 'edgechromium') { throw 'WebView2 did not acknowledge the actual desktop script.' }
+          } finally {
+            if ($null -eq $PreviousHome) { Remove-Item Env:\SIGHTVAULT_HOME -ErrorAction SilentlyContinue }
+            else { $env:SIGHTVAULT_HOME = $PreviousHome }
+          }
+      - name: Install, import, upgrade, restart and uninstall in an owned profile
+        run: |
+          $Installer = @(Get-ChildItem build/desktop/windows/*-Setup.exe)
+          if ($Installer.Count -ne 1) { throw 'Expected exactly one installer.' }
+          ./scripts/qa_windows_desktop.ps1 -Installer $Installer[0].FullName -Report build/desktop/windows/installer-qa.json
+          if ($LASTEXITCODE -ne 0) { throw 'Installer acceptance failed.' }
+      - name: Download pinned models and test real frozen Windows inference
+        run: |
+          $QaRoot = Join-Path $env:RUNNER_TEMP ('SightVault Real Models ' + [guid]::NewGuid())
+          New-Item -ItemType Directory $QaRoot | Out-Null
+          & ./.venv-desktop/Scripts/python.exe scripts/qa_desktop_models.py --executable build/desktop/windows/dist/SightVault/SightVault.exe --profile (Join-Path $QaRoot 'profile') --models (Join-Path $QaRoot 'models') --report (Join-Path $PWD 'build/desktop/windows/real-models.json') --download --timeout 1800
+          if ($LASTEXITCODE -ne 0) { throw 'Frozen real-model inference failed; see real-models.json.' }
       - name: Upload unsigned development installer and evidence
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
@@ -63,6 +104,11 @@ jobs:
             SightVault/build/desktop/windows/*-Setup.exe
             SightVault/build/desktop/windows/*.sha256
             SightVault/build/desktop/windows/smoke.json
+            SightVault/build/desktop/windows/ui-smoke.json
+            SightVault/build/desktop/windows/installer-qa.json
+            SightVault/build/desktop/windows/real-models.json
+            SightVault/build/desktop/windows/contents-manifest.json
+            SightVault/build/desktop/windows/contents-verification.json
             SightVault/build/desktop/windows/build-environment.txt
             SightVault/build/desktop/windows-unit-tests.xml
       - name: Upload failure evidence
@@ -75,4 +121,9 @@ jobs:
           path: |
             SightVault/build/desktop/windows-unit-tests.xml
             SightVault/build/desktop/windows/smoke.json
+            SightVault/build/desktop/windows/ui-smoke.json
+            SightVault/build/desktop/windows/installer-qa.json
+            SightVault/build/desktop/windows/real-models.json
+            SightVault/build/desktop/windows/contents-manifest.json
+            SightVault/build/desktop/windows/contents-verification.json
             SightVault/build/desktop/windows/smoke.err.txt
