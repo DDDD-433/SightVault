@@ -90,6 +90,54 @@ function Restore-Environment {
     }
 }
 
+function Get-OptionalFileSha256([string]$Path) {
+    if (-not (Test-Path -LiteralPath $Path -PathType Leaf)) { return $null }
+    return (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash.ToLowerInvariant()
+}
+
+function Get-GitRevision {
+    if (-not (Test-Path -LiteralPath (Join-Path $Root '.git'))) { return $null }
+    $git = Get-Command git.exe -ErrorAction SilentlyContinue
+    if (-not $git) { $git = Get-Command git -ErrorAction SilentlyContinue }
+    if (-not $git) { return $null }
+    $savedNativeErrorPreference = $ErrorActionPreference
+    try {
+        $ErrorActionPreference = 'Continue'
+        $lines = @(& $git.Source -C $Root rev-parse HEAD 2>&1)
+        $exitCode = $LASTEXITCODE
+    }
+    finally {
+        $ErrorActionPreference = $savedNativeErrorPreference
+    }
+    if ($exitCode -ne 0 -or $lines.Count -eq 0) { return $null }
+    return ($lines | Select-Object -Last 1).ToString().Trim()
+}
+
+$PackageManifestPath = Join-Path $Root 'handoff\PORTABLE_PACKAGE_MANIFEST.json'
+$PackageManifestPresent = Test-Path -LiteralPath $PackageManifestPath -PathType Leaf
+$PackageManifestSha256 = Get-OptionalFileSha256 $PackageManifestPath
+$PackageSourceRevision = $null
+if ($PackageManifestPresent) {
+    try {
+        $PackageSourceRevision = (Get-Content -LiteralPath $PackageManifestPath -Raw | ConvertFrom-Json -ErrorAction Stop).source_revision
+    }
+    catch {
+        # Preserve the file hash even if the package metadata cannot be parsed.
+        $PackageSourceRevision = $null
+    }
+}
+$ArtifactMode = 'source-checkout'
+if ($PackageManifestPresent) { $ArtifactMode = 'portable-package' }
+$ArtifactProvenance = [ordered]@{
+    mode = $ArtifactMode
+    package_manifest_sha256 = $PackageManifestSha256
+    package_source_revision = $PackageSourceRevision
+    git_revision = Get-GitRevision
+    requirements_windows_lock_sha256 = Get-OptionalFileSha256 (Join-Path $Root 'requirements-windows.lock.txt')
+    benchmark_script_sha256 = Get-OptionalFileSha256 (Join-Path $Root 'scripts\benchmark.py')
+    disposable_demo_script_sha256 = Get-OptionalFileSha256 (Join-Path $Root 'scripts\prepare_disposable_demo_benchmark.py')
+}
+
 try {
     $env:PIP_DISABLE_PIP_VERSION_CHECK = '1'
     $env:HF_HUB_OFFLINE = '1'
@@ -326,6 +374,7 @@ finally {
         source_root = $Root
         status = $statusText
         failure = $Failure
+        artifact_provenance = $ArtifactProvenance
         public_demo_retrieval = $DemoBenchmark
         checks = @($Checks)
         isolation = 'HF offline flags plus a Python process socket/DNS guard; not a Windows Firewall test'

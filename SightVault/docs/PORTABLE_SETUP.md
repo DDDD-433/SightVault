@@ -92,7 +92,13 @@ The Mac installer requires native Python 3.12. On Apple Silicon, verify that `py
    .\Setup-Windows.ps1 -DownloadModels
    ```
 
-   The second form downloads required model groups at the exact revisions listed in `handoff/MODEL_MANIFEST.json` and checks their file hashes. The first form installs dependencies without downloading weights. Optional model groups are skipped by default. Name a specific optional group to add it, for example `-DownloadModels -AdditionalModels <manifest-name>`; do not request every optional group as a batch.
+   The second form downloads required model groups at the exact revisions listed in `handoff/MODEL_MANIFEST.json` and checks their file hashes. The first form installs dependencies without downloading weights. Optional model groups are skipped by default. The only currently supported Windows optional download is `lfm3-omni-2b-gguf`:
+
+   ```powershell
+   .\Setup-Windows.ps1 -DownloadModels -AdditionalModels lfm3-omni-2b-gguf
+   ```
+
+   This downloads pinned model files only. Running Omni on Windows also requires a compatible local llama.cpp build; the Windows runtime is unvalidated. The `lfm3-vl-2b-mlx-4bit` group is macOS arm64 only and Windows setup rejects it before dependency installation or model download.
 3. If the prepared public 62-image demo is present, relocate it before launch. Stop any running instance first:
 
    ```powershell
@@ -113,7 +119,7 @@ The Mac installer requires native Python 3.12. On Apple Silicon, verify that `py
    .\Validate-SightVault-Windows.ps1
    ```
 
-The harness checks native OS/interpreter architecture, dependency versions, SQLite FTS5, model checksums, the test suite, and real local startup, MiniCPM OCR, semantic search, and MiniCPM-V analysis with backend/model/runtime/device identity. It stops that smoke server before a separate offline 17-case retrieval benchmark. When the public demo is included, the validator checks the 62-row package data, SQLite-backs it up to a disposable data root, copies only referenced stored images/thumbs after package-manifest SHA verification, and requires 17/17 retrieval, negative-query separation and fresh-image/stored-vector cosine proof. The original database and file paths are not modified. If no public demo is bundled, retrieval is explicitly marked `skipped-not-validated` and the JSON includes manual instructions. It writes a JSON report and text log, with the full retrieval report retained separately. Any failed check returns a nonzero exit code. A source archive, lockfile resolution, or successful static inspection does not count as a Windows runtime pass.
+The harness checks native OS/interpreter architecture, dependency versions, SQLite FTS5, model checksums, the test suite, and real local startup, MiniCPM OCR, semantic search, and MiniCPM-V analysis with backend/model/runtime/device identity. It stops that smoke server before a separate offline 17-case retrieval benchmark. When the public demo is included, the validator checks the 62-row package data, SQLite-backs it up to a disposable data root, copies only referenced stored images/thumbs after package-manifest SHA verification, and requires 17/17 retrieval, negative-query separation and fresh-image/stored-vector cosine proof. The original database and file paths are not modified. If no public demo is bundled, retrieval is explicitly marked `skipped-not-validated` and the JSON includes manual instructions. Its JSON report also records the lockfile, retrieval scripts, and package-manifest hashes plus package or Git source revision when available. It writes a text log too, with the full retrieval report retained separately. Any failed check returns a nonzero exit code. A source archive, lockfile resolution, or successful static inspection does not count as a Windows runtime pass.
 
 ## Integrity and contents
 
