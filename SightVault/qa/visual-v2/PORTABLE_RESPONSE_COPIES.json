@@ -1,0 +1,107 @@
+{
+  "note": "Exact-byte typed companions for native HTTP responses originally saved with .bin extensions. Originals remain immutable in the experiment/source history; portable bundles carry these JSON or WAV payloads instead of opaque binary members. These are model outputs, not weights or coding-agent logs.",
+  "files": [
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-asr-20261030T210817967496Z-3a530e/01-asr-01-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-asr-20261030T210817967496Z-3a530e/01-asr-01-response.json",
+      "size": 661,
+      "sha256": "84ed26e053065061c95e9dff5c5d0ef68cdac2bab869a903f03d91cfa6931fe4"
+    },
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-asr-20261030T210817967496Z-3a530e/02-asr-02-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-asr-20261030T210817967496Z-3a530e/02-asr-02-response.json",
+      "size": 676,
+      "sha256": "f5baceeb21c4cad50395b4b68cd11becb37a9f322df912afdcb3b86dba436e08"
+    },
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-asr-20261030T210817967496Z-3a530e/03-asr-03-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-asr-20261030T210817967496Z-3a530e/03-asr-03-response.json",
+      "size": 704,
+      "sha256": "37ef35f471a1660d0575409f431d27acdc01328fb1a200d1a802947be57c006a"
+    },
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-spoken-image-20261030T211019615960Z-d28893/01-v2-31-cup_red_01-spoken-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-spoken-image-20261030T211019615960Z-d28893/01-v2-31-cup_red_01-spoken-response.json",
+      "size": 763,
+      "sha256": "399e568ecee2931e3d7624d8d965d7218dfac2e2ca61149025035ea198bf4620"
+    },
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-spoken-image-20261030T211019615960Z-d28893/02-v2-31-cup_red_01-text-control-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-spoken-image-20261030T211019615960Z-d28893/02-v2-31-cup_red_01-text-control-response.json",
+      "size": 650,
+      "sha256": "8038622ac16f70723ada1526da2838d66206cdca2a591c835cc71b5c1048e100"
+    },
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-spoken-image-20261030T211019615960Z-d28893/03-v2-32-cup_blue_01-spoken-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-spoken-image-20261030T211019615960Z-d28893/03-v2-32-cup_blue_01-spoken-response.json",
+      "size": 752,
+      "sha256": "1c44ddebac9044f404a8f888b4322f0a1090c68463652379b9dd21bf51795f81"
+    },
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-spoken-image-20261030T211019615960Z-d28893/04-v2-32-cup_blue_01-text-control-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-spoken-image-20261030T211019615960Z-d28893/04-v2-32-cup_blue_01-text-control-response.json",
+      "size": 649,
+      "sha256": "3910556910d16026bd539115b23cdd093aefd7cf6c3363ff4ed717da4638d93a"
+    },
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-spoken-image-20261030T211019615960Z-d28893/05-v2-24-bridge_photo-spoken-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-spoken-image-20261030T211019615960Z-d28893/05-v2-24-bridge_photo-spoken-response.json",
+      "size": 1467,
+      "sha256": "646fd6e77a4fe7b7528f70030f0ba6386121494713515b32472078d09402c16b"
+    },
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-spoken-image-20261030T211019615960Z-d28893/06-v2-24-bridge_photo-text-control-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-spoken-image-20261030T211019615960Z-d28893/06-v2-24-bridge_photo-text-control-response.json",
+      "size": 1152,
+      "sha256": "2b3f15a7936f0514cc9c7b16c96958f1f62680262d0adae745bc8ab01352166a"
+    },
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-tts-20261030T211542606296Z-0fa4ab/01-tts-01-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-tts-20261030T211542606296Z-0fa4ab/01-tts-01-response.wav",
+      "size": 142124,
+      "sha256": "17b808144d948e1b6f2367e762c9c70214fe184c464d4cbbb277c5fa6a2f979b"
+    },
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-tts-20261030T211542606296Z-0fa4ab/02-tts-02-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-tts-20261030T211542606296Z-0fa4ab/02-tts-02-response.wav",
+      "size": 184364,
+      "sha256": "91119d11fecc560d029cf31cfc2db448848fc15d577ee7dcd01a48e481751515"
+    },
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-tts-20261030T211542606296Z-0fa4ab/03-tts-03-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-tts-20261030T211542606296Z-0fa4ab/03-tts-03-response.wav",
+      "size": 184364,
+      "sha256": "81a61778768df229dd4ef9c60e61e307d0a32a15de300dbbeffad4b524417716"
+    },
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-tts-asr-roundtrip-20261030T212212250616Z-eae029/01-tts-01-asr-roundtrip-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-tts-asr-roundtrip-20261030T212212250616Z-eae029/01-tts-01-asr-roundtrip-response.json",
+      "size": 667,
+      "sha256": "b92cb6b954f4ea9f354a15e12c5c2496fa3f3d34b544b1a3a5663ed9ebe39290"
+    },
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-tts-asr-roundtrip-20261030T212212250616Z-eae029/02-tts-02-asr-roundtrip-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-tts-asr-roundtrip-20261030T212212250616Z-eae029/02-tts-02-asr-roundtrip-response.json",
+      "size": 694,
+      "sha256": "1b3cf473049b055a5763053e6a6b7a2699dd45d5508971a947972a1ff19a9c04"
+    },
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-tts-asr-roundtrip-20261030T212212250616Z-eae029/03-tts-03-asr-roundtrip-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-tts-asr-roundtrip-20261030T212212250616Z-eae029/03-tts-03-asr-roundtrip-response.json",
+      "size": 698,
+      "sha256": "2a9fb8a0c6319c2bdaa7d359da35cc60ca843ca827279ab41a0593db7cb557c9"
+    },
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-video-20261030T211449807662Z-387ee2/01-moving-shape-video-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-video-20261030T211449807662Z-387ee2/01-moving-shape-video-response.json",
+      "size": 812,
+      "sha256": "7bd4aa333d74a2b4418aef549d484ed1cf5ecd1737bad1a2741b0d5c0b983b2c"
+    },
+    {
+      "original": "qa/visual-v2/modalities/runs/omni-video-audio-20261030T211829037444Z-0fcb71/01-moving-shape-video-audiovisual-response.bin",
+      "portable_copy": "qa/visual-v2/modalities/runs/omni-video-audio-20261030T211829037444Z-0fcb71/01-moving-shape-video-audiovisual-response.json",
+      "size": 793,
+      "sha256": "480fa88eaf0a8b236a81fdfda6332c0753c68940550f1978552e7ef966051e36"
+    }
+  ]
+}
