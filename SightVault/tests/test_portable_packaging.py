@@ -2,8 +2,10 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import shutil
 import sqlite3
 import stat
+import subprocess
 import tempfile
 import unittest
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
@@ -17,6 +19,7 @@ from scripts.build_portable_package import (
     public_image_manifest_entries,
     relative_path,
     validate_model_manifest,
+    zip_write,
 )
 from scripts.prepare_disposable_demo_benchmark import prepare_disposable_demo
 from scripts.launch import compatible_instance, provider_mismatch
@@ -95,6 +98,38 @@ def _make_public_demo_fixture(source_root, data_root, db_path, *, symlink_images
 
 
 class PortablePackagingTests(unittest.TestCase):
+    def test_portable_zip_preserves_executable_modes_only_for_mac_entrypoints(self):
+        executable_paths = (
+            'SightVault/Setup-Mac.sh',
+            'SightVault/Start-SightVault.command',
+        )
+        regular_path = 'SightVault/README.md'
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            archive_path = root / 'candidate.zip'
+            with ZipFile(archive_path, 'w') as archive:
+                for name in (*executable_paths, regular_path):
+                    zip_write(archive, name, b'fixture\n')
+
+            expected_modes = {name: 0o755 for name in executable_paths}
+            expected_modes[regular_path] = 0o644
+            with ZipFile(archive_path) as archive:
+                for name, expected_mode in expected_modes.items():
+                    info = archive.getinfo(name)
+                    self.assertEqual(info.create_system, 3)
+                    self.assertTrue(stat.S_ISREG(info.external_attr >> 16))
+                    self.assertEqual((info.external_attr >> 16) & 0o777, expected_mode)
+
+            unzip = shutil.which('unzip')
+            if os.name == 'posix' and unzip:
+                extracted = root / 'extracted'
+                result = subprocess.run(
+                    [unzip, '-q', str(archive_path), '-d', str(extracted)],
+                    capture_output=True, text=True, check=False)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                for name, expected_mode in expected_modes.items():
+                    self.assertEqual(stat.S_IMODE((extracted / name).stat().st_mode), expected_mode)
+
     def test_extracted_portable_package_verifier_checks_hashes_and_path_with_spaces(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary) / 'Extracted Candidate With Spaces'

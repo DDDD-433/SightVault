@@ -22,6 +22,10 @@ EMBEDDING_MODEL = 'google/embeddinggemma-2:768:text-image'
 FORBIDDEN_COMPONENTS = {'.git', '.venv', '.venv-lfm3', '.models', 'data', 'output', '__pycache__', '.pytest_cache'}
 FORBIDDEN_SUFFIXES = {'.pyc', '.log', '.sqlite', '.sqlite3', '.db', '.wal', '.shm', '.safetensors', '.gguf', '.pt', '.pth'}
 DEMO_IMAGE_SUFFIXES = {'.png', '.jpg', '.jpeg', '.webp', '.bmp', '.tif', '.tiff'}
+EXECUTABLE_PACKAGE_PATHS = {
+    'SightVault/Setup-Mac.sh',
+    'SightVault/Start-SightVault.command',
+}
 
 
 def sha256_bytes(data: bytes) -> str:
@@ -384,7 +388,8 @@ def public_image_manifest_entries(sample_manifest: list[dict]) -> list[dict]:
 def zip_write(archive: ZipFile, archive_name: str, data: bytes) -> None:
     info = ZipInfo(archive_name, date_time=(1980, 1, 1, 0, 0, 0))
     info.compress_type = ZIP_DEFLATED
-    info.external_attr = 0o100644 << 16
+    mode = 0o100755 if archive_name in EXECUTABLE_PACKAGE_PATHS else 0o100644
+    info.external_attr = mode << 16
     info.create_system = 3
     archive.writestr(info, data, compress_type=ZIP_DEFLATED, compresslevel=9)
 
