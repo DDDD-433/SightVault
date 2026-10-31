@@ -18,7 +18,7 @@ The design replaces the charcoal/lime dashboard with paper tones, ink-blue contr
 - Main real-browser flow: 37/37, including actual MiniCPM-V generation.
 - Normal-CSP edge checks: 10/10.
 - Reflow, reduced-motion, disclosure, error and escaping checks: 45/45.
-- Additional CSP-bypass adversarial escaping checks: 7/7.
+- Additional CSP-bypass adversarial escaping checks: 3/3.
 - JavaScript syntax, DOM ID references and Git whitespace checks pass.
 
 [Machine-readable evidence and Opus report](unified/redesign/OPUS_REPORT.md) are alongside the screenshots. Raw Claude transcripts and account metadata are excluded.

@@ -77,7 +77,7 @@
     "main_browser": 37,
     "normal_csp": 10,
     "hardening": 45,
-    "adversarial_escaping": 7,
+    "adversarial_escaping": 3,
     "unit_passed": 185,
     "expected_failure": 1,
     "model_generation": "real MiniCPM-V 4.7 1B"
