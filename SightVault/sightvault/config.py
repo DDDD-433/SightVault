@@ -22,6 +22,7 @@ class Config:
     max_pixels: int = 40_000_000
     max_file_bytes: int = 30 * 1024 * 1024
     max_files: int = 2000
+    demo_folder: Path | None = None
 
     def __post_init__(self):
         self.vision = self.vision.strip().lower()

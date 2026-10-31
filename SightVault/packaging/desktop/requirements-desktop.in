@@ -1,0 +1,13 @@
+# Desktop shell and build tools, layered on top of the platform runtime lock
+# (requirements-mac.lock.txt or requirements-windows.lock.txt). Resolve with the
+# runtime lock as a constraint and hashes, for example on each target platform:
+#
+#   uv pip compile packaging/desktop/requirements-desktop.in \
+#     --constraint requirements-mac.lock.txt --python-version 3.12 --generate-hashes \
+#     -o packaging/desktop/requirements-desktop-macos.lock.txt
+#
+# The build scripts refuse to run until the platform lock exists. Do not loosen
+# existing runtime pins to satisfy these packages.
+pywebview>=5.3,<7
+pyinstaller>=6.10,<7
+pyinstaller-hooks-contrib

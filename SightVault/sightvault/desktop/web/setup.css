@@ -1,0 +1,21 @@
+.setup{max-width:880px;margin:0 auto;padding:24px 28px 48px}
+.setup-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}
+.setup-card{border:1px solid rgba(0,0,0,.1);border-radius:10px;padding:16px 20px;margin:16px 0;background:rgba(255,255,255,.55)}
+.setup-card h2{font-size:16px;margin:0 0 8px}
+.setup-note{opacity:.8;margin:6px 0 12px;line-height:1.45}
+.setup-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.setup-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
+.setup-table th,.setup-table td{text-align:left;padding:6px 8px;border-bottom:1px solid rgba(0,0,0,.08);vertical-align:top}
+.setup-table code{font-size:12px}
+.setup-log{max-height:260px;overflow:auto;white-space:pre-wrap;word-break:break-word;font-size:12px;background:rgba(0,0,0,.04);border-radius:6px;padding:10px;margin:8px 0 0}
+.setup-diagnostics{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;font-size:13px;margin:0}
+.setup-diagnostics dt{font-weight:600}
+.setup-diagnostics dd{margin:0;word-break:break-all}
+.state-ok{color:#2f6b3a}
+.state-missing{color:#8a4b12}
+
+.setup-header .wordmark{order:0;margin:0}
+.setup-card>summary,.model-details>summary{font-weight:600;cursor:pointer;padding:4px 0}
+.model-details{margin-top:14px;overflow:auto}
+.setup-card>summary+dl{margin-top:16px}
+@media(max-width:760px){.setup{padding:20px}.setup-header{flex-wrap:wrap}.setup-table{min-width:600px}}

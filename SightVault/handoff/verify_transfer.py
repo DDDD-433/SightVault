@@ -44,6 +44,25 @@ def required_models(manifest, only=None, with_models=None):
     return selected
 
 
+def verify_model_files(manifest, model_root, selected):
+    """Check size and SHA-256 of every manifest file in the selected groups under model_root."""
+    failures = []
+    checked = 0
+    for item in manifest['files']:
+        parts = Path(item['path']).parts
+        if len(parts) <= 2 or parts[1] not in selected:
+            continue
+        path = safe_path(model_root, Path(item['path']).relative_to('.models'))
+        checked += 1
+        if not path.is_file():
+            failures.append({'path': item['path'], 'error': 'missing'})
+        elif path.stat().st_size != item['size']:
+            failures.append({'path': item['path'], 'error': 'size differs'})
+        elif sha256(path) != item['sha256']:
+            failures.append({'path': item['path'], 'error': 'SHA-256 differs'})
+    return checked, failures
+
+
 def verify_portable_source_manifest(root):
     root = Path(root).resolve()
     manifest_relative = PurePosixPath('handoff/PORTABLE_PACKAGE_MANIFEST.json')

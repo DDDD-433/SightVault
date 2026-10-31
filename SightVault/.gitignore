@@ -1,5 +1,7 @@
 .venv/
 .venv-lfm3/
+.venv-desktop/
+/build/
 .runtime/
 .models/
 data/

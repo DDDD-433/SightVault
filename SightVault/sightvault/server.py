@@ -112,7 +112,7 @@ def create_app(config=None, models=None):
 
     @app.post('/api/index')
     def index(body:IndexRequest):
-        folder = str(config.root/'samples') if body.demo else body.folder.strip()
+        folder = str(config.demo_folder or config.root/'samples') if body.demo else body.folder.strip()
         if not folder: raise HTTPException(422,'Enter a folder path.')
         try: scan_folder(folder,config.max_files)
         except ValueError as exc: raise HTTPException(422,str(exc)) from exc

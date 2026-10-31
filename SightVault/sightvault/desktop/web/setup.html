@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SightVault setup</title><link rel="icon" href="/static/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/desktop/static/setup.css"><script defer src="/desktop/static/setup.js"></script></head>
+<body>
+<main class="setup">
+  <header class="setup-header">
+    <h1 class="wordmark"><img src="/static/icon.svg" alt="" width="24" height="24"><span>SightVault setup</span></h1>
+    <a class="button" href="/" id="continue-link">Open the library</a>
+  </header>
+  <div id="setup-notice" class="notice" role="status" hidden></div>
+  <p id="bridge-missing" class="setup-note" hidden>Open this page from the SightVault desktop app to run setup tasks. From a source checkout, use the commands in <code>docs/PORTABLE_SETUP.md</code> instead.</p>
+
+  <section class="setup-card" aria-labelledby="models-heading">
+    <h2 id="models-heading">Local models</h2>
+    <p class="setup-note">Download the models once to search by meaning, read text and ask about your images. After setup, inference runs on this computer without an internet connection.</p>
+    <div id="model-summary" aria-live="polite">Checking…</div>
+    <details class="model-details"><summary>Model sources and versions</summary><table class="setup-table"><thead><tr><th scope="col">Model</th><th scope="col">Revision</th><th scope="col">Files</th><th scope="col">Size</th></tr></thead><tbody id="model-rows"></tbody></table></details>
+    <div class="setup-actions">
+      <button id="action-download" class="button primary" type="button" data-action="download">Download required models</button>
+      <button id="action-verify" class="button" type="button" data-action="verify">Verify checksums</button>
+      <button id="action-convert" class="button" type="button" data-action="convert-mlx" hidden>Prepare Apple Silicon checkpoints</button>
+      <button id="action-cancel" class="button" type="button" hidden>Stop task</button>
+    </div>
+    <p id="mlx-note" class="setup-note" hidden></p>
+  </section>
+
+  <section class="setup-card" aria-labelledby="task-heading" id="task-card" hidden>
+    <h2 id="task-heading">Setup task</h2>
+    <p id="task-state" aria-live="polite">No setup task has run in this session.</p>
+    <details><summary>View setup log</summary><pre id="task-log" class="setup-log" tabindex="0" aria-label="Setup task log"></pre></details>
+  </section>
+
+  <section class="setup-card" aria-labelledby="demo-heading" id="demo-card" hidden>
+    <h2 id="demo-heading">Demo library</h2>
+    <p class="setup-note">Imports the reviewed 62-image public demo with its stored text and vectors into an empty library. Existing libraries are never changed.</p>
+    <button id="action-demo" class="button" type="button">Import the demo library</button>
+  </section>
+
+  <details class="setup-card" aria-labelledby="diag-heading">
+    <summary id="diag-heading">Diagnostics</summary>
+    <dl id="diagnostics" class="setup-diagnostics"></dl>
+    <details><summary>Full diagnostics (JSON)</summary><pre id="diagnostics-json" class="setup-log" tabindex="0"></pre></details>
+  </details>
+</main>
+</body>
+</html>

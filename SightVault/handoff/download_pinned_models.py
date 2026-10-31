@@ -28,11 +28,16 @@ def incompatible_platform_groups(sources: dict, selected: set[str], platform_id:
             errors.append(f'{name} supports {", ".join(supported)}, not {platform_id}')
     return errors
 
-def main():
+def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--only', action='append', help='Download one named manifest group (repeat to select several)')
     parser.add_argument('--with-model', action='append', help='Add one explicitly selected manifest group to the required set')
-    args = parser.parse_args()
+    parser.add_argument('--model-root', type=Path, default=ROOT / '.models',
+                        help='Folder that receives the model groups (default: .models in this checkout)')
+    args = parser.parse_args(argv)
+    model_root = args.model_root.expanduser()
+    if not model_root.is_absolute():
+        parser.error('--model-root must be an absolute path')
     os.environ['HF_HUB_OFFLINE'] = '0'
     os.environ['TRANSFORMERS_OFFLINE'] = '0'
     from verify_transfer import sha256, safe_path
@@ -60,14 +65,14 @@ def main():
         items = [m for m in manifest['files'] if m['path'].startswith('.models/' + name + '/')]
         prefix = '.models/' + name + '/'
         patterns = [m['path'][len(prefix):] for m in items if not m['path'].endswith('/source.json')]
-        target = ROOT / '.models' / name
+        target = safe_path(model_root, name)
         print(f"Downloading {source['repo']} at {source['revision']}", flush=True)
         snapshot_download(repo_id=source['repo'], revision=source['revision'],
                           local_dir=target, allow_patterns=patterns)
         # Preserve the exact local provenance bytes used by the checksum manifest.
         (target / 'source.json').write_bytes(manifest['source_json_bytes'][name].encode('utf8'))
         for m in items:
-            path = safe_path(ROOT, m['path'])
+            path = safe_path(model_root, Path(m['path']).relative_to('.models'))
             if path.stat().st_size != m['size'] or sha256(path) != m['sha256']:
                 raise ValueError('Downloaded file differs from Windows baseline: ' + m['path'])
         print(name + ': verified', flush=True)

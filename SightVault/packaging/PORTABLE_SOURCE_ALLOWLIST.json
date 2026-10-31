@@ -45,6 +45,20 @@
       "path": "packaging",
       "extensions": [
         ".json"
+      ],
+      "files": [
+        "desktop/SightVault.iss",
+        "desktop/SightVault.spec",
+        "desktop/build_macos.sh",
+        "desktop/build_windows.ps1",
+        "desktop/entitlements.plist",
+        "desktop/entry.py",
+        "desktop/icons/SightVault.icns",
+        "desktop/icons/SightVault.ico",
+        "desktop/requirements-desktop-macos.lock.txt",
+        "desktop/requirements-desktop-windows.lock.txt",
+        "desktop/requirements-desktop.in",
+        "desktop/stage_resources.py"
       ]
     },
     {

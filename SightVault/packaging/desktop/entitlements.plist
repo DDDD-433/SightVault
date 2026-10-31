@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<!--
+  Hardened-runtime entitlements used only when a Developer ID identity is supplied
+  (SIGHTVAULT_CODESIGN_IDENTITY). Unverified: confirm on a signed build that every model
+  backend still runs, then remove any entitlement that is not needed. Not used for the
+  ad-hoc-signed development build. No sandbox, network-server or file-access exceptions.
+-->
+<dict>
+  <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+  <true/>
+</dict>
+</plist>

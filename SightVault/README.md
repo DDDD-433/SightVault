@@ -10,6 +10,10 @@ See [Phase 2 selection and runtime matrix](qa/FINAL_MODEL_SELECTION.md), [unifie
 
 `SightVault-macOS-arm64.zip` and `SightVault-Windows-x64.zip` are portable **source-and-setup archives**, not native executables. They exclude Python environments and model weights. Follow [PORTABLE_SETUP.md](docs/PORTABLE_SETUP.md) for exact setup steps and package integrity checks. The Windows dependency lock is a hash-pinned x64/Python 3.12 resolution; it is not evidence of a Windows runtime pass. See [WINDOWS_VALIDATION.md](docs/WINDOWS_VALIDATION.md) for the native validation procedure.
 
+## Desktop app (development preview)
+
+A native desktop wrapper (macOS Apple Silicon `.app`/`.dmg`, Windows x64 installer) is scripted in `packaging/desktop/`. It runs the same server and UI in a native window, keeps data in per-user folders and downloads models only from an explicit setup action. The Mac app has been built and exercised; Windows native validation and distribution signing remain outstanding. See [DESKTOP_RELEASE.md](docs/DESKTOP_RELEASE.md) for the architecture, build commands, signing status and pending checks. The source setup below is unchanged.
+
 ## Mac setup
 
 Use native Python 3.12 on Apple Silicon. `Setup-Mac.sh` can locate or install it through `uv` if `uv` is already available.
