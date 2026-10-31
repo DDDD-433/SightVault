@@ -43,6 +43,9 @@ def create_app(config=None, models=None):
         yield
         for job in jobs.values(): job['_cancel'].set()
         executor.shutdown(wait=False, cancel_futures=True)
+        close_models = getattr(models, 'close', None)
+        if callable(close_models):
+            close_models()
 
     app = FastAPI(title='SightVault', docs_url=None, redoc_url=None, lifespan=lifespan)
     app.state.db, app.state.models = db, models
@@ -68,6 +71,11 @@ def create_app(config=None, models=None):
             'ocr_model':'MiniCPM-OCR 1.0 / RapidOCR', 'vision_model':vision_status.get('name', getattr(models, 'vision_label', 'MiniCPM-V 4.7 1B')),
             'vision_backend':vision_status.get('backend', getattr(config, 'vision', 'minicpm')),
             'vision_runtime':vision_status.get('runtime'), 'vision_precision':vision_status.get('precision'),
+            'vision_model_id':vision_status.get('model_id'),
+            'vision_model_revision':vision_status.get('model_revision'),
+            'vision_model_quantization':vision_status.get('model_quantization'),
+            'vision_reasoning_mode':vision_status.get('reasoning_mode', 'off'),
+            'vision_thinking_token_budget':vision_status.get('thinking_token_budget', 0),
             'instance_root':str(config.root),'local_only':True,'cloud_api_calls':0,'demo_folder':str(config.root/'samples'), 'ocr_default':config.ocr}
 
     @app.get('/api/search')
@@ -160,7 +168,18 @@ def create_app(config=None, models=None):
             'model':vision_status.get('name', getattr(models, 'vision_label', 'MiniCPM-V 4.7 1B')),
             'backend':vision_status.get('backend', getattr(config, 'vision', 'minicpm')),
             'runtime':vision_status.get('runtime'), 'precision':vision_status.get('precision'),
-            'device':vision_status.get('device'), 'latency_ms':round((time.perf_counter()-started)*1000,1)}
+            'device':vision_status.get('device'),
+            'model_id':vision_status.get('model_id'),
+            'model_revision':vision_status.get('model_revision'),
+            'model_quantization':vision_status.get('model_quantization'),
+            'projector_id':vision_status.get('projector_id'),
+            'projector_quantization':vision_status.get('projector_quantization'),
+            'runtime_commit':vision_status.get('runtime_commit'),
+            'device_evidence':vision_status.get('device_evidence'),
+            'reasoning_mode':vision_status.get('reasoning_mode', 'off'),
+            'thinking_token_budget':vision_status.get('thinking_token_budget', 0),
+            'generation':getattr(models, 'last_vision_generation', {}),
+            'latency_ms':round((time.perf_counter()-started)*1000,1)}
 
     static = Path(__file__).resolve().parent/'web'
     app.mount('/static',StaticFiles(directory=static),name='static')
