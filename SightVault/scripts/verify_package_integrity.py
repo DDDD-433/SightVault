@@ -10,6 +10,8 @@ import sys
 from zipfile import BadZipFile, ZipFile
 
 MANIFEST_PATH = 'SightVault/handoff/PORTABLE_PACKAGE_MANIFEST.json'
+REVIEWED_PUBLIC_JSONL = 'SightVault/qa/ocr-v2/ground_truth.jsonl'
+REVIEWED_PUBLIC_JSONL_SHA256 = '0001032a7d8e23b8b6922a5dcda73280e6ec1f641373f1107bd4c457806cb13c'
 
 
 def digest(data: bytes) -> str:
@@ -49,8 +51,15 @@ def verify_archive(archive_path: Path, sha_path: Path | None = None) -> dict:
                 raise ValueError(f'Package archive contains a symlink, directory, or special file: {name}')
             if any(part in ('.venv', '.venv-lfm3', '.models') for part in path.parts):
                 raise ValueError(f'Package unexpectedly contains a model or virtual environment: {name}')
-            if path.suffix.lower() in {'.safetensors', '.gguf', '.pt', '.pth', '.onnx', '.bin', '.weights', '.log', '.jsonl'}:
+            if path.suffix.lower() in {'.safetensors', '.gguf', '.pt', '.pth', '.onnx', '.bin', '.weights', '.log'}:
                 raise ValueError(f'Package unexpectedly contains weights or raw logs: {name}')
+            if path.suffix.lower() == '.jsonl':
+                is_reviewed_fixture = (
+                    name == REVIEWED_PUBLIC_JSONL
+                    and digest(bundle.read(name)) == REVIEWED_PUBLIC_JSONL_SHA256
+                )
+                if not is_reviewed_fixture:
+                    raise ValueError(f'Package unexpectedly contains weights or raw logs: {name}')
             if 'data' in path.parts:
                 allowed_demo_db = (len(path.parts) == 3 and path.parts[:2] == ('SightVault', 'data')
                                    and path.parts[2] == 'sightvault.sqlite3')

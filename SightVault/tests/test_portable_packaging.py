@@ -24,7 +24,12 @@ from scripts.build_portable_package import (
 from scripts.prepare_disposable_demo_benchmark import prepare_disposable_demo
 from scripts.launch import compatible_instance, provider_mismatch
 from scripts.windows_setup_preflight import validate_optional_model_groups
-from scripts.verify_package_integrity import MANIFEST_PATH, verify_archive
+from scripts.verify_package_integrity import (
+    MANIFEST_PATH,
+    REVIEWED_PUBLIC_JSONL,
+    REVIEWED_PUBLIC_JSONL_SHA256,
+    verify_archive,
+)
 
 
 def _make_public_demo_fixture(source_root, data_root, db_path, *, symlink_images_to=None):
@@ -463,6 +468,74 @@ class PortablePackagingTests(unittest.TestCase):
             archive_path.with_suffix('.zip.sha256').write_text(('0' * 64) + '  ' + archive_path.name + '\n')
             with self.assertRaisesRegex(ValueError, 'does not match'):
                 verify_archive(archive_path)
+
+    def test_package_integrity_allows_only_the_exact_reviewed_ground_truth_jsonl(self):
+        fixture_path = Path(__file__).resolve().parents[1] / 'qa' / 'ocr-v2' / 'ground_truth.jsonl'
+        fixture_bytes = fixture_path.read_bytes()
+        self.assertEqual(hashlib.sha256(fixture_bytes).hexdigest(), REVIEWED_PUBLIC_JSONL_SHA256)
+
+        def write_package(archive_path, jsonl_path, jsonl_bytes):
+            payloads = {'README.md': b'portable source fixture\n'}
+            model_manifest = json.dumps({
+                'sources': {'core': {'repo': 'org/core', 'revision': 'abc123'}},
+                'files': [{'path': '.models/core/model.safetensors', 'size': 5, 'sha256': 'b' * 64}],
+                'total_bytes': 5,
+            }, sort_keys=True).encode() + b'\n'
+            evidence_manifest = json.dumps({
+                'format_version': 1,
+                'artifact_type': 'reviewed public demo stored evidence manifest',
+                'entries': [],
+            }, sort_keys=True).encode() + b'\n'
+            payloads['handoff/MODEL_MANIFEST.json'] = model_manifest
+            payloads['handoff/DEMO_EVIDENCE_MANIFEST.json'] = evidence_manifest
+            payloads[jsonl_path.removeprefix('SightVault/')] = jsonl_bytes
+            records = [{
+                'path': name,
+                'size': len(data),
+                'sha256': hashlib.sha256(data).hexdigest(),
+            } for name, data in payloads.items()]
+            manifest = {
+                'artifact_type': 'portable source-and-setup bundle',
+                'package_name': archive_path.name,
+                'native_executable_included': False,
+                'model_weights_included': False,
+                'model_download_bytes': 5,
+                'models': [{
+                    'name': 'core', 'repo': 'org/core', 'revision': 'abc123',
+                    'required': True, 'optional': False, 'file_count': 1, 'download_bytes': 5,
+                }],
+                'platform_target': 'macOS arm64',
+                'model_manifest_sha256': hashlib.sha256(model_manifest).hexdigest(),
+                'demo': {
+                    'asset_count': 62,
+                    'embedding_model': 'google/embeddinggemma-2:768:text-image',
+                    'evidence_manifest_sha256': hashlib.sha256(evidence_manifest).hexdigest(),
+                },
+                'files': records,
+            }
+            with ZipFile(archive_path, 'w', compression=ZIP_DEFLATED) as archive:
+                for name, data in payloads.items():
+                    archive.writestr('SightVault/' + name, data)
+                archive.writestr(MANIFEST_PATH, json.dumps(manifest).encode())
+            archive_path.with_suffix('.zip.sha256').write_text(
+                hashlib.sha256(archive_path.read_bytes()).hexdigest() + '  ' + archive_path.name + '\n')
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            allowed = root / 'reviewed.zip'
+            write_package(allowed, REVIEWED_PUBLIC_JSONL, fixture_bytes)
+            report = verify_archive(allowed)
+            self.assertTrue(report['passed'])
+
+            for label, path, payload in (
+                ('arbitrary', 'SightVault/qa/ocr-v2/other.jsonl', fixture_bytes),
+                ('tampered', REVIEWED_PUBLIC_JSONL, fixture_bytes + b'\n'),
+            ):
+                with self.subTest(label=label):
+                    rejected = root / f'{label}.zip'
+                    write_package(rejected, path, payload)
+                    with self.assertRaisesRegex(ValueError, 'weights or raw logs'):
+                        verify_archive(rejected)
 
     def test_package_integrity_rejects_public_demo_evidence_manifest_hash_mismatch(self):
         with tempfile.TemporaryDirectory() as temporary:
