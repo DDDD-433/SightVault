@@ -1,0 +1,371 @@
+{
+  "captured_at_utc": "2026-10-30T07:57:50.654709+00:00",
+  "scope": "Official source documents/revision metadata and small local package assets only; no model weights copied by this script.",
+  "models": {
+    "ovisocr3": {
+      "repo": "ATH-MaaS/OvisOCR3",
+      "revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "license": "Apache-2.0",
+      "runtime": "official Transformers; explicit PyTorch MPS in the measured Mac smoke",
+      "source": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c"
+    },
+    "minicpm_ocr_1_0": {
+      "repo": "openbmb/MiniCPM-OCR-1.0",
+      "revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+      "license": "Apache-2.0",
+      "runtime": "MLX-VLM 0.7.11 / MLX 0.32.4; official source model card lists other runtimes",
+      "source": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0/tree/c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+      "license_source_revision": "8a16a6ad007b1105ac7811ab238808587615e4c7"
+    },
+    "rapidocr_legacy": {
+      "package": "rapidocr-onnxruntime",
+      "version": "1.4.4",
+      "license": "Apache-2.0",
+      "runtime": "ONNX Runtime CPU; official in-product fallback",
+      "source_tag_commit": "86ae3f5079df3422c1829cd84baf19bc8a7a9453",
+      "model_assets": [
+        {
+          "path": "ch_PP-OCRv4_det_infer.onnx",
+          "bytes": 4745517,
+          "sha256": "d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9"
+        },
+        {
+          "path": "ch_PP-OCRv4_rec_infer.onnx",
+          "bytes": 10857958,
+          "sha256": "48fc40f24f6d2a207a2b1091d3437eb3cc3eb6b676dc3ef9c37384005483683b"
+        },
+        {
+          "path": "ch_ppocr_mobile_v2.0_cls_infer.onnx",
+          "bytes": 585532,
+          "sha256": "e47acedf663230f8863ff1ab0e64dd2d82b838fceb5957146dab185a89d6215c"
+        }
+      ],
+      "current_maintained_package_note": "Official docs state legacy rapidocr_onnxruntime is gradually retired in favor of rapidocr; migration is outside this benchmark arm."
+    }
+  },
+  "files": [
+    {
+      "path": "provenance/ovisocr3/README.md",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/README.md",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 27267,
+      "sha256": "43dd8104e1c78fe851f3b2954378dd8e3b6448bd2e8b02b0754611aca9a7e6b8"
+    },
+    {
+      "path": "provenance/ovisocr3/LICENSE",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/LICENSE",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 11544,
+      "sha256": "bbedc3fda3305820b977265f01b8619d87570a6739de3a5582c3464840f1e57a"
+    },
+    {
+      "path": "provenance/ovisocr3/config.json",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/config.json",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 2908,
+      "sha256": "37674e15aefced4df9aa8123f6634b7201d72756685e2e1b591d8f7d8d3b69bc"
+    },
+    {
+      "path": "provenance/ovisocr3/generation_config.json",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/generation_config.json",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 147,
+      "sha256": "c3ff3171724248f377efaf37197cce6f7bf1f4918a1ed3f31ef2ce53be91ecc1"
+    },
+    {
+      "path": "provenance/ovisocr3/chat_template.jinja",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/chat_template.jinja",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 7755,
+      "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+    },
+    {
+      "path": "provenance/ovisocr3/preprocessor_config.json",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/preprocessor_config.json",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 390,
+      "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516"
+    },
+    {
+      "path": "provenance/ovisocr3/video_preprocessor_config.json",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/video_preprocessor_config.json",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 385,
+      "sha256": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13"
+    },
+    {
+      "path": "provenance/ovisocr3/merges.txt",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/merges.txt",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 3353259,
+      "sha256": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d"
+    },
+    {
+      "path": "provenance/ovisocr3/tokenizer_config.json",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/tokenizer_config.json",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 16709,
+      "sha256": "49e2b6e395f959f077f1e992b338919c0d4a9732fc6e613995e06557f843500c"
+    },
+    {
+      "path": "provenance/ovisocr3/prompts/plain_ocr.txt",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/prompts/plain_ocr.txt",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 419,
+      "sha256": "e037cf0013a757e19eae6d4d701f3b90848449fbebe44d1f8fa7d8ca4a5af9a7"
+    },
+    {
+      "path": "provenance/ovisocr3/prompts/word_spotting.txt",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/prompts/word_spotting.txt",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 1007,
+      "sha256": "7fb246da0a3b37529562e71e2fc685ac43fcf0266d22a443855fac70cc768a77"
+    },
+    {
+      "path": "provenance/ovisocr3/prompts/reference_grounding.txt",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/prompts/reference_grounding.txt",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 1333,
+      "sha256": "9e9304cbd800c997f612634811b43159bcb17bbec5bf93809c03cd716794662a"
+    },
+    {
+      "path": "provenance/ovisocr3/prompts/region_ocr.txt",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/prompts/region_ocr.txt",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 625,
+      "sha256": "0b7d7f40b2dffc744e7e93007bea8f8bc5039da65b92c37465a11159a7c88dfc"
+    },
+    {
+      "path": "provenance/ovisocr3/prompts/document_layout.txt",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/prompts/document_layout.txt",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 615,
+      "sha256": "89bcc73c7340ff9fd83673c1aee2354c2cc735c6eded0ce2aa4501f28b914361"
+    },
+    {
+      "path": "provenance/ovisocr3/prompts/document_structured.txt",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/prompts/document_structured.txt",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 1110,
+      "sha256": "1b6139ec72888e087c8af75f2e2dfb78b425e15ae1c1529940b96137613d1db1"
+    },
+    {
+      "path": "provenance/ovisocr3/prompts/document_markdown.txt",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/prompts/document_markdown.txt",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 512,
+      "sha256": "dbf31d5899a86047ce0cd4d0d12cdc5616df1bea5d9a600b823098442c32997c"
+    },
+    {
+      "path": "provenance/ovisocr3/prompts/kie_fields.txt",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/prompts/kie_fields.txt",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 243,
+      "sha256": "14d6098b2c7a5d31a328676fd5706d1385228e3e6d4fc2f27cd0f4c8bb3ec6ad"
+    },
+    {
+      "path": "provenance/ovisocr3/prompts/kie_open.txt",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/prompts/kie_open.txt",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 200,
+      "sha256": "76276d075a455aa795a58c128b6c1640d424accb1bd18d9d7b1ffd7edf760dad"
+    },
+    {
+      "path": "provenance/ovisocr3/prompts/kie_schema.txt",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/prompts/kie_schema.txt",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 177,
+      "sha256": "e4cef2aec8d0e0b4a91b1c2af46a7af5048279e70fe5b152d039cf9454c245e5"
+    },
+    {
+      "path": "provenance/ovisocr3/prompts/chart_parsing.txt",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/prompts/chart_parsing.txt",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 853,
+      "sha256": "bb933216bdad5a81a3eca59e770bdb7d4b936ab85f97a2af6de5dd0890371f38"
+    },
+    {
+      "path": "provenance/ovisocr3/prompts/crosspage_table.txt",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/prompts/crosspage_table.txt",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 614,
+      "sha256": "b5f38187df651d83bb46b6756d1b9386d04120cb6b299cfd1e93f9e0dec564d1"
+    },
+    {
+      "path": "provenance/ovisocr3/prompts/figure_captioning.txt",
+      "source_url": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c/prompts/figure_captioning.txt",
+      "source_revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+      "bytes": 1298,
+      "sha256": "944bb410dbe17aa1cbe65f6acb14585053473e8a988b120f98c95d97a7e844de"
+    },
+    {
+      "path": "provenance/minicpm-ocr-1.0/README.md",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0/resolve/c5833cddb363aa62f1cb60ddde48c832e8f1a92c/README.md",
+      "bytes": 13040,
+      "sha256": "fb94f2ec83b73e3bfb1a0e0da740305ad0d9b408cec576b2eae2dcf933007359",
+      "resolved_revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+      "etag": "ae23d94d31f18983cfb855117df3f27f0ab20425"
+    },
+    {
+      "path": "provenance/minicpm-ocr-1.0/config.json",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0/resolve/c5833cddb363aa62f1cb60ddde48c832e8f1a92c/config.json",
+      "bytes": 2275,
+      "sha256": "762025491b206967a3c29c3e36ff2cccd8af6a8c750360b61dc91882b573f759",
+      "resolved_revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+      "etag": "ff74250b1dafe17e1ca80aa1aad030a1b6179017"
+    },
+    {
+      "path": "provenance/minicpm-ocr-1.0/generation_config.json",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0/resolve/c5833cddb363aa62f1cb60ddde48c832e8f1a92c/generation_config.json",
+      "bytes": 133,
+      "sha256": "7cecf81e246f8db6bcc4c14f22313dd7decf2d6a70dd1b45c4d237a2e6927405",
+      "resolved_revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+      "etag": "62d610769736ebba81097087638409542f79455d"
+    },
+    {
+      "path": "provenance/minicpm-ocr-1.0/preprocessor_config.json",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0/resolve/c5833cddb363aa62f1cb60ddde48c832e8f1a92c/preprocessor_config.json",
+      "bytes": 340,
+      "sha256": "7b46cf09f350fa1cd3bfd4d20fe8b8532e76dcc5d892a0052660f803c8ad532b",
+      "resolved_revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+      "etag": "5589d6677b152eea769cd7ba9b029c39a4224d2c"
+    },
+    {
+      "path": "provenance/minicpm-ocr-1.0/processor_config.json",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0/resolve/c5833cddb363aa62f1cb60ddde48c832e8f1a92c/processor_config.json",
+      "bytes": 46,
+      "sha256": "b71fbc3e22a7dbe04622e1a2641e8553375bc1434875ac438066c58a88b974b1",
+      "resolved_revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+      "etag": "22fa44c2ae8ad539b43c8a2d181ee96fb0e65c42"
+    },
+    {
+      "path": "provenance/minicpm-ocr-1.0/tokenizer_config.json",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0/resolve/c5833cddb363aa62f1cb60ddde48c832e8f1a92c/tokenizer_config.json",
+      "bytes": 1463,
+      "sha256": "74f51078120066292803d9dfe5437f67b778c5ef6d16eb04dbc6a3f7a13e5826",
+      "resolved_revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+      "etag": "ad0047e43e5ef7d9b3eb10fc3fb9a60e0ad160b7"
+    },
+    {
+      "path": "provenance/minicpm-ocr-1.0/chat_template.jinja",
+      "source_url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0/resolve/c5833cddb363aa62f1cb60ddde48c832e8f1a92c/chat_template.jinja",
+      "bytes": 7344,
+      "sha256": "c6a5f1387c6baa0befecc39e36f293e44baba865a9c7809ac93fae1604b2c210",
+      "resolved_revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+      "etag": "1007f10aa61d9b53080cbd51a17fd62ac3cd84ad"
+    },
+    {
+      "path": "provenance/minicpm-ocr-1.0/local-source.json",
+      "source_url": "Local read-only acquisition metadata for the official MiniCPM snapshot",
+      "source_revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+      "bytes": 535,
+      "sha256": "7b2edce8a5d781f60c25d7a7730ea8bfb97d1115faca8f745ec088a7b5f570ef"
+    },
+    {
+      "path": "provenance/minicpm-ocr-1.0/converted-mlx-4bit/README.md",
+      "source_url": "Local read-only SightVault MLX conversion snapshot; mlx-vlm commit 918763c6875c80e82f9f48344dfad4763346fea8",
+      "source_revision": "mlx-vlm@918763c6875c80e82f9f48344dfad4763346fea8",
+      "bytes": 84,
+      "sha256": "9a272b5949a803ab6eadf0703706dab183229952e2b374501d1069d0f6d16557"
+    },
+    {
+      "path": "provenance/minicpm-ocr-1.0/converted-mlx-4bit/config.json",
+      "source_url": "Local read-only SightVault MLX conversion snapshot; mlx-vlm commit 918763c6875c80e82f9f48344dfad4763346fea8",
+      "source_revision": "mlx-vlm@918763c6875c80e82f9f48344dfad4763346fea8",
+      "bytes": 3112,
+      "sha256": "0370eab180e329bae95415f2475a459acc257569044953b8c4a8afb9f08b1e25"
+    },
+    {
+      "path": "provenance/minicpm-ocr-1.0/converted-mlx-4bit/tokenizer_config.json",
+      "source_url": "Local read-only SightVault MLX conversion snapshot; mlx-vlm commit 918763c6875c80e82f9f48344dfad4763346fea8",
+      "source_revision": "mlx-vlm@918763c6875c80e82f9f48344dfad4763346fea8",
+      "bytes": 1201,
+      "sha256": "7f534ec298b3213a633776ad7f3375a949598ca204dc4938bf52267eedfba6b8"
+    },
+    {
+      "path": "provenance/minicpm-ocr-1.0/converted-mlx-4bit/processor_config.json",
+      "source_url": "Local read-only SightVault MLX conversion snapshot; mlx-vlm commit 918763c6875c80e82f9f48344dfad4763346fea8",
+      "source_revision": "mlx-vlm@918763c6875c80e82f9f48344dfad4763346fea8",
+      "bytes": 1049,
+      "sha256": "6ba5c8a09416302f846f7b5d4c5535c4344a02ef5c016b499703284a27373e22"
+    },
+    {
+      "path": "provenance/minicpm-ocr-1.0/converted-mlx-4bit/source.json",
+      "source_url": "Local read-only SightVault MLX conversion snapshot; mlx-vlm commit 918763c6875c80e82f9f48344dfad4763346fea8",
+      "source_revision": "mlx-vlm@918763c6875c80e82f9f48344dfad4763346fea8",
+      "bytes": 535,
+      "sha256": "7b2edce8a5d781f60c25d7a7730ea8bfb97d1115faca8f745ec088a7b5f570ef"
+    },
+    {
+      "path": "provenance/minicpm-ocr-1.0/LICENSE",
+      "source_url": "https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/8a16a6ad007b1105ac7811ab238808587615e4c7/LICENSE",
+      "bytes": 11332,
+      "sha256": "186c8635e1f88660ec113f4935867a612e35b3124aca5c712d97e2e33d7eb677",
+      "resolved_revision": null,
+      "etag": "f25bc67ebab53c6c9a96e19de45187c930f7b7f399e0f4db1e4596fb8d517674"
+    },
+    {
+      "path": "provenance/minicpm-ocr-1.0/minicpm_ocr_1dot0_en.md",
+      "source_url": "https://raw.githubusercontent.com/OpenBMB/MiniCPM-OCR/8a16a6ad007b1105ac7811ab238808587615e4c7/docs/minicpm_ocr_1dot0_en.md",
+      "bytes": 10031,
+      "sha256": "2940cbee3c8e5935df247e43a4b40ee16954b56157007ec2538d1d06fb9d50da",
+      "resolved_revision": null,
+      "etag": "e773019895199fa08f10817da76b6e34100c6a3267ce3e8977af9744387864c1"
+    },
+    {
+      "path": "provenance/rapidocr-onnxruntime-1.4.4/README.md",
+      "source_url": "https://raw.githubusercontent.com/RapidAI/RapidOCR/86ae3f5079df3422c1829cd84baf19bc8a7a9453/README.md",
+      "bytes": 8745,
+      "sha256": "26d825d717ede101cc33cacbb93337ca90d108706afc0eaed8739e5ea7156934",
+      "resolved_revision": null,
+      "etag": "37362ebbad0bf6bf473a68bb8059cbbce655fa730223594093d8eaaa714474d9"
+    },
+    {
+      "path": "provenance/rapidocr-onnxruntime-1.4.4/LICENSE",
+      "source_url": "https://raw.githubusercontent.com/RapidAI/RapidOCR/86ae3f5079df3422c1829cd84baf19bc8a7a9453/LICENSE",
+      "bytes": 11422,
+      "sha256": "3e0af25fdd06aa9586ae97adb00ea927ebe5a3805ac77d2d3a81ce5f55693333",
+      "resolved_revision": null,
+      "etag": "69578a1228168da9631efdecd6cbed8b075ff843e6fc0664f91dec3105a22220"
+    },
+    {
+      "path": "provenance/rapidocr-onnxruntime-1.4.4/pypi-release.json",
+      "source_url": "https://pypi.org/pypi/rapidocr-onnxruntime/1.4.4/json",
+      "bytes": 2621,
+      "sha256": "b3065398bec2c3f3b878fcca20767635928125b0c0421528d930a1e907e3552d"
+    },
+    {
+      "path": "provenance/rapidocr-onnxruntime-1.4.4/installed-METADATA.txt",
+      "source_url": "https://pypi.org/project/rapidocr-onnxruntime/1.4.4/",
+      "source_revision": "1.4.4",
+      "bytes": 1264,
+      "sha256": "1ac15bed7c7fb77d3fac58c2aba0a4d3e2da48de5c65badd3503900acebcf1df"
+    },
+    {
+      "path": "provenance/rapidocr-current-docs/install.en.md",
+      "source_url": "https://raw.githubusercontent.com/RapidAI/RapidOCRDocs/2ec5dfa2fe9e121e7d4dd97e441a59d24301aff8/docs/install_usage/rapidocr/install.en.md",
+      "bytes": 5258,
+      "sha256": "5e8cd6764121044c7bfac70d28e2c3e28d03ef21eda8aa435882655be760266d",
+      "resolved_revision": null,
+      "etag": "d607cfb44d97a051cf46be525f5e7893a9d64b9c23e9f0a98258b079644abe8e"
+    },
+    {
+      "path": "provenance/rapidocr-onnxruntime-1.4.4/source/main.py",
+      "source_url": "https://pypi.org/project/rapidocr-onnxruntime/1.4.4/",
+      "source_revision": "rapidocr-onnxruntime==1.4.4 exact installed wheel source",
+      "bytes": 12799,
+      "sha256": "156c49e683fddd26f04280f391f882b857a74d2f020497870f7dd8d850ed5a2c"
+    },
+    {
+      "path": "provenance/rapidocr-onnxruntime-1.4.4/source/cal_rec_boxes/main.py",
+      "source_url": "https://pypi.org/project/rapidocr-onnxruntime/1.4.4/",
+      "source_revision": "rapidocr-onnxruntime==1.4.4 exact installed wheel source",
+      "bytes": 10493,
+      "sha256": "d7cf9cb01f189a873cef9897150e379085608f9908a7288857ea2599ff7eee76"
+    }
+  ],
+  "coordinate_convention_sources": {
+    "ovisocr3": "provenance/ovisocr3/README.md in the exact pinned snapshot; normalized top-left coordinates in [0,1000), relative to supplied image.",
+    "rapidocr_onnxruntime": "The installed official 1.4.4 wheel source files above show the output points are mapped back to raw_h/raw_w and word boxes reverse-mapped from crops."
+  }
+}

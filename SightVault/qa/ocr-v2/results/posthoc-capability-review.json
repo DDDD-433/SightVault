@@ -1,0 +1,5042 @@
+{
+  "experiment": "SightVault OCR V2 capability post-hoc review",
+  "generated_at_utc": "2026-10-30T21:16:33.926584+00:00",
+  "no_model_inference": true,
+  "raw_input_files_unchanged": true,
+  "ground_truth_sha256": "0001032a7d8e23b8b6922a5dcda73280e6ec1f641373f1107bd4c457806cb13c",
+  "posthoc_script_sha256": "e130bebccc2bd88ecaf14ff3d0d042bcd352b00893360d74dbdf8bfe78fe9ee6",
+  "minicpm_native_otsl_tables": {
+    "source": {
+      "path": "qa/ocr-v2/results/raw_outputs/minicpm-table-20261030T205102Z.json",
+      "sha256": "5693d9e9c37145a420b156cbb7ddfc6c9c4b80a59cf2ea59cc14e20163d3a33a",
+      "run_id": "20261030T205102Z",
+      "experiment_commit": "1d9a4e42ff96f7c20bc72ac0111d3e2fe5c95cf9",
+      "experiment_code_sha256": {
+        "bench_ocr.py": "979c077883e8516b95d8c9611535189e0416b321a6c5f1eb954cad33bbf50564",
+        "offline_guard.py": "9d419f1d6d82e5f56ebbc04877655b567dce781aa94a6545fa8e97130e1bbb1d",
+        "smoke_ovis.py": "fd03bdbd8125d92edc3e0c25162fdbaa24c5fe2d4349d16971f9786019ab5e36"
+      },
+      "model": {
+        "repo": "openbmb/MiniCPM-OCR-1.0",
+        "revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+        "format": "Safetensors",
+        "quantization": "affine 4-bit group64, mixed BF16 layers",
+        "artifact_bytes": 2157942509
+      },
+      "runtime": {
+        "name": "MLX-VLM/MLX",
+        "version": "mlx-vlm=0.7.11; mlx=0.32.4",
+        "device": "Apple Metal GPU",
+        "offline_verified": true,
+        "runtime": "MLX-VLM/MLX",
+        "mlx_vlm": "0.7.11",
+        "mlx_vlm_git_revision": "918763c6875c80e82f9f48344dfad4763346fea8",
+        "mlx": "0.32.4",
+        "model_class": "Model",
+        "device_info": {
+          "device_name": "Apple M1 Pro",
+          "max_recommended_working_set_size": 12713115648,
+          "memory_size": 17179869184,
+          "architecture": "applegpu_g13s",
+          "max_buffer_length": 9534832640,
+          "resource_limit": 499000
+        },
+        "pillow": "13.0.0"
+      },
+      "command": {
+        "python_argv": [
+          "SightVault/qa/ocr-v2/bench_ocr.py",
+          "--model",
+          "minicpm",
+          "--task",
+          "table",
+          "--case-ids",
+          "TB01,TB02,TB03",
+          "--max-new-tokens",
+          "512"
+        ],
+        "sandbox_wrapper": "sh SightVault/qa/ocr-v2/run_ocr_benchmark.sh",
+        "sandbox_profile": "(version 1)(allow default)(deny network-outbound)(allow network-outbound (remote ip \\\"localhost:*\\\"))"
+      },
+      "started_at_utc": "2026-10-30T20:51:02.202640+00:00",
+      "finished_at_utc": "2026-10-30T20:51:22.553706+00:00",
+      "offline": {
+        "isolation_method": "macOS sandbox-exec outbound deny with loopback allowed plus in-process socket/DNS guard; not a firewall",
+        "mac_sandbox_profile": "macOS sandbox-exec outbound deny with loopback allowed",
+        "blocked_external_attempts": [],
+        "offline_flags": {
+          "HF_HUB_OFFLINE": "1",
+          "TRANSFORMERS_OFFLINE": "1",
+          "HF_HUB_DISABLE_TELEMETRY": "1",
+          "USE_HUB_KERNELS": "NO",
+          "PYTORCH_ENABLE_MPS_FALLBACK": "0"
+        },
+        "verified": true
+      }
+    },
+    "original_harness_summary": {
+      "unique_cases": 3,
+      "exact_tables": 0,
+      "serialization": {
+        "valid_cases": 0,
+        "evaluable_cases": 3,
+        "rate": 0.0
+      },
+      "schema": {
+        "valid_cases": 0,
+        "evaluable_cases": 3,
+        "rate": 0.0
+      },
+      "cell_micro": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 48,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ground_truth_support": 48,
+        "predicted_support": 0
+      },
+      "numeric_value_micro": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 25,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ground_truth_support": 25,
+        "predicted_support": 0
+      },
+      "parse_failures": 3
+    },
+    "posthoc_adapter": "MiniCPM native OTSL; observed rectangular fcel/nl subset consistent with its documented SDK OTSL conversion path; inert parser",
+    "cases": [
+      {
+        "image_id": "TB01",
+        "otsl_serialization_valid": true,
+        "rectangular_schema_valid": true,
+        "parse_error": null,
+        "parse_mode": "simple_rectangular_fcel_nl_otsl",
+        "predicted_columns": [
+          "Month",
+          "Opened",
+          "Closed",
+          "Backlog"
+        ],
+        "predicted_rows": [
+          [
+            "Jul",
+            "128",
+            "121",
+            "14"
+          ],
+          [
+            "Aug",
+            "141",
+            "138",
+            "17"
+          ],
+          [
+            "Sep",
+            "152",
+            "148",
+            "21"
+          ]
+        ],
+        "exact_table": true,
+        "cells": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "ground_truth_support": 16,
+          "predicted_support": 16,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "numeric_values": {
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "ground_truth_support": 9,
+          "predicted_support": 9,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      {
+        "image_id": "TB02",
+        "otsl_serialization_valid": true,
+        "rectangular_schema_valid": true,
+        "parse_error": null,
+        "parse_mode": "simple_rectangular_fcel_nl_otsl",
+        "predicted_columns": [
+          "Model",
+          "Version",
+          "Bytes",
+          "SHA suffix"
+        ],
+        "predicted_rows": [
+          [
+            "MiniCPM OCR",
+            "1.0.0",
+            "2600969816",
+            "e8a19c"
+          ],
+          [
+            "OvisOCR3",
+            "0.8.0",
+            "1706030528",
+            "d4637ffd"
+          ],
+          [
+            "RapidOCR",
+            "1.4.4",
+            "14915192",
+            "82cbf"
+          ]
+        ],
+        "exact_table": true,
+        "cells": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "ground_truth_support": 16,
+          "predicted_support": 16,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "numeric_values": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "ground_truth_support": 6,
+          "predicted_support": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      {
+        "image_id": "TB03",
+        "otsl_serialization_valid": true,
+        "rectangular_schema_valid": true,
+        "parse_error": null,
+        "parse_mode": "simple_rectangular_fcel_nl_otsl",
+        "predicted_columns": [
+          "Item",
+          "Qty",
+          "Unit price",
+          "Line total"
+        ],
+        "predicted_rows": [
+          [
+            "Cable 1 m",
+            "3",
+            "$7.25",
+            "$21.75"
+          ],
+          [
+            "Adapter 2-port",
+            "2",
+            "$14.00",
+            "$28.00"
+          ],
+          [
+            "Hub USB-C",
+            "1",
+            "$39.95",
+            "$39.95"
+          ]
+        ],
+        "exact_table": true,
+        "cells": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "ground_truth_support": 16,
+          "predicted_support": 16,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "numeric_values": {
+          "tp": 10,
+          "fp": 0,
+          "fn": 0,
+          "ground_truth_support": 10,
+          "predicted_support": 10,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      }
+    ],
+    "exact_tables": 3,
+    "total_tables": 3,
+    "cell_micro": {
+      "tp": 48,
+      "fp": 0,
+      "fn": 0,
+      "ground_truth_support": 48,
+      "predicted_support": 48,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "numeric_value_micro": {
+      "tp": 25,
+      "fp": 0,
+      "fn": 0,
+      "ground_truth_support": 25,
+      "predicted_support": 25,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "generation": [
+      {
+        "image_id": "TB01",
+        "generation_tokens": 61,
+        "max_new_tokens": 512,
+        "at_token_budget": false,
+        "finish_reason": "stop"
+      },
+      {
+        "image_id": "TB02",
+        "generation_tokens": 105,
+        "max_new_tokens": 512,
+        "at_token_budget": false,
+        "finish_reason": "stop"
+      },
+      {
+        "image_id": "TB03",
+        "generation_tokens": 85,
+        "max_new_tokens": 512,
+        "at_token_budget": false,
+        "finish_reason": "stop"
+      }
+    ]
+  },
+  "minicpm_native_otsl_charts": {
+    "source": {
+      "path": "qa/ocr-v2/results/raw_outputs/minicpm-chart-20261030T205408Z.json",
+      "sha256": "8bcb545173a10b9c71dea755ec08da8b6db77add8182927f504d61448c6f7693",
+      "run_id": "20261030T205408Z",
+      "experiment_commit": "1d9a4e42ff96f7c20bc72ac0111d3e2fe5c95cf9",
+      "experiment_code_sha256": {
+        "bench_ocr.py": "979c077883e8516b95d8c9611535189e0416b321a6c5f1eb954cad33bbf50564",
+        "offline_guard.py": "9d419f1d6d82e5f56ebbc04877655b567dce781aa94a6545fa8e97130e1bbb1d",
+        "smoke_ovis.py": "fd03bdbd8125d92edc3e0c25162fdbaa24c5fe2d4349d16971f9786019ab5e36"
+      },
+      "model": {
+        "repo": "openbmb/MiniCPM-OCR-1.0",
+        "revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+        "format": "Safetensors",
+        "quantization": "affine 4-bit group64, mixed BF16 layers",
+        "artifact_bytes": 2157942509
+      },
+      "runtime": {
+        "name": "MLX-VLM/MLX",
+        "version": "mlx-vlm=0.7.11; mlx=0.32.4",
+        "device": "Apple Metal GPU",
+        "offline_verified": true,
+        "runtime": "MLX-VLM/MLX",
+        "mlx_vlm": "0.7.11",
+        "mlx_vlm_git_revision": "918763c6875c80e82f9f48344dfad4763346fea8",
+        "mlx": "0.32.4",
+        "model_class": "Model",
+        "device_info": {
+          "device_name": "Apple M1 Pro",
+          "max_recommended_working_set_size": 12713115648,
+          "memory_size": 17179869184,
+          "architecture": "applegpu_g13s",
+          "max_buffer_length": 9534832640,
+          "resource_limit": 499000
+        },
+        "pillow": "13.0.0"
+      },
+      "command": {
+        "python_argv": [
+          "SightVault/qa/ocr-v2/bench_ocr.py",
+          "--model",
+          "minicpm",
+          "--task",
+          "chart",
+          "--case-ids",
+          "C01,C02,C03,C04",
+          "--max-new-tokens",
+          "512"
+        ],
+        "sandbox_wrapper": "sh SightVault/qa/ocr-v2/run_ocr_benchmark.sh",
+        "sandbox_profile": "(version 1)(allow default)(deny network-outbound)(allow network-outbound (remote ip \\\"localhost:*\\\"))"
+      },
+      "started_at_utc": "2026-10-30T20:54:08.301107+00:00",
+      "finished_at_utc": "2026-10-30T20:54:32.580576+00:00",
+      "offline": {
+        "isolation_method": "macOS sandbox-exec outbound deny with loopback allowed plus in-process socket/DNS guard; not a firewall",
+        "mac_sandbox_profile": "macOS sandbox-exec outbound deny with loopback allowed",
+        "blocked_external_attempts": [],
+        "offline_flags": {
+          "HF_HUB_OFFLINE": "1",
+          "TRANSFORMERS_OFFLINE": "1",
+          "HF_HUB_DISABLE_TELEMETRY": "1",
+          "USE_HUB_KERNELS": "NO",
+          "PYTORCH_ENABLE_MPS_FALLBACK": "0"
+        },
+        "verified": true
+      }
+    },
+    "original_harness_summary": {
+      "unique_cases": 4,
+      "exact_chart_header_cases": 0,
+      "serialization": {
+        "valid_cases": 0,
+        "evaluable_cases": 4,
+        "rate": 0.0
+      },
+      "schema": {
+        "valid_cases": 0,
+        "evaluable_cases": 0,
+        "rate": null
+      },
+      "value_pair_micro": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 15,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ground_truth_support": 15,
+        "predicted_support": 0
+      },
+      "numeric_value_micro": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 15,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ground_truth_support": 15,
+        "predicted_support": 0
+      },
+      "exact_charts": 0,
+      "json_parse_failures": 4
+    },
+    "posthoc_adapter": "MiniCPM Chart-to-Table OTSL; category/value columns inferred by numeric cells",
+    "native_chart_title_and_source_available": false,
+    "cases": [
+      {
+        "image_id": "C01",
+        "otsl_serialization_valid": true,
+        "rectangular_schema_valid": true,
+        "parse_error": null,
+        "headers_in_model_order": [
+          "Period / category",
+          "Images / minute"
+        ],
+        "rows_in_model_order": [
+          [
+            "Mon",
+            "41"
+          ],
+          [
+            "Tue",
+            "52"
+          ],
+          [
+            "Wed",
+            "48"
+          ],
+          [
+            "Thu",
+            "67"
+          ],
+          [
+            "Fri",
+            "72"
+          ]
+        ],
+        "inferred_label_column": 0,
+        "inferred_value_column": 1,
+        "axis_header_check_after_orientation": {
+          "x_title": {
+            "expected": "Period / category",
+            "actual": "Period / category",
+            "exact": true
+          },
+          "y_title": {
+            "expected": "Images / minute",
+            "actual": "Images / minute",
+            "exact": true
+          }
+        },
+        "predicted_value_pairs": [
+          [
+            "Mon",
+            "41"
+          ],
+          [
+            "Tue",
+            "52"
+          ],
+          [
+            "Wed",
+            "48"
+          ],
+          [
+            "Thu",
+            "67"
+          ],
+          [
+            "Fri",
+            "72"
+          ]
+        ],
+        "pair_scores": {
+          "literal_pairs": {
+            "tp": 5,
+            "fp": 0,
+            "fn": 0,
+            "ground_truth_support": 5,
+            "predicted_support": 5,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "numeric_semantic_pairs": {
+            "tp": 5,
+            "fp": 0,
+            "fn": 0,
+            "ground_truth_support": 5,
+            "predicted_support": 5,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "percent_axis": false,
+          "unit_errors": []
+        },
+        "generation": {
+          "generation_tokens": 49,
+          "max_new_tokens": 512,
+          "at_token_budget": false,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_id": "C02",
+        "otsl_serialization_valid": true,
+        "rectangular_schema_valid": true,
+        "parse_error": null,
+        "headers_in_model_order": [
+          "CER (%)",
+          "Period / category"
+        ],
+        "rows_in_model_order": [
+          [
+            "8",
+            "Rapid"
+          ],
+          [
+            "3",
+            "MiniCPM"
+          ],
+          [
+            "2",
+            "Ovis"
+          ]
+        ],
+        "inferred_label_column": 1,
+        "inferred_value_column": 0,
+        "axis_header_check_after_orientation": {
+          "x_title": {
+            "expected": "Period / category",
+            "actual": "Period / category",
+            "exact": true
+          },
+          "y_title": {
+            "expected": "CER (%)",
+            "actual": "CER (%)",
+            "exact": true
+          }
+        },
+        "predicted_value_pairs": [
+          [
+            "Rapid",
+            "8"
+          ],
+          [
+            "MiniCPM",
+            "3"
+          ],
+          [
+            "Ovis",
+            "2"
+          ]
+        ],
+        "pair_scores": {
+          "literal_pairs": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 0,
+            "ground_truth_support": 3,
+            "predicted_support": 3,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "numeric_semantic_pairs": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 0,
+            "ground_truth_support": 3,
+            "predicted_support": 3,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "percent_axis": true,
+          "unit_errors": []
+        },
+        "generation": {
+          "generation_tokens": 37,
+          "max_new_tokens": 512,
+          "at_token_budget": false,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_id": "C03",
+        "otsl_serialization_valid": true,
+        "rectangular_schema_valid": true,
+        "parse_error": null,
+        "headers_in_model_order": [
+          "Period / category",
+          "Files"
+        ],
+        "rows_in_model_order": [
+          [
+            "Jun",
+            "18"
+          ],
+          [
+            "Jul",
+            "24"
+          ],
+          [
+            "Aug",
+            "31"
+          ],
+          [
+            "Sep",
+            "29"
+          ]
+        ],
+        "inferred_label_column": 0,
+        "inferred_value_column": 1,
+        "axis_header_check_after_orientation": {
+          "x_title": {
+            "expected": "Period / category",
+            "actual": "Period / category",
+            "exact": true
+          },
+          "y_title": {
+            "expected": "Files",
+            "actual": "Files",
+            "exact": true
+          }
+        },
+        "predicted_value_pairs": [
+          [
+            "Jun",
+            "18"
+          ],
+          [
+            "Jul",
+            "24"
+          ],
+          [
+            "Aug",
+            "31"
+          ],
+          [
+            "Sep",
+            "29"
+          ]
+        ],
+        "pair_scores": {
+          "literal_pairs": {
+            "tp": 4,
+            "fp": 0,
+            "fn": 0,
+            "ground_truth_support": 4,
+            "predicted_support": 4,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "numeric_semantic_pairs": {
+            "tp": 4,
+            "fp": 0,
+            "fn": 0,
+            "ground_truth_support": 4,
+            "predicted_support": 4,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "percent_axis": false,
+          "unit_errors": []
+        },
+        "generation": {
+          "generation_tokens": 40,
+          "max_new_tokens": 512,
+          "at_token_budget": false,
+          "finish_reason": "stop"
+        }
+      },
+      {
+        "image_id": "C04",
+        "otsl_serialization_valid": true,
+        "rectangular_schema_valid": true,
+        "parse_error": null,
+        "headers_in_model_order": [
+          "Period / category",
+          "Milliseconds"
+        ],
+        "rows_in_model_order": [
+          [
+            "Small",
+            "14"
+          ],
+          [
+            "Medium",
+            "43"
+          ],
+          [
+            "Large",
+            "119"
+          ]
+        ],
+        "inferred_label_column": 0,
+        "inferred_value_column": 1,
+        "axis_header_check_after_orientation": {
+          "x_title": {
+            "expected": "Period / category",
+            "actual": "Period / category",
+            "exact": true
+          },
+          "y_title": {
+            "expected": "Milliseconds",
+            "actual": "Milliseconds",
+            "exact": true
+          }
+        },
+        "predicted_value_pairs": [
+          [
+            "Small",
+            "14"
+          ],
+          [
+            "Medium",
+            "43"
+          ],
+          [
+            "Large",
+            "119"
+          ]
+        ],
+        "pair_scores": {
+          "literal_pairs": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 0,
+            "ground_truth_support": 3,
+            "predicted_support": 3,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "numeric_semantic_pairs": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 0,
+            "ground_truth_support": 3,
+            "predicted_support": 3,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "percent_axis": false,
+          "unit_errors": []
+        },
+        "generation": {
+          "generation_tokens": 35,
+          "max_new_tokens": 512,
+          "at_token_budget": false,
+          "finish_reason": "stop"
+        }
+      }
+    ],
+    "literal_value_pairs_micro": {
+      "tp": 15,
+      "fp": 0,
+      "fn": 0,
+      "ground_truth_support": 15,
+      "predicted_support": 15,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "numeric_semantic_value_pairs_micro": {
+      "tp": 15,
+      "fp": 0,
+      "fn": 0,
+      "ground_truth_support": 15,
+      "predicted_support": 15,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "exact_axis_header_fields": {
+      "exact": 8,
+      "total": 8,
+      "accuracy": 1.0
+    }
+  },
+  "ovis_native_chart_json": {
+    "source": {
+      "path": "qa/ocr-v2/results/raw_outputs/ovis-chart-20261030T210021Z.json",
+      "sha256": "0e0c96b903b3f8a3961d44b9dfcb7cdf9ca26fb11df9ffbb8a66fb7d4f0f9538",
+      "run_id": "20261030T210021Z",
+      "experiment_commit": "1d9a4e42ff96f7c20bc72ac0111d3e2fe5c95cf9",
+      "experiment_code_sha256": {
+        "bench_ocr.py": "979c077883e8516b95d8c9611535189e0416b321a6c5f1eb954cad33bbf50564",
+        "offline_guard.py": "9d419f1d6d82e5f56ebbc04877655b567dce781aa94a6545fa8e97130e1bbb1d",
+        "smoke_ovis.py": "fd03bdbd8125d92edc3e0c25162fdbaa24c5fe2d4349d16971f9786019ab5e36"
+      },
+      "model": {
+        "repo": "ATH-MaaS/OvisOCR3",
+        "revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+        "format": "Safetensors",
+        "quantization": "none",
+        "artifact_bytes": 1706030528
+      },
+      "runtime": {
+        "name": "Transformers/PyTorch",
+        "version": "transformers=5.22.0; torch=2.11.0; accelerate=1.15.0",
+        "device": "mps",
+        "offline_verified": true,
+        "runtime": "Transformers/PyTorch",
+        "torch": "2.11.0",
+        "transformers": "5.22.0",
+        "accelerate": "1.15.0",
+        "model_class": "Qwen3_5ForConditionalGeneration",
+        "parameter_devices": [
+          "mps:0"
+        ],
+        "parameter_dtypes": [
+          "torch.bfloat16"
+        ],
+        "mps_built": true,
+        "mps_available": true,
+        "mps_fallback_disabled": true,
+        "configured_dtype": "bfloat16",
+        "pillow": "13.0.0"
+      },
+      "command": {
+        "python_argv": [
+          "SightVault/qa/ocr-v2/bench_ocr.py",
+          "--model",
+          "ovis",
+          "--task",
+          "chart",
+          "--case-ids",
+          "C01,C02,C03,C04",
+          "--max-new-tokens",
+          "512"
+        ],
+        "sandbox_wrapper": "sh SightVault/qa/ocr-v2/run_ocr_benchmark.sh",
+        "sandbox_profile": "(version 1)(allow default)(deny network-outbound)(allow network-outbound (remote ip \\\"localhost:*\\\"))"
+      },
+      "started_at_utc": "2026-10-30T21:00:21.496472+00:00",
+      "finished_at_utc": "2026-10-30T21:01:24.022068+00:00",
+      "offline": {
+        "isolation_method": "macOS sandbox-exec outbound deny with loopback allowed plus in-process socket/DNS guard; not a firewall",
+        "mac_sandbox_profile": "macOS sandbox-exec outbound deny with loopback allowed",
+        "blocked_external_attempts": [],
+        "offline_flags": {
+          "HF_HUB_OFFLINE": "1",
+          "TRANSFORMERS_OFFLINE": "1",
+          "HF_HUB_DISABLE_TELEMETRY": "1",
+          "USE_HUB_KERNELS": "NO",
+          "PYTORCH_ENABLE_MPS_FALLBACK": "0"
+        },
+        "verified": true
+      }
+    },
+    "original_harness_summary": {
+      "unique_cases": 4,
+      "exact_chart_header_cases": 0,
+      "serialization": {
+        "valid_cases": 4,
+        "evaluable_cases": 4,
+        "rate": 1.0
+      },
+      "schema": {
+        "valid_cases": 1,
+        "evaluable_cases": 4,
+        "rate": 0.25
+      },
+      "value_pair_micro": {
+        "tp": 0,
+        "fp": 6,
+        "fn": 15,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "ground_truth_support": 15,
+        "predicted_support": 6
+      },
+      "numeric_value_micro": {
+        "tp": 4,
+        "fp": 11,
+        "fn": 11,
+        "precision": 0.26666666666666666,
+        "recall": 0.26666666666666666,
+        "f1": 0.26666666666666666,
+        "ground_truth_support": 15,
+        "predicted_support": 15
+      },
+      "exact_charts": 0,
+      "json_parse_failures": 0
+    },
+    "posthoc_adapter": "Official chart JSON schema with recursively nested string-valued series; values flattened only for separate scoring",
+    "official_schema_valid_cases": 4,
+    "total_cases": 4,
+    "cases": [
+      {
+        "image_id": "C01",
+        "json_parse_success": true,
+        "json_parse_error": null,
+        "official_schema_valid_including_nested_string_values": true,
+        "original_harness_metrics_preserved_in_source": {
+          "serialization_valid": true,
+          "schema_valid": false,
+          "json_parse_success": true,
+          "parse_error": null,
+          "schema_errors": [
+            "values"
+          ],
+          "parse_mode": "json",
+          "predicted_chart": {
+            "title": "Weekly indexing throughput",
+            "source": "Source: local fixture · 2026-10-30",
+            "x_title": "None",
+            "y_title": "Images / minute",
+            "values": {
+              "Measurement": {
+                "Mon": "41.0",
+                "Tue": "52.0",
+                "Wed": "48.0",
+                "Thu": "67.0",
+                "Fri": "72.0"
+              }
+            }
+          },
+          "value_pairs": {
+            "tp": 0,
+            "fp": 1,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "ground_truth_support": 5,
+            "predicted_support": 1
+          },
+          "numeric_values": {
+            "tp": 0,
+            "fp": 5,
+            "fn": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "ground_truth_support": 5,
+            "predicted_support": 5
+          },
+          "exact_headers": false,
+          "exact_chart": false
+        },
+        "headers": {
+          "title": {
+            "expected": "Weekly indexing throughput",
+            "actual": "Weekly indexing throughput",
+            "exact": true
+          },
+          "source": {
+            "expected": "Source: local fixture · 2026-10-30",
+            "actual": "Source: local fixture · 2026-10-30",
+            "exact": true
+          },
+          "x_title": {
+            "expected": "Period / category",
+            "actual": "None",
+            "exact": false
+          },
+          "y_title": {
+            "expected": "Images / minute",
+            "actual": "Images / minute",
+            "exact": true
+          }
+        },
+        "native_series_names": [
+          "Measurement"
+        ],
+        "predicted_value_pairs": [
+          [
+            "Mon",
+            "41.0"
+          ],
+          [
+            "Tue",
+            "52.0"
+          ],
+          [
+            "Wed",
+            "48.0"
+          ],
+          [
+            "Thu",
+            "67.0"
+          ],
+          [
+            "Fri",
+            "72.0"
+          ]
+        ],
+        "pair_scores": {
+          "literal_pairs": {
+            "tp": 0,
+            "fp": 5,
+            "fn": 5,
+            "ground_truth_support": 5,
+            "predicted_support": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "numeric_semantic_pairs": {
+            "tp": 5,
+            "fp": 0,
+            "fn": 0,
+            "ground_truth_support": 5,
+            "predicted_support": 5,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "percent_axis": false,
+          "unit_errors": []
+        },
+        "generation": {
+          "generation_tokens": 130,
+          "max_new_tokens": 512,
+          "at_token_budget": false,
+          "finish_reason": null
+        }
+      },
+      {
+        "image_id": "C02",
+        "json_parse_success": true,
+        "json_parse_error": null,
+        "official_schema_valid_including_nested_string_values": true,
+        "original_harness_metrics_preserved_in_source": {
+          "serialization_valid": true,
+          "schema_valid": true,
+          "json_parse_success": true,
+          "parse_error": null,
+          "schema_errors": [],
+          "parse_mode": "json",
+          "predicted_chart": {
+            "title": "OCR character error rate",
+            "source": "Source: synthetic measurement · v1.4.4",
+            "x_title": "None",
+            "y_title": "CER (%)",
+            "values": {
+              "Rapid": "8.0%",
+              "MiniCPM": "3.0%",
+              "Ovis": "2.0%"
+            }
+          },
+          "value_pairs": {
+            "tp": 0,
+            "fp": 3,
+            "fn": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "ground_truth_support": 3,
+            "predicted_support": 3
+          },
+          "numeric_values": {
+            "tp": 0,
+            "fp": 3,
+            "fn": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "ground_truth_support": 3,
+            "predicted_support": 3
+          },
+          "exact_headers": false,
+          "exact_chart": false
+        },
+        "headers": {
+          "title": {
+            "expected": "OCR character error rate",
+            "actual": "OCR character error rate",
+            "exact": true
+          },
+          "source": {
+            "expected": "Source: synthetic measurement · v1.4.4",
+            "actual": "Source: synthetic measurement · v1.4.4",
+            "exact": true
+          },
+          "x_title": {
+            "expected": "Period / category",
+            "actual": "None",
+            "exact": false
+          },
+          "y_title": {
+            "expected": "CER (%)",
+            "actual": "CER (%)",
+            "exact": true
+          }
+        },
+        "native_series_names": [],
+        "predicted_value_pairs": [
+          [
+            "Rapid",
+            "8.0%"
+          ],
+          [
+            "MiniCPM",
+            "3.0%"
+          ],
+          [
+            "Ovis",
+            "2.0%"
+          ]
+        ],
+        "pair_scores": {
+          "literal_pairs": {
+            "tp": 0,
+            "fp": 3,
+            "fn": 3,
+            "ground_truth_support": 3,
+            "predicted_support": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "numeric_semantic_pairs": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 0,
+            "ground_truth_support": 3,
+            "predicted_support": 3,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "percent_axis": true,
+          "unit_errors": []
+        },
+        "generation": {
+          "generation_tokens": 96,
+          "max_new_tokens": 512,
+          "at_token_budget": false,
+          "finish_reason": null
+        }
+      },
+      {
+        "image_id": "C03",
+        "json_parse_success": true,
+        "json_parse_error": null,
+        "official_schema_valid_including_nested_string_values": true,
+        "original_harness_metrics_preserved_in_source": {
+          "serialization_valid": true,
+          "schema_valid": false,
+          "json_parse_success": true,
+          "parse_error": null,
+          "schema_errors": [
+            "values"
+          ],
+          "parse_mode": "json",
+          "predicted_chart": {
+            "title": "Monthly document count",
+            "source": "Source: demo archive · updated 2026-10-29",
+            "x_title": "None",
+            "y_title": "Files",
+            "values": {
+              "Measurement": {
+                "Jun": "18",
+                "Jul": "24",
+                "Aug": "31",
+                "Sep": "29"
+              }
+            }
+          },
+          "value_pairs": {
+            "tp": 0,
+            "fp": 1,
+            "fn": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "ground_truth_support": 4,
+            "predicted_support": 1
+          },
+          "numeric_values": {
+            "tp": 4,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "ground_truth_support": 4,
+            "predicted_support": 4
+          },
+          "exact_headers": false,
+          "exact_chart": false
+        },
+        "headers": {
+          "title": {
+            "expected": "Monthly document count",
+            "actual": "Monthly document count",
+            "exact": true
+          },
+          "source": {
+            "expected": "Source: demo archive · updated 2026-10-29",
+            "actual": "Source: demo archive · updated 2026-10-29",
+            "exact": true
+          },
+          "x_title": {
+            "expected": "Period / category",
+            "actual": "None",
+            "exact": false
+          },
+          "y_title": {
+            "expected": "Files",
+            "actual": "Files",
+            "exact": true
+          }
+        },
+        "native_series_names": [
+          "Measurement"
+        ],
+        "predicted_value_pairs": [
+          [
+            "Jun",
+            "18"
+          ],
+          [
+            "Jul",
+            "24"
+          ],
+          [
+            "Aug",
+            "31"
+          ],
+          [
+            "Sep",
+            "29"
+          ]
+        ],
+        "pair_scores": {
+          "literal_pairs": {
+            "tp": 4,
+            "fp": 0,
+            "fn": 0,
+            "ground_truth_support": 4,
+            "predicted_support": 4,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "numeric_semantic_pairs": {
+            "tp": 4,
+            "fp": 0,
+            "fn": 0,
+            "ground_truth_support": 4,
+            "predicted_support": 4,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "percent_axis": false,
+          "unit_errors": []
+        },
+        "generation": {
+          "generation_tokens": 110,
+          "max_new_tokens": 512,
+          "at_token_budget": false,
+          "finish_reason": null
+        }
+      },
+      {
+        "image_id": "C04",
+        "json_parse_success": true,
+        "json_parse_error": null,
+        "official_schema_valid_including_nested_string_values": true,
+        "original_harness_metrics_preserved_in_source": {
+          "serialization_valid": true,
+          "schema_valid": false,
+          "json_parse_success": true,
+          "parse_error": null,
+          "schema_errors": [
+            "values"
+          ],
+          "parse_mode": "json",
+          "predicted_chart": {
+            "title": "Latency by image size",
+            "source": "Source: local CPU sample · 3.12.9",
+            "x_title": "None",
+            "y_title": "Milliseconds",
+            "values": {
+              "Measurement": {
+                "Small": "14.0",
+                "Medium": "43.0",
+                "Large": "119.0"
+              }
+            }
+          },
+          "value_pairs": {
+            "tp": 0,
+            "fp": 1,
+            "fn": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "ground_truth_support": 3,
+            "predicted_support": 1
+          },
+          "numeric_values": {
+            "tp": 0,
+            "fp": 3,
+            "fn": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "ground_truth_support": 3,
+            "predicted_support": 3
+          },
+          "exact_headers": false,
+          "exact_chart": false
+        },
+        "headers": {
+          "title": {
+            "expected": "Latency by image size",
+            "actual": "Latency by image size",
+            "exact": true
+          },
+          "source": {
+            "expected": "Source: local CPU sample · 3.12.9",
+            "actual": "Source: local CPU sample · 3.12.9",
+            "exact": true
+          },
+          "x_title": {
+            "expected": "Period / category",
+            "actual": "None",
+            "exact": false
+          },
+          "y_title": {
+            "expected": "Milliseconds",
+            "actual": "Milliseconds",
+            "exact": true
+          }
+        },
+        "native_series_names": [
+          "Measurement"
+        ],
+        "predicted_value_pairs": [
+          [
+            "Small",
+            "14.0"
+          ],
+          [
+            "Medium",
+            "43.0"
+          ],
+          [
+            "Large",
+            "119.0"
+          ]
+        ],
+        "pair_scores": {
+          "literal_pairs": {
+            "tp": 0,
+            "fp": 3,
+            "fn": 3,
+            "ground_truth_support": 3,
+            "predicted_support": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "numeric_semantic_pairs": {
+            "tp": 3,
+            "fp": 0,
+            "fn": 0,
+            "ground_truth_support": 3,
+            "predicted_support": 3,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "percent_axis": false,
+          "unit_errors": []
+        },
+        "generation": {
+          "generation_tokens": 106,
+          "max_new_tokens": 512,
+          "at_token_budget": false,
+          "finish_reason": null
+        }
+      }
+    ],
+    "literal_value_pairs_micro": {
+      "tp": 4,
+      "fp": 11,
+      "fn": 11,
+      "ground_truth_support": 15,
+      "predicted_support": 15,
+      "precision": 0.26666666666666666,
+      "recall": 0.26666666666666666,
+      "f1": 0.26666666666666666
+    },
+    "numeric_semantic_value_pairs_micro": {
+      "tp": 15,
+      "fp": 0,
+      "fn": 0,
+      "ground_truth_support": 15,
+      "predicted_support": 15,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "header_field_exact": {
+      "exact": 12,
+      "total": 16,
+      "accuracy": 0.75
+    }
+  },
+  "spotting_granularity_review": {
+    "rapid_source": {
+      "path": "qa/ocr-v2/results/raw_outputs/rapid-spotting-20261030T204803Z.json",
+      "sha256": "10a5ec5a70532a752471c99911214ce48e6623e2f7dacc0254db35493b7ca669",
+      "run_id": "20261030T204803Z",
+      "experiment_commit": "1d9a4e42ff96f7c20bc72ac0111d3e2fe5c95cf9",
+      "experiment_code_sha256": {
+        "bench_ocr.py": "979c077883e8516b95d8c9611535189e0416b321a6c5f1eb954cad33bbf50564",
+        "offline_guard.py": "9d419f1d6d82e5f56ebbc04877655b567dce781aa94a6545fa8e97130e1bbb1d",
+        "smoke_ovis.py": "fd03bdbd8125d92edc3e0c25162fdbaa24c5fe2d4349d16971f9786019ab5e36"
+      },
+      "model": {
+        "repo": "rapidocr-onnxruntime==1.4.4",
+        "revision": "PyPI release 1.4.4; RapidAI/RapidOCR source commit 86ae3f5079df3422c1829cd84baf19bc8a7a9453",
+        "format": "ONNX detector, angle classifier, and recognizer pipeline",
+        "quantization": "Upstream ONNX precision unchanged by this experiment",
+        "artifact_bytes": 16189007
+      },
+      "runtime": {
+        "name": "RapidOCR/ONNX Runtime CPU",
+        "version": "rapidocr-onnxruntime=1.4.4; onnxruntime=1.31.1",
+        "device": "CPU",
+        "offline_verified": true,
+        "runtime": "RapidOCR / ONNX Runtime",
+        "rapidocr_onnxruntime": "1.4.4",
+        "onnxruntime": "1.31.1",
+        "execution_providers_available": [
+          "CoreMLExecutionProvider",
+          "AzureExecutionProvider",
+          "CPUExecutionProvider"
+        ],
+        "thread_configuration": {
+          "intra_op_num_threads": 4,
+          "inter_op_num_threads": 2
+        },
+        "word_boxes_requested": true,
+        "numpy": "2.5.4",
+        "opencv": "5.0.0",
+        "pillow": "13.0.0"
+      },
+      "command": {
+        "python_argv": [
+          "SightVault/qa/ocr-v2/bench_ocr.py",
+          "--model",
+          "rapid",
+          "--task",
+          "spotting",
+          "--case-ids",
+          "T01,I01,F01,TB02,MC01,ROT01"
+        ],
+        "sandbox_wrapper": "sh SightVault/qa/ocr-v2/run_ocr_benchmark.sh",
+        "sandbox_profile": "(version 1)(allow default)(deny network-outbound)(allow network-outbound (remote ip \\\"localhost:*\\\"))"
+      },
+      "started_at_utc": "2026-10-30T20:48:03.212402+00:00",
+      "finished_at_utc": "2026-10-30T20:48:06.480784+00:00",
+      "offline": {
+        "isolation_method": "macOS sandbox-exec outbound deny with loopback allowed plus in-process socket/DNS guard; not a firewall",
+        "mac_sandbox_profile": "macOS sandbox-exec outbound deny with loopback allowed",
+        "blocked_external_attempts": [],
+        "offline_flags": {
+          "HF_HUB_OFFLINE": "1",
+          "TRANSFORMERS_OFFLINE": "1",
+          "HF_HUB_DISABLE_TELEMETRY": "1",
+          "USE_HUB_KERNELS": "NO",
+          "PYTORCH_ENABLE_MPS_FALLBACK": "0"
+        },
+        "verified": true
+      }
+    },
+    "ovis_source": {
+      "path": "qa/ocr-v2/results/raw_outputs/ovis-spotting-20261030T205452Z.json",
+      "sha256": "bede456900324e1d6b1290614edfeb3796c5c4da9dae41bb619ac6c36176c99b",
+      "run_id": "20261030T205452Z",
+      "experiment_commit": "1d9a4e42ff96f7c20bc72ac0111d3e2fe5c95cf9",
+      "experiment_code_sha256": {
+        "bench_ocr.py": "979c077883e8516b95d8c9611535189e0416b321a6c5f1eb954cad33bbf50564",
+        "offline_guard.py": "9d419f1d6d82e5f56ebbc04877655b567dce781aa94a6545fa8e97130e1bbb1d",
+        "smoke_ovis.py": "fd03bdbd8125d92edc3e0c25162fdbaa24c5fe2d4349d16971f9786019ab5e36"
+      },
+      "model": {
+        "repo": "ATH-MaaS/OvisOCR3",
+        "revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+        "format": "Safetensors",
+        "quantization": "none",
+        "artifact_bytes": 1706030528
+      },
+      "runtime": {
+        "name": "Transformers/PyTorch",
+        "version": "transformers=5.22.0; torch=2.11.0; accelerate=1.15.0",
+        "device": "mps",
+        "offline_verified": true,
+        "runtime": "Transformers/PyTorch",
+        "torch": "2.11.0",
+        "transformers": "5.22.0",
+        "accelerate": "1.15.0",
+        "model_class": "Qwen3_5ForConditionalGeneration",
+        "parameter_devices": [
+          "mps:0"
+        ],
+        "parameter_dtypes": [
+          "torch.bfloat16"
+        ],
+        "mps_built": true,
+        "mps_available": true,
+        "mps_fallback_disabled": true,
+        "configured_dtype": "bfloat16",
+        "pillow": "13.0.0"
+      },
+      "command": {
+        "python_argv": [
+          "SightVault/qa/ocr-v2/bench_ocr.py",
+          "--model",
+          "ovis",
+          "--task",
+          "spotting",
+          "--case-ids",
+          "T01,I01,F01,TB02,MC01,ROT01",
+          "--max-new-tokens",
+          "768"
+        ],
+        "sandbox_wrapper": "sh SightVault/qa/ocr-v2/run_ocr_benchmark.sh",
+        "sandbox_profile": "(version 1)(allow default)(deny network-outbound)(allow network-outbound (remote ip \\\"localhost:*\\\"))"
+      },
+      "started_at_utc": "2026-10-30T20:54:52.768770+00:00",
+      "finished_at_utc": "2026-10-30T20:57:41.751923+00:00",
+      "offline": {
+        "isolation_method": "macOS sandbox-exec outbound deny with loopback allowed plus in-process socket/DNS guard; not a firewall",
+        "mac_sandbox_profile": "macOS sandbox-exec outbound deny with loopback allowed",
+        "blocked_external_attempts": [],
+        "offline_flags": {
+          "HF_HUB_OFFLINE": "1",
+          "TRANSFORMERS_OFFLINE": "1",
+          "HF_HUB_DISABLE_TELEMETRY": "1",
+          "USE_HUB_KERNELS": "NO",
+          "PYTORCH_ENABLE_MPS_FALLBACK": "0"
+        },
+        "verified": true
+      }
+    },
+    "rapid_native_character_box_metrics_micro": {
+      "text_and_bbox": {
+        "tp": 0,
+        "fp": 1150,
+        "fn": 164,
+        "ground_truth_support": 164,
+        "predicted_support": 1150,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "text_only": {
+        "tp": 5,
+        "fp": 1145,
+        "fn": 159,
+        "ground_truth_support": 164,
+        "predicted_support": 1150,
+        "precision": 0.004347826086956522,
+        "recall": 0.03048780487804878,
+        "f1": 0.0076103500761034995
+      }
+    },
+    "rapid_derived_char_to_word_variant": {
+      "method_scope": "Saved outputs only; derived word geometry uses native character quads. Unalignable lines are excluded and counted; no line is repaired or split by guessed positions.",
+      "scope_limit": "Observed only on this English fixture subset and RapidOCR 1.4.4 return_word_box route.",
+      "text_and_bbox_micro": {
+        "tp": 121,
+        "fp": 34,
+        "fn": 43,
+        "ground_truth_support": 164,
+        "predicted_support": 155,
+        "precision": 0.7806451612903226,
+        "recall": 0.7378048780487805,
+        "f1": 0.7586206896551724
+      },
+      "text_only_micro": {
+        "tp": 144,
+        "fp": 11,
+        "fn": 20,
+        "ground_truth_support": 164,
+        "predicted_support": 155,
+        "precision": 0.9290322580645162,
+        "recall": 0.8780487804878049,
+        "f1": 0.9028213166144201
+      },
+      "cases": [
+        {
+          "image_id": "T01",
+          "native_metric_unchanged": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": null,
+            "exact_text_and_bbox": {
+              "tp": 0,
+              "fp": 303,
+              "fn": 38,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "ground_truth_support": 38,
+              "predicted_support": 303
+            },
+            "text_only": {
+              "tp": 2,
+              "fp": 301,
+              "fn": 36,
+              "precision": 0.006600660066006601,
+              "recall": 0.05263157894736842,
+              "f1": 0.011730205278592375,
+              "ground_truth_support": 38,
+              "predicted_support": 303
+            },
+            "expected_boxes": 38,
+            "predicted_boxes": 303,
+            "valid_predicted_boxes": 303,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {},
+            "serialization_valid": true,
+            "schema_valid": true,
+            "output_format": "native RapidOCR word-box API",
+            "parse_error": null
+          },
+          "method": "center-in-line-quad assignment; projection sort on line top edge; exact character stream must match line after whitespace collapse; union native character quads per whitespace-delimited word",
+          "unassigned_character_count": 0,
+          "ambiguous_character_count": 0,
+          "aligned_lines": 10,
+          "line_count": 10,
+          "unalignable_lines": [],
+          "derived_word_count": 37,
+          "derived_word_boxes_xyxy_px": [
+            {
+              "text": "npm",
+              "bbox": [
+                40.0,
+                20.0,
+                82.0,
+                51.0
+              ],
+              "source_line_index": 0
+            },
+            {
+              "text": "install",
+              "bbox": [
+                98.0,
+                19.0,
+                202.0,
+                51.0
+              ],
+              "source_line_index": 0
+            },
+            {
+              "text": "·",
+              "bbox": [
+                223.0,
+                18.0,
+                236.0,
+                49.0
+              ],
+              "source_line_index": 0
+            },
+            {
+              "text": "Resolver",
+              "bbox": [
+                249.0,
+                17.0,
+                371.0,
+                48.0
+              ],
+              "source_line_index": 0
+            },
+            {
+              "text": "$",
+              "bbox": [
+                43.0,
+                106.0,
+                55.0,
+                132.0
+              ],
+              "source_line_index": 1
+            },
+            {
+              "text": "npm",
+              "bbox": [
+                72.0,
+                106.0,
+                112.0,
+                132.0
+              ],
+              "source_line_index": 1
+            },
+            {
+              "text": "install",
+              "bbox": [
+                129.0,
+                106.0,
+                226.0,
+                132.0
+              ],
+              "source_line_index": 1
+            },
+            {
+              "text": "npm",
+              "bbox": [
+                42.0,
+                148.0,
+                85.0,
+                172.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "ERR!",
+              "bbox": [
+                100.0,
+                148.0,
+                156.0,
+                172.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "code",
+              "bbox": [
+                171.0,
+                147.0,
+                224.0,
+                172.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "ERESOLVE",
+              "bbox": [
+                239.0,
+                147.0,
+                353.0,
+                171.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "npm",
+              "bbox": [
+                43.0,
+                188.0,
+                85.0,
+                214.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "ERR!",
+              "bbox": [
+                100.0,
+                188.0,
+                154.0,
+                214.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "EREsOLVE",
+              "bbox": [
+                170.0,
+                188.0,
+                283.0,
+                214.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "unable",
+              "bbox": [
+                296.0,
+                188.0,
+                378.0,
+                214.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "to",
+              "bbox": [
+                396.0,
+                188.0,
+                422.0,
+                214.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "resolve",
+              "bbox": [
+                439.0,
+                188.0,
+                535.0,
+                214.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "dependency",
+              "bbox": [
+                552.0,
+                188.0,
+                687.0,
+                214.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "tree",
+              "bbox": [
+                704.0,
+                188.0,
+                758.0,
+                214.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "While",
+              "bbox": [
+                45.0,
+                230.0,
+                111.0,
+                256.0
+              ],
+              "source_line_index": 4
+            },
+            {
+              "text": "resolving:",
+              "bbox": [
+                128.0,
+                230.0,
+                265.0,
+                256.0
+              ],
+              "source_line_index": 4
+            },
+            {
+              "text": "api-shell@2.4.1",
+              "bbox": [
+                285.0,
+                230.0,
+                494.0,
+                256.0
+              ],
+              "source_line_index": 4
+            },
+            {
+              "text": "Found:",
+              "bbox": [
+                45.0,
+                270.0,
+                126.0,
+                294.0
+              ],
+              "source_line_index": 5
+            },
+            {
+              "text": "react@19.0.0",
+              "bbox": [
+                141.0,
+                270.0,
+                311.0,
+                294.0
+              ],
+              "source_line_index": 5
+            },
+            {
+              "text": "Could",
+              "bbox": [
+                46.0,
+                311.0,
+                113.0,
+                336.0
+              ],
+              "source_line_index": 6
+            },
+            {
+              "text": "not",
+              "bbox": [
+                130.0,
+                311.0,
+                168.0,
+                336.0
+              ],
+              "source_line_index": 6
+            },
+            {
+              "text": "resolve",
+              "bbox": [
+                184.0,
+                311.0,
+                280.0,
+                337.0
+              ],
+              "source_line_index": 6
+            },
+            {
+              "text": "dependency:",
+              "bbox": [
+                297.0,
+                312.0,
+                451.0,
+                338.0
+              ],
+              "source_line_index": 6
+            },
+            {
+              "text": "peer",
+              "bbox": [
+                44.0,
+                350.0,
+                98.0,
+                380.0
+              ],
+              "source_line_index": 7
+            },
+            {
+              "text": "react@\"^18.0.0\"",
+              "bbox": [
+                114.0,
+                350.0,
+                324.0,
+                380.0
+              ],
+              "source_line_index": 7
+            },
+            {
+              "text": "from",
+              "bbox": [
+                340.0,
+                349.0,
+                394.0,
+                380.0
+              ],
+              "source_line_index": 7
+            },
+            {
+              "text": "legacy-widget@2.3.1",
+              "bbox": [
+                410.0,
+                349.0,
+                675.0,
+                379.0
+              ],
+              "source_line_index": 7
+            },
+            {
+              "text": "Log:",
+              "bbox": [
+                44.0,
+                392.0,
+                98.0,
+                420.0
+              ],
+              "source_line_index": 8
+            },
+            {
+              "text": "https://registry.npmjs.org/-/npm/vl",
+              "bbox": [
+                114.0,
+                392.0,
+                605.0,
+                420.0
+              ],
+              "source_line_index": 8
+            },
+            {
+              "text": "Date:",
+              "bbox": [
+                45.0,
+                437.0,
+                115.0,
+                457.0
+              ],
+              "source_line_index": 9
+            },
+            {
+              "text": "2026-10-3009:14:06",
+              "bbox": [
+                129.0,
+                437.0,
+                396.0,
+                457.0
+              ],
+              "source_line_index": 9
+            },
+            {
+              "text": "-0400",
+              "bbox": [
+                410.0,
+                437.0,
+                479.0,
+                457.0
+              ],
+              "source_line_index": 9
+            }
+          ],
+          "derived_word_metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.5780304935719791,
+            "exact_text_and_bbox": {
+              "tp": 25,
+              "fp": 12,
+              "fn": 13,
+              "precision": 0.6756756756756757,
+              "recall": 0.6578947368421053,
+              "f1": 0.6666666666666667,
+              "ground_truth_support": 38,
+              "predicted_support": 37
+            },
+            "text_only": {
+              "tp": 34,
+              "fp": 3,
+              "fn": 4,
+              "precision": 0.918918918918919,
+              "recall": 0.8947368421052632,
+              "f1": 0.9066666666666667,
+              "ground_truth_support": 38,
+              "predicted_support": 37
+            },
+            "expected_boxes": 38,
+            "predicted_boxes": 37,
+            "valid_predicted_boxes": 37,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          },
+          "native_line_box_metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.6540350452733857,
+            "exact_text_and_bbox": {
+              "tp": 7,
+              "fp": 3,
+              "fn": 3,
+              "precision": 0.7,
+              "recall": 0.7,
+              "f1": 0.7,
+              "ground_truth_support": 10,
+              "predicted_support": 10
+            },
+            "text_only": {
+              "tp": 7,
+              "fp": 3,
+              "fn": 3,
+              "precision": 0.7,
+              "recall": 0.7,
+              "f1": 0.7,
+              "ground_truth_support": 10,
+              "predicted_support": 10
+            },
+            "expected_boxes": 10,
+            "predicted_boxes": 10,
+            "valid_predicted_boxes": 10,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          }
+        },
+        {
+          "image_id": "I01",
+          "native_metric_unchanged": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": null,
+            "exact_text_and_bbox": {
+              "tp": 0,
+              "fp": 230,
+              "fn": 36,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "ground_truth_support": 36,
+              "predicted_support": 230
+            },
+            "text_only": {
+              "tp": 1,
+              "fp": 229,
+              "fn": 35,
+              "precision": 0.004347826086956522,
+              "recall": 0.027777777777777776,
+              "f1": 0.007518796992481203,
+              "ground_truth_support": 36,
+              "predicted_support": 230
+            },
+            "expected_boxes": 36,
+            "predicted_boxes": 230,
+            "valid_predicted_boxes": 230,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {},
+            "serialization_valid": true,
+            "schema_valid": true,
+            "output_format": "native RapidOCR word-box API",
+            "parse_error": null
+          },
+          "method": "center-in-line-quad assignment; projection sort on line top edge; exact character stream must match line after whitespace collapse; union native character quads per whitespace-delimited word",
+          "unassigned_character_count": 0,
+          "ambiguous_character_count": 0,
+          "aligned_lines": 11,
+          "line_count": 11,
+          "unalignable_lines": [],
+          "derived_word_count": 32,
+          "derived_word_boxes_xyxy_px": [
+            {
+              "text": "INVOICE",
+              "bbox": [
+                319.0,
+                127.0,
+                472.0,
+                162.0
+              ],
+              "source_line_index": 0
+            },
+            {
+              "text": "INVOlCE·fictional",
+              "bbox": [
+                320.0,
+                201.0,
+                534.0,
+                230.0
+              ],
+              "source_line_index": 1
+            },
+            {
+              "text": "test",
+              "bbox": [
+                542.0,
+                201.0,
+                582.0,
+                230.0
+              ],
+              "source_line_index": 1
+            },
+            {
+              "text": "data",
+              "bbox": [
+                593.0,
+                201.0,
+                637.0,
+                231.0
+              ],
+              "source_line_index": 1
+            },
+            {
+              "text": "Supplier:",
+              "bbox": [
+                324.0,
+                248.0,
+                423.0,
+                278.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "Northwind",
+              "bbox": [
+                431.0,
+                248.0,
+                541.0,
+                278.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "Demo",
+              "bbox": [
+                551.0,
+                248.0,
+                613.0,
+                278.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "LLC",
+              "bbox": [
+                627.0,
+                248.0,
+                668.0,
+                278.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "Invoice",
+              "bbox": [
+                321.0,
+                292.0,
+                401.0,
+                323.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "number:",
+              "bbox": [
+                411.0,
+                292.0,
+                501.0,
+                323.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "INV-1081",
+              "bbox": [
+                509.0,
+                292.0,
+                614.0,
+                323.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "Invoice",
+              "bbox": [
+                321.0,
+                337.0,
+                397.0,
+                367.0
+              ],
+              "source_line_index": 4
+            },
+            {
+              "text": "date:",
+              "bbox": [
+                411.0,
+                337.0,
+                464.0,
+                367.0
+              ],
+              "source_line_index": 4
+            },
+            {
+              "text": "2026-10-03",
+              "bbox": [
+                477.0,
+                337.0,
+                598.0,
+                367.0
+              ],
+              "source_line_index": 4
+            },
+            {
+              "text": "Due",
+              "bbox": [
+                323.0,
+                384.0,
+                365.0,
+                415.0
+              ],
+              "source_line_index": 5
+            },
+            {
+              "text": "date:",
+              "bbox": [
+                376.0,
+                384.0,
+                430.0,
+                415.0
+              ],
+              "source_line_index": 5
+            },
+            {
+              "text": "2026-10-24",
+              "bbox": [
+                438.0,
+                384.0,
+                563.0,
+                415.0
+              ],
+              "source_line_index": 5
+            },
+            {
+              "text": "Subtotal:USD",
+              "bbox": [
+                325.0,
+                433.0,
+                477.0,
+                459.0
+              ],
+              "source_line_index": 6
+            },
+            {
+              "text": "1,240.00",
+              "bbox": [
+                491.0,
+                433.0,
+                586.0,
+                459.0
+              ],
+              "source_line_index": 6
+            },
+            {
+              "text": "Sales",
+              "bbox": [
+                325.0,
+                477.0,
+                381.0,
+                505.0
+              ],
+              "source_line_index": 7
+            },
+            {
+              "text": "tax:",
+              "bbox": [
+                391.0,
+                477.0,
+                432.0,
+                506.0
+              ],
+              "source_line_index": 7
+            },
+            {
+              "text": "USD",
+              "bbox": [
+                442.0,
+                477.0,
+                490.0,
+                507.0
+              ],
+              "source_line_index": 7
+            },
+            {
+              "text": "99.20",
+              "bbox": [
+                503.0,
+                478.0,
+                561.0,
+                507.0
+              ],
+              "source_line_index": 7
+            },
+            {
+              "text": "Amount",
+              "bbox": [
+                321.0,
+                522.0,
+                407.0,
+                552.0
+              ],
+              "source_line_index": 8
+            },
+            {
+              "text": "due:",
+              "bbox": [
+                417.0,
+                522.0,
+                465.0,
+                553.0
+              ],
+              "source_line_index": 8
+            },
+            {
+              "text": "USD",
+              "bbox": [
+                476.0,
+                523.0,
+                520.0,
+                553.0
+              ],
+              "source_line_index": 8
+            },
+            {
+              "text": "1,339.20",
+              "bbox": [
+                533.0,
+                524.0,
+                630.0,
+                554.0
+              ],
+              "source_line_index": 8
+            },
+            {
+              "text": "Purchase",
+              "bbox": [
+                322.0,
+                570.0,
+                427.0,
+                598.0
+              ],
+              "source_line_index": 9
+            },
+            {
+              "text": "order:PO-7330",
+              "bbox": [
+                436.0,
+                570.0,
+                607.0,
+                598.0
+              ],
+              "source_line_index": 9
+            },
+            {
+              "text": "Terms:",
+              "bbox": [
+                326.0,
+                613.0,
+                398.0,
+                644.0
+              ],
+              "source_line_index": 10
+            },
+            {
+              "text": "Net",
+              "bbox": [
+                409.0,
+                614.0,
+                445.0,
+                645.0
+              ],
+              "source_line_index": 10
+            },
+            {
+              "text": "21",
+              "bbox": [
+                455.0,
+                614.0,
+                477.0,
+                645.0
+              ],
+              "source_line_index": 10
+            }
+          ],
+          "derived_word_metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.597844397625116,
+            "exact_text_and_bbox": {
+              "tp": 29,
+              "fp": 3,
+              "fn": 7,
+              "precision": 0.90625,
+              "recall": 0.8055555555555556,
+              "f1": 0.8529411764705882,
+              "ground_truth_support": 36,
+              "predicted_support": 32
+            },
+            "text_only": {
+              "tp": 29,
+              "fp": 3,
+              "fn": 7,
+              "precision": 0.90625,
+              "recall": 0.8055555555555556,
+              "f1": 0.8529411764705882,
+              "ground_truth_support": 36,
+              "predicted_support": 32
+            },
+            "expected_boxes": 36,
+            "predicted_boxes": 32,
+            "valid_predicted_boxes": 32,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          },
+          "native_line_box_metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.6324861421890899,
+            "exact_text_and_bbox": {
+              "tp": 8,
+              "fp": 3,
+              "fn": 3,
+              "precision": 0.7272727272727273,
+              "recall": 0.7272727272727273,
+              "f1": 0.7272727272727273,
+              "ground_truth_support": 11,
+              "predicted_support": 11
+            },
+            "text_only": {
+              "tp": 8,
+              "fp": 3,
+              "fn": 3,
+              "precision": 0.7272727272727273,
+              "recall": 0.7272727272727273,
+              "f1": 0.7272727272727273,
+              "ground_truth_support": 11,
+              "predicted_support": 11
+            },
+            "expected_boxes": 11,
+            "predicted_boxes": 11,
+            "valid_predicted_boxes": 11,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          }
+        },
+        {
+          "image_id": "F01",
+          "native_metric_unchanged": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": null,
+            "exact_text_and_bbox": {
+              "tp": 0,
+              "fp": 156,
+              "fn": 24,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "ground_truth_support": 24,
+              "predicted_support": 156
+            },
+            "text_only": {
+              "tp": 0,
+              "fp": 156,
+              "fn": 24,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "ground_truth_support": 24,
+              "predicted_support": 156
+            },
+            "expected_boxes": 24,
+            "predicted_boxes": 156,
+            "valid_predicted_boxes": 156,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {},
+            "serialization_valid": true,
+            "schema_valid": true,
+            "output_format": "native RapidOCR word-box API",
+            "parse_error": null
+          },
+          "method": "center-in-line-quad assignment; projection sort on line top edge; exact character stream must match line after whitespace collapse; union native character quads per whitespace-delimited word",
+          "unassigned_character_count": 0,
+          "ambiguous_character_count": 0,
+          "aligned_lines": 14,
+          "line_count": 14,
+          "unalignable_lines": [],
+          "derived_word_count": 24,
+          "derived_word_boxes_xyxy_px": [
+            {
+              "text": "Service",
+              "bbox": [
+                140.0,
+                122.0,
+                273.0,
+                163.0
+              ],
+              "source_line_index": 0
+            },
+            {
+              "text": "request",
+              "bbox": [
+                287.0,
+                123.0,
+                434.0,
+                164.0
+              ],
+              "source_line_index": 0
+            },
+            {
+              "text": "Form",
+              "bbox": [
+                143.0,
+                229.0,
+                209.0,
+                264.0
+              ],
+              "source_line_index": 1
+            },
+            {
+              "text": "version:",
+              "bbox": [
+                225.0,
+                230.0,
+                336.0,
+                266.0
+              ],
+              "source_line_index": 1
+            },
+            {
+              "text": "3.1.0",
+              "bbox": [
+                567.0,
+                232.0,
+                627.0,
+                264.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "All",
+              "bbox": [
+                150.0,
+                293.0,
+                182.0,
+                324.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "values",
+              "bbox": [
+                192.0,
+                293.0,
+                275.0,
+                324.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "are",
+              "bbox": [
+                286.0,
+                293.0,
+                324.0,
+                324.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "fictional",
+              "bbox": [
+                337.0,
+                293.0,
+                444.0,
+                324.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "benchmark",
+              "bbox": [
+                456.0,
+                293.0,
+                602.0,
+                324.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "data.",
+              "bbox": [
+                616.0,
+                293.0,
+                678.0,
+                325.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "Request",
+              "bbox": [
+                150.0,
+                353.0,
+                256.0,
+                391.0
+              ],
+              "source_line_index": 4
+            },
+            {
+              "text": "ID:",
+              "bbox": [
+                265.0,
+                354.0,
+                304.0,
+                392.0
+              ],
+              "source_line_index": 4
+            },
+            {
+              "text": "SR-10418",
+              "bbox": [
+                567.0,
+                356.0,
+                693.0,
+                386.0
+              ],
+              "source_line_index": 5
+            },
+            {
+              "text": "Opened:",
+              "bbox": [
+                145.0,
+                416.0,
+                263.0,
+                454.0
+              ],
+              "source_line_index": 6
+            },
+            {
+              "text": "2026-10-30",
+              "bbox": [
+                565.0,
+                420.0,
+                709.0,
+                447.0
+              ],
+              "source_line_index": 7
+            },
+            {
+              "text": "Status:",
+              "bbox": [
+                144.0,
+                480.0,
+                244.0,
+                512.0
+              ],
+              "source_line_index": 8
+            },
+            {
+              "text": "Pending",
+              "bbox": [
+                565.0,
+                479.0,
+                668.0,
+                513.0
+              ],
+              "source_line_index": 9
+            },
+            {
+              "text": "review",
+              "bbox": [
+                680.0,
+                479.0,
+                754.0,
+                513.0
+              ],
+              "source_line_index": 9
+            },
+            {
+              "text": "Priority:",
+              "bbox": [
+                144.0,
+                540.0,
+                253.0,
+                579.0
+              ],
+              "source_line_index": 10
+            },
+            {
+              "text": "P2",
+              "bbox": [
+                566.0,
+                542.0,
+                599.0,
+                575.0
+              ],
+              "source_line_index": 11
+            },
+            {
+              "text": "Owner:",
+              "bbox": [
+                147.0,
+                603.0,
+                243.0,
+                636.0
+              ],
+              "source_line_index": 12
+            },
+            {
+              "text": "A.",
+              "bbox": [
+                568.0,
+                603.0,
+                590.0,
+                635.0
+              ],
+              "source_line_index": 13
+            },
+            {
+              "text": "Rivera",
+              "bbox": [
+                601.0,
+                603.0,
+                676.0,
+                636.0
+              ],
+              "source_line_index": 13
+            }
+          ],
+          "derived_word_metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.6261920745672506,
+            "exact_text_and_bbox": {
+              "tp": 22,
+              "fp": 2,
+              "fn": 2,
+              "precision": 0.9166666666666666,
+              "recall": 0.9166666666666666,
+              "f1": 0.9166666666666666,
+              "ground_truth_support": 24,
+              "predicted_support": 24
+            },
+            "text_only": {
+              "tp": 24,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "ground_truth_support": 24,
+              "predicted_support": 24
+            },
+            "expected_boxes": 24,
+            "predicted_boxes": 24,
+            "valid_predicted_boxes": 24,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          },
+          "native_line_box_metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.6391681303095962,
+            "exact_text_and_bbox": {
+              "tp": 13,
+              "fp": 1,
+              "fn": 1,
+              "precision": 0.9285714285714286,
+              "recall": 0.9285714285714286,
+              "f1": 0.9285714285714286,
+              "ground_truth_support": 14,
+              "predicted_support": 14
+            },
+            "text_only": {
+              "tp": 14,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "ground_truth_support": 14,
+              "predicted_support": 14
+            },
+            "expected_boxes": 14,
+            "predicted_boxes": 14,
+            "valid_predicted_boxes": 14,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          }
+        },
+        {
+          "image_id": "TB02",
+          "native_metric_unchanged": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": null,
+            "exact_text_and_bbox": {
+              "tp": 0,
+              "fp": 138,
+              "fn": 21,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "ground_truth_support": 21,
+              "predicted_support": 138
+            },
+            "text_only": {
+              "tp": 0,
+              "fp": 138,
+              "fn": 21,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "ground_truth_support": 21,
+              "predicted_support": 138
+            },
+            "expected_boxes": 21,
+            "predicted_boxes": 138,
+            "valid_predicted_boxes": 138,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {},
+            "serialization_valid": true,
+            "schema_valid": true,
+            "output_format": "native RapidOCR word-box API",
+            "parse_error": null
+          },
+          "method": "center-in-line-quad assignment; projection sort on line top edge; exact character stream must match line after whitespace collapse; union native character quads per whitespace-delimited word",
+          "unassigned_character_count": 0,
+          "ambiguous_character_count": 0,
+          "aligned_lines": 17,
+          "line_count": 17,
+          "unalignable_lines": [],
+          "derived_word_count": 21,
+          "derived_word_boxes_xyxy_px": [
+            {
+              "text": "Model",
+              "bbox": [
+                107.0,
+                95.0,
+                214.0,
+                134.0
+              ],
+              "source_line_index": 0
+            },
+            {
+              "text": "package",
+              "bbox": [
+                227.0,
+                95.0,
+                376.0,
+                134.0
+              ],
+              "source_line_index": 0
+            },
+            {
+              "text": "manifest",
+              "bbox": [
+                399.0,
+                95.0,
+                554.0,
+                134.0
+              ],
+              "source_line_index": 0
+            },
+            {
+              "text": "Model",
+              "bbox": [
+                117.0,
+                231.0,
+                181.0,
+                259.0
+              ],
+              "source_line_index": 1
+            },
+            {
+              "text": "Version",
+              "bbox": [
+                468.0,
+                230.0,
+                544.0,
+                258.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "Bytes",
+              "bbox": [
+                819.0,
+                231.0,
+                874.0,
+                260.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "SHA",
+              "bbox": [
+                1168.0,
+                231.0,
+                1209.0,
+                258.0
+              ],
+              "source_line_index": 4
+            },
+            {
+              "text": "suffix",
+              "bbox": [
+                1218.0,
+                231.0,
+                1273.0,
+                258.0
+              ],
+              "source_line_index": 4
+            },
+            {
+              "text": "MiniCPM",
+              "bbox": [
+                118.0,
+                338.0,
+                198.0,
+                362.0
+              ],
+              "source_line_index": 5
+            },
+            {
+              "text": "OCR",
+              "bbox": [
+                210.0,
+                338.0,
+                250.0,
+                362.0
+              ],
+              "source_line_index": 5
+            },
+            {
+              "text": "1.0.0",
+              "bbox": [
+                469.0,
+                337.0,
+                512.0,
+                363.0
+              ],
+              "source_line_index": 6
+            },
+            {
+              "text": "2600969816",
+              "bbox": [
+                815.0,
+                337.0,
+                934.0,
+                361.0
+              ],
+              "source_line_index": 7
+            },
+            {
+              "text": "e8a19c",
+              "bbox": [
+                1167.0,
+                336.0,
+                1237.0,
+                363.0
+              ],
+              "source_line_index": 8
+            },
+            {
+              "text": "OvisOCR3",
+              "bbox": [
+                119.0,
+                443.0,
+                215.0,
+                467.0
+              ],
+              "source_line_index": 9
+            },
+            {
+              "text": "0.8.0",
+              "bbox": [
+                468.0,
+                442.0,
+                509.0,
+                467.0
+              ],
+              "source_line_index": 10
+            },
+            {
+              "text": "1706030528",
+              "bbox": [
+                815.0,
+                442.0,
+                934.0,
+                466.0
+              ],
+              "source_line_index": 11
+            },
+            {
+              "text": "d4637ffd",
+              "bbox": [
+                1167.0,
+                442.0,
+                1250.0,
+                466.0
+              ],
+              "source_line_index": 12
+            },
+            {
+              "text": "RapidOCR",
+              "bbox": [
+                118.0,
+                546.0,
+                214.0,
+                574.0
+              ],
+              "source_line_index": 13
+            },
+            {
+              "text": "1.4.4",
+              "bbox": [
+                469.0,
+                546.0,
+                512.0,
+                572.0
+              ],
+              "source_line_index": 14
+            },
+            {
+              "text": "14915192",
+              "bbox": [
+                814.0,
+                546.0,
+                912.0,
+                573.0
+              ],
+              "source_line_index": 15
+            },
+            {
+              "text": "82cbf",
+              "bbox": [
+                1167.0,
+                545.0,
+                1219.0,
+                573.0
+              ],
+              "source_line_index": 16
+            }
+          ],
+          "derived_word_metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.6160298045321783,
+            "exact_text_and_bbox": {
+              "tp": 21,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "ground_truth_support": 21,
+              "predicted_support": 21
+            },
+            "text_only": {
+              "tp": 21,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "ground_truth_support": 21,
+              "predicted_support": 21
+            },
+            "expected_boxes": 21,
+            "predicted_boxes": 21,
+            "valid_predicted_boxes": 21,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          },
+          "native_line_box_metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.6029602308722856,
+            "exact_text_and_bbox": {
+              "tp": 15,
+              "fp": 2,
+              "fn": 2,
+              "precision": 0.8823529411764706,
+              "recall": 0.8823529411764706,
+              "f1": 0.8823529411764706,
+              "ground_truth_support": 17,
+              "predicted_support": 17
+            },
+            "text_only": {
+              "tp": 17,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "ground_truth_support": 17,
+              "predicted_support": 17
+            },
+            "expected_boxes": 17,
+            "predicted_boxes": 17,
+            "valid_predicted_boxes": 17,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          }
+        },
+        {
+          "image_id": "MC01",
+          "native_metric_unchanged": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": null,
+            "exact_text_and_bbox": {
+              "tp": 0,
+              "fp": 243,
+              "fn": 33,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "ground_truth_support": 33,
+              "predicted_support": 243
+            },
+            "text_only": {
+              "tp": 2,
+              "fp": 241,
+              "fn": 31,
+              "precision": 0.00823045267489712,
+              "recall": 0.06060606060606061,
+              "f1": 0.014492753623188406,
+              "ground_truth_support": 33,
+              "predicted_support": 243
+            },
+            "expected_boxes": 33,
+            "predicted_boxes": 243,
+            "valid_predicted_boxes": 243,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {},
+            "serialization_valid": true,
+            "schema_valid": true,
+            "output_format": "native RapidOCR word-box API",
+            "parse_error": null
+          },
+          "method": "center-in-line-quad assignment; projection sort on line top edge; exact character stream must match line after whitespace collapse; union native character quads per whitespace-delimited word",
+          "unassigned_character_count": 0,
+          "ambiguous_character_count": 0,
+          "aligned_lines": 9,
+          "line_count": 9,
+          "unalignable_lines": [],
+          "derived_word_count": 30,
+          "derived_word_boxes_xyxy_px": [
+            {
+              "text": "Incident",
+              "bbox": [
+                85.0,
+                79.0,
+                245.0,
+                119.0
+              ],
+              "source_line_index": 0
+            },
+            {
+              "text": "summary",
+              "bbox": [
+                261.0,
+                81.0,
+                440.0,
+                122.0
+              ],
+              "source_line_index": 0
+            },
+            {
+              "text": "REPORT·",
+              "bbox": [
+                87.0,
+                134.0,
+                163.0,
+                155.0
+              ],
+              "source_line_index": 1
+            },
+            {
+              "text": "INTERNAL",
+              "bbox": [
+                167.0,
+                134.0,
+                245.0,
+                155.0
+              ],
+              "source_line_index": 1
+            },
+            {
+              "text": "REFERENCE",
+              "bbox": [
+                255.0,
+                134.0,
+                356.0,
+                155.0
+              ],
+              "source_line_index": 1
+            },
+            {
+              "text": "Root",
+              "bbox": [
+                104.0,
+                221.0,
+                161.0,
+                251.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "cause:",
+              "bbox": [
+                174.0,
+                221.0,
+                258.0,
+                251.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "missing",
+              "bbox": [
+                274.0,
+                221.0,
+                371.0,
+                251.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "wheel",
+              "bbox": [
+                389.0,
+                221.0,
+                461.0,
+                251.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "metadata.",
+              "bbox": [
+                474.0,
+                221.0,
+                603.0,
+                251.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "Mitigation",
+              "bbox": [
+                847.0,
+                218.0,
+                967.0,
+                255.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "Observed",
+              "bbox": [
+                102.0,
+                308.0,
+                201.0,
+                336.0
+              ],
+              "source_line_index": 4
+            },
+            {
+              "text": "on",
+              "bbox": [
+                210.0,
+                308.0,
+                233.0,
+                336.0
+              ],
+              "source_line_index": 4
+            },
+            {
+              "text": "Python",
+              "bbox": [
+                243.0,
+                308.0,
+                314.0,
+                336.0
+              ],
+              "source_line_index": 4
+            },
+            {
+              "text": "3.12.9",
+              "bbox": [
+                326.0,
+                308.0,
+                388.0,
+                336.0
+              ],
+              "source_line_index": 4
+            },
+            {
+              "text": "Install",
+              "bbox": [
+                840.0,
+                309.0,
+                902.0,
+                336.0
+              ],
+              "source_line_index": 5
+            },
+            {
+              "text": "from",
+              "bbox": [
+                909.0,
+                309.0,
+                950.0,
+                336.0
+              ],
+              "source_line_index": 5
+            },
+            {
+              "text": "the",
+              "bbox": [
+                963.0,
+                309.0,
+                994.0,
+                336.0
+              ],
+              "source_line_index": 5
+            },
+            {
+              "text": "pinned",
+              "bbox": [
+                1003.0,
+                309.0,
+                1071.0,
+                336.0
+              ],
+              "source_line_index": 5
+            },
+            {
+              "text": "lock",
+              "bbox": [
+                1080.0,
+                309.0,
+                1120.0,
+                336.0
+              ],
+              "source_line_index": 5
+            },
+            {
+              "text": "file",
+              "bbox": [
+                1127.0,
+                309.0,
+                1157.0,
+                336.0
+              ],
+              "source_line_index": 5
+            },
+            {
+              "text": "Package:",
+              "bbox": [
+                100.0,
+                396.0,
+                198.0,
+                426.0
+              ],
+              "source_line_index": 6
+            },
+            {
+              "text": "rapidocr_onnxruntime",
+              "bbox": [
+                206.0,
+                396.0,
+                431.0,
+                426.0
+              ],
+              "source_line_index": 6
+            },
+            {
+              "text": "1.4.4.",
+              "bbox": [
+                441.0,
+                396.0,
+                502.0,
+                426.0
+              ],
+              "source_line_index": 6
+            },
+            {
+              "text": "Retry",
+              "bbox": [
+                841.0,
+                394.0,
+                893.0,
+                425.0
+              ],
+              "source_line_index": 7
+            },
+            {
+              "text": "after",
+              "bbox": [
+                903.0,
+                394.0,
+                949.0,
+                425.0
+              ],
+              "source_line_index": 7
+            },
+            {
+              "text": "dependency",
+              "bbox": [
+                960.0,
+                394.0,
+                1084.0,
+                426.0
+              ],
+              "source_line_index": 7
+            },
+            {
+              "text": "verification.",
+              "bbox": [
+                1094.0,
+                395.0,
+                1213.0,
+                426.0
+              ],
+              "source_line_index": 7
+            },
+            {
+              "text": "Ticket",
+              "bbox": [
+                840.0,
+                484.0,
+                904.0,
+                511.0
+              ],
+              "source_line_index": 8
+            },
+            {
+              "text": "OCR-1042·2026-10-30",
+              "bbox": [
+                913.0,
+                484.0,
+                1162.0,
+                511.0
+              ],
+              "source_line_index": 8
+            }
+          ],
+          "derived_word_metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.6530635770454382,
+            "exact_text_and_bbox": {
+              "tp": 24,
+              "fp": 6,
+              "fn": 9,
+              "precision": 0.8,
+              "recall": 0.7272727272727273,
+              "f1": 0.761904761904762,
+              "ground_truth_support": 33,
+              "predicted_support": 30
+            },
+            "text_only": {
+              "tp": 26,
+              "fp": 4,
+              "fn": 7,
+              "precision": 0.8666666666666667,
+              "recall": 0.7878787878787878,
+              "f1": 0.8253968253968254,
+              "ground_truth_support": 33,
+              "predicted_support": 30
+            },
+            "expected_boxes": 33,
+            "predicted_boxes": 30,
+            "valid_predicted_boxes": 30,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          },
+          "native_line_box_metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.7674208585197725,
+            "exact_text_and_bbox": {
+              "tp": 5,
+              "fp": 4,
+              "fn": 4,
+              "precision": 0.5555555555555556,
+              "recall": 0.5555555555555556,
+              "f1": 0.5555555555555556,
+              "ground_truth_support": 9,
+              "predicted_support": 9
+            },
+            "text_only": {
+              "tp": 5,
+              "fp": 4,
+              "fn": 4,
+              "precision": 0.5555555555555556,
+              "recall": 0.5555555555555556,
+              "f1": 0.5555555555555556,
+              "ground_truth_support": 9,
+              "predicted_support": 9
+            },
+            "expected_boxes": 9,
+            "predicted_boxes": 9,
+            "valid_predicted_boxes": 9,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          }
+        },
+        {
+          "image_id": "ROT01",
+          "native_metric_unchanged": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": null,
+            "exact_text_and_bbox": {
+              "tp": 0,
+              "fp": 80,
+              "fn": 12,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "ground_truth_support": 12,
+              "predicted_support": 80
+            },
+            "text_only": {
+              "tp": 0,
+              "fp": 80,
+              "fn": 12,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "ground_truth_support": 12,
+              "predicted_support": 80
+            },
+            "expected_boxes": 12,
+            "predicted_boxes": 80,
+            "valid_predicted_boxes": 80,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {},
+            "serialization_valid": true,
+            "schema_valid": true,
+            "output_format": "native RapidOCR word-box API",
+            "parse_error": null
+          },
+          "method": "center-in-line-quad assignment; projection sort on line top edge; exact character stream must match line after whitespace collapse; union native character quads per whitespace-delimited word",
+          "unassigned_character_count": 0,
+          "ambiguous_character_count": 0,
+          "aligned_lines": 5,
+          "line_count": 5,
+          "unalignable_lines": [],
+          "derived_word_count": 11,
+          "derived_word_boxes_xyxy_px": [
+            {
+              "text": "Rotated",
+              "bbox": [
+                128.0,
+                999.0,
+                166.0,
+                1132.0
+              ],
+              "source_line_index": 0
+            },
+            {
+              "text": "invoice",
+              "bbox": [
+                128.0,
+                1148.0,
+                166.0,
+                1278.0
+              ],
+              "source_line_index": 0
+            },
+            {
+              "text": "Amount",
+              "bbox": [
+                292.0,
+                991.0,
+                326.0,
+                1076.0
+              ],
+              "source_line_index": 1
+            },
+            {
+              "text": "due:",
+              "bbox": [
+                292.0,
+                1085.0,
+                326.0,
+                1130.0
+              ],
+              "source_line_index": 1
+            },
+            {
+              "text": "USD",
+              "bbox": [
+                292.0,
+                1139.0,
+                326.0,
+                1190.0
+              ],
+              "source_line_index": 1
+            },
+            {
+              "text": "708.40",
+              "bbox": [
+                292.0,
+                1202.0,
+                326.0,
+                1276.0
+              ],
+              "source_line_index": 1
+            },
+            {
+              "text": "Invoice:",
+              "bbox": [
+                199.0,
+                1076.0,
+                231.0,
+                1159.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "INV-2094",
+              "bbox": [
+                199.0,
+                1167.0,
+                232.0,
+                1276.0
+              ],
+              "source_line_index": 2
+            },
+            {
+              "text": "Date:",
+              "bbox": [
+                246.0,
+                1081.0,
+                279.0,
+                1139.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "2026-10-30",
+              "bbox": [
+                246.0,
+                1147.0,
+                279.0,
+                1275.0
+              ],
+              "source_line_index": 3
+            },
+            {
+              "text": "PO:PO-4418",
+              "bbox": [
+                339.0,
+                1127.0,
+                369.0,
+                1277.0
+              ],
+              "source_line_index": 4
+            }
+          ],
+          "derived_word_metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": null,
+            "exact_text_and_bbox": {
+              "tp": 0,
+              "fp": 11,
+              "fn": 12,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "ground_truth_support": 12,
+              "predicted_support": 11
+            },
+            "text_only": {
+              "tp": 10,
+              "fp": 1,
+              "fn": 2,
+              "precision": 0.9090909090909091,
+              "recall": 0.8333333333333334,
+              "f1": 0.8695652173913043,
+              "ground_truth_support": 12,
+              "predicted_support": 11
+            },
+            "expected_boxes": 12,
+            "predicted_boxes": 11,
+            "valid_predicted_boxes": 11,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          },
+          "native_line_box_metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.5740270026804863,
+            "exact_text_and_bbox": {
+              "tp": 4,
+              "fp": 1,
+              "fn": 1,
+              "precision": 0.8,
+              "recall": 0.8,
+              "f1": 0.8000000000000002,
+              "ground_truth_support": 5,
+              "predicted_support": 5
+            },
+            "text_only": {
+              "tp": 4,
+              "fp": 1,
+              "fn": 1,
+              "precision": 0.8,
+              "recall": 0.8,
+              "f1": 0.8000000000000002,
+              "ground_truth_support": 5,
+              "predicted_support": 5
+            },
+            "expected_boxes": 5,
+            "predicted_boxes": 5,
+            "valid_predicted_boxes": 5,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          }
+        }
+      ]
+    },
+    "rapid_native_line_box_usefulness": {
+      "text_and_bbox_micro": {
+        "tp": 52,
+        "fp": 14,
+        "fn": 14,
+        "ground_truth_support": 66,
+        "predicted_support": 66,
+        "precision": 0.7878787878787878,
+        "recall": 0.7878787878787878,
+        "f1": 0.7878787878787878
+      },
+      "text_only_micro": {
+        "tp": 55,
+        "fp": 11,
+        "fn": 11,
+        "ground_truth_support": 66,
+        "predicted_support": 66,
+        "precision": 0.8333333333333334,
+        "recall": 0.8333333333333334,
+        "f1": 0.8333333333333334
+      },
+      "cases": [
+        {
+          "image_id": "T01",
+          "metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.6540350452733857,
+            "exact_text_and_bbox": {
+              "tp": 7,
+              "fp": 3,
+              "fn": 3,
+              "precision": 0.7,
+              "recall": 0.7,
+              "f1": 0.7,
+              "ground_truth_support": 10,
+              "predicted_support": 10
+            },
+            "text_only": {
+              "tp": 7,
+              "fp": 3,
+              "fn": 3,
+              "precision": 0.7,
+              "recall": 0.7,
+              "f1": 0.7,
+              "ground_truth_support": 10,
+              "predicted_support": 10
+            },
+            "expected_boxes": 10,
+            "predicted_boxes": 10,
+            "valid_predicted_boxes": 10,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          }
+        },
+        {
+          "image_id": "I01",
+          "metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.6324861421890899,
+            "exact_text_and_bbox": {
+              "tp": 8,
+              "fp": 3,
+              "fn": 3,
+              "precision": 0.7272727272727273,
+              "recall": 0.7272727272727273,
+              "f1": 0.7272727272727273,
+              "ground_truth_support": 11,
+              "predicted_support": 11
+            },
+            "text_only": {
+              "tp": 8,
+              "fp": 3,
+              "fn": 3,
+              "precision": 0.7272727272727273,
+              "recall": 0.7272727272727273,
+              "f1": 0.7272727272727273,
+              "ground_truth_support": 11,
+              "predicted_support": 11
+            },
+            "expected_boxes": 11,
+            "predicted_boxes": 11,
+            "valid_predicted_boxes": 11,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          }
+        },
+        {
+          "image_id": "F01",
+          "metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.6391681303095962,
+            "exact_text_and_bbox": {
+              "tp": 13,
+              "fp": 1,
+              "fn": 1,
+              "precision": 0.9285714285714286,
+              "recall": 0.9285714285714286,
+              "f1": 0.9285714285714286,
+              "ground_truth_support": 14,
+              "predicted_support": 14
+            },
+            "text_only": {
+              "tp": 14,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "ground_truth_support": 14,
+              "predicted_support": 14
+            },
+            "expected_boxes": 14,
+            "predicted_boxes": 14,
+            "valid_predicted_boxes": 14,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          }
+        },
+        {
+          "image_id": "TB02",
+          "metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.6029602308722856,
+            "exact_text_and_bbox": {
+              "tp": 15,
+              "fp": 2,
+              "fn": 2,
+              "precision": 0.8823529411764706,
+              "recall": 0.8823529411764706,
+              "f1": 0.8823529411764706,
+              "ground_truth_support": 17,
+              "predicted_support": 17
+            },
+            "text_only": {
+              "tp": 17,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "ground_truth_support": 17,
+              "predicted_support": 17
+            },
+            "expected_boxes": 17,
+            "predicted_boxes": 17,
+            "valid_predicted_boxes": 17,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          }
+        },
+        {
+          "image_id": "MC01",
+          "metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.7674208585197725,
+            "exact_text_and_bbox": {
+              "tp": 5,
+              "fp": 4,
+              "fn": 4,
+              "precision": 0.5555555555555556,
+              "recall": 0.5555555555555556,
+              "f1": 0.5555555555555556,
+              "ground_truth_support": 9,
+              "predicted_support": 9
+            },
+            "text_only": {
+              "tp": 5,
+              "fp": 4,
+              "fn": 4,
+              "precision": 0.5555555555555556,
+              "recall": 0.5555555555555556,
+              "f1": 0.5555555555555556,
+              "ground_truth_support": 9,
+              "predicted_support": 9
+            },
+            "expected_boxes": 9,
+            "predicted_boxes": 9,
+            "valid_predicted_boxes": 9,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          }
+        },
+        {
+          "image_id": "ROT01",
+          "metrics": {
+            "status": "scored",
+            "coordinate_frame": "pixel_input_raster_top_left",
+            "bbox_iou_threshold": 0.5,
+            "matched_mean_iou": 0.5740270026804863,
+            "exact_text_and_bbox": {
+              "tp": 4,
+              "fp": 1,
+              "fn": 1,
+              "precision": 0.8,
+              "recall": 0.8,
+              "f1": 0.8000000000000002,
+              "ground_truth_support": 5,
+              "predicted_support": 5
+            },
+            "text_only": {
+              "tp": 4,
+              "fp": 1,
+              "fn": 1,
+              "precision": 0.8,
+              "recall": 0.8,
+              "f1": 0.8000000000000002,
+              "ground_truth_support": 5,
+              "predicted_support": 5
+            },
+            "expected_boxes": 5,
+            "predicted_boxes": 5,
+            "valid_predicted_boxes": 5,
+            "invalid_predicted_boxes": 0,
+            "invalid_geometry_reasons": {}
+          }
+        }
+      ]
+    },
+    "ovis_region_level_review": {
+      "granularity_note": "Ovis boxes remain native multiword regions; no word boxes are synthesized.",
+      "word_metric_limitation": "Original word-level spotting score is retained, but it penalizes native regions containing multiple words.",
+      "native_word_metric_micro": {
+        "text_and_bbox": {
+          "tp": 22,
+          "fp": 40,
+          "fn": 142,
+          "ground_truth_support": 164,
+          "predicted_support": 62,
+          "precision": 0.3548387096774194,
+          "recall": 0.13414634146341464,
+          "f1": 0.1946902654867257
+        },
+        "text_only": {
+          "tp": 30,
+          "fp": 32,
+          "fn": 134,
+          "ground_truth_support": 164,
+          "predicted_support": 62,
+          "precision": 0.4838709677419355,
+          "recall": 0.18292682926829268,
+          "f1": 0.26548672566371684
+        }
+      },
+      "region_text_fullpage_corpus_metrics": {
+        "cer": 0.2153972153972154,
+        "wer": 0.2621951219512195,
+        "character_ops": {
+          "distance": 263,
+          "substitutions": 0,
+          "deletions": 263,
+          "insertions": 0
+        },
+        "word_ops": {
+          "distance": 43,
+          "substitutions": 4,
+          "deletions": 39,
+          "insertions": 0
+        },
+        "reference_chars": 1221,
+        "hypothesis_chars": 958,
+        "reference_words": 164,
+        "hypothesis_words": 125,
+        "extra_char_count": 0,
+        "omitted_char_count": 263,
+        "extra_word_count": 0,
+        "omitted_word_count": 39,
+        "identifiers": {
+          "tp": 15,
+          "fp": 0,
+          "fn": 4,
+          "precision": 1.0,
+          "recall": 0.7894736842105263,
+          "f1": 0.8823529411764706,
+          "ground_truth_support": 19,
+          "predicted_support": 15
+        },
+        "dates": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.8333333333333334,
+          "f1": 0.9090909090909091,
+          "ground_truth_support": 6,
+          "predicted_support": 5
+        },
+        "times": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "ground_truth_support": 1,
+          "predicted_support": 1
+        },
+        "versions": {
+          "tp": 9,
+          "fp": 0,
+          "fn": 2,
+          "precision": 1.0,
+          "recall": 0.8181818181818182,
+          "f1": 0.9,
+          "ground_truth_support": 11,
+          "predicted_support": 9
+        },
+        "prices": {
+          "tp": 3,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1": 0.75,
+          "ground_truth_support": 4,
+          "predicted_support": 4
+        },
+        "numbers": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "ground_truth_support": 4,
+          "predicted_support": 4
+        },
+        "numeric_values": {
+          "tp": 22,
+          "fp": 1,
+          "fn": 4,
+          "precision": 0.9565217391304348,
+          "recall": 0.8461538461538461,
+          "f1": 0.8979591836734695,
+          "ground_truth_support": 26,
+          "predicted_support": 23
+        }
+      },
+      "region_text_fullpage_metrics_strict_json_cases_only": {
+        "cer": 0.007253886010362694,
+        "wer": 0.07633587786259542,
+        "character_ops": {
+          "distance": 7,
+          "substitutions": 0,
+          "deletions": 7,
+          "insertions": 0
+        },
+        "word_ops": {
+          "distance": 10,
+          "substitutions": 4,
+          "deletions": 6,
+          "insertions": 0
+        },
+        "reference_chars": 965,
+        "hypothesis_chars": 958,
+        "reference_words": 131,
+        "hypothesis_words": 125,
+        "extra_char_count": 0,
+        "omitted_char_count": 7,
+        "extra_word_count": 0,
+        "omitted_word_count": 6,
+        "identifiers": {
+          "tp": 15,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "ground_truth_support": 15,
+          "predicted_support": 15
+        },
+        "dates": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "ground_truth_support": 5,
+          "predicted_support": 5
+        },
+        "times": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "ground_truth_support": 1,
+          "predicted_support": 1
+        },
+        "versions": {
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "ground_truth_support": 9,
+          "predicted_support": 9
+        },
+        "prices": {
+          "tp": 3,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.75,
+          "recall": 0.75,
+          "f1": 0.75,
+          "ground_truth_support": 4,
+          "predicted_support": 4
+        },
+        "numbers": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "ground_truth_support": 4,
+          "predicted_support": 4
+        },
+        "numeric_values": {
+          "tp": 22,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.9565217391304348,
+          "recall": 0.9565217391304348,
+          "f1": 0.9565217391304348,
+          "ground_truth_support": 23,
+          "predicted_support": 23
+        }
+      },
+      "strict_json_case_count": 5,
+      "cases": [
+        {
+          "image_id": "T01",
+          "native_granularity": "official JSON text regions; outputs are not split",
+          "strict_json_parse_success": true,
+          "strict_json_parse_error": null,
+          "region_count": 11,
+          "fixture_word_count": 38,
+          "native_word_box_metrics_unchanged": {
+            "exact_text_and_bbox": {
+              "tp": 1,
+              "fp": 10,
+              "fn": 37,
+              "precision": 0.09090909090909091,
+              "recall": 0.02631578947368421,
+              "f1": 0.04081632653061224,
+              "ground_truth_support": 38,
+              "predicted_support": 11
+            },
+            "text_only": {
+              "tp": 1,
+              "fp": 10,
+              "fn": 37,
+              "precision": 0.09090909090909091,
+              "recall": 0.02631578947368421,
+              "f1": 0.04081632653061224,
+              "ground_truth_support": 38,
+              "predicted_support": 11
+            },
+            "valid_predicted_boxes": 11,
+            "predicted_boxes": 11
+          },
+          "region_text_fullpage_metrics": {
+            "cer": 0.006389776357827476,
+            "wer": 0.02631578947368421,
+            "character_ops": {
+              "distance": 2,
+              "substitutions": 0,
+              "deletions": 2,
+              "insertions": 0
+            },
+            "word_ops": {
+              "distance": 1,
+              "substitutions": 0,
+              "deletions": 1,
+              "insertions": 0
+            },
+            "identifiers": {
+              "expected": 2,
+              "predicted": 2,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "dates": {
+              "expected": 1,
+              "predicted": 1,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "times": {
+              "expected": 1,
+              "predicted": 1,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "versions": {
+              "expected": 5,
+              "predicted": 5,
+              "tp": 5,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "prices": {
+              "expected": 0,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "numbers": {
+              "expected": 0,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "numeric_values": {
+              "expected": 7,
+              "predicted": 7,
+              "tp": 7,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "reference_chars": 313,
+            "hypothesis_chars": 311,
+            "reference_words": 38,
+            "hypothesis_words": 37
+          },
+          "generation": {
+            "generation_tokens": 333,
+            "max_new_tokens": 768,
+            "at_token_budget": false,
+            "finish_reason": null
+          }
+        },
+        {
+          "image_id": "I01",
+          "native_granularity": "official JSON text regions; outputs are not split",
+          "strict_json_parse_success": true,
+          "strict_json_parse_error": null,
+          "region_count": 24,
+          "fixture_word_count": 36,
+          "native_word_box_metrics_unchanged": {
+            "exact_text_and_bbox": {
+              "tp": 8,
+              "fp": 16,
+              "fn": 28,
+              "precision": 0.3333333333333333,
+              "recall": 0.2222222222222222,
+              "f1": 0.26666666666666666,
+              "ground_truth_support": 36,
+              "predicted_support": 24
+            },
+            "text_only": {
+              "tp": 13,
+              "fp": 11,
+              "fn": 23,
+              "precision": 0.5416666666666666,
+              "recall": 0.3611111111111111,
+              "f1": 0.43333333333333335,
+              "ground_truth_support": 36,
+              "predicted_support": 24
+            },
+            "valid_predicted_boxes": 24,
+            "predicted_boxes": 24
+          },
+          "region_text_fullpage_metrics": {
+            "cer": 0.0,
+            "wer": 0.0,
+            "character_ops": {
+              "distance": 0,
+              "substitutions": 0,
+              "deletions": 0,
+              "insertions": 0
+            },
+            "word_ops": {
+              "distance": 0,
+              "substitutions": 0,
+              "deletions": 0,
+              "insertions": 0
+            },
+            "identifiers": {
+              "expected": 3,
+              "predicted": 3,
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "dates": {
+              "expected": 2,
+              "predicted": 2,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "times": {
+              "expected": 0,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "versions": {
+              "expected": 0,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "prices": {
+              "expected": 3,
+              "predicted": 3,
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "numbers": {
+              "expected": 1,
+              "predicted": 1,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "numeric_values": {
+              "expected": 6,
+              "predicted": 6,
+              "tp": 6,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "reference_chars": 244,
+            "hypothesis_chars": 244,
+            "reference_words": 36,
+            "hypothesis_words": 36
+          },
+          "generation": {
+            "generation_tokens": 610,
+            "max_new_tokens": 768,
+            "at_token_budget": false,
+            "finish_reason": null
+          }
+        },
+        {
+          "image_id": "F01",
+          "native_granularity": "official JSON text regions; outputs are not split",
+          "strict_json_parse_success": true,
+          "strict_json_parse_error": null,
+          "region_count": 19,
+          "fixture_word_count": 24,
+          "native_word_box_metrics_unchanged": {
+            "exact_text_and_bbox": {
+              "tp": 12,
+              "fp": 7,
+              "fn": 12,
+              "precision": 0.631578947368421,
+              "recall": 0.5,
+              "f1": 0.5581395348837209,
+              "ground_truth_support": 24,
+              "predicted_support": 19
+            },
+            "text_only": {
+              "tp": 14,
+              "fp": 5,
+              "fn": 10,
+              "precision": 0.7368421052631579,
+              "recall": 0.5833333333333334,
+              "f1": 0.6511627906976745,
+              "ground_truth_support": 24,
+              "predicted_support": 19
+            },
+            "valid_predicted_boxes": 19,
+            "predicted_boxes": 19
+          },
+          "region_text_fullpage_metrics": {
+            "cer": 0.0,
+            "wer": 0.0,
+            "character_ops": {
+              "distance": 0,
+              "substitutions": 0,
+              "deletions": 0,
+              "insertions": 0
+            },
+            "word_ops": {
+              "distance": 0,
+              "substitutions": 0,
+              "deletions": 0,
+              "insertions": 0
+            },
+            "identifiers": {
+              "expected": 2,
+              "predicted": 2,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "dates": {
+              "expected": 1,
+              "predicted": 1,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "times": {
+              "expected": 0,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "versions": {
+              "expected": 1,
+              "predicted": 1,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "prices": {
+              "expected": 0,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "numbers": {
+              "expected": 0,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "numeric_values": {
+              "expected": 2,
+              "predicted": 2,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "reference_chars": 169,
+            "hypothesis_chars": 169,
+            "reference_words": 24,
+            "hypothesis_words": 24
+          },
+          "generation": {
+            "generation_tokens": 448,
+            "max_new_tokens": 768,
+            "at_token_budget": false,
+            "finish_reason": null
+          }
+        },
+        {
+          "image_id": "TB02",
+          "native_granularity": "official JSON text regions; outputs are not split",
+          "strict_json_parse_success": true,
+          "strict_json_parse_error": null,
+          "region_count": 2,
+          "fixture_word_count": 21,
+          "native_word_box_metrics_unchanged": {
+            "exact_text_and_bbox": {
+              "tp": 0,
+              "fp": 2,
+              "fn": 21,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "ground_truth_support": 21,
+              "predicted_support": 2
+            },
+            "text_only": {
+              "tp": 0,
+              "fp": 2,
+              "fn": 21,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "ground_truth_support": 21,
+              "predicted_support": 2
+            },
+            "valid_predicted_boxes": 2,
+            "predicted_boxes": 2
+          },
+          "region_text_fullpage_metrics": {
+            "cer": 0.0,
+            "wer": 0.0,
+            "character_ops": {
+              "distance": 0,
+              "substitutions": 0,
+              "deletions": 0,
+              "insertions": 0
+            },
+            "word_ops": {
+              "distance": 0,
+              "substitutions": 0,
+              "deletions": 0,
+              "insertions": 0
+            },
+            "identifiers": {
+              "expected": 6,
+              "predicted": 6,
+              "tp": 6,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "dates": {
+              "expected": 0,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "times": {
+              "expected": 0,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "versions": {
+              "expected": 3,
+              "predicted": 3,
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "prices": {
+              "expected": 0,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "numbers": {
+              "expected": 3,
+              "predicted": 3,
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "numeric_values": {
+              "expected": 6,
+              "predicted": 6,
+              "tp": 6,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "reference_chars": 154,
+            "hypothesis_chars": 154,
+            "reference_words": 21,
+            "hypothesis_words": 21
+          },
+          "generation": {
+            "generation_tokens": 131,
+            "max_new_tokens": 768,
+            "at_token_budget": false,
+            "finish_reason": null
+          }
+        },
+        {
+          "image_id": "MC01",
+          "native_granularity": "official JSON text regions; outputs are not split",
+          "strict_json_parse_success": false,
+          "strict_json_parse_error": "JSONDecodeError: Unterminated string starting at: line 1 column 1458 (char 1457)",
+          "region_count": 0,
+          "fixture_word_count": 33,
+          "native_word_box_metrics_unchanged": {
+            "exact_text_and_bbox": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 33,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "ground_truth_support": 33,
+              "predicted_support": 0
+            },
+            "text_only": {
+              "tp": 0,
+              "fp": 0,
+              "fn": 33,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "ground_truth_support": 33,
+              "predicted_support": 0
+            },
+            "valid_predicted_boxes": 0,
+            "predicted_boxes": 0
+          },
+          "region_text_fullpage_metrics": {
+            "cer": 1.0,
+            "wer": 1.0,
+            "character_ops": {
+              "distance": 256,
+              "substitutions": 0,
+              "deletions": 256,
+              "insertions": 0
+            },
+            "word_ops": {
+              "distance": 33,
+              "substitutions": 0,
+              "deletions": 33,
+              "insertions": 0
+            },
+            "identifiers": {
+              "expected": 4,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 4,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "dates": {
+              "expected": 1,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 1,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "times": {
+              "expected": 0,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "versions": {
+              "expected": 2,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 2,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "prices": {
+              "expected": 0,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "numbers": {
+              "expected": 0,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "numeric_values": {
+              "expected": 3,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 3,
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "reference_chars": 256,
+            "hypothesis_chars": 0,
+            "reference_words": 33,
+            "hypothesis_words": 0
+          },
+          "generation": {
+            "generation_tokens": 768,
+            "max_new_tokens": 768,
+            "at_token_budget": true,
+            "finish_reason": null
+          }
+        },
+        {
+          "image_id": "ROT01",
+          "native_granularity": "official JSON text regions; outputs are not split",
+          "strict_json_parse_success": true,
+          "strict_json_parse_error": null,
+          "region_count": 6,
+          "fixture_word_count": 12,
+          "native_word_box_metrics_unchanged": {
+            "exact_text_and_bbox": {
+              "tp": 1,
+              "fp": 5,
+              "fn": 11,
+              "precision": 0.16666666666666666,
+              "recall": 0.08333333333333333,
+              "f1": 0.1111111111111111,
+              "ground_truth_support": 12,
+              "predicted_support": 6
+            },
+            "text_only": {
+              "tp": 2,
+              "fp": 4,
+              "fn": 10,
+              "precision": 0.3333333333333333,
+              "recall": 0.16666666666666666,
+              "f1": 0.2222222222222222,
+              "ground_truth_support": 12,
+              "predicted_support": 6
+            },
+            "valid_predicted_boxes": 6,
+            "predicted_boxes": 6
+          },
+          "region_text_fullpage_metrics": {
+            "cer": 0.058823529411764705,
+            "wer": 0.75,
+            "character_ops": {
+              "distance": 5,
+              "substitutions": 0,
+              "deletions": 5,
+              "insertions": 0
+            },
+            "word_ops": {
+              "distance": 9,
+              "substitutions": 4,
+              "deletions": 5,
+              "insertions": 0
+            },
+            "identifiers": {
+              "expected": 2,
+              "predicted": 2,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "dates": {
+              "expected": 1,
+              "predicted": 1,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "times": {
+              "expected": 0,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "versions": {
+              "expected": 0,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "prices": {
+              "expected": 1,
+              "predicted": 1,
+              "tp": 0,
+              "fp": 1,
+              "fn": 1,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "numbers": {
+              "expected": 0,
+              "predicted": 0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 0,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "numeric_values": {
+              "expected": 2,
+              "predicted": 2,
+              "tp": 1,
+              "fp": 1,
+              "fn": 1,
+              "precision": 0.5,
+              "recall": 0.5,
+              "f1": 0.5
+            },
+            "reference_chars": 85,
+            "hypothesis_chars": 80,
+            "reference_words": 12,
+            "hypothesis_words": 7
+          },
+          "generation": {
+            "generation_tokens": 171,
+            "max_new_tokens": 768,
+            "at_token_budget": false,
+            "finish_reason": null
+          }
+        }
+      ]
+    }
+  }
+}

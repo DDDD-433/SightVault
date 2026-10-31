@@ -1,0 +1,70 @@
+{
+  "experiment": "SightVault OCR_V2",
+  "backend": "rapid",
+  "baseline_commit_or_hash": "766027c79d4c6f17ba7b88b1df3bc079dfbbd141",
+  "experiment_commit": "1d9a4e42ff96f7c20bc72ac0111d3e2fe5c95cf9",
+  "platform": {
+    "os": "26.5.1",
+    "arch": "arm64",
+    "hardware": "Apple M1 Pro",
+    "ram_gb": 16.0,
+    "python": "3.12.9 (main, Feb 12 2025, 15:09:19) [Clang 19.1.6 ]"
+  },
+  "model": {
+    "repo": "rapidocr-onnxruntime==1.4.4",
+    "revision": "PyPI release 1.4.4; RapidAI/RapidOCR source commit 86ae3f5079df3422c1829cd84baf19bc8a7a9453",
+    "format": "ONNX detector, angle classifier, and recognizer pipeline",
+    "quantization": "Upstream ONNX precision unchanged by this experiment",
+    "artifact_bytes": 16189007
+  },
+  "runtime": {
+    "name": "RapidOCR/ONNX Runtime CPU",
+    "version": "not loaded; capability unsupported by selected package/runtime",
+    "device": "not loaded",
+    "offline_verified": false
+  },
+  "performance": {
+    "cold_load_s": null,
+    "first_request_s": null,
+    "warm_median_s": null,
+    "warm_p95_s": null,
+    "peak_rss_mb": null,
+    "peak_accelerator_mb": null
+  },
+  "quality": {
+    "supported": false,
+    "reason": "RapidOCR 1.4.4 is line/word OCR with geometry, not a generative document-understanding engine."
+  },
+  "stability": {
+    "requests": 0,
+    "failures": 0,
+    "ooms": 0,
+    "notes": "No inference request was sent because the selected API does not support this capability."
+  },
+  "portability": {
+    "mac_measured": false,
+    "windows_measured": false,
+    "mac_supported_path": "ONNX Runtime CPU with RapidOCR 1.4.4",
+    "windows_supported_path": "ONNX Runtime CPU path; Windows not measured",
+    "notes": "Capability support was classified from the measured package/API; no runtime call was made."
+  },
+  "raw_outputs_path": "SightVault/qa/ocr-v2/results/raw_outputs/rapid-chart-20261030T204947Z.json",
+  "probe_case_ids": [
+    "C01",
+    "C02",
+    "C03",
+    "C04"
+  ],
+  "notes": "The capability was explicitly reported unsupported; it was not simulated.",
+  "candidate": {
+    "model_id": "rapidocr-onnxruntime==1.4.4",
+    "revision": "PyPI release 1.4.4; RapidAI/RapidOCR source commit 86ae3f5079df3422c1829cd84baf19bc8a7a9453",
+    "source": "https://github.com/RapidAI/RapidOCR/tree/86ae3f5079df3422c1829cd84baf19bc8a7a9453",
+    "license": "Apache-2.0",
+    "quantization": "ONNX checkpoint; precision not altered by this harness"
+  },
+  "task": "chart",
+  "status": "unsupported",
+  "reason": "RapidOCR 1.4.4 is line/word OCR with geometry, not a generative document-understanding engine.",
+  "timestamp_utc": "2026-10-30T20:49:47.785213+00:00"
+}

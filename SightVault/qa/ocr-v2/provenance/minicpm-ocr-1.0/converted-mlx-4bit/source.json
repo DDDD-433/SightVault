@@ -1,0 +1,19 @@
+{
+  "repo": "openbmb/MiniCPM-OCR-1.0",
+  "revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+  "runtime": "mlx-vlm",
+  "runtime_version": "0.7.11",
+  "mlx_version": "0.32.4",
+  "quantization": {
+    "bits": 4,
+    "group_size": 64,
+    "mode": "affine"
+  },
+  "precision_note": "Mixed precision; runtime model predicate preserves vision, mergers and sensitive layers.",
+  "files": {
+    "model.safetensors": {
+      "bytes": 2157942509,
+      "sha256": "d87f333cfca410bb378ab449aaf45eb96dd7c32c10297745963938619455a055"
+    }
+  }
+}

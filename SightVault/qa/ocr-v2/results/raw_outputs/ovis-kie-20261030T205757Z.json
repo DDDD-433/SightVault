@@ -1,0 +1,511 @@
+{
+  "experiment": "SightVault OCR_V2",
+  "backend": "ovis",
+  "baseline_commit_or_hash": "766027c79d4c6f17ba7b88b1df3bc079dfbbd141",
+  "experiment_commit": "1d9a4e42ff96f7c20bc72ac0111d3e2fe5c95cf9",
+  "model": {
+    "repo": "ATH-MaaS/OvisOCR3",
+    "revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+    "format": "Safetensors",
+    "quantization": "none",
+    "artifact_bytes": 1706030528
+  },
+  "platform": {
+    "os": "26.5.1",
+    "arch": "arm64",
+    "hardware": "Apple M1 Pro",
+    "ram_gb": 16.0,
+    "python": "3.12.9 (main, Feb 12 2025, 15:09:19) [Clang 19.1.6 ]"
+  },
+  "runtime": {
+    "name": "Transformers/PyTorch",
+    "version": "transformers=5.22.0; torch=2.11.0; accelerate=1.15.0",
+    "device": "mps",
+    "offline_verified": true,
+    "runtime": "Transformers/PyTorch",
+    "torch": "2.11.0",
+    "transformers": "5.22.0",
+    "accelerate": "1.15.0",
+    "model_class": "Qwen3_5ForConditionalGeneration",
+    "parameter_devices": [
+      "mps:0"
+    ],
+    "parameter_dtypes": [
+      "torch.bfloat16"
+    ],
+    "mps_built": true,
+    "mps_available": true,
+    "mps_fallback_disabled": true,
+    "configured_dtype": "bfloat16",
+    "pillow": "13.0.0"
+  },
+  "performance": {
+    "cold_load_s": 4.867,
+    "first_request_s": 12.407,
+    "warm_median_s": 10.5817,
+    "warm_p95_s": 12.2796,
+    "peak_rss_mb": 733.297,
+    "peak_accelerator_mb": 7899.641
+  },
+  "stability": {
+    "requests": 4,
+    "failures": 0,
+    "ooms": 0,
+    "notes": "Counts include declared repeats; quality uses unique images only. Unsupported/skipped capability cases are reported separately."
+  },
+  "portability": {
+    "mac_measured": true,
+    "windows_measured": false,
+    "mac_supported_path": "Transformers/PyTorch on Apple MPS; explicit BF16, operator fallback disabled",
+    "windows_supported_path": "Transformers/PyTorch CPU or CUDA path; Windows not measured",
+    "notes": "This benchmark was executed on macOS Apple Silicon; Windows was not measured on hardware."
+  },
+  "raw_outputs_path": "SightVault/qa/ocr-v2/results/raw_outputs/ovis-kie-20261030T205757Z.json",
+  "notes": "Plain OCR uses one shared prompt. Capability prompts are candidate-specific. Returned HTML/Markdown/Mermaid is never rendered or executed.",
+  "experiment_code_sha256": {
+    "bench_ocr.py": "979c077883e8516b95d8c9611535189e0416b321a6c5f1eb954cad33bbf50564",
+    "offline_guard.py": "9d419f1d6d82e5f56ebbc04877655b567dce781aa94a6545fa8e97130e1bbb1d",
+    "smoke_ovis.py": "fd03bdbd8125d92edc3e0c25162fdbaa24c5fe2d4349d16971f9786019ab5e36"
+  },
+  "tracked_worktree_dirty_at_start": false,
+  "candidate": {
+    "model_id": "ATH-MaaS/OvisOCR3",
+    "revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+    "source": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c",
+    "license": "Apache-2.0",
+    "checkpoint_precision": "official BF16",
+    "quantization": "none"
+  },
+  "task": "kie",
+  "status": "completed",
+  "run_id": "20261030T205757Z",
+  "dataset": {
+    "fixture_count": 56,
+    "manifest_sha256": "299c03ec217e5a6e217d1217f14e243d7c9cc5d25e0c669f94c0623990c1f4a4",
+    "ground_truth_sha256": "0001032a7d8e23b8b6922a5dcda73280e6ec1f641373f1107bd4c457806cb13c",
+    "label_source": "authored literals/fields; independent of model outputs"
+  },
+  "metric_implementation_sha256": {
+    "plain": "908c56ff57cb7605f3735bdc80d06ee3571dacbb1026b5e2799af630a347d9b6",
+    "structured": "a1f36e70e492968e291fcd24d09baa0da1672fa3ff64532c4d0b2eacf00719a0",
+    "bbox_contracts": "bbf8e475a54c3db88b1fda451d996f7104f104ae68175cddcb6535766751b104"
+  },
+  "started_at_utc": "2026-10-30T20:57:57.593495+00:00",
+  "command": {
+    "python_argv": [
+      "SightVault/qa/ocr-v2/bench_ocr.py",
+      "--model",
+      "ovis",
+      "--task",
+      "kie",
+      "--case-ids",
+      "R01,I01,F01,A01",
+      "--max-new-tokens",
+      "256"
+    ],
+    "sandbox_wrapper": "sh SightVault/qa/ocr-v2/run_ocr_benchmark.sh",
+    "sandbox_profile": "(version 1)(allow default)(deny network-outbound)(allow network-outbound (remote ip \\\"localhost:*\\\"))"
+  },
+  "throughput_plan": {
+    "requested_calls": 4,
+    "unique_corpus_images": 4,
+    "repeat_calls_after_unique_corpus": 0,
+    "repetition_order": "each eligible unique fixture once",
+    "image_order": [
+      "R01",
+      "I01",
+      "F01",
+      "A01"
+    ]
+  },
+  "model_artifacts": {
+    "local_dir": "../ocr-v2-models/ovisocr3 (external to the Git worktree)",
+    "disk_bytes_included_files": 1728993040,
+    "file_count_included": 30,
+    "weight_file": "model.safetensors",
+    "weight_bytes": 1706030528,
+    "weight_sha256": "aa2311c6b22b07cf3afe9aac6e8bcb02a2b19dd8671b2a91d0b144071577e600",
+    "weight_verification_manifest": "SightVault/qa/ocr-v2/provenance/ovisocr3-download-manifest.json",
+    "quantization": "none"
+  },
+  "offline": {
+    "isolation_method": "macOS sandbox-exec outbound deny with loopback allowed plus in-process socket/DNS guard; not a firewall",
+    "mac_sandbox_profile": "macOS sandbox-exec outbound deny with loopback allowed",
+    "blocked_external_attempts": [],
+    "offline_flags": {
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1",
+      "HF_HUB_DISABLE_TELEMETRY": "1",
+      "USE_HUB_KERNELS": "NO",
+      "PYTORCH_ENABLE_MPS_FALLBACK": "0"
+    },
+    "verified": true
+  },
+  "memory_pressure_start": {
+    "exit_code": 0,
+    "stdout": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 80%",
+    "stderr": ""
+  },
+  "timing_seconds": {
+    "model_load": 4.867,
+    "first_request": 12.407,
+    "throughput_milestones": {},
+    "model_load_seconds": 4.867,
+    "warm_image_total_p50_seconds": 10.5817,
+    "warm_image_total_p95_seconds": 12.2796,
+    "quality_scoring_wall_seconds_after_model_release": 0.0057,
+    "quality_scoring_cpu_seconds_after_model_release": 0.0042,
+    "wall_total_including_load_scoring_and_output": 50.644
+  },
+  "memory": {
+    "peak_process_rss_bytes": 768917504,
+    "sample_interval_ms": 50,
+    "peak_mps_driver_allocated_bytes_sampled": 8283373568,
+    "mps_current_allocated_bytes_at_end": 1705981184,
+    "mps_driver_allocated_bytes_at_end": 3838394368
+  },
+  "prompt_policy": {
+    "plain_is_shared": false,
+    "capability_prompts_model_specific": true,
+    "model_markup_is_inert": false
+  },
+  "cases": [
+    {
+      "index": 0,
+      "image_id": "R01",
+      "category": "receipt",
+      "repeat": false,
+      "ground_truth_id": "R01",
+      "image_path": "images/R01.png",
+      "image_sha256": "d5840d29433fec81ae9c6f52e327c5f5e7de9d549963c2ae5673f1ba0c8440f8",
+      "image_bytes": 48476,
+      "image_dimensions": [
+        1600,
+        1100
+      ],
+      "alpha_policy": "RGBA composited onto white",
+      "prompt": {
+        "path": "SightVault/qa/ocr-v2/provenance/ovisocr3/prompts/kie_fields.txt",
+        "kind": "official_model_prompt",
+        "keys": [
+          "receipt_id",
+          "date",
+          "item",
+          "subtotal",
+          "tax",
+          "total",
+          "payment"
+        ],
+        "sha256": "74cd304f6b8b2ba0363213f8182d545c0b90c73d6cea6a7fcde9eb99252994e1",
+        "text": "Extract the values for the following keys from the image: [\"receipt_id\", \"date\", \"item\", \"subtotal\", \"tax\", \"total\", \"payment\"]. Return a JSON object using exactly these keys. Keep the values exactly as shown, use empty strings for missing values, and use arrays for repeated values. Output JSON only."
+      },
+      "timing_seconds": {
+        "preprocess": 0.0164,
+        "inference": 12.3904,
+        "image_total": 12.4068
+      },
+      "prediction": {
+        "text": "{\"receipt_id\":\"RC-4201\",\"date\":\"2026-10-20 18:42\",\"item\":\"Mechanical keyboard\",\"subtotal\":\"$79.99\",\"tax\":\"$4.80\",\"total\":\"$84.79\",\"payment\":\"Visa ending 1024\"}",
+        "lines": [],
+        "words": [],
+        "generation_tokens": 74,
+        "max_new_tokens": 256,
+        "at_token_budget": false,
+        "finish_reason": null
+      },
+      "bbox_coordinate_contract": null,
+      "metrics": {
+        "json_parse_success": true,
+        "serialization_valid": true,
+        "schema_valid": true,
+        "parse_error": null,
+        "json_object": {
+          "receipt_id": "RC-4201",
+          "date": "2026-10-20 18:42",
+          "item": "Mechanical keyboard",
+          "subtotal": "$79.99",
+          "tax": "$4.80",
+          "total": "$84.79",
+          "payment": "Visa ending 1024"
+        },
+        "expected_keys": 7,
+        "predicted_keys": 7,
+        "missing_keys": [],
+        "extra_keys": [],
+        "exact_schema": true,
+        "exact_match": false,
+        "fields": {
+          "tp": 6,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.8571428571428571,
+          "recall": 0.8571428571428571,
+          "f1": 0.8571428571428571,
+          "ground_truth_support": 7,
+          "predicted_support": 7
+        }
+      },
+      "quality_eligible": true,
+      "status": "completed"
+    },
+    {
+      "index": 1,
+      "image_id": "I01",
+      "category": "invoice",
+      "repeat": false,
+      "ground_truth_id": "I01",
+      "image_path": "images/I01.png",
+      "image_sha256": "65173db3ccfedc6961481d23ecf5f6e4e63193b58a1a1ee5e570d2aaa7c0415d",
+      "image_bytes": 58048,
+      "image_dimensions": [
+        1600,
+        1100
+      ],
+      "alpha_policy": "RGBA composited onto white",
+      "prompt": {
+        "path": "SightVault/qa/ocr-v2/provenance/ovisocr3/prompts/kie_fields.txt",
+        "kind": "official_model_prompt",
+        "keys": [
+          "supplier",
+          "invoice_number",
+          "invoice_date",
+          "due_date",
+          "subtotal",
+          "tax",
+          "amount_due",
+          "purchase_order"
+        ],
+        "sha256": "182658cf3bdee8aa15349988edff410237ed0b792b95211733d52a1c6634aac5",
+        "text": "Extract the values for the following keys from the image: [\"supplier\", \"invoice_number\", \"invoice_date\", \"due_date\", \"subtotal\", \"tax\", \"amount_due\", \"purchase_order\"]. Return a JSON object using exactly these keys. Keep the values exactly as shown, use empty strings for missing values, and use arrays for repeated values. Output JSON only."
+      },
+      "timing_seconds": {
+        "preprocess": 0.0163,
+        "inference": 12.2633,
+        "image_total": 12.2796
+      },
+      "prediction": {
+        "text": "{\"supplier\":\"Northwind Demo LLC\",\"invoice_number\":\"INV-1081\",\"invoice_date\":\"2026-10-03\",\"due_date\":\"2026-10-24\",\"subtotal\":\"USD 1,240.00\",\"tax\":\"USD 99.20\",\"amount_due\":\"USD 1,339.20\",\"purchase_order\":\"PO-7330\"}",
+        "lines": [],
+        "words": [],
+        "generation_tokens": 94,
+        "max_new_tokens": 256,
+        "at_token_budget": false,
+        "finish_reason": null
+      },
+      "bbox_coordinate_contract": null,
+      "metrics": {
+        "json_parse_success": true,
+        "serialization_valid": true,
+        "schema_valid": true,
+        "parse_error": null,
+        "json_object": {
+          "supplier": "Northwind Demo LLC",
+          "invoice_number": "INV-1081",
+          "invoice_date": "2026-10-03",
+          "due_date": "2026-10-24",
+          "subtotal": "USD 1,240.00",
+          "tax": "USD 99.20",
+          "amount_due": "USD 1,339.20",
+          "purchase_order": "PO-7330"
+        },
+        "expected_keys": 8,
+        "predicted_keys": 8,
+        "missing_keys": [],
+        "extra_keys": [],
+        "exact_schema": true,
+        "exact_match": true,
+        "fields": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "ground_truth_support": 8,
+          "predicted_support": 8
+        }
+      },
+      "quality_eligible": true,
+      "status": "completed"
+    },
+    {
+      "index": 2,
+      "image_id": "F01",
+      "category": "form",
+      "repeat": false,
+      "ground_truth_id": "F01",
+      "image_path": "images/F01.png",
+      "image_sha256": "c0595f5237bdcd9af47467f2d747ac7086cde67b73351538b117ddfec5d4b82f",
+      "image_bytes": 46768,
+      "image_dimensions": [
+        1600,
+        1100
+      ],
+      "alpha_policy": "RGBA composited onto white",
+      "prompt": {
+        "path": "SightVault/qa/ocr-v2/provenance/ovisocr3/prompts/kie_fields.txt",
+        "kind": "official_model_prompt",
+        "keys": [
+          "Request ID",
+          "Opened",
+          "Status",
+          "Priority",
+          "Owner"
+        ],
+        "sha256": "728805185e6ae4412c7898bcc041aae7ab5dd249a754a33a324f04d88e12c155",
+        "text": "Extract the values for the following keys from the image: [\"Request ID\", \"Opened\", \"Status\", \"Priority\", \"Owner\"]. Return a JSON object using exactly these keys. Keep the values exactly as shown, use empty strings for missing values, and use arrays for repeated values. Output JSON only."
+      },
+      "timing_seconds": {
+        "preprocess": 0.0115,
+        "inference": 10.2759,
+        "image_total": 10.2874
+      },
+      "prediction": {
+        "text": "{\"Request ID\":\"SR-10418\",\"Opened\":\"2026-10-30\",\"Status\":\"Pending review\",\"Priority\":\"P2\",\"Owner\":\"A. Rivera\"}",
+        "lines": [],
+        "words": [],
+        "generation_tokens": 42,
+        "max_new_tokens": 256,
+        "at_token_budget": false,
+        "finish_reason": null
+      },
+      "bbox_coordinate_contract": null,
+      "metrics": {
+        "json_parse_success": true,
+        "serialization_valid": true,
+        "schema_valid": true,
+        "parse_error": null,
+        "json_object": {
+          "Request ID": "SR-10418",
+          "Opened": "2026-10-30",
+          "Status": "Pending review",
+          "Priority": "P2",
+          "Owner": "A. Rivera"
+        },
+        "expected_keys": 5,
+        "predicted_keys": 5,
+        "missing_keys": [],
+        "extra_keys": [],
+        "exact_schema": true,
+        "exact_match": true,
+        "fields": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "ground_truth_support": 5,
+          "predicted_support": 5
+        }
+      },
+      "quality_eligible": true,
+      "status": "completed"
+    },
+    {
+      "index": 3,
+      "image_id": "A01",
+      "category": "transparency",
+      "repeat": false,
+      "ground_truth_id": "A01",
+      "image_path": "images/A01.png",
+      "image_sha256": "b71b9b31023d1121d4f7ef3e04d10c3129fa98b6eb8fa8f2468a33c28f309f53",
+      "image_bytes": 31542,
+      "image_dimensions": [
+        1600,
+        1100
+      ],
+      "alpha_policy": "RGBA composited onto white",
+      "prompt": {
+        "path": "SightVault/qa/ocr-v2/provenance/ovisocr3/prompts/kie_fields.txt",
+        "kind": "official_model_prompt",
+        "keys": [
+          "Window",
+          "Service",
+          "Action",
+          "Change ID"
+        ],
+        "sha256": "c34ca38e0bd63958a9c4e16a71af56528902ae0133a53cdcf02d758276c1408e",
+        "text": "Extract the values for the following keys from the image: [\"Window\", \"Service\", \"Action\", \"Change ID\"]. Return a JSON object using exactly these keys. Keep the values exactly as shown, use empty strings for missing values, and use arrays for repeated values. Output JSON only."
+      },
+      "timing_seconds": {
+        "preprocess": 0.0079,
+        "inference": 10.5738,
+        "image_total": 10.5817
+      },
+      "prediction": {
+        "text": "{\"Window\":\"2026-11-02 01:00 UTC\",\"Service\":\"ocr-indexer\",\"Action\":\"restart after model update\",\"Change ID\":\"CHG-7801\"}",
+        "lines": [],
+        "words": [],
+        "generation_tokens": 46,
+        "max_new_tokens": 256,
+        "at_token_budget": false,
+        "finish_reason": null
+      },
+      "bbox_coordinate_contract": null,
+      "metrics": {
+        "json_parse_success": true,
+        "serialization_valid": true,
+        "schema_valid": true,
+        "parse_error": null,
+        "json_object": {
+          "Window": "2026-11-02 01:00 UTC",
+          "Service": "ocr-indexer",
+          "Action": "restart after model update",
+          "Change ID": "CHG-7801"
+        },
+        "expected_keys": 4,
+        "predicted_keys": 4,
+        "missing_keys": [],
+        "extra_keys": [],
+        "exact_schema": true,
+        "exact_match": true,
+        "fields": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "ground_truth_support": 4,
+          "predicted_support": 4
+        }
+      },
+      "quality_eligible": true,
+      "status": "completed"
+    }
+  ],
+  "quality": {
+    "unique_cases": 4,
+    "exact_cases": 3,
+    "serialization": {
+      "valid_cases": 4,
+      "evaluable_cases": 4,
+      "rate": 1.0
+    },
+    "schema": {
+      "valid_cases": 4,
+      "evaluable_cases": 4,
+      "rate": 1.0
+    },
+    "field_micro": {
+      "tp": 23,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.9583333333333334,
+      "recall": 0.9583333333333334,
+      "f1": 0.9583333333333334,
+      "ground_truth_support": 24,
+      "predicted_support": 24
+    },
+    "json_parse_failures": 0
+  },
+  "failure": null,
+  "finished_at_utc": "2026-10-30T20:58:48.027021+00:00",
+  "memory_pressure_end": {
+    "exit_code": 0,
+    "stdout": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 62%",
+    "stderr": ""
+  },
+  "runtime_released": true
+}

@@ -1,0 +1,553 @@
+{
+  "experiment": "SightVault OCR_V2",
+  "backend": "ovis",
+  "baseline_commit_or_hash": "766027c79d4c6f17ba7b88b1df3bc079dfbbd141",
+  "experiment_commit": "1d9a4e42ff96f7c20bc72ac0111d3e2fe5c95cf9",
+  "model": {
+    "repo": "ATH-MaaS/OvisOCR3",
+    "revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+    "format": "Safetensors",
+    "quantization": "none",
+    "artifact_bytes": 1706030528
+  },
+  "platform": {
+    "os": "26.5.1",
+    "arch": "arm64",
+    "hardware": "Apple M1 Pro",
+    "ram_gb": 16.0,
+    "python": "3.12.9 (main, Feb 12 2025, 15:09:19) [Clang 19.1.6 ]"
+  },
+  "runtime": {
+    "name": "Transformers/PyTorch",
+    "version": "transformers=5.22.0; torch=2.11.0; accelerate=1.15.0",
+    "device": "mps",
+    "offline_verified": true,
+    "runtime": "Transformers/PyTorch",
+    "torch": "2.11.0",
+    "transformers": "5.22.0",
+    "accelerate": "1.15.0",
+    "model_class": "Qwen3_5ForConditionalGeneration",
+    "parameter_devices": [
+      "mps:0"
+    ],
+    "parameter_dtypes": [
+      "torch.bfloat16"
+    ],
+    "mps_built": true,
+    "mps_available": true,
+    "mps_fallback_disabled": true,
+    "configured_dtype": "bfloat16",
+    "pillow": "13.0.0"
+  },
+  "performance": {
+    "cold_load_s": 4.815,
+    "first_request_s": 15.289,
+    "warm_median_s": 13.9398,
+    "warm_p95_s": 14.8258,
+    "peak_rss_mb": 735.078,
+    "peak_accelerator_mb": 8985.828
+  },
+  "stability": {
+    "requests": 4,
+    "failures": 0,
+    "ooms": 0,
+    "notes": "Counts include declared repeats; quality uses unique images only. Unsupported/skipped capability cases are reported separately."
+  },
+  "portability": {
+    "mac_measured": true,
+    "windows_measured": false,
+    "mac_supported_path": "Transformers/PyTorch on Apple MPS; explicit BF16, operator fallback disabled",
+    "windows_supported_path": "Transformers/PyTorch CPU or CUDA path; Windows not measured",
+    "notes": "This benchmark was executed on macOS Apple Silicon; Windows was not measured on hardware."
+  },
+  "raw_outputs_path": "SightVault/qa/ocr-v2/results/raw_outputs/ovis-chart-20261030T210021Z.json",
+  "notes": "Plain OCR uses one shared prompt. Capability prompts are candidate-specific. Returned HTML/Markdown/Mermaid is never rendered or executed.",
+  "experiment_code_sha256": {
+    "bench_ocr.py": "979c077883e8516b95d8c9611535189e0416b321a6c5f1eb954cad33bbf50564",
+    "offline_guard.py": "9d419f1d6d82e5f56ebbc04877655b567dce781aa94a6545fa8e97130e1bbb1d",
+    "smoke_ovis.py": "fd03bdbd8125d92edc3e0c25162fdbaa24c5fe2d4349d16971f9786019ab5e36"
+  },
+  "tracked_worktree_dirty_at_start": false,
+  "candidate": {
+    "model_id": "ATH-MaaS/OvisOCR3",
+    "revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+    "source": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c",
+    "license": "Apache-2.0",
+    "checkpoint_precision": "official BF16",
+    "quantization": "none"
+  },
+  "task": "chart",
+  "status": "completed",
+  "run_id": "20261030T210021Z",
+  "dataset": {
+    "fixture_count": 56,
+    "manifest_sha256": "299c03ec217e5a6e217d1217f14e243d7c9cc5d25e0c669f94c0623990c1f4a4",
+    "ground_truth_sha256": "0001032a7d8e23b8b6922a5dcda73280e6ec1f641373f1107bd4c457806cb13c",
+    "label_source": "authored literals/fields; independent of model outputs"
+  },
+  "metric_implementation_sha256": {
+    "plain": "908c56ff57cb7605f3735bdc80d06ee3571dacbb1026b5e2799af630a347d9b6",
+    "structured": "a1f36e70e492968e291fcd24d09baa0da1672fa3ff64532c4d0b2eacf00719a0",
+    "bbox_contracts": "bbf8e475a54c3db88b1fda451d996f7104f104ae68175cddcb6535766751b104"
+  },
+  "started_at_utc": "2026-10-30T21:00:21.496472+00:00",
+  "command": {
+    "python_argv": [
+      "SightVault/qa/ocr-v2/bench_ocr.py",
+      "--model",
+      "ovis",
+      "--task",
+      "chart",
+      "--case-ids",
+      "C01,C02,C03,C04",
+      "--max-new-tokens",
+      "512"
+    ],
+    "sandbox_wrapper": "sh SightVault/qa/ocr-v2/run_ocr_benchmark.sh",
+    "sandbox_profile": "(version 1)(allow default)(deny network-outbound)(allow network-outbound (remote ip \\\"localhost:*\\\"))"
+  },
+  "throughput_plan": {
+    "requested_calls": 4,
+    "unique_corpus_images": 4,
+    "repeat_calls_after_unique_corpus": 0,
+    "repetition_order": "each eligible unique fixture once",
+    "image_order": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ]
+  },
+  "model_artifacts": {
+    "local_dir": "../ocr-v2-models/ovisocr3 (external to the Git worktree)",
+    "disk_bytes_included_files": 1728993040,
+    "file_count_included": 30,
+    "weight_file": "model.safetensors",
+    "weight_bytes": 1706030528,
+    "weight_sha256": "aa2311c6b22b07cf3afe9aac6e8bcb02a2b19dd8671b2a91d0b144071577e600",
+    "weight_verification_manifest": "SightVault/qa/ocr-v2/provenance/ovisocr3-download-manifest.json",
+    "quantization": "none"
+  },
+  "offline": {
+    "isolation_method": "macOS sandbox-exec outbound deny with loopback allowed plus in-process socket/DNS guard; not a firewall",
+    "mac_sandbox_profile": "macOS sandbox-exec outbound deny with loopback allowed",
+    "blocked_external_attempts": [],
+    "offline_flags": {
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1",
+      "HF_HUB_DISABLE_TELEMETRY": "1",
+      "USE_HUB_KERNELS": "NO",
+      "PYTORCH_ENABLE_MPS_FALLBACK": "0"
+    },
+    "verified": true
+  },
+  "memory_pressure_start": {
+    "exit_code": 0,
+    "stdout": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 82%",
+    "stderr": ""
+  },
+  "timing_seconds": {
+    "model_load": 4.815,
+    "first_request": 15.289,
+    "throughput_milestones": {},
+    "model_load_seconds": 4.815,
+    "warm_image_total_p50_seconds": 13.9398,
+    "warm_image_total_p95_seconds": 14.8258,
+    "quality_scoring_wall_seconds_after_model_release": 0.0077,
+    "quality_scoring_cpu_seconds_after_model_release": 0.0049,
+    "wall_total_including_load_scoring_and_output": 62.8
+  },
+  "memory": {
+    "peak_process_rss_bytes": 770785280,
+    "sample_interval_ms": 50,
+    "peak_mps_driver_allocated_bytes_sampled": 9422323712,
+    "mps_current_allocated_bytes_at_end": 1705981184,
+    "mps_driver_allocated_bytes_at_end": 4978327552
+  },
+  "prompt_policy": {
+    "plain_is_shared": false,
+    "capability_prompts_model_specific": true,
+    "model_markup_is_inert": true
+  },
+  "cases": [
+    {
+      "index": 0,
+      "image_id": "C01",
+      "category": "chart",
+      "repeat": false,
+      "ground_truth_id": "C01",
+      "image_path": "images/C01.png",
+      "image_sha256": "a67c518d873d0f6c5c6ee012c7e9f4f1c4c0a6b59d19c1d5da1941c4f03756e8",
+      "image_bytes": 34379,
+      "image_dimensions": [
+        1600,
+        1100
+      ],
+      "alpha_policy": "RGBA composited onto white",
+      "prompt": {
+        "path": "SightVault/qa/ocr-v2/provenance/ovisocr3/prompts/chart_parsing.txt",
+        "kind": "official_model_prompt",
+        "output_markup_inert": true,
+        "sha256": "bb933216bdad5a81a3eca59e770bdb7d4b936ab85f97a2af6de5dd0890371f38",
+        "text": "Parse all key information in the chart and output one valid JSON object using exactly this top-level schema:\n{\"title\":\"\",\"source\":\"\",\"x_title\":\"\",\"y_title\":\"\",\"values\":{}}\n\nRules:\n1. Preserve visible title, source, axis titles, series or category labels, x-axis labels, and values without explanation or inference.\n2. Use the literal string \"None\" when the chart has no visible value for title, source, or an axis title. For a dual-axis chart, `y_title` may be an array of two strings in visual order; otherwise it must be one string.\n3. `values` must be a non-empty object. Preserve the chart hierarchy and encode every scalar data value as a JSON string. An empty series name may be represented by the key \"\" when the chart has no visible series label.\n4. Output JSON only. Do not output Python syntax, Markdown fences, comments, prose, or extra keys."
+      },
+      "timing_seconds": {
+        "preprocess": 0.0169,
+        "inference": 15.2723,
+        "image_total": 15.2892
+      },
+      "prediction": {
+        "text": "{\n  \"title\": \"Weekly indexing throughput\",\n  \"source\": \"Source: local fixture · 2026-10-30\",\n  \"x_title\": \"None\",\n  \"y_title\": \"Images / minute\",\n  \"values\": {\n    \"Measurement\": {\n      \"Mon\": \"41.0\",\n      \"Tue\": \"52.0\",\n      \"Wed\": \"48.0\",\n      \"Thu\": \"67.0\",\n      \"Fri\": \"72.0\"\n    }\n  }\n}",
+        "lines": [],
+        "words": [],
+        "generation_tokens": 130,
+        "max_new_tokens": 512,
+        "at_token_budget": false,
+        "finish_reason": null
+      },
+      "bbox_coordinate_contract": null,
+      "metrics": {
+        "serialization_valid": true,
+        "schema_valid": false,
+        "json_parse_success": true,
+        "parse_error": null,
+        "schema_errors": [
+          "values"
+        ],
+        "parse_mode": "json",
+        "predicted_chart": {
+          "title": "Weekly indexing throughput",
+          "source": "Source: local fixture · 2026-10-30",
+          "x_title": "None",
+          "y_title": "Images / minute",
+          "values": {
+            "Measurement": {
+              "Mon": "41.0",
+              "Tue": "52.0",
+              "Wed": "48.0",
+              "Thu": "67.0",
+              "Fri": "72.0"
+            }
+          }
+        },
+        "value_pairs": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ground_truth_support": 5,
+          "predicted_support": 1
+        },
+        "numeric_values": {
+          "tp": 0,
+          "fp": 5,
+          "fn": 5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ground_truth_support": 5,
+          "predicted_support": 5
+        },
+        "exact_headers": false,
+        "exact_chart": false
+      },
+      "quality_eligible": true,
+      "status": "completed"
+    },
+    {
+      "index": 1,
+      "image_id": "C02",
+      "category": "chart",
+      "repeat": false,
+      "ground_truth_id": "C02",
+      "image_path": "images/C02.png",
+      "image_sha256": "b086075b7909e16e61b454072ac46e648edf86a5d16347505cf231d695fd9fc7",
+      "image_bytes": 31553,
+      "image_dimensions": [
+        1600,
+        1100
+      ],
+      "alpha_policy": "RGBA composited onto white",
+      "prompt": {
+        "path": "SightVault/qa/ocr-v2/provenance/ovisocr3/prompts/chart_parsing.txt",
+        "kind": "official_model_prompt",
+        "output_markup_inert": true,
+        "sha256": "bb933216bdad5a81a3eca59e770bdb7d4b936ab85f97a2af6de5dd0890371f38",
+        "text": "Parse all key information in the chart and output one valid JSON object using exactly this top-level schema:\n{\"title\":\"\",\"source\":\"\",\"x_title\":\"\",\"y_title\":\"\",\"values\":{}}\n\nRules:\n1. Preserve visible title, source, axis titles, series or category labels, x-axis labels, and values without explanation or inference.\n2. Use the literal string \"None\" when the chart has no visible value for title, source, or an axis title. For a dual-axis chart, `y_title` may be an array of two strings in visual order; otherwise it must be one string.\n3. `values` must be a non-empty object. Preserve the chart hierarchy and encode every scalar data value as a JSON string. An empty series name may be represented by the key \"\" when the chart has no visible series label.\n4. Output JSON only. Do not output Python syntax, Markdown fences, comments, prose, or extra keys."
+      },
+      "timing_seconds": {
+        "preprocess": 0.0184,
+        "inference": 13.9214,
+        "image_total": 13.9398
+      },
+      "prediction": {
+        "text": "{\n  \"title\": \"OCR character error rate\",\n  \"source\": \"Source: synthetic measurement · v1.4.4\",\n  \"x_title\": \"None\",\n  \"y_title\": \"CER (%)\",\n  \"values\": {\n    \"Rapid\": \"8.0%\",\n    \"MiniCPM\": \"3.0%\",\n    \"Ovis\": \"2.0%\"\n  }\n}",
+        "lines": [],
+        "words": [],
+        "generation_tokens": 96,
+        "max_new_tokens": 512,
+        "at_token_budget": false,
+        "finish_reason": null
+      },
+      "bbox_coordinate_contract": null,
+      "metrics": {
+        "serialization_valid": true,
+        "schema_valid": true,
+        "json_parse_success": true,
+        "parse_error": null,
+        "schema_errors": [],
+        "parse_mode": "json",
+        "predicted_chart": {
+          "title": "OCR character error rate",
+          "source": "Source: synthetic measurement · v1.4.4",
+          "x_title": "None",
+          "y_title": "CER (%)",
+          "values": {
+            "Rapid": "8.0%",
+            "MiniCPM": "3.0%",
+            "Ovis": "2.0%"
+          }
+        },
+        "value_pairs": {
+          "tp": 0,
+          "fp": 3,
+          "fn": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ground_truth_support": 3,
+          "predicted_support": 3
+        },
+        "numeric_values": {
+          "tp": 0,
+          "fp": 3,
+          "fn": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ground_truth_support": 3,
+          "predicted_support": 3
+        },
+        "exact_headers": false,
+        "exact_chart": false
+      },
+      "quality_eligible": true,
+      "status": "completed"
+    },
+    {
+      "index": 2,
+      "image_id": "C03",
+      "category": "chart",
+      "repeat": false,
+      "ground_truth_id": "C03",
+      "image_path": "images/C03.png",
+      "image_sha256": "175f6d69cfdc6bd3adc37c83a4fae0f0f8a4ae2769a5f7a2b79c569a67bd0a5d",
+      "image_bytes": 30796,
+      "image_dimensions": [
+        1600,
+        1100
+      ],
+      "alpha_policy": "RGBA composited onto white",
+      "prompt": {
+        "path": "SightVault/qa/ocr-v2/provenance/ovisocr3/prompts/chart_parsing.txt",
+        "kind": "official_model_prompt",
+        "output_markup_inert": true,
+        "sha256": "bb933216bdad5a81a3eca59e770bdb7d4b936ab85f97a2af6de5dd0890371f38",
+        "text": "Parse all key information in the chart and output one valid JSON object using exactly this top-level schema:\n{\"title\":\"\",\"source\":\"\",\"x_title\":\"\",\"y_title\":\"\",\"values\":{}}\n\nRules:\n1. Preserve visible title, source, axis titles, series or category labels, x-axis labels, and values without explanation or inference.\n2. Use the literal string \"None\" when the chart has no visible value for title, source, or an axis title. For a dual-axis chart, `y_title` may be an array of two strings in visual order; otherwise it must be one string.\n3. `values` must be a non-empty object. Preserve the chart hierarchy and encode every scalar data value as a JSON string. An empty series name may be represented by the key \"\" when the chart has no visible series label.\n4. Output JSON only. Do not output Python syntax, Markdown fences, comments, prose, or extra keys."
+      },
+      "timing_seconds": {
+        "preprocess": 0.0145,
+        "inference": 14.8113,
+        "image_total": 14.8258
+      },
+      "prediction": {
+        "text": "{\n  \"title\": \"Monthly document count\",\n  \"source\": \"Source: demo archive · updated 2026-10-29\",\n  \"x_title\": \"None\",\n  \"y_title\": \"Files\",\n  \"values\": {\n    \"Measurement\": {\n      \"Jun\": \"18\",\n      \"Jul\": \"24\",\n      \"Aug\": \"31\",\n      \"Sep\": \"29\"\n    }\n  }\n}",
+        "lines": [],
+        "words": [],
+        "generation_tokens": 110,
+        "max_new_tokens": 512,
+        "at_token_budget": false,
+        "finish_reason": null
+      },
+      "bbox_coordinate_contract": null,
+      "metrics": {
+        "serialization_valid": true,
+        "schema_valid": false,
+        "json_parse_success": true,
+        "parse_error": null,
+        "schema_errors": [
+          "values"
+        ],
+        "parse_mode": "json",
+        "predicted_chart": {
+          "title": "Monthly document count",
+          "source": "Source: demo archive · updated 2026-10-29",
+          "x_title": "None",
+          "y_title": "Files",
+          "values": {
+            "Measurement": {
+              "Jun": "18",
+              "Jul": "24",
+              "Aug": "31",
+              "Sep": "29"
+            }
+          }
+        },
+        "value_pairs": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 4,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ground_truth_support": 4,
+          "predicted_support": 1
+        },
+        "numeric_values": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "ground_truth_support": 4,
+          "predicted_support": 4
+        },
+        "exact_headers": false,
+        "exact_chart": false
+      },
+      "quality_eligible": true,
+      "status": "completed"
+    },
+    {
+      "index": 3,
+      "image_id": "C04",
+      "category": "chart",
+      "repeat": false,
+      "ground_truth_id": "C04",
+      "image_path": "images/C04.png",
+      "image_sha256": "c644f3dd733a77181499b8b97ef06b65b80681672510630dbf35cb00180d9e8d",
+      "image_bytes": 31960,
+      "image_dimensions": [
+        1600,
+        1100
+      ],
+      "alpha_policy": "RGBA composited onto white",
+      "prompt": {
+        "path": "SightVault/qa/ocr-v2/provenance/ovisocr3/prompts/chart_parsing.txt",
+        "kind": "official_model_prompt",
+        "output_markup_inert": true,
+        "sha256": "bb933216bdad5a81a3eca59e770bdb7d4b936ab85f97a2af6de5dd0890371f38",
+        "text": "Parse all key information in the chart and output one valid JSON object using exactly this top-level schema:\n{\"title\":\"\",\"source\":\"\",\"x_title\":\"\",\"y_title\":\"\",\"values\":{}}\n\nRules:\n1. Preserve visible title, source, axis titles, series or category labels, x-axis labels, and values without explanation or inference.\n2. Use the literal string \"None\" when the chart has no visible value for title, source, or an axis title. For a dual-axis chart, `y_title` may be an array of two strings in visual order; otherwise it must be one string.\n3. `values` must be a non-empty object. Preserve the chart hierarchy and encode every scalar data value as a JSON string. An empty series name may be represented by the key \"\" when the chart has no visible series label.\n4. Output JSON only. Do not output Python syntax, Markdown fences, comments, prose, or extra keys."
+      },
+      "timing_seconds": {
+        "preprocess": 0.015,
+        "inference": 13.6269,
+        "image_total": 13.6419
+      },
+      "prediction": {
+        "text": "{\n  \"title\": \"Latency by image size\",\n  \"source\": \"Source: local CPU sample · 3.12.9\",\n  \"x_title\": \"None\",\n  \"y_title\": \"Milliseconds\",\n  \"values\": {\n    \"Measurement\": {\n      \"Small\": \"14.0\",\n      \"Medium\": \"43.0\",\n      \"Large\": \"119.0\"\n    }\n  }\n}",
+        "lines": [],
+        "words": [],
+        "generation_tokens": 106,
+        "max_new_tokens": 512,
+        "at_token_budget": false,
+        "finish_reason": null
+      },
+      "bbox_coordinate_contract": null,
+      "metrics": {
+        "serialization_valid": true,
+        "schema_valid": false,
+        "json_parse_success": true,
+        "parse_error": null,
+        "schema_errors": [
+          "values"
+        ],
+        "parse_mode": "json",
+        "predicted_chart": {
+          "title": "Latency by image size",
+          "source": "Source: local CPU sample · 3.12.9",
+          "x_title": "None",
+          "y_title": "Milliseconds",
+          "values": {
+            "Measurement": {
+              "Small": "14.0",
+              "Medium": "43.0",
+              "Large": "119.0"
+            }
+          }
+        },
+        "value_pairs": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ground_truth_support": 3,
+          "predicted_support": 1
+        },
+        "numeric_values": {
+          "tp": 0,
+          "fp": 3,
+          "fn": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ground_truth_support": 3,
+          "predicted_support": 3
+        },
+        "exact_headers": false,
+        "exact_chart": false
+      },
+      "quality_eligible": true,
+      "status": "completed"
+    }
+  ],
+  "quality": {
+    "unique_cases": 4,
+    "exact_chart_header_cases": 0,
+    "serialization": {
+      "valid_cases": 4,
+      "evaluable_cases": 4,
+      "rate": 1.0
+    },
+    "schema": {
+      "valid_cases": 1,
+      "evaluable_cases": 4,
+      "rate": 0.25
+    },
+    "value_pair_micro": {
+      "tp": 0,
+      "fp": 6,
+      "fn": 15,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "ground_truth_support": 15,
+      "predicted_support": 6
+    },
+    "numeric_value_micro": {
+      "tp": 4,
+      "fp": 11,
+      "fn": 11,
+      "precision": 0.26666666666666666,
+      "recall": 0.26666666666666666,
+      "f1": 0.26666666666666666,
+      "ground_truth_support": 15,
+      "predicted_support": 15
+    },
+    "exact_charts": 0,
+    "json_parse_failures": 0
+  },
+  "failure": null,
+  "finished_at_utc": "2026-10-30T21:01:24.022068+00:00",
+  "memory_pressure_end": {
+    "exit_code": 0,
+    "stdout": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 63%",
+    "stderr": ""
+  },
+  "runtime_released": true
+}

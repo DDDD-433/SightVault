@@ -1,0 +1,514 @@
+{
+  "experiment": "SightVault OCR_V2",
+  "backend": "minicpm",
+  "baseline_commit_or_hash": "766027c79d4c6f17ba7b88b1df3bc079dfbbd141",
+  "experiment_commit": "1d9a4e42ff96f7c20bc72ac0111d3e2fe5c95cf9",
+  "model": {
+    "repo": "openbmb/MiniCPM-OCR-1.0",
+    "revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+    "format": "Safetensors",
+    "quantization": "affine 4-bit group64, mixed BF16 layers",
+    "artifact_bytes": 2157942509
+  },
+  "platform": {
+    "os": "26.5.1",
+    "arch": "arm64",
+    "hardware": "Apple M1 Pro",
+    "ram_gb": 16.0,
+    "python": "3.12.9 (main, Feb 12 2025, 15:09:19) [Clang 19.1.6 ]"
+  },
+  "runtime": {
+    "name": "MLX-VLM/MLX",
+    "version": "mlx-vlm=0.7.11; mlx=0.32.4",
+    "device": "Apple Metal GPU",
+    "offline_verified": true,
+    "runtime": "MLX-VLM/MLX",
+    "mlx_vlm": "0.7.11",
+    "mlx_vlm_git_revision": "918763c6875c80e82f9f48344dfad4763346fea8",
+    "mlx": "0.32.4",
+    "model_class": "Model",
+    "device_info": {
+      "device_name": "Apple M1 Pro",
+      "max_recommended_working_set_size": 12713115648,
+      "memory_size": 17179869184,
+      "architecture": "applegpu_g13s",
+      "max_buffer_length": 9534832640,
+      "resource_limit": 499000
+    },
+    "pillow": "13.0.0"
+  },
+  "performance": {
+    "cold_load_s": 4.752,
+    "first_request_s": 5.058,
+    "warm_median_s": 4.8058,
+    "warm_p95_s": 4.8791,
+    "peak_rss_mb": 2932.406,
+    "peak_accelerator_mb": 3502.515
+  },
+  "stability": {
+    "requests": 4,
+    "failures": 0,
+    "ooms": 0,
+    "notes": "Counts include declared repeats; quality uses unique images only. Unsupported/skipped capability cases are reported separately."
+  },
+  "portability": {
+    "mac_measured": true,
+    "windows_measured": false,
+    "mac_supported_path": "MLX-VLM on Apple Metal; affine 4-bit group64 conversion",
+    "windows_supported_path": "The tested MLX conversion is Apple-only; official source model lists other runtimes, Windows not measured",
+    "notes": "This benchmark was executed on macOS Apple Silicon; Windows was not measured on hardware."
+  },
+  "raw_outputs_path": "SightVault/qa/ocr-v2/results/raw_outputs/minicpm-chart-20261030T205408Z.json",
+  "notes": "Plain OCR uses one shared prompt. Capability prompts are candidate-specific. Returned HTML/Markdown/Mermaid is never rendered or executed.",
+  "experiment_code_sha256": {
+    "bench_ocr.py": "979c077883e8516b95d8c9611535189e0416b321a6c5f1eb954cad33bbf50564",
+    "offline_guard.py": "9d419f1d6d82e5f56ebbc04877655b567dce781aa94a6545fa8e97130e1bbb1d",
+    "smoke_ovis.py": "fd03bdbd8125d92edc3e0c25162fdbaa24c5fe2d4349d16971f9786019ab5e36"
+  },
+  "tracked_worktree_dirty_at_start": false,
+  "candidate": {
+    "model_id": "openbmb/MiniCPM-OCR-1.0",
+    "revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+    "source": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0/tree/c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+    "license": "Apache-2.0",
+    "runtime_conversion": "SightVault isolated MLX-VLM conversion",
+    "quantization": "affine 4-bit group64, mixed BF16 layers"
+  },
+  "task": "chart",
+  "status": "completed",
+  "run_id": "20261030T205408Z",
+  "dataset": {
+    "fixture_count": 56,
+    "manifest_sha256": "299c03ec217e5a6e217d1217f14e243d7c9cc5d25e0c669f94c0623990c1f4a4",
+    "ground_truth_sha256": "0001032a7d8e23b8b6922a5dcda73280e6ec1f641373f1107bd4c457806cb13c",
+    "label_source": "authored literals/fields; independent of model outputs"
+  },
+  "metric_implementation_sha256": {
+    "plain": "908c56ff57cb7605f3735bdc80d06ee3571dacbb1026b5e2799af630a347d9b6",
+    "structured": "a1f36e70e492968e291fcd24d09baa0da1672fa3ff64532c4d0b2eacf00719a0",
+    "bbox_contracts": "bbf8e475a54c3db88b1fda451d996f7104f104ae68175cddcb6535766751b104"
+  },
+  "started_at_utc": "2026-10-30T20:54:08.301107+00:00",
+  "command": {
+    "python_argv": [
+      "SightVault/qa/ocr-v2/bench_ocr.py",
+      "--model",
+      "minicpm",
+      "--task",
+      "chart",
+      "--case-ids",
+      "C01,C02,C03,C04",
+      "--max-new-tokens",
+      "512"
+    ],
+    "sandbox_wrapper": "sh SightVault/qa/ocr-v2/run_ocr_benchmark.sh",
+    "sandbox_profile": "(version 1)(allow default)(deny network-outbound)(allow network-outbound (remote ip \\\"localhost:*\\\"))"
+  },
+  "throughput_plan": {
+    "requested_calls": 4,
+    "unique_corpus_images": 4,
+    "repeat_calls_after_unique_corpus": 0,
+    "repetition_order": "each eligible unique fixture once",
+    "image_order": [
+      "C01",
+      "C02",
+      "C03",
+      "C04"
+    ]
+  },
+  "model_artifacts": {
+    "local_dir": "../ocr-v2-models/minicpm-ocr-mlx-4bit (external to the Git worktree)",
+    "disk_bytes_included_files": 2178031276,
+    "file_count_included": 11,
+    "source": {
+      "repo": "openbmb/MiniCPM-OCR-1.0",
+      "revision": "c5833cddb363aa62f1cb60ddde48c832e8f1a92c",
+      "runtime": "mlx-vlm",
+      "runtime_version": "0.7.11",
+      "mlx_version": "0.32.4",
+      "quantization": {
+        "bits": 4,
+        "group_size": 64,
+        "mode": "affine"
+      },
+      "precision_note": "Mixed precision; runtime model predicate preserves vision, mergers and sensitive layers.",
+      "files": {
+        "model.safetensors": {
+          "bytes": 2157942509,
+          "sha256": "d87f333cfca410bb378ab449aaf45eb96dd7c32c10297745963938619455a055"
+        }
+      }
+    },
+    "weight_file": "model.safetensors",
+    "weight_bytes": 2157942509,
+    "weight_sha256": "d87f333cfca410bb378ab449aaf45eb96dd7c32c10297745963938619455a055",
+    "quantization": "affine 4-bit group64; mixed BF16 layers per pinned MLX-VLM converter"
+  },
+  "offline": {
+    "isolation_method": "macOS sandbox-exec outbound deny with loopback allowed plus in-process socket/DNS guard; not a firewall",
+    "mac_sandbox_profile": "macOS sandbox-exec outbound deny with loopback allowed",
+    "blocked_external_attempts": [],
+    "offline_flags": {
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1",
+      "HF_HUB_DISABLE_TELEMETRY": "1",
+      "USE_HUB_KERNELS": "NO",
+      "PYTORCH_ENABLE_MPS_FALLBACK": "0"
+    },
+    "verified": true
+  },
+  "memory_pressure_start": {
+    "exit_code": 0,
+    "stdout": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 80%",
+    "stderr": ""
+  },
+  "timing_seconds": {
+    "model_load": 4.752,
+    "first_request": 5.058,
+    "throughput_milestones": {},
+    "model_load_seconds": 4.752,
+    "warm_image_total_p50_seconds": 4.8058,
+    "warm_image_total_p95_seconds": 4.8791,
+    "quality_scoring_wall_seconds_after_model_release": 0.0058,
+    "quality_scoring_cpu_seconds_after_model_release": 0.0043,
+    "wall_total_including_load_scoring_and_output": 24.434
+  },
+  "memory": {
+    "peak_process_rss_bytes": 3074850816,
+    "sample_interval_ms": 50,
+    "peak_mlx_active_memory_bytes_sampled": 3672653584,
+    "mlx_active_memory_bytes_at_end": 2160332166,
+    "mlx_peak_memory_bytes": 3672653584
+  },
+  "prompt_policy": {
+    "plain_is_shared": false,
+    "capability_prompts_model_specific": true,
+    "model_markup_is_inert": true
+  },
+  "cases": [
+    {
+      "index": 0,
+      "image_id": "C01",
+      "category": "chart",
+      "repeat": false,
+      "ground_truth_id": "C01",
+      "image_path": "images/C01.png",
+      "image_sha256": "a67c518d873d0f6c5c6ee012c7e9f4f1c4c0a6b59d19c1d5da1941c4f03756e8",
+      "image_bytes": 34379,
+      "image_dimensions": [
+        1600,
+        1100
+      ],
+      "alpha_policy": "RGBA composited onto white",
+      "prompt": {
+        "path": null,
+        "kind": "official_model_card_task_prompt",
+        "output_markup_inert": true,
+        "sha256": "ed61ca146c16168bf6a029b25ac813bce548737f0168c0863b88e60c3b6fc1c8",
+        "text": "Chart to Table:"
+      },
+      "timing_seconds": {
+        "preprocess": 0.0188,
+        "inference": 5.0396,
+        "image_total": 5.0583
+      },
+      "prediction": {
+        "text": "<otsl><fcel>Period / category<fcel>Images / minute<nl><fcel>Mon<fcel>41<nl><fcel>Tue<fcel>52<nl><fcel>Wed<fcel>48<nl><fcel>Thu<fcel>67<nl><fcel>Fri<fcel>72<nl></otsl>",
+        "lines": [],
+        "words": [],
+        "generation_tokens": 49,
+        "max_new_tokens": 512,
+        "at_token_budget": false,
+        "finish_reason": "stop"
+      },
+      "bbox_coordinate_contract": null,
+      "metrics": {
+        "serialization_valid": false,
+        "schema_valid": null,
+        "json_parse_success": false,
+        "parse_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+        "schema_errors": [],
+        "parse_mode": null,
+        "predicted_chart": {},
+        "value_pairs": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ground_truth_support": 5,
+          "predicted_support": 0
+        },
+        "numeric_values": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ground_truth_support": 5,
+          "predicted_support": 0
+        },
+        "exact_headers": null,
+        "exact_chart": false
+      },
+      "quality_eligible": true,
+      "status": "completed"
+    },
+    {
+      "index": 1,
+      "image_id": "C02",
+      "category": "chart",
+      "repeat": false,
+      "ground_truth_id": "C02",
+      "image_path": "images/C02.png",
+      "image_sha256": "b086075b7909e16e61b454072ac46e648edf86a5d16347505cf231d695fd9fc7",
+      "image_bytes": 31553,
+      "image_dimensions": [
+        1600,
+        1100
+      ],
+      "alpha_policy": "RGBA composited onto white",
+      "prompt": {
+        "path": null,
+        "kind": "official_model_card_task_prompt",
+        "output_markup_inert": true,
+        "sha256": "ed61ca146c16168bf6a029b25ac813bce548737f0168c0863b88e60c3b6fc1c8",
+        "text": "Chart to Table:"
+      },
+      "timing_seconds": {
+        "preprocess": 0.0152,
+        "inference": 4.8639,
+        "image_total": 4.8791
+      },
+      "prediction": {
+        "text": "<otsl><fcel>CER (%)<fcel>Period / category<nl><fcel>8<fcel>Rapid<nl><fcel>3<fcel>MiniCPM<nl><fcel>2<fcel>Ovis<nl></otsl>",
+        "lines": [],
+        "words": [],
+        "generation_tokens": 37,
+        "max_new_tokens": 512,
+        "at_token_budget": false,
+        "finish_reason": "stop"
+      },
+      "bbox_coordinate_contract": null,
+      "metrics": {
+        "serialization_valid": false,
+        "schema_valid": null,
+        "json_parse_success": false,
+        "parse_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+        "schema_errors": [],
+        "parse_mode": null,
+        "predicted_chart": {},
+        "value_pairs": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ground_truth_support": 3,
+          "predicted_support": 0
+        },
+        "numeric_values": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ground_truth_support": 3,
+          "predicted_support": 0
+        },
+        "exact_headers": null,
+        "exact_chart": false
+      },
+      "quality_eligible": true,
+      "status": "completed"
+    },
+    {
+      "index": 2,
+      "image_id": "C03",
+      "category": "chart",
+      "repeat": false,
+      "ground_truth_id": "C03",
+      "image_path": "images/C03.png",
+      "image_sha256": "175f6d69cfdc6bd3adc37c83a4fae0f0f8a4ae2769a5f7a2b79c569a67bd0a5d",
+      "image_bytes": 30796,
+      "image_dimensions": [
+        1600,
+        1100
+      ],
+      "alpha_policy": "RGBA composited onto white",
+      "prompt": {
+        "path": null,
+        "kind": "official_model_card_task_prompt",
+        "output_markup_inert": true,
+        "sha256": "ed61ca146c16168bf6a029b25ac813bce548737f0168c0863b88e60c3b6fc1c8",
+        "text": "Chart to Table:"
+      },
+      "timing_seconds": {
+        "preprocess": 0.0137,
+        "inference": 4.7921,
+        "image_total": 4.8058
+      },
+      "prediction": {
+        "text": "<otsl><fcel>Period / category<fcel>Files<nl><fcel>Jun<fcel>18<nl><fcel>Jul<fcel>24<nl><fcel>Aug<fcel>31<nl><fcel>Sep<fcel>29<nl></otsl>",
+        "lines": [],
+        "words": [],
+        "generation_tokens": 40,
+        "max_new_tokens": 512,
+        "at_token_budget": false,
+        "finish_reason": "stop"
+      },
+      "bbox_coordinate_contract": null,
+      "metrics": {
+        "serialization_valid": false,
+        "schema_valid": null,
+        "json_parse_success": false,
+        "parse_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+        "schema_errors": [],
+        "parse_mode": null,
+        "predicted_chart": {},
+        "value_pairs": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ground_truth_support": 4,
+          "predicted_support": 0
+        },
+        "numeric_values": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ground_truth_support": 4,
+          "predicted_support": 0
+        },
+        "exact_headers": null,
+        "exact_chart": false
+      },
+      "quality_eligible": true,
+      "status": "completed"
+    },
+    {
+      "index": 3,
+      "image_id": "C04",
+      "category": "chart",
+      "repeat": false,
+      "ground_truth_id": "C04",
+      "image_path": "images/C04.png",
+      "image_sha256": "c644f3dd733a77181499b8b97ef06b65b80681672510630dbf35cb00180d9e8d",
+      "image_bytes": 31960,
+      "image_dimensions": [
+        1600,
+        1100
+      ],
+      "alpha_policy": "RGBA composited onto white",
+      "prompt": {
+        "path": null,
+        "kind": "official_model_card_task_prompt",
+        "output_markup_inert": true,
+        "sha256": "ed61ca146c16168bf6a029b25ac813bce548737f0168c0863b88e60c3b6fc1c8",
+        "text": "Chart to Table:"
+      },
+      "timing_seconds": {
+        "preprocess": 0.0133,
+        "inference": 4.762,
+        "image_total": 4.7753
+      },
+      "prediction": {
+        "text": "<otsl><fcel>Period / category<fcel>Milliseconds<nl><fcel>Small<fcel>14<nl><fcel>Medium<fcel>43<nl><fcel>Large<fcel>119<nl></otsl>",
+        "lines": [],
+        "words": [],
+        "generation_tokens": 35,
+        "max_new_tokens": 512,
+        "at_token_budget": false,
+        "finish_reason": "stop"
+      },
+      "bbox_coordinate_contract": null,
+      "metrics": {
+        "serialization_valid": false,
+        "schema_valid": null,
+        "json_parse_success": false,
+        "parse_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+        "schema_errors": [],
+        "parse_mode": null,
+        "predicted_chart": {},
+        "value_pairs": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ground_truth_support": 3,
+          "predicted_support": 0
+        },
+        "numeric_values": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0,
+          "ground_truth_support": 3,
+          "predicted_support": 0
+        },
+        "exact_headers": null,
+        "exact_chart": false
+      },
+      "quality_eligible": true,
+      "status": "completed"
+    }
+  ],
+  "quality": {
+    "unique_cases": 4,
+    "exact_chart_header_cases": 0,
+    "serialization": {
+      "valid_cases": 0,
+      "evaluable_cases": 4,
+      "rate": 0.0
+    },
+    "schema": {
+      "valid_cases": 0,
+      "evaluable_cases": 0,
+      "rate": null
+    },
+    "value_pair_micro": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 15,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0,
+      "ground_truth_support": 15,
+      "predicted_support": 0
+    },
+    "numeric_value_micro": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 15,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0,
+      "ground_truth_support": 15,
+      "predicted_support": 0
+    },
+    "exact_charts": 0,
+    "json_parse_failures": 4
+  },
+  "failure": null,
+  "finished_at_utc": "2026-10-30T20:54:32.580576+00:00",
+  "memory_pressure_end": {
+    "exit_code": 0,
+    "stdout": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 64%",
+    "stderr": ""
+  },
+  "runtime_released": true
+}

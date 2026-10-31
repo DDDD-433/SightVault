@@ -1,0 +1,50 @@
+{
+  "processor_class": "MiniCPMOcrProcessor",
+  "image_processor": {
+    "max_slice_nums": 9,
+    "patch_size": 14,
+    "scale_resolution": 448,
+    "slice_mode": true,
+    "use_image_id": true,
+    "downsample_mode": "4x",
+    "pack_image_by_patch": true,
+    "image_mean": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "image_std": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "disable_small_image_upsize": false,
+    "adaptive_small_image_upsize": false,
+    "adaptive_upsize_font_px": 12.0,
+    "adaptive_upsize_dense_per_kpx": 2.0,
+    "adaptive_upsize_tiny_pixels": 6272,
+    "adaptive_upsize_tiny_target_resolution": 84,
+    "adaptive_tile_upsize": false
+  },
+  "video_processor": {
+    "max_slice_nums": 9,
+    "patch_size": 14,
+    "scale_resolution": 448,
+    "slice_mode": true,
+    "use_image_id": true,
+    "downsample_mode": "4x",
+    "pack_image_by_patch": true,
+    "max_num_frames": 128,
+    "stack_frames": 1,
+    "image_mean": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "image_std": [
+      0.5,
+      0.5,
+      0.5
+    ]
+  }
+}

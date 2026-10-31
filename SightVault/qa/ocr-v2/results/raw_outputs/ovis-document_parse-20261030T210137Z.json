@@ -1,0 +1,1015 @@
+{
+  "experiment": "SightVault OCR_V2",
+  "backend": "ovis",
+  "baseline_commit_or_hash": "766027c79d4c6f17ba7b88b1df3bc079dfbbd141",
+  "experiment_commit": "1d9a4e42ff96f7c20bc72ac0111d3e2fe5c95cf9",
+  "model": {
+    "repo": "ATH-MaaS/OvisOCR3",
+    "revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+    "format": "Safetensors",
+    "quantization": "none",
+    "artifact_bytes": 1706030528
+  },
+  "platform": {
+    "os": "26.5.1",
+    "arch": "arm64",
+    "hardware": "Apple M1 Pro",
+    "ram_gb": 16.0,
+    "python": "3.12.9 (main, Feb 12 2025, 15:09:19) [Clang 19.1.6 ]"
+  },
+  "runtime": {
+    "name": "Transformers/PyTorch",
+    "version": "transformers=5.22.0; torch=2.11.0; accelerate=1.15.0",
+    "device": "mps",
+    "offline_verified": true,
+    "runtime": "Transformers/PyTorch",
+    "torch": "2.11.0",
+    "transformers": "5.22.0",
+    "accelerate": "1.15.0",
+    "model_class": "Qwen3_5ForConditionalGeneration",
+    "parameter_devices": [
+      "mps:0"
+    ],
+    "parameter_dtypes": [
+      "torch.bfloat16"
+    ],
+    "mps_built": true,
+    "mps_available": true,
+    "mps_fallback_disabled": true,
+    "configured_dtype": "bfloat16",
+    "pillow": "13.0.0"
+  },
+  "performance": {
+    "cold_load_s": 5.068,
+    "first_request_s": 40.033,
+    "warm_median_s": 30.3525,
+    "warm_p95_s": 33.4618,
+    "peak_rss_mb": 1091.0,
+    "peak_accelerator_mb": 9015.938
+  },
+  "stability": {
+    "requests": 4,
+    "failures": 0,
+    "ooms": 0,
+    "notes": "Counts include declared repeats; quality uses unique images only. Unsupported/skipped capability cases are reported separately."
+  },
+  "portability": {
+    "mac_measured": true,
+    "windows_measured": false,
+    "mac_supported_path": "Transformers/PyTorch on Apple MPS; explicit BF16, operator fallback disabled",
+    "windows_supported_path": "Transformers/PyTorch CPU or CUDA path; Windows not measured",
+    "notes": "This benchmark was executed on macOS Apple Silicon; Windows was not measured on hardware."
+  },
+  "raw_outputs_path": "SightVault/qa/ocr-v2/results/raw_outputs/ovis-document_parse-20261030T210137Z.json",
+  "notes": "Plain OCR uses one shared prompt. Capability prompts are candidate-specific. Returned HTML/Markdown/Mermaid is never rendered or executed.",
+  "experiment_code_sha256": {
+    "bench_ocr.py": "979c077883e8516b95d8c9611535189e0416b321a6c5f1eb954cad33bbf50564",
+    "offline_guard.py": "9d419f1d6d82e5f56ebbc04877655b567dce781aa94a6545fa8e97130e1bbb1d",
+    "smoke_ovis.py": "fd03bdbd8125d92edc3e0c25162fdbaa24c5fe2d4349d16971f9786019ab5e36"
+  },
+  "tracked_worktree_dirty_at_start": false,
+  "candidate": {
+    "model_id": "ATH-MaaS/OvisOCR3",
+    "revision": "4833d5d2afa6e769ee933f024504d67ace80a24c",
+    "source": "https://huggingface.co/ATH-MaaS/OvisOCR3/tree/4833d5d2afa6e769ee933f024504d67ace80a24c",
+    "license": "Apache-2.0",
+    "checkpoint_precision": "official BF16",
+    "quantization": "none"
+  },
+  "task": "document_parse",
+  "status": "completed",
+  "run_id": "20261030T210137Z",
+  "dataset": {
+    "fixture_count": 56,
+    "manifest_sha256": "299c03ec217e5a6e217d1217f14e243d7c9cc5d25e0c669f94c0623990c1f4a4",
+    "ground_truth_sha256": "0001032a7d8e23b8b6922a5dcda73280e6ec1f641373f1107bd4c457806cb13c",
+    "label_source": "authored literals/fields; independent of model outputs"
+  },
+  "metric_implementation_sha256": {
+    "plain": "908c56ff57cb7605f3735bdc80d06ee3571dacbb1026b5e2799af630a347d9b6",
+    "structured": "a1f36e70e492968e291fcd24d09baa0da1672fa3ff64532c4d0b2eacf00719a0",
+    "bbox_contracts": "bbf8e475a54c3db88b1fda451d996f7104f104ae68175cddcb6535766751b104"
+  },
+  "started_at_utc": "2026-10-30T21:01:37.152210+00:00",
+  "command": {
+    "python_argv": [
+      "SightVault/qa/ocr-v2/bench_ocr.py",
+      "--model",
+      "ovis",
+      "--task",
+      "document_parse",
+      "--case-ids",
+      "I01,F01,TB02,MC01",
+      "--max-new-tokens",
+      "1024"
+    ],
+    "sandbox_wrapper": "sh SightVault/qa/ocr-v2/run_ocr_benchmark.sh",
+    "sandbox_profile": "(version 1)(allow default)(deny network-outbound)(allow network-outbound (remote ip \\\"localhost:*\\\"))"
+  },
+  "throughput_plan": {
+    "requested_calls": 4,
+    "unique_corpus_images": 4,
+    "repeat_calls_after_unique_corpus": 0,
+    "repetition_order": "each eligible unique fixture once",
+    "image_order": [
+      "I01",
+      "F01",
+      "TB02",
+      "MC01"
+    ]
+  },
+  "model_artifacts": {
+    "local_dir": "../ocr-v2-models/ovisocr3 (external to the Git worktree)",
+    "disk_bytes_included_files": 1728993040,
+    "file_count_included": 30,
+    "weight_file": "model.safetensors",
+    "weight_bytes": 1706030528,
+    "weight_sha256": "aa2311c6b22b07cf3afe9aac6e8bcb02a2b19dd8671b2a91d0b144071577e600",
+    "weight_verification_manifest": "SightVault/qa/ocr-v2/provenance/ovisocr3-download-manifest.json",
+    "quantization": "none"
+  },
+  "offline": {
+    "isolation_method": "macOS sandbox-exec outbound deny with loopback allowed plus in-process socket/DNS guard; not a firewall",
+    "mac_sandbox_profile": "macOS sandbox-exec outbound deny with loopback allowed",
+    "blocked_external_attempts": [],
+    "offline_flags": {
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1",
+      "HF_HUB_DISABLE_TELEMETRY": "1",
+      "USE_HUB_KERNELS": "NO",
+      "PYTORCH_ENABLE_MPS_FALLBACK": "0"
+    },
+    "verified": true
+  },
+  "memory_pressure_start": {
+    "exit_code": 0,
+    "stdout": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 84%",
+    "stderr": ""
+  },
+  "timing_seconds": {
+    "model_load": 5.068,
+    "first_request": 40.033,
+    "throughput_milestones": {},
+    "model_load_seconds": 5.068,
+    "warm_image_total_p50_seconds": 30.3525,
+    "warm_image_total_p95_seconds": 33.4618,
+    "quality_scoring_wall_seconds_after_model_release": 0.1082,
+    "quality_scoring_cpu_seconds_after_model_release": 0.106,
+    "wall_total_including_load_scoring_and_output": 131.376
+  },
+  "memory": {
+    "peak_process_rss_bytes": 1143996416,
+    "sample_interval_ms": 50,
+    "peak_mps_driver_allocated_bytes_sampled": 9453895680,
+    "mps_current_allocated_bytes_at_end": 1705981184,
+    "mps_driver_allocated_bytes_at_end": 5007917056
+  },
+  "prompt_policy": {
+    "plain_is_shared": false,
+    "capability_prompts_model_specific": true,
+    "model_markup_is_inert": true
+  },
+  "cases": [
+    {
+      "index": 0,
+      "image_id": "I01",
+      "category": "invoice",
+      "repeat": false,
+      "ground_truth_id": "I01",
+      "image_path": "images/I01.png",
+      "image_sha256": "65173db3ccfedc6961481d23ecf5f6e4e63193b58a1a1ee5e570d2aaa7c0415d",
+      "image_bytes": 58048,
+      "image_dimensions": [
+        1600,
+        1100
+      ],
+      "alpha_policy": "RGBA composited onto white",
+      "prompt": {
+        "path": "SightVault/qa/ocr-v2/provenance/ovisocr3/prompts/document_structured.txt",
+        "kind": "official_model_prompt",
+        "bbox_coordinate_contract": {
+          "supported": true,
+          "coordinate_frame": "normalized_0_1000_input_raster_top_left",
+          "units": "integer coordinates in [0,1000), x normalized by input width and y by input height",
+          "order": "[x_min,y_min,x_max,y_max]",
+          "origin": "top-left",
+          "rotation_frame": "Coordinates are relative to the exact image supplied to the model. Harness applies EXIF transpose then composites alpha onto white before inference; fixture rotations are baked into the supplied raster, so compare to ground-truth boxes transformed into that same raster. No inverse transform to an earlier unrotated source is applied.",
+          "source_revision": "ATH-MaaS/OvisOCR3@4833d5d2afa6e769ee933f024504d67ace80a24c",
+          "source_file": "provenance/ovisocr3/README.md",
+          "source_sha256": "43dd8104e1c78fe851f3b2954378dd8e3b6448bd2e8b02b0754611aca9a7e6b8",
+          "prompt_file": "provenance/ovisocr3/prompts/word_spotting.txt",
+          "prompt_sha256": "7fb246da0a3b37529562e71e2fc685ac43fcf0266d22a443855fac70cc768a77"
+        },
+        "output_markup_inert": true,
+        "sha256": "1b6139ec72888e087c8af75f2e2dfb78b425e15ae1c1529940b96137613d1db1",
+        "text": "Analyze the document structure and extract text content. Return a single JSON array in natural reading order.\n\nEach element follows this schema:\n`{\"bbox\": [x_min, y_min, x_max, y_max], \"category\": \"string\", \"content\": \"string\"}`\n\nRules:\n1. The bbox coordinates are integers scaled to [0, 1000).\n2. The category is exactly one of:\n[\"abstract\", \"algorithm\", \"aside_text\", \"chart\", \"content\", \"display_formula\", \"doc_title\", \"figure_title\", \"footer\", \"footer_image\", \"footnote\", \"formula_number\", \"header\", \"header_image\", \"image\", \"inline_formula\", \"number\", \"paragraph_title\", \"reference_content\", \"seal\", \"table\", \"text\", \"vertical_text\", \"vision_footnote\"].\n3. The content formatting depends on category:\n- For \"footer_image\", \"header_image\", \"image\", or \"chart\": write as an HTML image tag <img src=\"images/bbox_{x_min}_{y_min}_{x_max}_{y_max}.jpg\" />.\n- For \"display_formula\" or \"inline_formula\": write in LaTeX.\n- For \"table\": write as a standard HTML `<table>...</table>`.\n- Otherwise: write in Markdown.\n4. Output must be strictly valid JSON. Properly escape quotes and special characters inside content."
+      },
+      "timing_seconds": {
+        "preprocess": 0.0165,
+        "inference": 40.0164,
+        "image_total": 40.0329
+      },
+      "prediction": {
+        "text": "[\n    {\n        \"bbox\": [\n            199,\n            112,\n            299,\n            150\n        ],\n        \"category\": \"paragraph_title\",\n        \"content\": \"## INVOICE\"\n    },\n    {\n        \"bbox\": [\n            200,\n            182,\n            400,\n            210\n        ],\n        \"category\": \"text\",\n        \"content\": \"INVOICE · fictional test data\"\n    },\n    {\n        \"bbox\": [\n            200,\n            223,\n            419,\n            253\n        ],\n        \"category\": \"text\",\n        \"content\": \"Supplier: Northwind Demo LLC\"\n    },\n    {\n        \"bbox\": [\n            200,\n            266,\n            385,\n            294\n        ],\n        \"category\": \"text\",\n        \"content\": \"Invoice number: INV-1081\"\n    },\n    {\n        \"bbox\": [\n            200,\n            308,\n            377,\n            335\n        ],\n        \"category\": \"text\",\n        \"content\": \"Invoice date: 2026-10-03\"\n    },\n    {\n        \"bbox\": [\n            200,\n            350,\n            355,\n            377\n        ],\n        \"category\": \"text\",\n        \"content\": \"Due date: 2026-10-24\"\n    },\n    {\n        \"bbox\": [\n            200,\n            391,\n            368,\n            419\n        ],\n        \"category\": \"text\",\n        \"content\": \"Subtotal: USD 1,240.00\"\n    },\n    {\n        \"bbox\": [\n            200,\n            433,\n            354,\n            460\n        ],\n        \"category\": \"text\",\n        \"content\": \"Sales tax: USD 99.20\"\n    },\n    {\n        \"bbox\": [\n            200,\n            475,\n            395,\n            503\n        ],\n        \"category\": \"text\",\n        \"content\": \"Amount due: USD 1,339.20\"\n    },\n    {\n        \"bbox\": [\n            200,\n            517,\n            381,\n            544\n        ],\n        \"category\": \"text\",\n        \"content\": \"Purchase order: PO-7330\"\n    },\n    {\n        \"bbox\": [\n            200,\n            559,\n            301,\n            586\n        ],\n        \"category\": \"text\",\n        \"content\": \"Terms: Net 21\"\n    }\n]",
+        "lines": [],
+        "words": [],
+        "generation_tokens": 735,
+        "max_new_tokens": 1024,
+        "at_token_budget": false,
+        "finish_reason": null
+      },
+      "bbox_coordinate_contract": {
+        "supported": true,
+        "coordinate_frame": "normalized_0_1000_input_raster_top_left",
+        "units": "integer coordinates in [0,1000), x normalized by input width and y by input height",
+        "order": "[x_min,y_min,x_max,y_max]",
+        "origin": "top-left",
+        "rotation_frame": "Coordinates are relative to the exact image supplied to the model. Harness applies EXIF transpose then composites alpha onto white before inference; fixture rotations are baked into the supplied raster, so compare to ground-truth boxes transformed into that same raster. No inverse transform to an earlier unrotated source is applied.",
+        "source_revision": "ATH-MaaS/OvisOCR3@4833d5d2afa6e769ee933f024504d67ace80a24c",
+        "source_file": "provenance/ovisocr3/README.md",
+        "source_sha256": "43dd8104e1c78fe851f3b2954378dd8e3b6448bd2e8b02b0754611aca9a7e6b8",
+        "prompt_file": "provenance/ovisocr3/prompts/word_spotting.txt",
+        "prompt_sha256": "7fb246da0a3b37529562e71e2fc685ac43fcf0266d22a443855fac70cc768a77"
+      },
+      "metrics": {
+        "json_parse_success": true,
+        "serialization_valid": true,
+        "schema_valid": true,
+        "parse_error": null,
+        "element_count": 11,
+        "bbox_geometry": {
+          "coordinate_contract": {
+            "supported": true,
+            "coordinate_frame": "normalized_0_1000_input_raster_top_left",
+            "units": "integer coordinates in [0,1000), x normalized by input width and y by input height",
+            "order": "[x_min,y_min,x_max,y_max]",
+            "origin": "top-left",
+            "rotation_frame": "Coordinates are relative to the exact image supplied to the model. Harness applies EXIF transpose then composites alpha onto white before inference; fixture rotations are baked into the supplied raster, so compare to ground-truth boxes transformed into that same raster. No inverse transform to an earlier unrotated source is applied.",
+            "source_revision": "ATH-MaaS/OvisOCR3@4833d5d2afa6e769ee933f024504d67ace80a24c",
+            "source_file": "provenance/ovisocr3/README.md",
+            "source_sha256": "43dd8104e1c78fe851f3b2954378dd8e3b6448bd2e8b02b0754611aca9a7e6b8",
+            "prompt_file": "provenance/ovisocr3/prompts/word_spotting.txt",
+            "prompt_sha256": "7fb246da0a3b37529562e71e2fc685ac43fcf0266d22a443855fac70cc768a77"
+          },
+          "bbox_count": 11,
+          "valid_bbox_count": 11,
+          "all_bboxes_valid": true
+        },
+        "text_metrics": {
+          "cer": 0.012295081967213115,
+          "wer": 0.027777777777777776,
+          "character_ops": {
+            "distance": 3,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 3
+          },
+          "word_ops": {
+            "distance": 1,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 1
+          },
+          "identifiers": {
+            "expected": 3,
+            "predicted": 3,
+            "tp": 3,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "dates": {
+            "expected": 2,
+            "predicted": 2,
+            "tp": 2,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "times": {
+            "expected": 0,
+            "predicted": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "versions": {
+            "expected": 0,
+            "predicted": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "prices": {
+            "expected": 3,
+            "predicted": 3,
+            "tp": 3,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "numbers": {
+            "expected": 1,
+            "predicted": 1,
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "numeric_values": {
+            "expected": 6,
+            "predicted": 6,
+            "tp": 6,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "reference_chars": 244,
+          "hypothesis_chars": 247,
+          "reference_words": 36,
+          "hypothesis_words": 37
+        },
+        "text_characters_after_inert_markup_parse": 247
+      },
+      "quality_eligible": true,
+      "status": "completed"
+    },
+    {
+      "index": 1,
+      "image_id": "F01",
+      "category": "form",
+      "repeat": false,
+      "ground_truth_id": "F01",
+      "image_path": "images/F01.png",
+      "image_sha256": "c0595f5237bdcd9af47467f2d747ac7086cde67b73351538b117ddfec5d4b82f",
+      "image_bytes": 46768,
+      "image_dimensions": [
+        1600,
+        1100
+      ],
+      "alpha_policy": "RGBA composited onto white",
+      "prompt": {
+        "path": "SightVault/qa/ocr-v2/provenance/ovisocr3/prompts/document_structured.txt",
+        "kind": "official_model_prompt",
+        "bbox_coordinate_contract": {
+          "supported": true,
+          "coordinate_frame": "normalized_0_1000_input_raster_top_left",
+          "units": "integer coordinates in [0,1000), x normalized by input width and y by input height",
+          "order": "[x_min,y_min,x_max,y_max]",
+          "origin": "top-left",
+          "rotation_frame": "Coordinates are relative to the exact image supplied to the model. Harness applies EXIF transpose then composites alpha onto white before inference; fixture rotations are baked into the supplied raster, so compare to ground-truth boxes transformed into that same raster. No inverse transform to an earlier unrotated source is applied.",
+          "source_revision": "ATH-MaaS/OvisOCR3@4833d5d2afa6e769ee933f024504d67ace80a24c",
+          "source_file": "provenance/ovisocr3/README.md",
+          "source_sha256": "43dd8104e1c78fe851f3b2954378dd8e3b6448bd2e8b02b0754611aca9a7e6b8",
+          "prompt_file": "provenance/ovisocr3/prompts/word_spotting.txt",
+          "prompt_sha256": "7fb246da0a3b37529562e71e2fc685ac43fcf0266d22a443855fac70cc768a77"
+        },
+        "output_markup_inert": true,
+        "sha256": "1b6139ec72888e087c8af75f2e2dfb78b425e15ae1c1529940b96137613d1db1",
+        "text": "Analyze the document structure and extract text content. Return a single JSON array in natural reading order.\n\nEach element follows this schema:\n`{\"bbox\": [x_min, y_min, x_max, y_max], \"category\": \"string\", \"content\": \"string\"}`\n\nRules:\n1. The bbox coordinates are integers scaled to [0, 1000).\n2. The category is exactly one of:\n[\"abstract\", \"algorithm\", \"aside_text\", \"chart\", \"content\", \"display_formula\", \"doc_title\", \"figure_title\", \"footer\", \"footer_image\", \"footnote\", \"formula_number\", \"header\", \"header_image\", \"image\", \"inline_formula\", \"number\", \"paragraph_title\", \"reference_content\", \"seal\", \"table\", \"text\", \"vertical_text\", \"vision_footnote\"].\n3. The content formatting depends on category:\n- For \"footer_image\", \"header_image\", \"image\", or \"chart\": write as an HTML image tag <img src=\"images/bbox_{x_min}_{y_min}_{x_max}_{y_max}.jpg\" />.\n- For \"display_formula\" or \"inline_formula\": write in LaTeX.\n- For \"table\": write as a standard HTML `<table>...</table>`.\n- Otherwise: write in Markdown.\n4. Output must be strictly valid JSON. Properly escape quotes and special characters inside content."
+      },
+      "timing_seconds": {
+        "preprocess": 0.0171,
+        "inference": 30.3354,
+        "image_total": 30.3525
+      },
+      "prediction": {
+        "text": "[\n    {\n        \"bbox\": [\n            83,\n            111,\n            271,\n            151\n        ],\n        \"category\": \"paragraph_title\",\n        \"content\": \"## Service request\"\n    },\n    {\n        \"bbox\": [\n            89,\n            210,\n            394,\n            239\n        ],\n        \"category\": \"text\",\n        \"content\": \"Form version: 3.1.0\"\n    },\n    {\n        \"bbox\": [\n            89,\n            267,\n            424,\n            296\n        ],\n        \"category\": \"text\",\n        \"content\": \"All values are fictional benchmark data.\"\n    },\n    {\n        \"bbox\": [\n            89,\n            323,\n            434,\n            353\n        ],\n        \"category\": \"text\",\n        \"content\": \"Request ID: SR-10418\"\n    },\n    {\n        \"bbox\": [\n            89,\n            380,\n            445,\n            410\n        ],\n        \"category\": \"text\",\n        \"content\": \"Opened: 2026-10-30\"\n    },\n    {\n        \"bbox\": [\n            89,\n            436,\n            475,\n            466\n        ],\n        \"category\": \"text\",\n        \"content\": \"Status: Pending review\"\n    },\n    {\n        \"bbox\": [\n            89,\n            492,\n            376,\n            522\n        ],\n        \"category\": \"text\",\n        \"content\": \"Priority: P2\"\n    },\n    {\n        \"bbox\": [\n            89,\n            549,\n            426,\n            578\n        ],\n        \"category\": \"text\",\n        \"content\": \"Owner: A. Rivera\"\n    }\n]",
+        "lines": [],
+        "words": [],
+        "generation_tokens": 507,
+        "max_new_tokens": 1024,
+        "at_token_budget": false,
+        "finish_reason": null
+      },
+      "bbox_coordinate_contract": {
+        "supported": true,
+        "coordinate_frame": "normalized_0_1000_input_raster_top_left",
+        "units": "integer coordinates in [0,1000), x normalized by input width and y by input height",
+        "order": "[x_min,y_min,x_max,y_max]",
+        "origin": "top-left",
+        "rotation_frame": "Coordinates are relative to the exact image supplied to the model. Harness applies EXIF transpose then composites alpha onto white before inference; fixture rotations are baked into the supplied raster, so compare to ground-truth boxes transformed into that same raster. No inverse transform to an earlier unrotated source is applied.",
+        "source_revision": "ATH-MaaS/OvisOCR3@4833d5d2afa6e769ee933f024504d67ace80a24c",
+        "source_file": "provenance/ovisocr3/README.md",
+        "source_sha256": "43dd8104e1c78fe851f3b2954378dd8e3b6448bd2e8b02b0754611aca9a7e6b8",
+        "prompt_file": "provenance/ovisocr3/prompts/word_spotting.txt",
+        "prompt_sha256": "7fb246da0a3b37529562e71e2fc685ac43fcf0266d22a443855fac70cc768a77"
+      },
+      "metrics": {
+        "json_parse_success": true,
+        "serialization_valid": true,
+        "schema_valid": true,
+        "parse_error": null,
+        "element_count": 8,
+        "bbox_geometry": {
+          "coordinate_contract": {
+            "supported": true,
+            "coordinate_frame": "normalized_0_1000_input_raster_top_left",
+            "units": "integer coordinates in [0,1000), x normalized by input width and y by input height",
+            "order": "[x_min,y_min,x_max,y_max]",
+            "origin": "top-left",
+            "rotation_frame": "Coordinates are relative to the exact image supplied to the model. Harness applies EXIF transpose then composites alpha onto white before inference; fixture rotations are baked into the supplied raster, so compare to ground-truth boxes transformed into that same raster. No inverse transform to an earlier unrotated source is applied.",
+            "source_revision": "ATH-MaaS/OvisOCR3@4833d5d2afa6e769ee933f024504d67ace80a24c",
+            "source_file": "provenance/ovisocr3/README.md",
+            "source_sha256": "43dd8104e1c78fe851f3b2954378dd8e3b6448bd2e8b02b0754611aca9a7e6b8",
+            "prompt_file": "provenance/ovisocr3/prompts/word_spotting.txt",
+            "prompt_sha256": "7fb246da0a3b37529562e71e2fc685ac43fcf0266d22a443855fac70cc768a77"
+          },
+          "bbox_count": 8,
+          "valid_bbox_count": 8,
+          "all_bboxes_valid": true
+        },
+        "text_metrics": {
+          "cer": 0.01775147928994083,
+          "wer": 0.041666666666666664,
+          "character_ops": {
+            "distance": 3,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 3
+          },
+          "word_ops": {
+            "distance": 1,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 1
+          },
+          "identifiers": {
+            "expected": 2,
+            "predicted": 2,
+            "tp": 2,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "dates": {
+            "expected": 1,
+            "predicted": 1,
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "times": {
+            "expected": 0,
+            "predicted": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "versions": {
+            "expected": 1,
+            "predicted": 1,
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "prices": {
+            "expected": 0,
+            "predicted": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "numbers": {
+            "expected": 0,
+            "predicted": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "numeric_values": {
+            "expected": 2,
+            "predicted": 2,
+            "tp": 2,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "reference_chars": 169,
+          "hypothesis_chars": 172,
+          "reference_words": 24,
+          "hypothesis_words": 25
+        },
+        "text_characters_after_inert_markup_parse": 172
+      },
+      "quality_eligible": true,
+      "status": "completed"
+    },
+    {
+      "index": 2,
+      "image_id": "TB02",
+      "category": "table",
+      "repeat": false,
+      "ground_truth_id": "TB02",
+      "image_path": "images/TB02.png",
+      "image_sha256": "cf7695d062a70f8add9d87a417e16fda21cb9b5c4d3f86c329bbed1e3ac473f2",
+      "image_bytes": 39244,
+      "image_dimensions": [
+        1600,
+        1100
+      ],
+      "alpha_policy": "RGBA composited onto white",
+      "prompt": {
+        "path": "SightVault/qa/ocr-v2/provenance/ovisocr3/prompts/document_structured.txt",
+        "kind": "official_model_prompt",
+        "bbox_coordinate_contract": {
+          "supported": true,
+          "coordinate_frame": "normalized_0_1000_input_raster_top_left",
+          "units": "integer coordinates in [0,1000), x normalized by input width and y by input height",
+          "order": "[x_min,y_min,x_max,y_max]",
+          "origin": "top-left",
+          "rotation_frame": "Coordinates are relative to the exact image supplied to the model. Harness applies EXIF transpose then composites alpha onto white before inference; fixture rotations are baked into the supplied raster, so compare to ground-truth boxes transformed into that same raster. No inverse transform to an earlier unrotated source is applied.",
+          "source_revision": "ATH-MaaS/OvisOCR3@4833d5d2afa6e769ee933f024504d67ace80a24c",
+          "source_file": "provenance/ovisocr3/README.md",
+          "source_sha256": "43dd8104e1c78fe851f3b2954378dd8e3b6448bd2e8b02b0754611aca9a7e6b8",
+          "prompt_file": "provenance/ovisocr3/prompts/word_spotting.txt",
+          "prompt_sha256": "7fb246da0a3b37529562e71e2fc685ac43fcf0266d22a443855fac70cc768a77"
+        },
+        "output_markup_inert": true,
+        "sha256": "1b6139ec72888e087c8af75f2e2dfb78b425e15ae1c1529940b96137613d1db1",
+        "text": "Analyze the document structure and extract text content. Return a single JSON array in natural reading order.\n\nEach element follows this schema:\n`{\"bbox\": [x_min, y_min, x_max, y_max], \"category\": \"string\", \"content\": \"string\"}`\n\nRules:\n1. The bbox coordinates are integers scaled to [0, 1000).\n2. The category is exactly one of:\n[\"abstract\", \"algorithm\", \"aside_text\", \"chart\", \"content\", \"display_formula\", \"doc_title\", \"figure_title\", \"footer\", \"footer_image\", \"footnote\", \"formula_number\", \"header\", \"header_image\", \"image\", \"inline_formula\", \"number\", \"paragraph_title\", \"reference_content\", \"seal\", \"table\", \"text\", \"vertical_text\", \"vision_footnote\"].\n3. The content formatting depends on category:\n- For \"footer_image\", \"header_image\", \"image\", or \"chart\": write as an HTML image tag <img src=\"images/bbox_{x_min}_{y_min}_{x_max}_{y_max}.jpg\" />.\n- For \"display_formula\" or \"inline_formula\": write in LaTeX.\n- For \"table\": write as a standard HTML `<table>...</table>`.\n- Otherwise: write in Markdown.\n4. Output must be strictly valid JSON. Properly escape quotes and special characters inside content."
+      },
+      "timing_seconds": {
+        "preprocess": 0.0149,
+        "inference": 22.0025,
+        "image_total": 22.0174
+      },
+      "prediction": {
+        "text": "[\n    {\n        \"bbox\": [\n            61,\n            84,\n            350,\n            125\n        ],\n        \"category\": \"paragraph_title\",\n        \"content\": \"# Model package manifest\"\n    },\n    {\n        \"bbox\": [\n            61,\n            184,\n            938,\n            569\n        ],\n        \"category\": \"table\",\n        \"content\": \"<table><thead><tr><td>Model</td><td>Version</td><td>Bytes</td><td>SHA suffix</td></tr></thead><tbody><tr><td>MiniCPM OCR</td><td>1.0.0</td><td>2600969816</td><td>e8a19c</td></tr><tr><td>OvisOCR3</td><td>0.8.0</td><td>1706030528</td><td>d4637ffd</td></tr><tr><td>RapidOCR</td><td>1.4.4</td><td>14915192</td><td>82cbf</td></tr></tbody></table>\"\n    }\n]",
+        "lines": [],
+        "words": [],
+        "generation_tokens": 297,
+        "max_new_tokens": 1024,
+        "at_token_budget": false,
+        "finish_reason": null
+      },
+      "bbox_coordinate_contract": {
+        "supported": true,
+        "coordinate_frame": "normalized_0_1000_input_raster_top_left",
+        "units": "integer coordinates in [0,1000), x normalized by input width and y by input height",
+        "order": "[x_min,y_min,x_max,y_max]",
+        "origin": "top-left",
+        "rotation_frame": "Coordinates are relative to the exact image supplied to the model. Harness applies EXIF transpose then composites alpha onto white before inference; fixture rotations are baked into the supplied raster, so compare to ground-truth boxes transformed into that same raster. No inverse transform to an earlier unrotated source is applied.",
+        "source_revision": "ATH-MaaS/OvisOCR3@4833d5d2afa6e769ee933f024504d67ace80a24c",
+        "source_file": "provenance/ovisocr3/README.md",
+        "source_sha256": "43dd8104e1c78fe851f3b2954378dd8e3b6448bd2e8b02b0754611aca9a7e6b8",
+        "prompt_file": "provenance/ovisocr3/prompts/word_spotting.txt",
+        "prompt_sha256": "7fb246da0a3b37529562e71e2fc685ac43fcf0266d22a443855fac70cc768a77"
+      },
+      "metrics": {
+        "json_parse_success": true,
+        "serialization_valid": true,
+        "schema_valid": true,
+        "parse_error": null,
+        "element_count": 2,
+        "bbox_geometry": {
+          "coordinate_contract": {
+            "supported": true,
+            "coordinate_frame": "normalized_0_1000_input_raster_top_left",
+            "units": "integer coordinates in [0,1000), x normalized by input width and y by input height",
+            "order": "[x_min,y_min,x_max,y_max]",
+            "origin": "top-left",
+            "rotation_frame": "Coordinates are relative to the exact image supplied to the model. Harness applies EXIF transpose then composites alpha onto white before inference; fixture rotations are baked into the supplied raster, so compare to ground-truth boxes transformed into that same raster. No inverse transform to an earlier unrotated source is applied.",
+            "source_revision": "ATH-MaaS/OvisOCR3@4833d5d2afa6e769ee933f024504d67ace80a24c",
+            "source_file": "provenance/ovisocr3/README.md",
+            "source_sha256": "43dd8104e1c78fe851f3b2954378dd8e3b6448bd2e8b02b0754611aca9a7e6b8",
+            "prompt_file": "provenance/ovisocr3/prompts/word_spotting.txt",
+            "prompt_sha256": "7fb246da0a3b37529562e71e2fc685ac43fcf0266d22a443855fac70cc768a77"
+          },
+          "bbox_count": 2,
+          "valid_bbox_count": 2,
+          "all_bboxes_valid": true
+        },
+        "text_metrics": {
+          "cer": 0.012987012987012988,
+          "wer": 0.047619047619047616,
+          "character_ops": {
+            "distance": 2,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 2
+          },
+          "word_ops": {
+            "distance": 1,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 1
+          },
+          "identifiers": {
+            "expected": 6,
+            "predicted": 6,
+            "tp": 6,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "dates": {
+            "expected": 0,
+            "predicted": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "times": {
+            "expected": 0,
+            "predicted": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "versions": {
+            "expected": 3,
+            "predicted": 3,
+            "tp": 3,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "prices": {
+            "expected": 0,
+            "predicted": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "numbers": {
+            "expected": 3,
+            "predicted": 3,
+            "tp": 3,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "numeric_values": {
+            "expected": 6,
+            "predicted": 6,
+            "tp": 6,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "reference_chars": 154,
+          "hypothesis_chars": 156,
+          "reference_words": 21,
+          "hypothesis_words": 22
+        },
+        "text_characters_after_inert_markup_parse": 181
+      },
+      "quality_eligible": true,
+      "status": "completed"
+    },
+    {
+      "index": 3,
+      "image_id": "MC01",
+      "category": "multicolumn",
+      "repeat": false,
+      "ground_truth_id": "MC01",
+      "image_path": "images/MC01.png",
+      "image_sha256": "ad550bdc2162c66d01e13fb7f37ce5227dda7660bbb2178307e1964ce55a2cb6",
+      "image_bytes": 42629,
+      "image_dimensions": [
+        1600,
+        1100
+      ],
+      "alpha_policy": "RGBA composited onto white",
+      "prompt": {
+        "path": "SightVault/qa/ocr-v2/provenance/ovisocr3/prompts/document_structured.txt",
+        "kind": "official_model_prompt",
+        "bbox_coordinate_contract": {
+          "supported": true,
+          "coordinate_frame": "normalized_0_1000_input_raster_top_left",
+          "units": "integer coordinates in [0,1000), x normalized by input width and y by input height",
+          "order": "[x_min,y_min,x_max,y_max]",
+          "origin": "top-left",
+          "rotation_frame": "Coordinates are relative to the exact image supplied to the model. Harness applies EXIF transpose then composites alpha onto white before inference; fixture rotations are baked into the supplied raster, so compare to ground-truth boxes transformed into that same raster. No inverse transform to an earlier unrotated source is applied.",
+          "source_revision": "ATH-MaaS/OvisOCR3@4833d5d2afa6e769ee933f024504d67ace80a24c",
+          "source_file": "provenance/ovisocr3/README.md",
+          "source_sha256": "43dd8104e1c78fe851f3b2954378dd8e3b6448bd2e8b02b0754611aca9a7e6b8",
+          "prompt_file": "provenance/ovisocr3/prompts/word_spotting.txt",
+          "prompt_sha256": "7fb246da0a3b37529562e71e2fc685ac43fcf0266d22a443855fac70cc768a77"
+        },
+        "output_markup_inert": true,
+        "sha256": "1b6139ec72888e087c8af75f2e2dfb78b425e15ae1c1529940b96137613d1db1",
+        "text": "Analyze the document structure and extract text content. Return a single JSON array in natural reading order.\n\nEach element follows this schema:\n`{\"bbox\": [x_min, y_min, x_max, y_max], \"category\": \"string\", \"content\": \"string\"}`\n\nRules:\n1. The bbox coordinates are integers scaled to [0, 1000).\n2. The category is exactly one of:\n[\"abstract\", \"algorithm\", \"aside_text\", \"chart\", \"content\", \"display_formula\", \"doc_title\", \"figure_title\", \"footer\", \"footer_image\", \"footnote\", \"formula_number\", \"header\", \"header_image\", \"image\", \"inline_formula\", \"number\", \"paragraph_title\", \"reference_content\", \"seal\", \"table\", \"text\", \"vertical_text\", \"vision_footnote\"].\n3. The content formatting depends on category:\n- For \"footer_image\", \"header_image\", \"image\", or \"chart\": write as an HTML image tag <img src=\"images/bbox_{x_min}_{y_min}_{x_max}_{y_max}.jpg\" />.\n- For \"display_formula\" or \"inline_formula\": write in LaTeX.\n- For \"table\": write as a standard HTML `<table>...</table>`.\n- Otherwise: write in Markdown.\n4. Output must be strictly valid JSON. Properly escape quotes and special characters inside content."
+      },
+      "timing_seconds": {
+        "preprocess": 0.0146,
+        "inference": 33.4471,
+        "image_total": 33.4618
+      },
+      "prediction": {
+        "text": "[\n    {\n        \"bbox\": [\n            52,\n            70,\n            279,\n            112\n        ],\n        \"category\": \"paragraph_title\",\n        \"content\": \"# Incident summary\"\n    },\n    {\n        \"bbox\": [\n            52,\n            120,\n            223,\n            138\n        ],\n        \"category\": \"text\",\n        \"content\": \"REPORT · INTERNAL REFERENCE\"\n    },\n    {\n        \"bbox\": [\n            61,\n            200,\n            377,\n            230\n        ],\n        \"category\": \"text\",\n        \"content\": \"Root cause: missing wheel metadata.\"\n    },\n    {\n        \"bbox\": [\n            61,\n            280,\n            248,\n            305\n        ],\n        \"category\": \"text\",\n        \"content\": \"Observed on Python 3.12.9.\"\n    },\n    {\n        \"bbox\": [\n            61,\n            360,\n            313,\n            386\n        ],\n        \"category\": \"text\",\n        \"content\": \"Package: rapidocr_onnxruntime 1.4.4.\"\n    },\n    {\n        \"bbox\": [\n            523,\n            200,\n            608,\n            230\n        ],\n        \"category\": \"paragraph_title\",\n        \"content\": \"## Mitigation\"\n    },\n    {\n        \"bbox\": [\n            523,\n            280,\n            729,\n            305\n        ],\n        \"category\": \"text\",\n        \"content\": \"Install from the pinned lock file.\"\n    },\n    {\n        \"bbox\": [\n            523,\n            360,\n            758,\n            386\n        ],\n        \"category\": \"text\",\n        \"content\": \"Retry after dependency verification.\"\n    },\n    {\n        \"bbox\": [\n            523,\n            440,\n            729,\n            463\n        ],\n        \"category\": \"text\",\n        \"content\": \"Ticket OCR-1042 · 2026-10-30\"\n    }\n]",
+        "lines": [],
+        "words": [],
+        "generation_tokens": 582,
+        "max_new_tokens": 1024,
+        "at_token_budget": false,
+        "finish_reason": null
+      },
+      "bbox_coordinate_contract": {
+        "supported": true,
+        "coordinate_frame": "normalized_0_1000_input_raster_top_left",
+        "units": "integer coordinates in [0,1000), x normalized by input width and y by input height",
+        "order": "[x_min,y_min,x_max,y_max]",
+        "origin": "top-left",
+        "rotation_frame": "Coordinates are relative to the exact image supplied to the model. Harness applies EXIF transpose then composites alpha onto white before inference; fixture rotations are baked into the supplied raster, so compare to ground-truth boxes transformed into that same raster. No inverse transform to an earlier unrotated source is applied.",
+        "source_revision": "ATH-MaaS/OvisOCR3@4833d5d2afa6e769ee933f024504d67ace80a24c",
+        "source_file": "provenance/ovisocr3/README.md",
+        "source_sha256": "43dd8104e1c78fe851f3b2954378dd8e3b6448bd2e8b02b0754611aca9a7e6b8",
+        "prompt_file": "provenance/ovisocr3/prompts/word_spotting.txt",
+        "prompt_sha256": "7fb246da0a3b37529562e71e2fc685ac43fcf0266d22a443855fac70cc768a77"
+      },
+      "metrics": {
+        "json_parse_success": true,
+        "serialization_valid": true,
+        "schema_valid": true,
+        "parse_error": null,
+        "element_count": 9,
+        "bbox_geometry": {
+          "coordinate_contract": {
+            "supported": true,
+            "coordinate_frame": "normalized_0_1000_input_raster_top_left",
+            "units": "integer coordinates in [0,1000), x normalized by input width and y by input height",
+            "order": "[x_min,y_min,x_max,y_max]",
+            "origin": "top-left",
+            "rotation_frame": "Coordinates are relative to the exact image supplied to the model. Harness applies EXIF transpose then composites alpha onto white before inference; fixture rotations are baked into the supplied raster, so compare to ground-truth boxes transformed into that same raster. No inverse transform to an earlier unrotated source is applied.",
+            "source_revision": "ATH-MaaS/OvisOCR3@4833d5d2afa6e769ee933f024504d67ace80a24c",
+            "source_file": "provenance/ovisocr3/README.md",
+            "source_sha256": "43dd8104e1c78fe851f3b2954378dd8e3b6448bd2e8b02b0754611aca9a7e6b8",
+            "prompt_file": "provenance/ovisocr3/prompts/word_spotting.txt",
+            "prompt_sha256": "7fb246da0a3b37529562e71e2fc685ac43fcf0266d22a443855fac70cc768a77"
+          },
+          "bbox_count": 9,
+          "valid_bbox_count": 9,
+          "all_bboxes_valid": true
+        },
+        "text_metrics": {
+          "cer": 0.01953125,
+          "wer": 0.06060606060606061,
+          "character_ops": {
+            "distance": 5,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 5
+          },
+          "word_ops": {
+            "distance": 2,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 2
+          },
+          "identifiers": {
+            "expected": 4,
+            "predicted": 4,
+            "tp": 4,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "dates": {
+            "expected": 1,
+            "predicted": 1,
+            "tp": 1,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "times": {
+            "expected": 0,
+            "predicted": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "versions": {
+            "expected": 2,
+            "predicted": 2,
+            "tp": 2,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "prices": {
+            "expected": 0,
+            "predicted": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "numbers": {
+            "expected": 0,
+            "predicted": 0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "numeric_values": {
+            "expected": 3,
+            "predicted": 3,
+            "tp": 3,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          },
+          "reference_chars": 256,
+          "hypothesis_chars": 261,
+          "reference_words": 33,
+          "hypothesis_words": 35
+        },
+        "text_characters_after_inert_markup_parse": 261
+      },
+      "quality_eligible": true,
+      "status": "completed"
+    }
+  ],
+  "quality": {
+    "unique_cases": 4,
+    "supported_cases": 4,
+    "serialization": {
+      "valid_cases": 4,
+      "evaluable_cases": 4,
+      "rate": 1.0
+    },
+    "schema": {
+      "valid_cases": 4,
+      "evaluable_cases": 4,
+      "rate": 1.0
+    },
+    "bbox_geometry": {
+      "valid_bbox_count": 30,
+      "bbox_count": 30,
+      "all_bboxes_valid": true
+    },
+    "content_text": {
+      "cer": 0.015795868772782502,
+      "wer": 0.043859649122807015,
+      "character_ops": {
+        "distance": 13,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 13
+      },
+      "word_ops": {
+        "distance": 5,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 5
+      },
+      "reference_chars": 823,
+      "hypothesis_chars": 836,
+      "reference_words": 114,
+      "hypothesis_words": 119,
+      "extra_char_count": 13,
+      "omitted_char_count": 0,
+      "extra_word_count": 5,
+      "omitted_word_count": 0,
+      "identifiers": {
+        "tp": 15,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "ground_truth_support": 15,
+        "predicted_support": 15
+      },
+      "dates": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "ground_truth_support": 4,
+        "predicted_support": 4
+      },
+      "times": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "ground_truth_support": 0,
+        "predicted_support": 0
+      },
+      "versions": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "ground_truth_support": 6,
+        "predicted_support": 6
+      },
+      "prices": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "ground_truth_support": 3,
+        "predicted_support": 3
+      },
+      "numbers": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "ground_truth_support": 4,
+        "predicted_support": 4
+      },
+      "numeric_values": {
+        "tp": 17,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "ground_truth_support": 17,
+        "predicted_support": 17
+      }
+    }
+  },
+  "failure": null,
+  "finished_at_utc": "2026-10-30T21:03:48.097051+00:00",
+  "memory_pressure_end": {
+    "exit_code": 0,
+    "stdout": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 54%",
+    "stderr": ""
+  },
+  "runtime_released": true
+}

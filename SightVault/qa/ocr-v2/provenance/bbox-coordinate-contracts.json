@@ -1,0 +1,35 @@
+{
+  "ground_truth": {
+    "coordinate_frame": "pixel_input_raster_top_left",
+    "units": "pixel",
+    "order": "xyxy axis-aligned rectangles",
+    "rotation_frame": "Saved final fixture raster. ROT01/ROT02 rotate pixels before writing and transform manually authored boxes into the resulting raster; synthetic rotation is not a metadata-only EXIF rotation."
+  },
+  "ovis": {
+    "supported": true,
+    "coordinate_frame": "normalized_0_1000_input_raster_top_left",
+    "units": "integer coordinates in [0,1000), x normalized by input width and y by input height",
+    "order": "[x_min,y_min,x_max,y_max]",
+    "origin": "top-left",
+    "rotation_frame": "Coordinates are relative to the exact image supplied to the model. Harness applies EXIF transpose then composites alpha onto white before inference; fixture rotations are baked into the supplied raster, so compare to ground-truth boxes transformed into that same raster. No inverse transform to an earlier unrotated source is applied.",
+    "source_revision": "ATH-MaaS/OvisOCR3@4833d5d2afa6e769ee933f024504d67ace80a24c",
+    "source_file": "provenance/ovisocr3/README.md",
+    "source_sha256": "43dd8104e1c78fe851f3b2954378dd8e3b6448bd2e8b02b0754611aca9a7e6b8",
+    "prompt_file": "provenance/ovisocr3/prompts/word_spotting.txt",
+    "prompt_sha256": "7fb246da0a3b37529562e71e2fc685ac43fcf0266d22a443855fac70cc768a77"
+  },
+  "rapid": {
+    "supported": true,
+    "coordinate_frame": "pixel_input_raster_top_left",
+    "units": "pixel coordinates",
+    "order": "four-point quadrilateral; metric converts to axis-aligned envelope",
+    "origin": "top-left",
+    "rotation_frame": "The installed 1.4.4 code restores word boxes through reverse crop/rotation and then maps detector/word points through preprocessing scale/padding to raw_h/raw_w. In this harness, raw input is the EXIF-transposed, white-alpha-composited raster; fixture rotations are baked into this raster, and ground truth is in that same frame.",
+    "source_revision": "rapidocr-onnxruntime==1.4.4; official PyPI wheel SHA-256 971d7d5f223a7a808662229df1ef69893809d8457d834e6373d3854bc1782cbf",
+    "source_files": {
+      "provenance/rapidocr-onnxruntime-1.4.4/source/main.py": "156c49e683fddd26f04280f391f882b857a74d2f020497870f7dd8d850ed5a2c",
+      "provenance/rapidocr-onnxruntime-1.4.4/source/cal_rec_boxes/main.py": "d7cf9cb01f189a873cef9897150e379085608f9908a7288857ea2599ff7eee76"
+    }
+  },
+  "comparison_rule": "A backend without one of these source-supported frames is recorded unsupported; no IoU is reported for an unknown coordinate convention."
+}

@@ -1,0 +1,20 @@
+{
+  "downsample_mode": "4x",
+  "max_slice_nums": 9,
+  "patch_size": 14,
+  "scale_resolution": 448,
+  "slice_mode": true,
+  "use_image_id": true,
+  "image_mean": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "image_std": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "image_processor_type": "MiniCPMOcrImageProcessor",
+  "processor_class": "MiniCPMOcrProcessor"
+}
