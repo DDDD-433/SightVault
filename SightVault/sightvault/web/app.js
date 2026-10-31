@@ -3,6 +3,8 @@ const $ = id => document.getElementById(id);
 let autoTemporal=false, mode='hybrid', view='memory', selected=null, jobId=null, currentResults=[], requestId=0, lastQuery='', visibleLimit=0, visionLabel='';
 const escapeHtml = value => String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmtDate = value => new Date(value).toLocaleString(undefined,{month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'});
+const fmtDay = value => new Date(value).toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+const dayKey = value => {const d=new Date(value);return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;};
 const duration = value => value>=1000 ? `${(value/1000).toFixed(2)} s` : `${Math.round(value)} ms`;
 async function api(url, options={}) {
   const response=await fetch(url,{...options,headers:{'Content-Type':'application/json',...(options.headers||{})}});
@@ -10,10 +12,12 @@ async function api(url, options={}) {
   if(!response.ok)throw Error(typeof data.detail==='string'?data.detail:JSON.stringify(data.detail||data));
   return data;
 }
+let importTouched=false;
+function setImportOpen(open){$('import-panel').hidden=!open;$('import-toggle').setAttribute('aria-expanded',String(open));}
 function notice(message){$('notice').textContent=message||'';$('notice').hidden=!message;}
 function setVisionLabel(label){
   visionLabel=label||'';
-  $('analysis-description').textContent=visionLabel?`${visionLabel} analyzes this image locally when you ask. Answers stay attached to their source.`:'The selected local vision model analyzes this image when you ask. Answers stay attached to their source.';
+  $('analysis-description').textContent=visionLabel?`${visionLabel} reads this image on this computer when you ask. Each answer stays linked to this file.`:'The selected local vision model reads this image when you ask. Each answer stays linked to this file.';
   $('analyze-button').textContent=visionLabel?`Analyze with ${visionLabel}`:'Analyze image';
 }
 let toastTimer;
@@ -46,12 +50,12 @@ function emptyOcrMessage(row){
 async function refreshStatus(){
   try {
     const data=await api('/api/status');
-    $('asset-count').textContent=data.total.toLocaleString();$('nav-count').textContent=data.total;$('indexed-metric').textContent=data.total;
+    $('asset-count').textContent=data.total.toLocaleString();
+    // An empty library opens the folder form once as onboarding; after that it follows the user.
+    if(!importTouched&&!jobId&&data.total===0){importTouched=true;setImportOpen(true);}
     const names={embedding:data.embedding_model,ocr:data.ocr_model};
     const vision=data.models.vision;
     setVisionLabel(vision?.name||data.vision_model);
-    if(data.embedding_model)$('embedding-metric').textContent=data.embedding_model;
-    $('cloud-metric').textContent=data.cloud_api_calls??'—';
     $('model-status').innerHTML=Object.entries(data.models).map(([name,state])=>`<div class="model-row"><b>${escapeHtml(state.name||names[name]||name)}</b><span class="model-state ${state.loaded?'is-loaded':''}">${escapeHtml(state.loaded?`Loaded · ${state.device}`:state.available?'Downloaded · loads on demand':state.availability_reason||'Not downloaded')}</span>${state.runtime?`<span>${escapeHtml(state.runtime+' · '+state.precision)}</span>`:''}${state.error?`<span class="model-error">${escapeHtml(state.error.slice(0,120))}</span>`:''}</div>`).join('');
     $('model-status').innerHTML+=`<div class="model-row model-totals">${Number(data.with_embeddings)} embeddings · ${Number(data.with_ocr)} OCR records</div>`;
     return data;
@@ -60,11 +64,14 @@ async function refreshStatus(){
 function setView(next){
   view=next;
   for(const [id,name] of [['memory-nav','memory'],['timeline-nav','timeline']]){$(id).classList.toggle('active',view===name);if(view===name)$(id).setAttribute('aria-current','page');else $(id).removeAttribute('aria-current');}
-  $('view-label').textContent=view==='memory'?'Visual memory':'Timeline';$('results').classList.toggle('timeline',view==='timeline');
+  $('view-label').textContent=view==='memory'?'Library':'Timeline';$('results').classList.toggle('timeline',view==='timeline');
 }
 function renderCards(results, query, highlight=false){
   currentResults=results;
   const sort=$('sort').value;
+  // Chronological orderings get a divider at each local calendar day; relevance order has no day structure.
+  const chronological=sort==='oldest'||sort==='newest';
+  let lastDay='';
   $('results').innerHTML=results.map((row,i)=>{
     const id=Number(row.id), name=escapeHtml(row.filename);
     const best=i===0&&query&&sort==='relevance', earliest=i===0&&query&&sort==='oldest';
@@ -72,10 +79,12 @@ function renderCards(results, query, highlight=false){
     const similarity=row.semantic_score!==null&&row.semantic_score!==undefined?`<span class="semantic-badge" title="Embedding similarity between the search and this image. A ranking signal, not a confidence score.">Similarity ${Number(row.semantic_score).toFixed(3)}</span>`:'';
     const text=row.ocr_text||row.ocr_preview;
     const preview=text?`<p class="ocr-preview">${ocrSnippet(text,highlight?row.matched_terms:[])}</p>`:`<p class="ocr-preview is-empty">${escapeHtml(emptyOcrMessage(row))}</p>`;
-    return `<article class="card${best?' best':''}${earliest?' earliest':''}" aria-labelledby="card-title-${id}"><button class="image-wrap" type="button" data-open="${id}" tabindex="-1" aria-label="Open ${name}"><img src="/api/assets/${id}/image?thumbnail=true" alt="${name}" loading="lazy"></button><div class="card-body"><h3 class="card-title" id="card-title-${id}" title="${name}">${name}</h3><div class="card-time"><time datetime="${escapeHtml(row.timestamp)}">${escapeHtml(fmtDate(row.timestamp))}</time></div><div class="match-row">${rank}${row.exact_match?'<span class="match-badge">TEXT MATCH</span>':''}${similarity}</div>${preview}<div class="card-footer"><span class="card-dims">${Number(row.width)} × ${Number(row.height)}</span><button class="open-evidence" type="button" data-open="${id}" aria-label="Open evidence and analyze ${name}">Open &amp; analyze</button></div></div></article>`;
+    let divider='';
+    if(chronological){const key=dayKey(row.timestamp);if(key!==lastDay){lastDay=key;divider=`<p class="day-mark"><time datetime="${escapeHtml(row.timestamp)}">${escapeHtml(fmtDay(row.timestamp))}</time></p>`;}}
+    return `${divider}<article class="card${best?' best':''}${earliest?' earliest':''}" aria-labelledby="card-title-${id}"><button class="image-wrap" type="button" data-open="${id}" tabindex="-1" aria-label="Open ${name}"><img src="/api/assets/${id}/image?thumbnail=true" alt="${name}" loading="lazy"></button><div class="card-body"><h3 class="card-title" id="card-title-${id}" title="${name}">${name}</h3><div class="card-time"><time datetime="${escapeHtml(row.timestamp)}">${escapeHtml(fmtDate(row.timestamp))}</time></div><div class="match-row">${rank}${row.exact_match?'<span class="match-badge">TEXT MATCH</span>':''}${similarity}</div>${preview}<div class="card-footer"><span class="card-dims">${Number(row.width)} × ${Number(row.height)}</span><button class="open-evidence" type="button" data-open="${id}" aria-label="Inspect ${name}: source evidence and questions">Inspect</button></div></div></article>`;
   }).join('');
   $('empty').hidden=results.length>0;
-  if(!results.length){$('empty').querySelector('h3').textContent=query?'Nothing matched this search.':'Make room for a better memory.';$('empty').querySelector('p').innerHTML=query?'Try fewer words, another search mode or a wider date range.':'Add a folder of screenshots, slides or photos.<br>Or explore a collection made for the demo.';$('empty-demo').hidden=!!query;}
+  if(!results.length){$('empty').querySelector('h3').textContent=query?'Nothing matched':'No images yet';$('empty').querySelector('p').textContent=query?'Try fewer words, another match type or a wider date range.':'Add a folder of screenshots, slides or photos, or load the demo collection to try searching.';$('empty').querySelector('.empty-actions').hidden=!!query;}
 }
 async function search(extra={}){
   const serial=++requestId;
@@ -104,30 +113,36 @@ async function search(extra={}){
     if(data.sort!==params.get('sort'))autoTemporal=true;
     $('sort').value=data.sort;
     if(data.sort==='oldest'&&query)setView('timeline');
+    // Plain browsing reads as a contact sheet; text previews return when there is a search to explain.
+    $('results').classList.toggle('browsing',!query&&!extra.similar_id);
     renderCards(data.results,query||extra.similar_id,!!query&&mode!=='semantic'&&!extra.similar_id);
     $('more-results').hidden=data.results.length>=data.total_matches||data.results.length>=100||!!extra.similar_id;
-    $('latency-metric').textContent=duration(data.latency_ms);
-    $('results-title').textContent=extra.similar_id?'Visually related':$('sort').value==='oldest'&&query?'First in your visual memory':query?'Found in your memory':view==='timeline'?'Your timeline':'Your collection';
-    $('results-meta').textContent=`${data.results.length} of ${data.total_matches} ${query?'candidates':'images'} · ${duration(data.latency_ms)}${extra.similar_id?' · image similarity':query?` · ${mode==='exact'?'OCR + filename':mode==='semantic'?'direct image embeddings':'visual meaning + text'}`:''}`;
+    $('results-title').textContent=extra.similar_id?'Visually related':$('sort').value==='oldest'&&query?'Earliest matches first':query?'Search results':$('sort').value==='oldest'?'All images, oldest first':$('sort').value==='newest'?'All images, newest first':'All images';
+    // Counts and the scope of the search, in user terms; timing stays out of the library view.
+    const scope=extra.similar_id?'similar images':!query?'':mode==='exact'?'exact text in image or filename':mode==='semantic'?'visual similarity':'visual similarity + text';
+    $('results-meta').textContent=`${data.results.length} of ${data.total_matches} ${query||extra.similar_id?'results':'images'}${scope?` · ${scope}`:''}`;
     $('temporal-note').hidden=!data.temporal_note;$('temporal-note').textContent=data.temporal_note||'';
-    $('first-button').disabled=!query;
+    $('first-button').hidden=!query;
     notice(data.warning||contextNote);
   }catch(error){if(serial===requestId)notice(error.message);}
-  finally{if(serial===requestId){$('search-button').disabled=false;$('search-button').innerHTML='Search <span aria-hidden="true">↵</span>';$('results').classList.remove('loading');$('results').removeAttribute('aria-busy');}}
+  finally{if(serial===requestId){$('search-button').disabled=false;$('search-button').textContent='Search';$('results').classList.remove('loading');$('results').removeAttribute('aria-busy');}}
 }
 async function indexFolder(demo=false){
   if(jobId)return;
   notice('');$('index-button').disabled=$('demo-button').disabled=$('empty-demo').disabled=true;
   try{
     const data=await api('/api/index',{method:'POST',body:JSON.stringify({folder:$('folder').value,demo,ocr:$('ocr-backend').value})});
-    jobId=data.job_id;$('job-panel').hidden=false;$('cancel-job').hidden=false;pollJob();
+    jobId=data.job_id;$('job-panel').hidden=false;$('cancel-job').hidden=false;
+    // The form has done its job; progress and Stop stay visible in the rail while the index runs.
+    if(!$('import-panel').hidden){const hadFocus=$('import-panel').contains(document.activeElement);importTouched=true;setImportOpen(false);if(hadFocus)$('import-toggle').focus();}
+    pollJob();
   }catch(error){notice(error.message);$('index-button').disabled=$('demo-button').disabled=$('empty-demo').disabled=false;}
 }
 async function pollJob(){
   if(!jobId)return;
   try{
     const job=await api('/api/jobs/'+jobId);
-    $('job-title').textContent=job.state==='running'?'Building your memory':job.state==='complete'?'Indexing complete':job.state==='cancelled'?'Indexing stopped':'Indexing failed';
+    $('job-title').textContent=job.state==='running'?'Indexing…':job.state==='complete'?'Indexing complete':job.state==='cancelled'?'Indexing stopped':'Indexing failed';
     $('job-panel').classList.toggle('is-error',job.state==='error');
     $('job-progress').max=job.total||1;$('job-progress').value=job.processed||0;
     $('job-current').textContent=job.current||'Loading models…';
@@ -139,7 +154,7 @@ async function pollJob(){
     else toast(`${job.indexed} images added. ${job.skipped} already indexed.`);
   }catch(error){notice('Lost contact with the indexing job: '+error.message);jobId=null;$('index-button').disabled=$('demo-button').disabled=$('empty-demo').disabled=false;}
 }
-function placeholder(){const p=document.createElement('div');p.className='analysis-placeholder';p.textContent='The image comes first. The explanation comes next.';$('analysis-result').replaceChildren(p);}
+function placeholder(){const p=document.createElement('div');p.className='analysis-placeholder';p.textContent='Answers appear here, with the file and model that produced them.';$('analysis-result').replaceChildren(p);}
 let detailSerial=0;
 async function openDetail(id){
   const serial=++detailSerial;
@@ -148,18 +163,19 @@ async function openDetail(id){
     const detail=await api('/api/assets/'+id);
     if(serial!==detailSerial)return;
     selected=detail;
-    $('detail-title').textContent=selected.filename;$('detail-image').src=`/api/assets/${id}/image`;$('image-link').href=`/api/assets/${id}/image`;
+    $('detail-title').textContent=selected.filename;$('detail-title').title=selected.filename;$('detail-image').src=`/api/assets/${id}/image`;$('image-link').href=`/api/assets/${id}/image`;
     $('detail-image').alt=selected.filename;
     const row=(label,value,cls='')=>`<div class="meta-row ${cls}"><dt>${label}</dt><dd>${value}</dd></div>`;
     $('detail-meta').innerHTML=
       row('File date',`${escapeHtml(fmtDate(selected.timestamp))} <span class="meta-sub">${escapeHtml(selected.timestamp_source)}</span>`)+
-      row('Dimensions',`${Number(selected.width)} × ${Number(selected.height)} px`)+
+      row('Pixels',`${Number(selected.width)} × ${Number(selected.height)}`)+
       row('Indexed',escapeHtml(fmtDate(selected.indexed_at)))+
       row('Source file',`<code class="meta-path">${escapeHtml(selected.filepath)}</code>${selected.source_exists===false?'<em class="meta-flag">Original moved or deleted; saved copy shown</em>':''}`,'meta-wide');
-    $('detail-ocr').textContent=selected.ocr_text||emptyOcrMessage(selected);$('detail-ocr').classList.toggle('is-empty',!selected.ocr_text);$('ocr-label').textContent=selected.ocr_backend;
+    $('detail-ocr').textContent=selected.ocr_text||emptyOcrMessage(selected);$('detail-ocr').classList.toggle('is-empty',!selected.ocr_text);$('ocr-label').textContent=selected.ocr_backend?`via ${selected.ocr_backend}`:'';$('copy-ocr').disabled=!selected.ocr_text;
     placeholder();$('analysis-result').removeAttribute('aria-busy');$('detail-status').textContent='';
     $('analyze-button').disabled=false;setVisionLabel(visionLabel);
-    $('detail-dialog').showModal();
+    if(!$('detail-dialog').open)$('detail-dialog').showModal();
+    for(const pane of [$('detail-dialog'),...$('detail-dialog').querySelectorAll('.evidence-column,.analysis-column')])pane.scrollTop=0;
   }catch(error){if(serial===detailSerial){notice(error.message);toast(error.message);}}
   finally{document.body.classList.remove('is-busy');}
 }
@@ -184,9 +200,13 @@ async function analyze(){
 $('search-form').addEventListener('submit',event=>{event.preventDefault();search({fresh:true});});
 // Enter must still submit the latest query while a previous mode/search request is pending.
 $('query').addEventListener('keydown',event=>{if(event.key==='Enter'&&!event.isComposing){event.preventDefault();search({fresh:true});}});
+// The folder form is a disclosure at every width: the panel's hidden state and aria-expanded always change together.
+$('import-toggle').onclick=()=>{importTouched=true;const open=$('import-panel').hidden;setImportOpen(open);if(open)$('folder').focus();};
+$('import-panel').addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();importTouched=true;setImportOpen(false);$('import-toggle').focus();}});
+$('empty-add').onclick=()=>{importTouched=true;setImportOpen(true);$('folder').focus();};
+$('settings').addEventListener('keydown',event=>{if(event.key==='Escape'&&$('settings').open){event.preventDefault();$('settings').open=false;$('settings').querySelector('summary').focus();}});
 $('index-button').onclick=()=>indexFolder();$('demo-button').onclick=$('empty-demo').onclick=()=>indexFolder(true);
 $('cancel-job').onclick=async()=>{if(jobId){await api('/api/jobs/'+jobId+'/cancel',{method:'POST',body:'{}'});toast('Stopping after the current image.');}};
-document.querySelectorAll('[data-query]').forEach(button=>button.onclick=()=>{$('query').value=button.dataset.query;$('sort').value='relevance';setView('memory');autoTemporal=false;search();});
 document.querySelectorAll('[data-mode]').forEach(button=>button.onclick=()=>{mode=button.dataset.mode;document.querySelectorAll('[data-mode]').forEach(b=>{b.classList.toggle('selected',b===button);b.setAttribute('aria-pressed',String(b===button));});search();});
 $('sort').onchange=()=>search();$('date-start').onchange=$('date-end').onchange=()=>search();
 $('more-results').onclick=()=>{visibleLimit=Math.min(visibleLimit+12,100);search({more:true});};

@@ -15,6 +15,11 @@ def main():
    page=context.new_page();page.on('pageerror',lambda error:errors.append(str(error)));page.goto(a.base);expect(page.locator('.card')).to_have_count(12);page.wait_for_load_state('networkidle')
    checks[label+'_reflow']=page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
    checks[label+'_reduced_motion']=page.evaluate("matchMedia('(prefers-reduced-motion: reduce)').matches && getComputedStyle(document.getElementById('search-button')).transitionDuration.split(',').every(x=>parseFloat(x)===0)")
+   checks[label+'_import_initially_collapsed']=not page.locator('#folder').is_visible()
+   page.locator('#import-toggle').click();expect(page.locator('#folder')).to_be_visible();checks[label+'_import_expanded']=page.locator('#import-toggle').get_attribute('aria-expanded')=='true'
+   page.locator('#folder').press('Escape');checks[label+'_import_escape_closes']=not page.locator('#folder').is_visible() and page.locator('#import-toggle').get_attribute('aria-expanded')=='false'
+   page.locator('#settings summary').click();expect(page.locator('#model-status')).to_be_visible();checks[label+'_settings_independent']=not page.locator('#folder').is_visible()
+   page.locator('#settings summary').press('Escape')
    page.locator('.open-evidence').first.click();expect(page.locator('#detail-dialog')).to_be_visible();checks[label+'_dialog_named']=page.locator('#detail-dialog').get_attribute('aria-labelledby')=='detail-title'
    checks[label+'_dialog_fits']=page.locator('#detail-dialog').evaluate('(node)=>{const r=node.getBoundingClientRect();return r.left>=-1&&r.right<=innerWidth+1}')
    page.locator('#question').scroll_into_view_if_needed();checks[label+'_question_reachable']=page.locator('#question').is_visible()

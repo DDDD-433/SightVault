@@ -1,0 +1,24 @@
+{
+  "normal_csp": true,
+  "instance_root": ".",
+  "instance_root_verified": true,
+  "vision_identity": {
+    "backend": "minicpm",
+    "model": "MiniCPM-V 4.7 1B",
+    "model_id": "openbmb/MiniCPM-V-4.7-1B"
+  },
+  "checks": {
+    "api_vision_identity_consistent": true,
+    "expected_backend": true,
+    "expected_model_id": true,
+    "expected_instance_root": true,
+    "ui_selected_model_label": true,
+    "pagination_uses_submitted_query": true,
+    "latest_evidence_request_wins": true,
+    "early_year_preserved": true,
+    "dst_local_day_is_23_hours": true,
+    "no_page_errors": true
+  },
+  "page_errors": [],
+  "passed": true
+}

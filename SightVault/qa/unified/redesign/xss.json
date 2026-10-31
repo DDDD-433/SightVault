@@ -1,0 +1,24 @@
+{
+  "console_errors": [],
+  "failed_requests": [],
+  "http_errors": [],
+  "checks": {
+    "api_vision_identity_consistent": {
+      "ok": true,
+      "detail": {
+        "status_backend": "omni",
+        "model_backend": "omni",
+        "status_model": "LFM3-Omni 2B",
+        "model_name": "LFM3-Omni 2B"
+      }
+    },
+    "xss_card_escaped": {
+      "ok": true,
+      "detail": "ZX-4471 <b>not markup</b> <img src=x onerror=\"window.__xss=1\"> & untrusted OCR"
+    },
+    "xss_dialog_escaped": {
+      "ok": true,
+      "detail": null
+    }
+  }
+}

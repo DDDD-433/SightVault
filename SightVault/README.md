@@ -4,7 +4,7 @@ A local visual-memory app for screenshots, documents and photos. Search by meani
 
 See the [repository overview](https://github.com/DDDD-433/SightVault#readme) for screenshots and features.
 
-See [Phase 2 selection and runtime matrix](qa/FINAL_MODEL_SELECTION.md), [unified acceptance](qa/FINAL_UNIFIED_QA.md), and the [UI review](qa/UI_UX_REVIEW.md).
+See [Phase 2 selection and runtime matrix](qa/FINAL_MODEL_SELECTION.md), [unified acceptance](qa/FINAL_UNIFIED_QA.md), and the [current UI redesign and QA](qa/UI_REDESIGN.md).
 
 ## Portable packages
 

@@ -1,0 +1,92 @@
+{
+  "checks": {
+    "desktop_reflow": true,
+    "desktop_reduced_motion": true,
+    "desktop_import_initially_collapsed": true,
+    "desktop_import_expanded": true,
+    "desktop_import_escape_closes": true,
+    "desktop_settings_independent": true,
+    "desktop_dialog_named": true,
+    "desktop_dialog_fits": true,
+    "desktop_question_reachable": true,
+    "200pct-equivalent-reflow_reflow": true,
+    "200pct-equivalent-reflow_reduced_motion": true,
+    "200pct-equivalent-reflow_import_initially_collapsed": true,
+    "200pct-equivalent-reflow_import_expanded": true,
+    "200pct-equivalent-reflow_import_escape_closes": true,
+    "200pct-equivalent-reflow_settings_independent": true,
+    "200pct-equivalent-reflow_dialog_named": true,
+    "200pct-equivalent-reflow_dialog_fits": true,
+    "200pct-equivalent-reflow_question_reachable": true,
+    "narrow_reflow": true,
+    "narrow_reduced_motion": true,
+    "narrow_import_initially_collapsed": true,
+    "narrow_import_expanded": true,
+    "narrow_import_escape_closes": true,
+    "narrow_settings_independent": true,
+    "narrow_dialog_named": true,
+    "narrow_dialog_fits": true,
+    "narrow_question_reachable": true,
+    "minimum_reflow": true,
+    "minimum_reduced_motion": true,
+    "minimum_import_initially_collapsed": true,
+    "minimum_import_expanded": true,
+    "minimum_import_escape_closes": true,
+    "minimum_settings_independent": true,
+    "minimum_dialog_named": true,
+    "minimum_dialog_fits": true,
+    "minimum_question_reachable": true,
+    "in_dialog_copy_feedback": true,
+    "clipboard_literal_text": true,
+    "empty_question_focus": true,
+    "real_missing_runtime_error_visible": true,
+    "enter_submits_while_previous_request_pending": true,
+    "escaped_highlights": true,
+    "exact_search_survives_optional_error": true,
+    "ocr_remains_literal": true,
+    "no_page_errors": true
+  },
+  "passed": true,
+  "page_errors": [],
+  "contexts": [
+    {
+      "label": "desktop",
+      "css_viewport": [
+        1440,
+        900
+      ],
+      "device_scale_factor": 1,
+      "touch": false
+    },
+    {
+      "label": "200pct-equivalent-reflow",
+      "css_viewport": [
+        720,
+        450
+      ],
+      "device_scale_factor": 2,
+      "touch": false
+    },
+    {
+      "label": "narrow",
+      "css_viewport": [
+        390,
+        844
+      ],
+      "device_scale_factor": 1,
+      "touch": true
+    },
+    {
+      "label": "minimum",
+      "css_viewport": [
+        320,
+        700
+      ],
+      "device_scale_factor": 1,
+      "touch": true
+    }
+  ],
+  "normal_csp": true,
+  "zoom_limit": "720 CSS-pixel viewport at 2x DPR is a 200%-equivalent reflow proxy; native browser zoom and formal screen-reader/WCAG compliance are not claimed.",
+  "error_fixture": "Disposable one-row database containing synthetic malicious markup; models directory deliberately absent; no model inference is mocked as successful."
+}

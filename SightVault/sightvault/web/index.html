@@ -1,40 +1,85 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0c0f14"><title>SightVault — your visual memory</title><link rel="icon" href="/static/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/static/style.css?v=a5a0e8eda6fe"><script defer src="/static/app.js?v=623e6025c3c3"></script></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f4ef"><title>SightVault</title><link rel="icon" href="/static/icon.svg?v=41265797c5bb-archive" type="image/svg+xml"><link rel="stylesheet" href="/static/style.css?v=5abad21a8294"><script defer src="/static/app.js?v=e9536a605eb2"></script></head>
 <body>
 <a class="skip-link" href="#query">Skip to search</a>
-<aside class="sidebar" aria-label="Workspace">
-  <a class="brand" href="/"><img src="/static/icon.svg" alt="" width="34" height="34"><span>SightVault<span class="brand-dot">.</span></span></a>
-  <div class="workspace-label">Your workspace <span>Local</span></div>
-  <nav aria-label="Views"><button class="nav-item active" id="memory-nav" type="button" aria-current="page"><span class="nav-icon" aria-hidden="true">▦</span> Visual memory <span id="nav-count" class="count">0</span></button><button class="nav-item" id="timeline-nav" type="button"><span class="nav-icon" aria-hidden="true">◷</span> Timeline</button></nav>
-  <div class="side-rule"></div>
-  <div class="section-label" id="add-label">Add to your memory</div>
-  <label for="folder" class="field-label">Image folder</label>
-  <div class="folder-field"><span aria-hidden="true">▱</span><input id="folder" placeholder="Path to your image folder" autocomplete="off" spellcheck="false" aria-describedby="folder-hint"></div>
-  <label class="field-label" for="ocr-backend">Text extraction</label>
-  <select id="ocr-backend"><option value="auto">MiniCPM-OCR · auto fallback</option><option value="rapid">RapidOCR · faster indexing</option><option value="minicpm">MiniCPM-OCR only</option><option value="off">Skip OCR</option></select>
-  <button id="index-button" class="button primary full" type="button"><span aria-hidden="true">＋</span> Index folder</button>
-  <button id="demo-button" class="button quiet full" type="button">Try the demo collection</button>
-  <p class="side-hint" id="folder-hint">PNG, JPG, WebP, BMP and TIFF. Only the folder you choose is indexed.</p>
+<div class="app">
+<aside class="rail" id="rail" aria-label="Library and import">
+  <div class="rail-top">
+    <h1 class="wordmark"><img src="/static/icon.svg?v=41265797c5bb-archive" alt="" width="24" height="24"><span>SightVault</span></h1>
+    <nav class="views" aria-label="Views">
+      <button class="nav-item active" id="memory-nav" type="button" aria-current="page"><span>Library</span><span id="asset-count" class="count">0</span></button>
+      <button class="nav-item" id="timeline-nav" type="button"><span>Timeline</span></button>
+    </nav>
+    <button id="import-toggle" class="import-toggle" type="button" aria-expanded="false" aria-controls="import-panel"><span class="plus" aria-hidden="true"></span>Add<span class="toggle-more"> images</span></button>
+    <details class="settings" id="settings">
+      <summary>Settings</summary>
+      <div class="settings-body">
+        <label class="field-label" for="ocr-backend">Text extraction</label>
+        <span class="select full"><select id="ocr-backend" aria-describedby="ocr-hint"><option value="auto">MiniCPM-OCR · auto fallback</option><option value="rapid">RapidOCR · faster indexing</option><option value="minicpm">MiniCPM-OCR only</option><option value="off">Skip OCR</option></select></span>
+        <p class="rail-hint" id="ocr-hint">Used for the next folder you add.</p>
+        <h3 class="settings-heading">Local models</h3>
+        <div id="model-status"></div>
+      </div>
+    </details>
+  </div>
+  <section id="import-panel" class="import-panel" aria-label="Add images" hidden>
+    <label for="folder" class="field-label">Folder</label>
+    <input id="folder" class="field" placeholder="Path to a folder of images" autocomplete="off" spellcheck="false" aria-describedby="folder-hint">
+    <button id="index-button" class="button primary full" type="button">Add folder</button>
+    <button id="demo-button" class="text-button demo-link" type="button">Load the demo collection</button>
+    <p class="rail-hint" id="folder-hint">PNG, JPEG, WebP, BMP and TIFF. Only the folder you choose is read.</p>
+  </section>
   <div id="job-panel" class="job-panel" hidden><div class="job-heading"><strong id="job-title" aria-live="polite">Indexing</strong><button id="cancel-job" class="text-button" type="button">Stop</button></div><progress id="job-progress" value="0" max="100" aria-labelledby="job-title"></progress><div id="job-current"></div><p id="job-detail"></p></div>
-  <div class="side-bottom"><div class="privacy-title"><span class="status-dot" aria-hidden="true"></span> Your files stay here</div><p>Local models. Local storage. No cloud inference. No screen capture.</p><details><summary>Model status</summary><div id="model-status"></div></details><div class="version">SightVault <span>v1.0 · Local edition</span></div></div>
 </aside>
 <main>
-  <header class="topbar"><div class="breadcrumb">Workspace <span aria-hidden="true">/</span> <b id="view-label">Visual memory</b></div><div class="local-pill"><span class="status-dot" aria-hidden="true"></span> Runs on your computer</div></header>
-  <section class="content">
-    <div class="intro"><div><h1>It's here. <span>Somewhere.</span></h1><p>Find what you remember seeing. Let the evidence do the talking.</p></div><div class="memory-count"><strong id="asset-count">0</strong><span>images indexed</span></div></div>
-    <form id="search-form" class="search-shell" role="search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><label class="sr-only" for="query">Search your visual memory</label><input id="query" placeholder="Find the screenshot where my GPU ran out of memory…" autocomplete="off" aria-keyshortcuts="/"><kbd aria-hidden="true">/</kbd><button class="button primary" id="search-button" type="submit">Search <span aria-hidden="true">↵</span></button></form>
-    <div class="suggestions"><span aria-hidden="true">Try</span><button type="button" data-query="Find the screenshot where my GPU ran out of memory">GPU memory error</button><button type="button" data-query="Find ERESOLVE">ERESOLVE</button><button type="button" data-query="Show slides about databases">Database slides</button><button type="button" data-query="Find the image with a red backpack">A red backpack</button></div>
-    <div class="filter-row"><div class="segments" role="group" aria-label="Search mode"><button type="button" class="selected" data-mode="hybrid" aria-pressed="true">Hybrid</button><button type="button" data-mode="semantic" aria-pressed="false">Visual meaning</button><button type="button" data-mode="exact" aria-pressed="false">Exact text</button></div><div class="date-filters" role="group" aria-label="Date range, local time"><label>From <input type="date" id="date-start"></label><label>To <input type="date" id="date-end"></label><button id="clear-filters" class="text-button" type="button" title="Clear dates" aria-label="Clear date filters">Clear</button></div></div>
+  <div class="toolbar">
+    <div class="toolbar-row">
+      <span class="view-title" id="view-label">Library</span>
+      <form id="search-form" class="search-shell" role="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><label class="sr-only" for="query">Search your images</label><input id="query" placeholder="Describe what you remember, or type exact text" autocomplete="off" aria-keyshortcuts="/"><kbd aria-hidden="true">/</kbd><button class="button primary" id="search-button" type="submit">Search</button></form>
+    </div>
+    <div class="toolbar-row filters">
+      <div class="segments" role="group" aria-label="Match by"><button type="button" class="selected" data-mode="hybrid" aria-pressed="true">Visual + text</button><button type="button" data-mode="semantic" aria-pressed="false">Visual</button><button type="button" data-mode="exact" aria-pressed="false">Exact text</button></div>
+      <div class="date-filters" role="group" aria-label="Date range, local time"><label><span>From</span><input type="date" id="date-start"></label><label><span>To</span><input type="date" id="date-end"></label><button id="clear-filters" class="text-button" type="button" aria-label="Clear date filters">Clear</button></div>
+    </div>
+  </div>
+  <section class="content" aria-labelledby="results-title">
     <div id="notice" class="notice" hidden role="status"></div>
-    <div class="results-header"><div><h2 id="results-title" tabindex="-1">Your collection</h2><span id="results-meta" role="status">A little context, always within reach.</span></div><div class="results-actions"><button id="first-button" class="button small" type="button" disabled title="Earliest indexed file matching the current search"><span aria-hidden="true">◷</span> First occurrence</button><label class="sr-only" for="sort">Sort results</label><select id="sort"><option value="relevance">Best match</option><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select></div></div>
+    <div class="results-header"><div class="results-heading"><h2 id="results-title" tabindex="-1">All images</h2><span id="results-meta" role="status"></span></div><div class="results-actions"><button id="first-button" class="button small" type="button" hidden title="Earliest indexed file matching the current search">First occurrence</button><label class="sr-only" for="sort">Sort results</label><span class="select"><select id="sort"><option value="relevance">Best match</option><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select></span></div></div>
     <div id="temporal-note" class="temporal-note" hidden></div>
-    <div id="results" class="results"></div>
-    <div class="more-row"><button id="more-results" class="button small" type="button" hidden>Show more results</button></div>
-    <div id="empty" class="empty" hidden><div class="empty-graphic" aria-hidden="true"><span>▧</span><span>▤</span><span>▥</span></div><h3>Make room for a better memory.</h3><p>Add a folder of screenshots, slides or photos.<br>Or explore a collection made for the demo.</p><button id="empty-demo" class="button primary" type="button">Explore the demo</button></div>
-    <footer class="metrics"><span><i class="status-dot" aria-hidden="true"></i> <b id="indexed-metric">0</b> images</span><span><b id="latency-metric">—</b> retrieval</span><span id="embedding-metric">Embedding model —</span><span><b id="cloud-metric">—</b> cloud API calls</span></footer>
+    <div id="results" class="results browsing"></div>
+    <div class="more-row"><button id="more-results" class="button" type="button" hidden>Show more</button></div>
+    <div id="empty" class="empty" hidden><h3>No images yet</h3><p>Add a folder of screenshots, slides or photos, or load the demo collection to try searching.</p><div class="empty-actions"><button id="empty-add" class="button primary" type="button">Add a folder</button><button id="empty-demo" class="button" type="button">Load the demo collection</button></div></div>
   </section>
 </main>
-<dialog id="detail-dialog" aria-labelledby="detail-title"><div class="detail-top"><div class="detail-heading"><span class="eyebrow">Source evidence</span><h2 id="detail-title"></h2></div><button id="close-detail" class="icon-button" type="button" aria-label="Close evidence"><span aria-hidden="true">✕</span></button></div><div class="detail-layout"><div class="evidence-column"><a id="image-link" class="evidence-image" target="_blank" rel="noopener"><img id="detail-image" alt="Selected indexed image"><span class="open-full">Open full size<span class="sr-only"> (opens in a new tab)</span></span></a><dl id="detail-meta" class="detail-meta"></dl><div class="detail-tools"><button id="similar-button" class="button small" type="button">Find similar images</button><button id="copy-ocr" class="button small" type="button">Copy OCR text</button><span id="detail-status" class="detail-status" role="status"></span></div><details open><summary>Extracted text <span id="ocr-label"></span></summary><pre id="detail-ocr" tabindex="0" role="region" aria-label="Extracted text"></pre></details></div><div class="analysis-column"><div class="analysis-label"><span class="spark" aria-hidden="true">✧</span> Ask about this image <span class="local-tag">Local</span></div><p id="analysis-description" class="analysis-description">The selected local vision backend reads this image when you ask. Answers stay attached to their source.</p><label for="question" class="field-label">Your question</label><textarea id="question" rows="3" aria-describedby="question-hint">What is visible here, and what probably caused it?</textarea><p id="question-hint" class="question-hint">Ctrl+Enter or Cmd+Enter also runs the analysis.</p><button id="analyze-button" class="button primary full" type="button">Analyze image</button><div id="analysis-result" class="analysis-result" aria-live="polite"><div class="analysis-placeholder">The image comes first. The explanation comes next.</div></div><p class="analysis-footnote">Model explanations can be wrong. Check them against the screenshot and extracted text.</p></div></div></dialog>
+</div>
+<dialog id="detail-dialog" aria-labelledby="detail-title">
+  <header class="detail-top">
+    <div class="detail-heading"><h2 id="detail-title"></h2></div>
+    <span id="detail-status" class="detail-status" role="status"></span>
+    <button id="similar-button" class="button small" type="button">Find similar</button>
+    <button id="close-detail" class="button small" type="button" aria-label="Close evidence" autofocus>Close</button>
+  </header>
+  <div class="detail-layout">
+    <section class="evidence-column" aria-label="Image and source">
+      <a id="image-link" class="evidence-image" target="_blank" rel="noopener"><img id="detail-image" alt="Selected indexed image"><span class="open-full">Open full size<span class="sr-only"> (opens in a new tab)</span></span></a>
+      <dl id="detail-meta" class="detail-meta"></dl>
+      <section class="ocr-section" aria-labelledby="ocr-heading">
+        <div class="section-head"><h3 id="ocr-heading">Extracted text</h3><span id="ocr-label"></span><button id="copy-ocr" class="button small" type="button">Copy text</button></div>
+        <pre id="detail-ocr" tabindex="0" role="region" aria-label="Extracted text"></pre>
+      </section>
+    </section>
+    <section class="analysis-column" aria-labelledby="ask-heading">
+      <h3 id="ask-heading">Ask about this image</h3>
+      <p id="analysis-description" class="analysis-description">The selected local vision model reads this image when you ask.</p>
+      <label for="question" class="field-label">Question</label>
+      <textarea id="question" rows="3" aria-describedby="question-hint">What is visible here, and what probably caused it?</textarea>
+      <p id="question-hint" class="question-hint">Cmd+Enter or Ctrl+Enter also asks.</p>
+      <button id="analyze-button" class="button primary full" type="button">Analyze image</button>
+      <div id="analysis-result" class="analysis-result" aria-live="polite"><div class="analysis-placeholder">Answers appear here, with the file and model that produced them.</div></div>
+      <p class="analysis-footnote">Model answers can be wrong. Check them against the image and its extracted text.</p>
+    </section>
+  </div>
+</dialog>
 <div id="toast" class="toast" hidden role="status"></div>
 </body></html>

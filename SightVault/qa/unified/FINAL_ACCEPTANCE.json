@@ -71,5 +71,15 @@
     "scripts/verify_package_integrity.py": "f3bcc3499938f133574dac9073f5bcf06691a72e03623a58ced9e8777b3549f0",
     "handoff/verify_transfer.py": "049caa8800ef9b6f7ea5dd1bbaf9966201961251895c20ea4b6677aa6c67b0ab"
   },
-  "final_archive_integrity_and_bytes": "Recorded alongside archives in exports/RELEASE_MANIFEST.json; the ZIPs exclude exports to avoid self-referential hashes."
+  "final_archive_integrity_and_bytes": "Recorded alongside archives in exports/RELEASE_MANIFEST.json; the ZIPs exclude exports to avoid self-referential hashes.",
+  "current_ui_redesign": {
+    "report": "qa/UI_REDESIGN.md",
+    "main_browser": 37,
+    "normal_csp": 10,
+    "hardening": 45,
+    "adversarial_escaping": 7,
+    "unit_passed": 185,
+    "expected_failure": 1,
+    "model_generation": "real MiniCPM-V 4.7 1B"
+  }
 }
