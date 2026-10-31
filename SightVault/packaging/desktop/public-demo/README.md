@@ -1,0 +1,1 @@
+Reviewed public demo for desktop builds. Contains 62 indexed sample images, stored image copies, thumbnails, OCR and direct image embeddings. Model weights and user libraries are excluded. The build stage rechecks the samples, database schema and evidence against the handoff manifests.

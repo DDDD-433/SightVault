@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 <#
 Build the SightVault Windows x64 desktop app (onedir folder) and, when Inno Setup 6
 is installed, a per-user installer. Run on a native Windows x64 host; this script has
@@ -54,11 +55,16 @@ Sign-File $Exe
 
 # Headless start/stop check in a disposable per-user folder. The exe is windowed, so capture stdout explicitly.
 $SmokeHome = Join-Path ([IO.Path]::GetTempPath()) ("sightvault-smoke-" + [guid]::NewGuid())
-$env:SIGHTVAULT_HOME = Join-Path $SmokeHome 'home'
-$Smoke = Start-Process -FilePath $Exe -ArgumentList @('--smoke', '--report', ('"{0}"' -f "$Out\smoke.json")) -NoNewWindow -Wait -PassThru `
-  -RedirectStandardOutput "$Out\smoke.stdout.txt" -RedirectStandardError "$Out\smoke.err.txt"
-Remove-Item Env:\SIGHTVAULT_HOME
-Remove-Item -Recurse -Force $SmokeHome -ErrorAction SilentlyContinue
+$PreviousHome = $env:SIGHTVAULT_HOME
+try {
+  $env:SIGHTVAULT_HOME = Join-Path $SmokeHome 'home'
+  $Smoke = Start-Process -FilePath $Exe -ArgumentList @('--smoke', '--report', ('"{0}"' -f "$Out\smoke.json")) -NoNewWindow -Wait -PassThru `
+    -RedirectStandardOutput "$Out\smoke.stdout.txt" -RedirectStandardError "$Out\smoke.err.txt"
+} finally {
+  if ($null -eq $PreviousHome) { Remove-Item Env:\SIGHTVAULT_HOME -ErrorAction SilentlyContinue }
+  else { $env:SIGHTVAULT_HOME = $PreviousHome }
+  Remove-Item -Recurse -Force $SmokeHome -ErrorAction SilentlyContinue
+}
 if ($Smoke.ExitCode -ne 0) { throw "Smoke start failed; see $Out\smoke.json and $Out\smoke.err.txt" }
 if (-not (Get-Content -Raw "$Out\smoke.json" | ConvertFrom-Json).ready) { throw 'Frozen app did not report ready.' }
 

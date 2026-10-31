@@ -442,7 +442,7 @@ def test_case_variant_folder_spelling_does_not_duplicate_rows(env, tmp_path):
     assert second['skipped'] == 1
 
 
-@pytest.mark.skipif(os.geteuid() == 0, reason='permission bits are not enforced for root')
+@pytest.mark.skipif(os.name == 'nt' or os.geteuid() == 0, reason='requires POSIX permission bits and a non-root user')
 def test_unreadable_subfolder_is_reported_not_silently_skipped(env, tmp_path):
     cfg, db, models = env
     folder = make_folder(tmp_path)
@@ -555,7 +555,7 @@ def test_index_rejects_unusable_folder_values_with_422(env, folder):
     assert response.status_code == 422, (response.status_code, response.text)
 
 
-@pytest.mark.skipif(os.geteuid() == 0, reason='permission bits are not enforced for root')
+@pytest.mark.skipif(os.name == 'nt' or os.geteuid() == 0, reason='requires POSIX permission bits and a non-root user')
 def test_index_rejects_folder_inside_unreadable_directory_with_422(env, tmp_path):
     cfg, _, models = env
     locked = tmp_path / 'locked'

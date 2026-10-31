@@ -1,0 +1,17 @@
+{
+  "scope": "reviewed public 62-image demo only",
+  "database_sha256": "8d512bf5c0ed611f40b86f1d1dd77e75f0e709b4f1f0157c5de661a147c10c91",
+  "samples_manifest_sha256": "b6481d9ed22971c9160d9139757a0c2ad365c7eba0d0490d5d9e87750800b4fc",
+  "evidence_manifest_sha256": "76f4eb18f5d97f1ed6e8b412c72e6d4979f15c6077ca9fedbd2bce52fefee4a8",
+  "transformations": [
+    "normalize filepath and folder to relative public sample locations",
+    "VACUUM to remove obsolete path bytes"
+  ],
+  "preserved": [
+    "asset IDs",
+    "indexed timestamps",
+    "OCR text",
+    "direct 768-dimensional image embeddings"
+  ],
+  "model_weights_included": false
+}

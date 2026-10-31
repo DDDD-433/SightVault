@@ -100,6 +100,8 @@ Builds are not bit-for-bit reproducible (PyInstaller and native libraries embed 
 
 ## Build commands
 
+The Windows desktop build script requires PowerShell 7. The Windows installer itself does not require Python or PowerShell. A pinned Windows GitHub Actions build is provided in `.github/workflows/desktop.yml`; its native run status must be checked before claiming a Windows pass. The reviewed public build fixture is in `packaging/desktop/public-demo/`.
+
 ### macOS (Apple Silicon, native Python 3.12)
 
 ```bash
