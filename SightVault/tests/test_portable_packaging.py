@@ -8,7 +8,7 @@ import tempfile
 import unittest
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
-from handoff.verify_transfer import required_models, safe_path
+from handoff.verify_transfer import required_models, safe_path, verify_portable_source_manifest
 from handoff.download_pinned_models import current_platform_id, incompatible_platform_groups
 from scripts.build_portable_package import (
     collect_source_files,
@@ -95,6 +95,36 @@ def _make_public_demo_fixture(source_root, data_root, db_path, *, symlink_images
 
 
 class PortablePackagingTests(unittest.TestCase):
+    def test_extracted_portable_package_verifier_checks_hashes_and_path_with_spaces(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary) / 'Extracted Candidate With Spaces'
+            (root / 'scripts').mkdir(parents=True)
+            (root / 'handoff').mkdir()
+            payload = b'portable source file\n'
+            (root / 'scripts' / 'sample.py').write_bytes(payload)
+            manifest = {
+                'artifact_type': 'portable source-and-setup bundle',
+                'package_name': 'SightVault-macOS-arm64.zip',
+                'source_revision': 'reviewed-source-revision',
+                'files': [{
+                    'path': 'scripts/sample.py',
+                    'size': len(payload),
+                    'sha256': hashlib.sha256(payload).hexdigest(),
+                }],
+            }
+            (root / 'handoff' / 'PORTABLE_PACKAGE_MANIFEST.json').write_text(
+                json.dumps(manifest), encoding='utf-8')
+
+            report = verify_portable_source_manifest(root)
+            self.assertTrue(report['passed'])
+            self.assertEqual(report['checked'], 1)
+            self.assertEqual(report['source_revision'], 'reviewed-source-revision')
+
+            (root / 'scripts' / 'sample.py').write_bytes(b'tampered source file\n')
+            tampered = verify_portable_source_manifest(root)
+            self.assertFalse(tampered['passed'])
+            self.assertIn('SHA-256 differs', str(tampered['failures']))
+
     def test_windows_model_platform_policy_rejects_mlx_and_accepts_omni_without_downloads(self):
         sources = {
             'lfm3-vl-2b-mlx-4bit': {
