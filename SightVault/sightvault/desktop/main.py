@@ -79,6 +79,44 @@ def emit_report(report, path=None):
     print(text, end='', flush=True)
 
 
+def _make_cleanup(runtime, instance_file, lock):
+    """Return one cleanup action shared by native close and Python finally."""
+    cleanup_lock = threading.Lock()
+    completed = False
+
+    def cleanup():
+        nonlocal completed
+        with cleanup_lock:
+            if completed:
+                return
+            completed = True
+
+            def attempt(label, action):
+                try:
+                    action()
+                except Exception:
+                    log.exception('Desktop cleanup failed while %s', label)
+
+            controller = runtime.get('controller')
+            if controller is not None:
+                attempt('stopping the controller', controller.shutdown)
+            server = runtime.get('server')
+            if server is not None:
+                def stop_server():
+                    if not server.stop():
+                        log.warning('Local server thread did not stop cleanly')
+                attempt('stopping the local server', stop_server)
+            token = runtime.get('token')
+            if token is not None:
+                def remove_owned_record():
+                    from .instance import remove_record_if_owned
+                    remove_record_if_owned(instance_file, token)
+                attempt('removing the owned instance record', remove_owned_record)
+            attempt('releasing the single-instance lock', lock.release)
+
+    return cleanup
+
+
 def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
     if argv[:1] == ['--setup-worker']:
@@ -110,7 +148,7 @@ def main(argv=None):
         emit_report(paths.as_dict(), args.report)
         return 0
     configure_logging(paths, verbose=args.serve or args.smoke)
-    from .instance import InstanceLock, new_token, notify_existing, read_record, remove_record_if_owned, write_record
+    from .instance import InstanceLock, new_token, notify_existing, read_record, write_record
     lock = InstanceLock(paths.lock_file)
     if not lock.acquire():
         headless = args.serve or args.smoke or args.ui_smoke
@@ -123,6 +161,8 @@ def main(argv=None):
         print(message, file=sys.stderr)
         return 1
     server = controller = token = None
+    runtime = {'controller': None, 'server': None, 'token': None}
+    cleanup = _make_cleanup(runtime, paths.instance_file, lock)
     try:
         os.environ.setdefault('SIGHTVAULT_DEVICE', 'auto')
         os.environ['SIGHTVAULT_DATA'] = str(paths.data)
@@ -138,10 +178,10 @@ def main(argv=None):
         if demo_folder.is_dir():
             config.demo_folder = demo_folder
         app = create_app(config)
-        token = new_token()
-        controller = DesktopController(paths, config, app, token, SetupJobRunner(paths))
+        token = runtime['token'] = new_token()
+        controller = runtime['controller'] = DesktopController(paths, config, app, token, SetupJobRunner(paths))
         install_desktop_routes(app, controller)
-        server = LoopbackServer(app, port=args.port if (args.serve or args.smoke) else 0)
+        server = runtime['server'] = LoopbackServer(app, port=args.port if (args.serve or args.smoke) else 0)
         controller.url = server.url
         server.start()
         write_record(paths.instance_file, port=server.port, token=token)
@@ -171,7 +211,7 @@ def main(argv=None):
                 pass
             return 0
         from .shell import WindowShell
-        shell = WindowShell(controller, server, ui_smoke=args.ui_smoke)
+        shell = WindowShell(controller, server, ui_smoke=args.ui_smoke, before_close=cleanup)
         shell.run()
         if args.ui_smoke:
             emit_report(shell.smoke_result, args.report)
@@ -184,14 +224,10 @@ def main(argv=None):
             return 1
         raise
     finally:
-        if controller is not None:
-            controller.shutdown()
-        if server is not None and not server.stop():
-            log.warning('Local server thread did not stop cleanly')
-        if token is not None:
-            remove_record_if_owned(paths.instance_file, token)
-        lock.release()
-        logging.shutdown()
+        try:
+            cleanup()
+        finally:
+            logging.shutdown()
 
 
 if __name__ == '__main__':

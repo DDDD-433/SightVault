@@ -23,7 +23,7 @@ The desktop app is a thin native wrapper around the existing application. The Fa
 - **Window:** [pywebview](https://pywebview.flowrl.com/) shows the UI in the system web view (WKWebView on macOS, Edge WebView2 on Windows). On Windows the shell requires WebView2 and stops with an explanation instead of falling back to a legacy engine.
 - **Server:** uvicorn runs inside the same process on a background thread. The shell binds a socket to `127.0.0.1` on a free port *before* starting uvicorn, so the port cannot be taken between selection and listening, and it never listens on another interface. The window opens a "starting" page and loads the app only after `/api/status` answers for this instance.
 - **Packaging:** PyInstaller in onedir mode: a `.app` bundle on macOS (wrapped in a `.dmg`), a folder with `SightVault.exe` on Windows (wrapped in an Inno Setup per-user installer when `iscc` is available).
-- **Lifecycle:** closing the window stops the setup child process (if one is running), asks uvicorn to finish in-flight requests and run the app's normal shutdown, which cancels indexing jobs and releases the generative model slot, then removes the instance record and releases the lock. Quitting while an image is mid-inference waits for that image to finish. The shell never terminates any process other than the setup child it started itself.
+- **Lifecycle:** closing the window stops the setup child process (if one is running), asks uvicorn to finish in-flight requests and run the app's normal shutdown, which cancels indexing jobs and releases the generative model slot, then removes the instance record and releases the lock. Shutdown requests indexing cancellation and uses a bounded server stop; an unfinished indexing job may need to be started again after relaunch. The shell never terminates any process other than the setup child it started itself.
 - **Single instance:** an OS advisory lock (`flock` / `msvcrt.locking`) in the per-user folder. A second launch asks the running one, over loopback and with the running instance's token, to bring its window forward, then exits. If the first instance is still starting or does not answer, the second launch exits with a message and stops nothing.
 
 ### Storage
@@ -165,7 +165,7 @@ Run on each target platform with the produced artifact, using a disposable `SIGH
 
 - Recheck dynamically imported model modules, MLX adapters, metadata and TorchScript source collection whenever runtime dependencies change. A Mac pass does not establish Windows compatibility.
 - Desktop integration uses native `run_js` rather than an eval wrapper, preserving the existing CSP. The Mac WebKit window was exercised; the `--ui-smoke` check requires a real WebView2 renderer and a same-origin script acknowledgement on Windows.
-- Quitting while an image is being embedded or transcribed waits for that image to finish.
+- Quitting requests indexing cancellation and bounded backend shutdown. Indexing jobs are not a persistent resume queue; rerun an interrupted folder if necessary.
 - A second launch during the first one's startup exits with a message instead of focusing the window.
 - macOS minimum version is set to 14.0 in the bundle; older systems are not supported by this build.
 - The Omni llama.cpp runtime is not bundled; LFM3-VL requires the pinned MLX-VLM build that the macOS lock already provides plus its optional weights.

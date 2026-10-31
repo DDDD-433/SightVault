@@ -132,6 +132,18 @@ function Get-JsonProperty {
     return $property.Value
 }
 
+function ConvertFrom-JsonPreservingStrings {
+    param([Parameter(Mandatory = $true)][string]$Json)
+    # PowerShell 7.5+ may coerce ISO date strings to DateTime by default. Keep the
+    # wire representation for chronology checks; PowerShell 7.0 has no DateKind option.
+    $parameters = @{ InputObject = $Json; ErrorAction = 'Stop' }
+    $converter = Get-Command -Name ConvertFrom-Json -ErrorAction Stop
+    if ($converter.Parameters.ContainsKey('DateKind')) {
+        $parameters['DateKind'] = 'String'
+    }
+    return ConvertFrom-Json @parameters
+}
+
 function Test-IsUnder {
     param([string]$Path, [string]$Parent)
     if ([string]::IsNullOrWhiteSpace($Path) -or [string]::IsNullOrWhiteSpace($Parent)) { return $false }
@@ -370,7 +382,7 @@ function Invoke-SightVaultRequest {
     $response = Invoke-WebRequest @request
     $json = $null
     if (-not $OutFile -and -not [string]::IsNullOrWhiteSpace($response.Content)) {
-        try { $json = $response.Content | ConvertFrom-Json -ErrorAction Stop } catch { $json = $null }
+        try { $json = ConvertFrom-JsonPreservingStrings -Json $response.Content } catch { $json = $null }
     }
     return [pscustomobject]@{ Status = [int]$response.StatusCode; Json = $json }
 }
@@ -393,7 +405,7 @@ function Start-OwnedServer {
             throw ('The installed app exited during startup with code {0}. See the profile logs.' -f $process.ExitCode)
         }
         if (Test-Path -LiteralPath $ReportFile) {
-            try { $readyReport = Get-Content -LiteralPath $ReportFile -Raw | ConvertFrom-Json -ErrorAction Stop }
+            try { $readyReport = ConvertFrom-JsonPreservingStrings -Json (Get-Content -LiteralPath $ReportFile -Raw) }
             catch { $readyReport = $null }
             if ($null -ne $readyReport) { break }
         }
@@ -411,7 +423,7 @@ function Read-OwnedInstanceRecord {
         throw 'The installed app did not write profile\instance.json.'
     }
     $recordPath = Join-Path $script:profileHome 'instance.json'
-    $record = Get-Content -LiteralPath $recordPath -Raw | ConvertFrom-Json -ErrorAction Stop
+    $record = ConvertFrom-JsonPreservingStrings -Json (Get-Content -LiteralPath $recordPath -Raw)
     $recordPid = Get-JsonProperty $record 'pid'
     if ($null -eq $recordPid -or [int]$recordPid -ne $ExpectedPid) {
         throw 'profile\instance.json does not belong to the process this harness started.'
@@ -735,7 +747,7 @@ try {
         $script:exitCodes['smoke'] = $exitCode
         Require-Check 'smoke_exit_zero' ($exitCode -eq 0) ('exit code ' + $exitCode)
         Require-Check 'smoke_report_written' (Test-Path -LiteralPath $smokeReport -PathType Leaf) $smokeReport
-        $smoke = Get-Content -LiteralPath $smokeReport -Raw | ConvertFrom-Json -ErrorAction Stop
+        $smoke = ConvertFrom-JsonPreservingStrings -Json (Get-Content -LiteralPath $smokeReport -Raw)
         Require-Check 'smoke_ready_true' ((Get-JsonProperty $smoke 'ready' $false) -eq $true) ('ready=' + (Get-JsonProperty $smoke 'ready' $false))
         Require-Check 'smoke_no_server_error' ([string]::IsNullOrEmpty([string](Get-JsonProperty $smoke 'error' ''))) ('error=' + (Get-JsonProperty $smoke 'error' ''))
         $smokeUrl = [string](Get-JsonProperty $smoke 'url' '')
@@ -764,7 +776,7 @@ try {
         Require-Check 'smoke_source_resources_inside_install' (Test-IsUnder $resources $script:installDir) $resources
         $buildInfoPath = Join-Path $resources 'build-info.json'
         Require-Check 'smoke_build_info_present' (Test-Path -LiteralPath $buildInfoPath -PathType Leaf) $buildInfoPath
-        $buildInfo = Get-Content -LiteralPath $buildInfoPath -Raw | ConvertFrom-Json -ErrorAction Stop
+        $buildInfo = ConvertFrom-JsonPreservingStrings -Json (Get-Content -LiteralPath $buildInfoPath -Raw)
         Require-Check 'smoke_build_info_identity' ([string](Get-JsonProperty $buildInfo 'artifact_type' '') -eq 'SightVault desktop build inputs') ('artifact_type=' + (Get-JsonProperty $buildInfo 'artifact_type' ''))
         Require-Check 'smoke_build_platform_windows_x64' ([string](Get-JsonProperty $buildInfo 'platform' '') -eq 'windows-x64') ('platform=' + (Get-JsonProperty $buildInfo 'platform' ''))
         Require-Check 'smoke_build_version_matches_installer' ([string](Get-JsonProperty $buildInfo 'app_version' '') -eq $script:installerVersion) ('app_version=' + (Get-JsonProperty $buildInfo 'app_version' '') + '; installer_version=' + $script:installerVersion)

@@ -34,12 +34,13 @@ def failure_page(paths, detail):
 
 
 class WindowShell:
-    def __init__(self, controller, server, startup_timeout=90.0, ui_smoke=False):
+    def __init__(self, controller, server, startup_timeout=90.0, ui_smoke=False, before_close=None):
         self.controller = controller
         self.server = server
         self.startup_timeout = startup_timeout
         self.window = None
         self.ui_smoke = ui_smoke
+        self.before_close = before_close
         self.smoke_result = {'ready': False, 'error': 'Native window did not acknowledge startup.'}
         self._redirects = 0
         self._blocked = False
@@ -87,16 +88,31 @@ class WindowShell:
 
     def on_closing(self, *args):
         message = self.controller.busy_message()
-        if not message:
-            return True
-        ask = getattr(self.window, 'create_confirmation_dialog', None)
-        if not callable(ask):
-            return True
+        if message:
+            ask = getattr(self.window, 'create_confirmation_dialog', None)
+            if callable(ask):
+                try:
+                    if not bool(ask('Quit SightVault?', message)):
+                        return False
+                except Exception:
+                    log.exception('Quit confirmation failed')
+        self._before_close()
+        return True
+
+    def _before_close(self):
+        if not callable(self.before_close):
+            return
         try:
-            return bool(ask('Quit SightVault?', message))
+            self.before_close()
         except Exception:
-            log.exception('Quit confirmation failed')
-            return True
+            log.exception('Desktop cleanup failed before the native window closed')
+
+    def _close_ui_smoke_window(self):
+        # Native Cocoa shutdown may terminate the process after this close callback
+        # without returning through main()'s finally block.
+        self._before_close()
+        if self.window is not None:
+            self.window.destroy()
 
     def _after_start(self):
         controller, window = self.controller, self.window
@@ -110,14 +126,14 @@ class WindowShell:
                 self.smoke_result = {'ready': ready, 'native_bridge_ready': ready,
                                      'renderer': controller.window_renderer, 'url': controller.url,
                                      'error': None if ready else 'Native page script did not acknowledge startup.'}
-                window.destroy()
+                self._close_ui_smoke_window()
         else:
             detail = str(self.server.error) if self.server.error else 'The local server did not respond in time.'
             log.error('Startup failed: %s', detail)
             window.load_html(failure_page(controller.paths, detail[:500]))
             if self.ui_smoke:
                 self.smoke_result = {'ready': False, 'error': detail[:500]}
-                window.destroy()
+                self._close_ui_smoke_window()
 
     def run(self):
         import webview
